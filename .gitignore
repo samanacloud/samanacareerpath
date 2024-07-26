@@ -1,0 +1,9 @@
+# Ignore environment variables file
+.env
+
+# Ignore API keys directory
+api_keys/
+
+# Ignore update scripts
+update_awsserver.sh
+update_page.sh
