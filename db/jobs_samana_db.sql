@@ -65,36 +65,6 @@ INSERT INTO `candidate_certifications` VALUES ('','CCE-V Citrix Certified Expert
 UNLOCK TABLES;
 
 --
--- Table structure for table `candidate_db`
---
-
-DROP TABLE IF EXISTS `candidate_db`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `candidate_db` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `full_name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `location` varchar(255) DEFAULT NULL,
-  `phone_number` varchar(50) DEFAULT NULL,
-  `date_of_birth` date DEFAULT NULL,
-  `profile_photo` varchar(255) DEFAULT NULL,
-  `english_level` enum('1','2','3','4','5') DEFAULT '1',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `candidate_db`
---
-
-LOCK TABLES `candidate_db` WRITE;
-/*!40000 ALTER TABLE `candidate_db` DISABLE KEYS */;
-/*!40000 ALTER TABLE `candidate_db` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `candidate_profiles`
 --
 
@@ -163,78 +133,6 @@ INSERT INTO `candidate_review` VALUES (1,'stban.acosta@gmail.com','14',5000,'Wit
 UNLOCK TABLES;
 
 --
--- Table structure for table `candidate_reviews`
---
-
-DROP TABLE IF EXISTS `candidate_reviews`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `candidate_reviews` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) NOT NULL,
-  `job_title` text NOT NULL,
-  `interviewer` text NOT NULL,
-  `observations` text NOT NULL,
-  `result` text NOT NULL,
-  `interview_date` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `candidate_reviews`
---
-
-LOCK TABLES `candidate_reviews` WRITE;
-/*!40000 ALTER TABLE `candidate_reviews` DISABLE KEYS */;
-/*!40000 ALTER TABLE `candidate_reviews` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `candidate_skillset`
---
-
-DROP TABLE IF EXISTS `candidate_skillset`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `candidate_skillset` (
-  `email` varchar(255) NOT NULL,
-  `windows_server_installation` int NOT NULL,
-  `active_directory_management` int NOT NULL,
-  `network_services_configuration` int NOT NULL,
-  `server_security_patch_management` int NOT NULL,
-  `citrix_installation_configuration` int NOT NULL,
-  `application_desktop_delivery` int NOT NULL,
-  `citrix_user_profile_management` int NOT NULL,
-  `citrix_security_policy_management` int NOT NULL,
-  `citrix_troubleshooting_performance_optimization` int NOT NULL,
-  `machine_creation_services_configuration` int NOT NULL,
-  `hypervisor_installation_configuration` int NOT NULL,
-  `virtual_machine_management` int NOT NULL,
-  `network_storage_configuration` int NOT NULL,
-  `basic_networking_concepts` int NOT NULL,
-  `citrix_netscaler_basics` int NOT NULL,
-  `load_balancing_traffic_management` int NOT NULL,
-  `ssl_offloading_security_basics` int NOT NULL,
-  `content_switching_gslb` int NOT NULL,
-  `troubleshooting_performance_optimization_basics` int NOT NULL,
-  `citrix_web_app_firewall_configuration` int NOT NULL,
-  `last_modified` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `candidate_skillset`
---
-
-LOCK TABLES `candidate_skillset` WRITE;
-/*!40000 ALTER TABLE `candidate_skillset` DISABLE KEYS */;
-INSERT INTO `candidate_skillset` VALUES ('bhanuthoppireddy@gmail.com',4,3,3,4,5,4,4,4,4,4,4,4,3,2,4,3,3,3,3,3,'Juan Pablo Otalvaro 2024-05-30 18:01:45'),('juan.pablootalvaro@cloud.com',5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,'Juan Pablo Otalvaro 2024-05-30 17:54:43'),('stban.acosta@gmail.com',4,3,3,4,4,4,4,4,5,4,3,3,3,3,3,3,2,2,2,1,'Juan Pablo Otalvaro 2024-05-30 18:51:30'),('ttbass@gmail.com',3,3,3,2,3,2,2,2,3,2,2,3,2,2,1,1,1,1,1,1,'Juan Pablo Otalvaro 2024-05-31 09:45:03'),('viru8589@gmail.com',4,4,3,4,4,4,5,5,5,5,2,4,3,2,3,4,4,3,3,2,'Juan Pablo Otalvaro 2024-05-30 17:56:38');
-/*!40000 ALTER TABLE `candidate_skillset` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `candidate_skillsets`
 --
 
@@ -255,8 +153,6 @@ CREATE TABLE `candidate_skillsets` (
   PRIMARY KEY (`id`),
   KEY `candidate_id` (`candidate_id`),
   KEY `reviewer_id` (`reviewer_id`),
-  CONSTRAINT `candidate_skillsets_ibfk_1` FOREIGN KEY (`candidate_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `candidate_skillsets_ibfk_2` FOREIGN KEY (`reviewer_id`) REFERENCES `users` (`id`),
   CONSTRAINT `candidate_skillsets_chk_1` CHECK (((`rating` >= 1) and (`rating` <= 5)))
 ) ENGINE=InnoDB AUTO_INCREMENT=335 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -284,7 +180,7 @@ CREATE TABLE `employee_certifications` (
   `certification` varchar(255) NOT NULL,
   `date` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -293,7 +189,7 @@ CREATE TABLE `employee_certifications` (
 
 LOCK TABLES `employee_certifications` WRITE;
 /*!40000 ALTER TABLE `employee_certifications` DISABLE KEYS */;
-INSERT INTO `employee_certifications` VALUES (23,'alex.preczewski@samanagroup.co','AWS Certified Cloud Practitioner','2024-07-22'),(24,'alex.preczewski@samanagroup.co','AWS Certified Developer – Associate','2024-07-22'),(26,'alex.preczewski@samanagroup.co','AWS Certified Solutions Architect – Professional','2024-07-22'),(27,'julian.gomez@samanagroup.co','AWS Certified Cloud Practitioner','2024-07-22'),(28,'julian.gomez@samanagroup.co','CCE-N Citrix Certified Expert - Networking','2024-07-22'),(29,'julian.gomez@samanagroup.co','CCA-V Citrix Certified Associate - Virtualization','2024-07-22'),(30,'julian.gomez@samanagroup.co','Citrix Certified - Citrix Workspace Microapps Service','2024-07-22'),(31,'julian.gomez@samanagroup.co','Microsoft Certified: Azure Security Engineer Associate','2024-07-22'),(32,'juan.otalvaro@samanagroup.co','CCA-N Citrix Certified Associate - Networking','2024-07-22'),(33,'juan.otalvaro@samanagroup.co','CCP-N Citrix Certified Professional - Networking','2024-07-22'),(35,'juan.otalvaro@samanagroup.co','AWS Certified Solutions Architect – Associate','2024-07-22'),(36,'juan.otalvaro@samanagroup.co','AWS Certified Security – Specialty','2024-07-22'),(43,'carlos.posada@samanagroup.co','CCE-V Citrix Certified Expert - Virtualization','2024-07-23'),(44,'carlos.posada@samanagroup.co','CompTIA A+','2024-07-23'),(45,'carlos.posada@samanagroup.co','AWS Certified Solutions Architect – Associate','2024-07-23'),(46,'alonso.santana@samanagroup.co','PMP','2024-07-25'),(47,'Moises.Blanco@samanagroup.co','AWS Certified Cloud Practitioner','2024-07-26'),(48,'Moises.Blanco@samanagroup.co','CCA-N Citrix Certified Associate - Networking','2024-07-26'),(49,'Moises.Blanco@samanagroup.co','CCP-N Citrix Certified Professional - Networking','2024-07-26'),(50,'Moises.Blanco@samanagroup.co','CCE-N Citrix Certified Expert - Networking','2024-07-26'),(51,'Moises.Blanco@samanagroup.co','CCA-AppDS - Citrix Certified Associate – App Delivery and Security','2024-07-26'),(52,'Moises.Blanco@samanagroup.co','CCA-V Citrix Certified Associate - Virtualization','2024-07-26');
+INSERT INTO `employee_certifications` VALUES (27,'julian.gomez@samanagroup.co','AWS Certified Cloud Practitioner','2024-07-22'),(28,'julian.gomez@samanagroup.co','CCE-N Citrix Certified Expert - Networking','2024-07-22'),(29,'julian.gomez@samanagroup.co','CCA-V Citrix Certified Associate - Virtualization','2024-07-22'),(30,'julian.gomez@samanagroup.co','Citrix Certified - Citrix Workspace Microapps Service','2024-07-22'),(31,'julian.gomez@samanagroup.co','Microsoft Certified: Azure Security Engineer Associate','2024-07-22'),(32,'juan.otalvaro@samanagroup.co','CCA-N Citrix Certified Associate - Networking','2024-07-22'),(33,'juan.otalvaro@samanagroup.co','CCP-N Citrix Certified Professional - Networking','2024-07-22'),(35,'juan.otalvaro@samanagroup.co','AWS Certified Solutions Architect – Associate','2024-07-22'),(36,'juan.otalvaro@samanagroup.co','AWS Certified Security – Specialty','2024-07-22'),(43,'carlos.posada@samanagroup.co','CCE-V Citrix Certified Expert - Virtualization','2024-07-23'),(44,'carlos.posada@samanagroup.co','CompTIA A+','2024-07-23'),(45,'carlos.posada@samanagroup.co','AWS Certified Solutions Architect – Associate','2024-07-23'),(46,'alonso.santana@samanagroup.co','PMP','2024-07-25'),(47,'Moises.Blanco@samanagroup.co','AWS Certified Cloud Practitioner','2024-07-26'),(48,'Moises.Blanco@samanagroup.co','CCA-N Citrix Certified Associate - Networking','2024-07-26'),(49,'Moises.Blanco@samanagroup.co','CCP-N Citrix Certified Professional - Networking','2024-07-26'),(50,'Moises.Blanco@samanagroup.co','CCE-N Citrix Certified Expert - Networking','2024-07-26'),(51,'Moises.Blanco@samanagroup.co','CCA-AppDS - Citrix Certified Associate – App Delivery and Security','2024-07-26'),(52,'Moises.Blanco@samanagroup.co','CCA-V Citrix Certified Associate - Virtualization','2024-07-26'),(57,'alex.preczewski@samanagroup.co','Microsoft Azure AZ-104 Azure Administrator','2024-07-30'),(58,'alex.preczewski@samanagroup.co',' Microsoft Azure AZ-140 Azure Virtual Desktop Speciality','2024-07-30'),(59,'alex.preczewski@samanagroup.co','AWS Certified Solutions Architect – Associate','2024-07-30'),(60,'alex.preczewski@samanagroup.co','CCA-V Citrix Certified Associate - Virtualization','2024-07-30'),(61,'alex.preczewski@samanagroup.co','CompTIA Net+ N10-008','2024-07-30'),(62,'felipe.valencia@samanagroup.co','CCP-V Citrix Certified Professional - Virtualization','2024-07-30'),(63,'felipe.valencia@samanagroup.co','CCE-V Citrix Certified Expert - Virtualization','2024-07-30'),(64,'felipe.valencia@samanagroup.co','AWS Certified Solutions Architect – Associate','2024-07-30'),(65,'felipe.valencia@samanagroup.co','Citrix Cloud Certified - Virtual Apps and Desktops Service','2024-07-30'),(66,'felipe.valencia@samanagroup.co','CCA-V Citrix Certified Associate - Virtualization','2024-07-30'),(67,'felipe.valencia@samanagroup.co','VMware Double VPC - Data Center Virtualization & Desktop Mobility','2024-07-30'),(68,'felipe.valencia@samanagroup.co','VMWare Certified Professional - Desktop Management','2024-07-30'),(69,'felipe.valencia@samanagroup.co','VMWare Certified Professional - Data Center Virtualization','2024-07-30'),(70,'felipe.valencia@samanagroup.co','AWS Partner: Technical Accredited','2024-07-30'),(71,'felipe.valencia@samanagroup.co','ITIL v3 Foundation Certified','2024-07-30'),(72,'julian.maldonado@samanagroup.co',' Microsoft Azure AZ-140 Azure Virtual Desktop Speciality','2024-07-30'),(73,'julian.maldonado@samanagroup.co','Microsoft Azure AZ-104 Azure Administrator','2024-07-30'),(74,'julian.maldonado@samanagroup.co','CompTIA Net+ N10-008','2024-07-30'),(75,'viviana.gutierrez@samanagroup.co','Microsoft Azure AZ-104 Azure Administrator','2024-07-30'),(76,'viviana.gutierrez@samanagroup.co','CompTIA Net+ N10-008','2024-07-30'),(77,'jorge.rodriguez@samanagroup.co','Microsoft Azure AZ-104 Azure Administrator','2024-07-30'),(78,'jorge.rodriguez@samanagroup.co','CompTIA Net+ N10-008','2024-07-30'),(79,'cesar.garcia@samanagroup.co','Microsoft Azure AZ-305 Azure Architect','2024-07-30'),(80,'cesar.garcia@samanagroup.co','Microsoft Azure AZ-104 Azure Administrator','2024-07-30'),(81,'cesar.garcia@samanagroup.co','AWS Certified Solutions Architect – Associate','2024-07-30'),(82,'danny.ruiz@samanagroup.co','AWS Certified Cloud Practitioner','2024-07-30'),(83,'viviana.gutierrez@samanagroup.co','CCE-V Citrix Certified Expert - Virtualization','2024-07-30'),(84,'danny.ruiz@samanagroup.co','Microsoft Azure AZ-900 Azure Fundamentals','2024-07-30'),(85,'danny.ruiz@samanagroup.co','CCA-V Citrix Certified Associate - Virtualization','2024-07-30'),(86,'jonathan.piedrahita@samanagroup.co','CCA-V Citrix Certified Associate - Virtualization','2024-07-30'),(87,'jonathan.piedrahita@samanagroup.co','Microsoft Azure AZ-104 Azure Administrator','2024-07-30'),(88,'jonathan.piedrahita@samanagroup.co','CompTIA Net+ N10-008','2024-07-30'),(89,'carlos.posada@samanagroup.co','Microsoft Azure AZ-104 Azure Administrator','2024-07-30'),(90,'alonso.santana@samanagroup.co','AWS Certified Cloud Practitioner','2024-07-30'),(91,'german.toro@samanagroup.co','Microsoft Azure AZ-800 Windows Hybrid ','2024-07-30'),(92,'german.toro@samanagroup.co','CCA-V Citrix Certified Associate - Virtualization','2024-07-30');
 /*!40000 ALTER TABLE `employee_certifications` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -385,7 +281,7 @@ CREATE TABLE `employee_skillsets` (
 
 LOCK TABLES `employee_skillsets` WRITE;
 /*!40000 ALTER TABLE `employee_skillsets` DISABLE KEYS */;
-INSERT INTO `employee_skillsets` VALUES (3,1,'alex.preczewski@samanagroup.co','English Level','Professional Proficiency',4,'juan.otalvaro@samanagroup.co','2024-07-24'),(5,1,'alex.preczewski@samanagroup.co','English Level','Grammar Accuracy',5,'juan.otalvaro@samanagroup.co','2024-07-24'),(10,2,'alonso.santana@samanagroup.co','AWS','EC2 Management',5,'juan.otalvaro@samanagroup.co','2024-07-24'),(11,2,'alonso.santana@samanagroup.co','AWS','S3 Storage Solutions',3,'juan.otalvaro@samanagroup.co','2024-07-25'),(12,2,'alonso.santana@samanagroup.co','AWS','VPC Configuration',4,'juan.otalvaro@samanagroup.co','2024-07-25'),(13,2,'alonso.santana@samanagroup.co','AWS','IAM Policies and Roles',3,'juan.otalvaro@samanagroup.co','2024-07-25'),(14,3,'andres.cubas@samanagroup.co','AWS','EC2 Management',5,'juan.otalvaro@samanagroup.co','2024-07-25'),(15,3,'andres.cubas@samanagroup.co','AWS','S3 Storage Solutions',4,'juan.otalvaro@samanagroup.co','2024-07-25'),(16,3,'andres.cubas@samanagroup.co','AWS','VPC Configuration',5,'juan.otalvaro@samanagroup.co','2024-07-25'),(17,3,'andres.cubas@samanagroup.co','AWS','IAM Policies and Roles',3,'juan.otalvaro@samanagroup.co','2024-07-25'),(18,3,'andres.cubas@samanagroup.co','NetScaler','Load Balancing Configuration',5,'juan.otalvaro@samanagroup.co','2024-07-25'),(19,3,'andres.cubas@samanagroup.co','NetScaler','SSL Offloading',4,'juan.otalvaro@samanagroup.co','2024-07-25'),(20,1,'alex.preczewski@samanagroup.co','Communication Skills','Public Speaking',5,'juan.otalvaro@samanagroup.co','2024-07-25'),(21,1,'alex.preczewski@samanagroup.co','Citrix Cloud','Cloud Connectors Installation',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(22,35,'Moises.Blanco@samanagroup.co','NetScaler','Load Balancing Configuration',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(23,35,'Moises.Blanco@samanagroup.co','NetScaler','SSL Offloading',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(24,35,'Moises.Blanco@samanagroup.co','NetScaler','Content Switching',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(25,35,'Moises.Blanco@samanagroup.co','NetScaler','Global Server Load Balancing (GSLB)',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(26,35,'Moises.Blanco@samanagroup.co','NetScaler','Application Firewall Configuration',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(27,35,'Moises.Blanco@samanagroup.co','NetScaler','NetScaler Gateway Setup',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(28,35,'Moises.Blanco@samanagroup.co','NetScaler','High Availability',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(29,35,'Moises.Blanco@samanagroup.co','NetScaler','Networking and TCP Optimization',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(30,35,'Moises.Blanco@samanagroup.co','NetScaler','Monitoring and Logging',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(31,35,'Moises.Blanco@samanagroup.co','NetScaler','Authentication, Authorization, and Auditing (AAA)',5,'juan.otalvaro@samanagroup.co','2024-07-26');
+INSERT INTO `employee_skillsets` VALUES (10,2,'alonso.santana@samanagroup.co','AWS','EC2 Management',5,'juan.otalvaro@samanagroup.co','2024-07-24'),(11,2,'alonso.santana@samanagroup.co','AWS','S3 Storage Solutions',3,'juan.otalvaro@samanagroup.co','2024-07-25'),(12,2,'alonso.santana@samanagroup.co','AWS','VPC Configuration',4,'juan.otalvaro@samanagroup.co','2024-07-25'),(13,2,'alonso.santana@samanagroup.co','AWS','IAM Policies and Roles',3,'juan.otalvaro@samanagroup.co','2024-07-25'),(14,3,'andres.cubas@samanagroup.co','AWS','EC2 Management',5,'juan.otalvaro@samanagroup.co','2024-07-25'),(15,3,'andres.cubas@samanagroup.co','AWS','S3 Storage Solutions',4,'juan.otalvaro@samanagroup.co','2024-07-25'),(16,3,'andres.cubas@samanagroup.co','AWS','VPC Configuration',5,'juan.otalvaro@samanagroup.co','2024-07-25'),(17,3,'andres.cubas@samanagroup.co','AWS','IAM Policies and Roles',3,'juan.otalvaro@samanagroup.co','2024-07-25'),(18,3,'andres.cubas@samanagroup.co','NetScaler','Load Balancing Configuration',5,'juan.otalvaro@samanagroup.co','2024-07-25'),(19,3,'andres.cubas@samanagroup.co','NetScaler','SSL Offloading',4,'juan.otalvaro@samanagroup.co','2024-07-25'),(22,35,'Moises.Blanco@samanagroup.co','NetScaler','Load Balancing Configuration',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(23,35,'Moises.Blanco@samanagroup.co','NetScaler','SSL Offloading',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(24,35,'Moises.Blanco@samanagroup.co','NetScaler','Content Switching',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(25,35,'Moises.Blanco@samanagroup.co','NetScaler','Global Server Load Balancing (GSLB)',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(26,35,'Moises.Blanco@samanagroup.co','NetScaler','Application Firewall Configuration',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(27,35,'Moises.Blanco@samanagroup.co','NetScaler','NetScaler Gateway Setup',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(28,35,'Moises.Blanco@samanagroup.co','NetScaler','High Availability',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(29,35,'Moises.Blanco@samanagroup.co','NetScaler','Networking and TCP Optimization',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(30,35,'Moises.Blanco@samanagroup.co','NetScaler','Monitoring and Logging',5,'juan.otalvaro@samanagroup.co','2024-07-26'),(31,35,'Moises.Blanco@samanagroup.co','NetScaler','Authentication, Authorization, and Auditing (AAA)',5,'juan.otalvaro@samanagroup.co','2024-07-26');
 /*!40000 ALTER TABLE `employee_skillsets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -424,7 +320,7 @@ CREATE TABLE `job_certifications` (
   `id` int NOT NULL AUTO_INCREMENT,
   `certification` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -433,7 +329,7 @@ CREATE TABLE `job_certifications` (
 
 LOCK TABLES `job_certifications` WRITE;
 /*!40000 ALTER TABLE `job_certifications` DISABLE KEYS */;
-INSERT INTO `job_certifications` VALUES (1,'AWS Certified Cloud Practitioner'),(2,'AWS Certified DevOps Engineer – Professional'),(3,'AWS Certified Developer – Associate'),(4,'AWS Certified Solutions Architect – Associate'),(5,'AWS Certified Solutions Architect – Professional'),(6,'AWS Certified SysOps Administrator – Associate'),(7,'CCA-AppDS - Citrix Certified Associate – App Delivery and Security'),(8,'CCA-N Citrix Certified Associate - Networking'),(9,'CCE-N Citrix Certified Expert - Networking'),(10,'CCE-V Citrix Certified Expert - Virtualization'),(11,'CCNA-Cisco Certified Network Associate'),(12,'CCP-AppDS - Citrix Certified Professional – App Delivery and Security'),(13,'CCP-N Citrix Certified Professional - Networking'),(14,'CCP-V Citrix Certified Professional - Virtualization'),(15,'CCP-W Citrix Certified Professional - Workspace'),(16,'CEH'),(17,'CISSP'),(18,'Certified Kubernetes Administrator (CKA)'),(19,'CompTIA A+'),(20,'CompTIA Network+'),(21,'CompTIA Security+'),(22,'FortiAnalyzer 7.0 Administrator'),(23,'Fortinet Certified Professional Network Security'),(24,'Google Professional Cloud Architect'),(25,'HCNA - Huawei technologies'),(26,'HCNA WLAN - Huawei technologies'),(27,'IBM Cloud Technical Advocate Concepts'),(28,'IBM Cloud Technical Advocate Foundations'),(29,'ITIL v3 Foundation Certified'),(30,'Microsoft 365 Certified: Enterprise Administrator Expert'),(31,'Microsoft 365 Certified: Fundamentals'),(32,'Microsoft Certified: Azure Administrator Associate'),(33,'Microsoft Certified: Azure DevOps Engineer Expert'),(34,'Microsoft Certified: Azure Fundamentals'),(35,'Microsoft Certified: Azure Solutions Architect Expert'),(36,'Microsoft Certified: Dynamics 365 Sales Functional Consultant Associate'),(37,'Microsoft Certified: Security, Compliance, and Identity Fundamentals'),(38,'OCI Foundations Associate'),(39,'PMP'),(40,'SCRUM MASTER PROFESSIONAL CERTIFICATE (SMPC)'),(41,'CCA-V Citrix Certified Associate - Virtualization'),(47,'Citrix Certified - Citrix Workspace Microapps Service'),(48,'Microsoft Certified: Azure Security Engineer Associate'),(49,'AWS Certified Security – Specialty');
+INSERT INTO `job_certifications` VALUES (1,'AWS Certified Cloud Practitioner'),(2,'AWS Certified DevOps Engineer – Professional'),(3,'AWS Certified Developer – Associate'),(4,'AWS Certified Solutions Architect – Associate'),(5,'AWS Certified Solutions Architect – Professional'),(6,'AWS Certified SysOps Administrator – Associate'),(7,'CCA-AppDS - Citrix Certified Associate – App Delivery and Security'),(8,'CCA-N Citrix Certified Associate - Networking'),(9,'CCE-N Citrix Certified Expert - Networking'),(10,'CCE-V Citrix Certified Expert - Virtualization'),(11,'CCNA-Cisco Certified Network Associate'),(12,'CCP-AppDS - Citrix Certified Professional – App Delivery and Security'),(13,'CCP-N Citrix Certified Professional - Networking'),(14,'CCP-V Citrix Certified Professional - Virtualization'),(15,'CCP-W Citrix Certified Professional - Workspace'),(16,'CEH'),(17,'CISSP'),(18,'Certified Kubernetes Administrator (CKA)'),(19,'CompTIA A+'),(20,'CompTIA Network+  MS AZ-800 Windows Hybrid '),(21,'CompTIA Security+'),(22,'FortiAnalyzer 7.0 Administrator'),(23,'Fortinet Certified Professional Network Security'),(24,'Google Professional Cloud Architect'),(25,'HCNA - Huawei technologies'),(26,'HCNA WLAN - Huawei technologies'),(27,'IBM Cloud Technical Advocate Concepts'),(28,'IBM Cloud Technical Advocate Foundations'),(29,'ITIL v3 Foundation Certified'),(30,'Microsoft 365 Certified: Enterprise Administrator Expert'),(31,'Microsoft 365 Certified: Fundamentals'),(36,'Microsoft Certified: Dynamics 365 Sales Functional Consultant Associate'),(37,'Microsoft Certified: Security, Compliance, and Identity Fundamentals'),(38,'OCI Foundations Associate'),(39,'PMP'),(40,'SCRUM MASTER PROFESSIONAL CERTIFICATE (SMPC)'),(41,'CCA-V Citrix Certified Associate - Virtualization'),(47,'Citrix Certified - Citrix Workspace Microapps Service'),(49,'AWS Certified Security – Specialty'),(50,'Microsoft Azure AZ-800 Windows Hybrid '),(51,' Microsoft Azure AZ-140 Azure Virtual Desktop Speciality'),(52,'Microsoft Azure AZ-104 Azure Administrator'),(53,'Microsoft Azure AZ-305 Azure Architect'),(54,'VMware Double VPC - Data Center Virtualization & Desktop Mobility'),(55,'VMWare Certified Professional - Desktop Management'),(56,'VMWare Certified Professional - Data Center Virtualization'),(57,'AWS Partner: Technical Accredited'),(58,'AWS Certified Network – Specialty'),(59,'CompTIA Net+ N10-008'),(60,'Citrix Cloud Certified - Virtual Apps and Desktops Service'),(61,'Microsoft Azure AZ-900 Azure Fundamentals');
 /*!40000 ALTER TABLE `job_certifications` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -501,6 +397,36 @@ INSERT INTO `job_skillsets` VALUES (1,1,'Installation and Configuration'),(2,1,'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `site_feedback`
+--
+
+DROP TABLE IF EXISTS `site_feedback`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `site_feedback` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `screenshotUrl` varchar(255) DEFAULT NULL,
+  `status` varchar(50) NOT NULL DEFAULT 'Open',
+  `observations` text,
+  `date_open` date NOT NULL,
+  `date_closed` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_feedback`
+--
+
+LOCK TABLES `site_feedback` WRITE;
+/*!40000 ALTER TABLE `site_feedback` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_feedback` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -526,7 +452,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'107718006345817804829','Juan Pablo Otalvaro','juan.otalvaro@samanagroup.co','2024-05-29 21:02:56','https://lh3.googleusercontent.com/a/ACg8ocJ63PiVOvjMOWzDg1Dq5DO0uxODftn7tmwUD5mj4DoJH4m3B2U=s96-c',6),(7,'106546812676384175287','FRANCISCO JAVIER CASTRO ALZATE','fjca82@gmail.com','2024-05-21 15:29:32',NULL,0),(8,'108098131392507503317','Bhanu Prakash Reddy Thoppi Reddy','bhanuthoppireddy@gmail.com','2024-05-21 15:57:05',NULL,0),(11,'115844201243162245225','Eric Jamid Pardo Fontalvo','ericjpardo@gmail.com','2024-05-22 12:44:23',NULL,0),(13,'105027145445153965395','Alexandre Chaves','ttbass@gmail.com','2024-05-23 02:22:28',NULL,0),(14,'104694913167965900280','Nicolas Rodriguez E','nico.rodriguez824@gmail.com','2024-05-25 17:15:56',NULL,0),(15,'112222189244156275333','Viral Godhani','viru8589@gmail.com','2024-05-29 01:42:25',NULL,0),(16,'112088865754657186030','Sergio Esteban Acosta Garzon','stban.acosta@gmail.com','2024-05-29 17:42:14',NULL,0),(20,'106627567844771269358','Julian Gomez','julian.gomez@samanagroup.co','2024-05-29 21:47:08',NULL,4),(21,'112593017355682812744','Alonso Maury Santana Torres','alonso.santana@samanagroup.co','2024-05-29 21:51:42',NULL,3),(22,'108974602786113534024','Danny Ruiz','danny.ruiz@samanagroup.co','2024-05-29 21:52:28',NULL,4),(23,'109428893794057877653','Felipe Bernal','felipe.bernal@samanagroup.co','2024-05-29 21:53:32',NULL,5),(25,'107391432137871952602','Xen Cerra','xencerra@gmail.com','2024-05-30 14:06:38',NULL,0),(28,'115501872698198075239','Fabian Baena','fabian.baena@samanagroup.co','2024-05-30 19:22:24',NULL,4),(29,'108003748111961961576','Jorge Gomez','Jorge.Gomez@samanagroup.co','2024-05-30 21:20:00',NULL,3),(31,'117532519199786857258','Rafael Cortes','lemoncho@gmail.com','2024-06-06 12:16:46','https://lh3.googleusercontent.com/a/ACg8ocK3rNFQkfUk--dfeZ6lU-XMGRTEXZq_TqiexU2kSmrpMxNY=s96-c',0),(35,'116501563695911163728','Mabeth Dalyla Zarama Erazo','mabethdalylaze@gmail.com','2024-06-18 19:54:42',NULL,0),(36,'107245411699406989266','Wilmar Giovanny Cardenas Escobar','wilmar.9220@gmail.com','2024-06-18 21:19:53',NULL,0),(37,'115235154535596350114','Andrea Giraldo','andrea.vanessa.giraldo@gmail.com','2024-06-18 23:14:40',NULL,0),(39,'116768061781829268679','RONALDO N SANTOS','ronaldo@tecnologiasantos.com.br','2024-06-19 01:02:44',NULL,0),(42,'108302536910134043078','Eric','likewang0325@gmail.com','2024-06-19 13:53:50',NULL,0),(44,'116326333578872254389','Francisco Belalcazar','franciscobelalcazar@gmail.com','2024-06-19 21:27:20',NULL,0),(45,'107933019288581599292','Juan Barrero','jmba626@gmail.com','2024-06-19 22:39:04',NULL,0),(46,'107263522990351496610','JOHN FREDY ARAGON CORDOBA','jfaragon100@gmail.com','2024-06-19 23:03:20',NULL,0),(47,'114218472966126742416','Flúvio Izoldi','izoldi.fluvio@gmail.com','2024-06-20 11:56:29',NULL,0),(48,'116827100155789858161','Juan Esteban','estebanx00@gmail.com','2024-06-20 13:17:18',NULL,0),(49,'109741770986628340891','MARLON','marlonpachecoc@gmail.com','2024-06-20 14:50:44',NULL,0),(50,'108482901768027966942','Henry Marquez','henry.marquez.baez@gmail.com','2024-06-20 18:38:36',NULL,0),(51,'116179026479327001162','Fiodor C','ficero18@gmail.com','2024-06-20 20:36:36',NULL,0),(52,'102567613278980342471','Juan Pablo Otalvaro Aguirre','juan.otalvaro@nexxus-tech.com','2024-06-24 17:31:34',NULL,0),(53,'108988419214248334871','Juan Pablo O (juandiab)','otalvaroj@gmail.com','2024-06-24 17:47:33','https://lh3.googleusercontent.com/a/ACg8ocL7SViuYpbWFCgQYkbsgtFMu0D7TkMMNpNMPMZQjsacjTm2ueWk0w=s96-c',4),(54,'108798426685974999076','Juan Pablo Otalvaro (C)','juan.pablootalvaro@cloud.com','2024-06-28 14:58:18','https://lh3.googleusercontent.com/a/ACg8ocLdrYhbffYz4rVnzK1F4iSI3Qf6KGZ-EF_eenDLTghhkn_xbPE=s96-c',0);
+INSERT INTO `users` VALUES (1,'107718006345817804829','Juan Pablo Otalvaro','juan.otalvaro@samanagroup.co','2024-05-29 21:02:56','https://lh3.googleusercontent.com/a/ACg8ocJ63PiVOvjMOWzDg1Dq5DO0uxODftn7tmwUD5mj4DoJH4m3B2U=s96-c',5),(20,'106627567844771269358','Julian Gomez','julian.gomez@samanagroup.co','2024-05-29 21:47:08',NULL,4),(21,'112593017355682812744','Alonso Maury Santana Torres','alonso.santana@samanagroup.co','2024-05-29 21:51:42',NULL,3),(22,'108974602786113534024','Danny Ruiz','danny.ruiz@samanagroup.co','2024-05-29 21:52:28',NULL,4),(23,'109428893794057877653','Felipe Bernal','felipe.bernal@samanagroup.co','2024-05-29 21:53:32',NULL,5),(28,'115501872698198075239','Fabian Baena','fabian.baena@samanagroup.co','2024-05-30 19:22:24',NULL,4),(29,'108003748111961961576','Jorge Gomez','Jorge.Gomez@samanagroup.co','2024-05-30 21:20:00',NULL,3);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -539,4 +465,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-26 12:10:17
+-- Dump completed on 2024-08-02 16:11:08

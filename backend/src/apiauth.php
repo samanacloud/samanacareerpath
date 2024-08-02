@@ -38,7 +38,11 @@ if (!function_exists('getUserDetailsForAuth')) {
 
 if (!function_exists('authenticateUser')) {
     function authenticateUser() {
-        session_start();
+        // Check if session is already started
+            if (session_status() !== PHP_SESSION_ACTIVE) {
+                session_start();
+            }
+
 
         // Initialize Google Client
         $client = new Client();

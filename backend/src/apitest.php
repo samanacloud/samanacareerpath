@@ -2,10 +2,11 @@
 // Allow CORS requests from any origin
 require_once 'cors.php';  // Include the CORS settings
 require_once 'apiauth.php'; //Authentication function for the API, uses the authentication key generated in the frontend session to use it in the backend session.
-
+ob_start();
 
 if (!function_exists('sendJsonResponse')) {
     function sendJsonResponse($data, $statusCode = 200) {
+        ob_end_clean(); // Clean the buffer and turn off output buffering
         header('Content-Type: application/json');
         http_response_code($statusCode);
         echo json_encode($data);
@@ -87,7 +88,10 @@ switch ($request['action']) {
     case 'listUsers':
         listUsers();
         break;
-
+    
+    case 'getOverallInfo':
+            getOverallInfo();
+            break;
     // Test database connection
     case 'testDbConnection':
         testDbConnection();
@@ -557,6 +561,58 @@ case 'getAdminRole':
         sendJsonResponse(['error' => 'No functionName specified'], 400);
     }
     break;
+    // Add these cases in the switch statement of apitest.php
+
+case 'listAllEmployeeCertifications':
+    listAllEmployeeCertifications();
+    break;
+
+case 'listAllCandidateCertifications':
+    listAllCandidateCertifications();
+    break;
+
+case 'listAllEmployeeSkillsets':
+    listAllEmployeeSkillsets();
+    break;
+
+case 'listAllCandidateSkillsets':
+    listAllCandidateSkillsets();
+    break;
+case 'addFeedback':
+    if (isset($request['type']) && isset($request['description'])) {
+        $email = isset($request['email']) ? (is_array($request['email']) ? implode(', ', $request['email']) : $request['email']) : null;
+        $screenshotUrl = isset($request['screenshotUrl']) ? (is_array($request['screenshotUrl']) ? implode(', ', $request['screenshotUrl']) : $request['screenshotUrl']) : null;
+        addFeedback($request['type'], $request['description'], $email, $screenshotUrl);
+    } else {
+        sendJsonResponse(['error' => 'Type and description are required'], 400);
+    }
+    break;
+
+    case 'updateFeedback':
+        if (isset($request['id'])) {
+            $type = isset($request['type']) ? $request['type'] : null;
+            $description = isset($request['description']) ? $request['description'] : null;
+            $email = isset($request['email']) ? $request['email'] : null;
+            $screenshotUrl = isset($request['screenshotUrl']) ? $request['screenshotUrl'] : null;
+            $status = isset($request['status']) ? $request['status'] : null;
+            $date_closed = isset($request['date_closed']) ? $request['date_closed'] : null;
+            updateFeedback($request['id'], $type, $description, $email, $screenshotUrl, $status, $date_closed);
+        } else {
+            sendJsonResponse(['error' => 'No feedback ID specified'], 400);
+        }
+        break;
+
+    case 'listFeedback':
+        listFeedback();
+        break;
+
+    case 'deleteFeedback':
+        if (isset($request['id'])) {
+            deleteFeedback($request['id']);
+        } else {
+            sendJsonResponse(['error' => 'No feedback ID specified'], 400);
+        }
+        break;
 
     default:
         sendJsonResponse(['error' => 'Invalid action specified'], 400);
@@ -2088,3 +2144,268 @@ function getAdminRole($functionName) {
     $mysqli->close();
 }
 
+function getOverallInfo() {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $result = [];
+    $query = "SHOW TABLES";
+    $tables = $mysqli->query($query);
+
+    if ($tables->num_rows > 0) {
+        while ($row = $tables->fetch_array()) {
+            $tableName = $row[0];
+            $countQuery = "SELECT COUNT(*) as row_count FROM $tableName";
+            $countResult = $mysqli->query($countQuery);
+            $countRow = $countResult->fetch_assoc();
+            $result[] = [
+                "table_name" => $tableName,
+                "count" => $countRow['row_count']
+            ];
+        }
+        sendJsonResponse($result);
+    } else {
+        sendJsonResponse(['error' => 'No tables found'], 404);
+    }
+
+    $mysqli->close();
+}
+
+// Function to list all employee certifications
+function listAllEmployeeCertifications() {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $result = $mysqli->query("SELECT * FROM employee_certifications");
+
+    if ($result->num_rows > 0) {
+        $certifications = [];
+        while ($row = $result->fetch_assoc()) {
+            $certifications[] = $row;
+        }
+        sendJsonResponse($certifications);
+    } else {
+        sendJsonResponse(['error' => 'No employee certifications found'], 404);
+    }
+
+    $mysqli->close();
+}
+
+// Function to list all candidate certifications
+function listAllCandidateCertifications() {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $result = $mysqli->query("SELECT * FROM candidate_certifications");
+
+    if ($result->num_rows > 0) {
+        $certifications = [];
+        while ($row = $result->fetch_assoc()) {
+            $certifications[] = $row;
+        }
+        sendJsonResponse($certifications);
+    } else {
+        sendJsonResponse(['error' => 'No candidate certifications found'], 404);
+    }
+
+    $mysqli->close();
+}
+
+// Function to list all employee skillsets
+function listAllEmployeeSkillsets() {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $result = $mysqli->query("SELECT * FROM employee_skillsets");
+
+    if ($result->num_rows > 0) {
+        $skillsets = [];
+        while ($row = $result->fetch_assoc()) {
+            $skillsets[] = $row;
+        }
+        sendJsonResponse($skillsets);
+    } else {
+        sendJsonResponse(['error' => 'No employee skillsets found'], 404);
+    }
+
+    $mysqli->close();
+}
+
+// Function to list all candidate skillsets
+function listAllCandidateSkillsets() {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $result = $mysqli->query("SELECT * FROM candidate_skillsets");
+
+    if ($result->num_rows > 0) {
+        $skillsets = [];
+        while ($row = $result->fetch_assoc()) {
+            $skillsets[] = $row;
+        }
+        sendJsonResponse($skillsets);
+    } else {
+        sendJsonResponse(['error' => 'No candidate skillsets found'], 404);
+    }
+
+    $mysqli->close();
+}
+
+function addFeedback($type, $description, $email, $screenshotUrl = null) {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+        return;
+    }
+
+    // Ensure that all parameters are strings
+    $type = is_array($type) ? implode(', ', $type) : (string)$type;
+    $description = is_array($description) ? implode(', ', $description) : (string)$description;
+    $email = is_array($email) ? implode(', ', $email) : (string)$email;
+    $screenshotUrl = is_array($screenshotUrl) ? implode(', ', $screenshotUrl) : (string)$screenshotUrl;
+
+    $stmt = $mysqli->prepare("INSERT INTO site_feedback (type, description, email, screenshotUrl, status, date_open) VALUES (?, ?, ?, ?, 'Open', NOW())");
+    $stmt->bind_param('ssss', $type, $description, $email, $screenshotUrl);
+    if ($stmt->execute()) {
+        sendJsonResponse(['success' => true, 'id' => $stmt->insert_id]);
+    } else {
+        sendJsonResponse(['error' => 'Failed to add feedback'], 500);
+    }
+
+    $stmt->close();
+    $mysqli->close();
+}
+
+
+function listFeedback() {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+        return;
+    }
+
+    $result = $mysqli->query("SELECT * FROM site_feedback ORDER BY date_open DESC");
+
+    if ($result) {
+        $feedbackList = $result->fetch_all(MYSQLI_ASSOC);
+        sendJsonResponse(['success' => true, 'data' => $feedbackList]);
+    } else {
+        sendJsonResponse(['error' => 'Failed to retrieve feedback list'], 500);
+    }
+
+    $mysqli->close();
+}
+function deleteFeedback($id) {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+        return;
+    }
+
+    $stmt = $mysqli->prepare("DELETE FROM site_feedback WHERE id = ?");
+    $stmt->bind_param('i', $id);
+    if ($stmt->execute()) {
+        sendJsonResponse(['success' => true]);
+    } else {
+        sendJsonResponse(['error' => 'Failed to delete feedback'], 500);
+    }
+
+    $stmt->close();
+    $mysqli->close();
+}
+
+function updateFeedback($id, $type = null, $description = null, $email = null, $screenshotUrl = null, $status = null, $observations = null, $date_closed = null) {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+        return;
+    }
+
+    $fields = [];
+    $params = [];
+    $types = '';
+
+    if ($type !== null) {
+        $fields[] = 'type = ?';
+        $params[] = $type;
+        $types .= 's';
+    }
+    if ($description !== null) {
+        $fields[] = 'description = ?';
+        $params[] = $description;
+        $types .= 's';
+    }
+    if ($email !== null) {
+        $fields[] = 'email = ?';
+        $params[] = $email;
+        $types .= 's';
+    }
+    if ($screenshotUrl !== null) {
+        $fields[] = 'screenshotUrl = ?';
+        $params[] = $screenshotUrl;
+        $types .= 's';
+    }
+    if ($status !== null) {
+        $fields[] = 'status = ?';
+        $params[] = $status;
+        $types .= 's';
+    }
+    if ($observations !== null) {
+        $fields[] = 'observations = ?';
+        $params[] = $observations;
+        $types .= 's';
+    }
+    if ($date_closed !== null) {
+        $fields[] = 'date_closed = ?';
+        $params[] = $date_closed;
+        $types .= 's';
+    }
+
+    if (empty($fields)) {
+        sendJsonResponse(['error' => 'No fields to update'], 400);
+        return;
+    }
+
+    $params[] = $id;
+    $types .= 'i';
+
+    $stmt = $mysqli->prepare("UPDATE site_feedback SET " . implode(', ', $fields) . " WHERE id = ?");
+    $stmt->bind_param($types, ...$params);
+
+    if ($stmt->execute()) {
+        sendJsonResponse(['success' => true]);
+    } else {
+        sendJsonResponse(['error' => 'Failed to update feedback'], 500);
+    }
+
+    $stmt->close();
+    $mysqli->close();
+}
