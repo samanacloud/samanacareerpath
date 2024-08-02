@@ -11,6 +11,16 @@ Samana CareerPath is an ATS platform designed to help you track your employees, 
 - **Career Development Recommendations**: AI-driven recommendations for career development based on employee skillsets and certifications.
 - **Performance Monitoring**: Track and evaluate employee performance.
 
+
+
+## Version 0.56 Beta
+
+### What's New
+- **Feedback System:** Integrated feedback submission with screenshot upload in the top bar.
+- **UI Improvements:** Adjusted layout and design elements for better user experience.
+- **Bug Fixes:** Fixed issues related to session expiration and feedback submission.
+
+
 ## Technologies Used
 
 ### Frontend
