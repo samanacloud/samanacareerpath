@@ -10,4 +10,5 @@ update_page.sh
 
 # Ignore SSL CERTIFICATES 
 nginx/ssl/star.samana.cloud.2024.crt
+nginx/ssl/star.samana.cloud.2024.pem
 nginx/ssl/star.samana.cloud.2024.key

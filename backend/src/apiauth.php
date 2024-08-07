@@ -64,11 +64,11 @@ if (!function_exists('authenticateUser')) {
 
                 // Token is valid, now check the user details
                 $user = getUserDetailsForAuth($payload->email);
-                if ($user && isset($user['admin']) && $user['admin'] > 3) {
+                if ($user && isset($user['admin']) && $user['admin'] >= 1) {
                     $_SESSION['email'] = $payload->email;
                     return true;
                 } else {
-                    error_log('User admin field missing or not greater than 3 for email: ' . $payload->email);
+                    error_log('User admin field missing or not greater than 1 for email: ' . $payload->email);
                     return false;
                 }
             } catch (Exception $e) {

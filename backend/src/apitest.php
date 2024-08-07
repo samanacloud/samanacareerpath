@@ -454,10 +454,21 @@ case 'updateJobSkillset':
             sendJsonResponse(['error' => 'No email specified'], 400);
         }
         break;
+    case 'listPublicEmployeeReviews':
+        if (isset($request['email'])) {
+            listPublicEmployeeReviews($request['email']);
+        } else {
+            sendJsonResponse(['error' => 'No email specified'], 400);
+        }
+        break;
 
+case 'listAllReviews':
+            listAllReviews();
+            break;
+        
     case 'addEmployeeReview':
-        if (isset($request['employee_id'], $request['email'], $request['evaluation_field'], $request['rating'], $request['reviewer_email'], $request['observations'], $request['date'])) {
-            addEmployeeReview($request['employee_id'], $request['email'], $request['evaluation_field'], $request['rating'], $request['reviewer_email'], $request['observations'], $request['date']);
+        if (isset($request['employee_id'], $request['email'], $request['evaluation_field'], $request['rating'], $request['reviewer_email'], $request['observations'], $request['date'], $request['public'])) {
+            addEmployeeReview($request['employee_id'], $request['email'], $request['evaluation_field'], $request['rating'], $request['reviewer_email'], $request['observations'], $request['date'], $request['public']);
         } else {
             sendJsonResponse(['error' => 'Missing parameters'], 400);
         }
@@ -471,13 +482,13 @@ case 'updateJobSkillset':
         }
         break;
 
-    case 'updateEmployeeReview':
-        if (isset($request['id'], $request['employee_id'], $request['email'], $request['evaluation_field'], $request['rating'], $request['reviewer_email'], $request['observations'], $request['date'])) {
-            updateEmployeeReview($request['id'], $request['employee_id'], $request['email'], $request['evaluation_field'], $request['rating'], $request['reviewer_email'], $request['observations'], $request['date']);
-        } else {
-            sendJsonResponse(['error' => 'Missing parameters'], 400);
-        }
-        break;
+        case 'updateEmployeeReview':
+            if (isset($request['id'], $request['employee_id'], $request['email'], $request['evaluation_field'], $request['rating'], $request['reviewer_email'], $request['observations'], $request['date'], $request['public'])) {
+                updateEmployeeReview($request['id'], $request['employee_id'], $request['email'], $request['evaluation_field'], $request['rating'], $request['reviewer_email'], $request['observations'], $request['date'], $request['public']);
+            } else {
+                sendJsonResponse(['error' => 'Missing parameters'], 400);
+            }
+            break;
         // Add this in the switch statement of apitest.php
         case 'addCandidateCertification':
             if (isset($request['email'], $request['certification'])) {
@@ -613,10 +624,42 @@ case 'addFeedback':
             sendJsonResponse(['error' => 'No feedback ID specified'], 400);
         }
         break;
+    // New case for handling employee enrollment actions
+    case 'addEmployeeEnrollment':
+        if (isset($request['email']) && isset($request['step']) && isset($request['value'])) {
+            addEmployeeEnrollment($request['email'], $request['step'], $request['value']);
+        } else {
+            sendJsonResponse(['error' => 'Missing required parameters'], 400);
+        }
+        break;
 
+    case 'listEmployeeEnrollment':
+        if (isset($request['email'])) {
+            listEmployeeEnrollment($request['email']);
+        } else {
+            sendJsonResponse(['error' => 'No email specified'], 400);
+        }
+        break;
+
+    case 'deleteEmployeeEnrollment':
+        if (isset($request['id'])) {
+            deleteEmployeeEnrollment($request['id']);
+        } else {
+            sendJsonResponse(['error' => 'No ID specified'], 400);
+        }
+        break;
     default:
         sendJsonResponse(['error' => 'Invalid action specified'], 400);
         break;
+
+    case 'getEnrollmentStatus':
+        if (isset($request['email'])) {
+            getEnrollmentStatus($request['email']);
+        } else {
+            sendJsonResponse(['error' => 'No email specified'], 400);
+        }
+        break;
+    
 }
 
 //  handler function for getting user information
@@ -1827,8 +1870,8 @@ function listEmployeeReviews($email) {
     $mysqli->close();
 }
 
-// Function to add a new review
-function addEmployeeReview($employee_id, $email, $evaluation_field, $rating, $reviewer_email, $observations, $date) {
+// Function to list all public reviews for an employee based on email
+function listPublicEmployeeReviews($email) {
     global $config;
     $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
 
@@ -1836,8 +1879,59 @@ function addEmployeeReview($employee_id, $email, $evaluation_field, $rating, $re
         sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
     }
 
-    $stmt = $mysqli->prepare("INSERT INTO employee_reviews (employee_id, email, evaluation_field, rating, reviewer_email, observations, date) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('ississs', $employee_id, $email, $evaluation_field, $rating, $reviewer_email, $observations, $date);
+    $stmt = $mysqli->prepare("SELECT * FROM employee_reviews WHERE email = ? AND public = 'YES' ORDER BY evaluation_field ASC");
+    $stmt->bind_param('s', $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $reviews = [];
+        while ($row = $result->fetch_assoc()) {
+            $reviews[] = $row;
+        }
+        sendJsonResponse($reviews);
+    } else {
+        sendJsonResponse(['error' => 'No public reviews found for the specified email'], 404);
+    }
+
+    $stmt->close();
+    $mysqli->close();
+}
+
+// Function to list all reviews
+function listAllReviews() {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $result = $mysqli->query("SELECT * FROM employee_reviews ORDER BY evaluation_field ASC");
+
+    if ($result->num_rows > 0) {
+        $reviews = [];
+        while ($row = $result->fetch_assoc()) {
+            $reviews[] = $row;
+        }
+        sendJsonResponse($reviews);
+    } else {
+        sendJsonResponse(['error' => 'No reviews found'], 404);
+    }
+
+    $mysqli->close();
+}
+// Function to add a new review
+function addEmployeeReview($employee_id, $email, $evaluation_field, $rating, $reviewer_email, $observations, $date, $public) {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $stmt = $mysqli->prepare("INSERT INTO employee_reviews (employee_id, email, evaluation_field, rating, reviewer_email, observations, date, public) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('ississss', $employee_id, $email, $evaluation_field, $rating, $reviewer_email, $observations, $date, $public);
     if ($stmt->execute()) {
         sendJsonResponse(['success' => true, 'id' => $stmt->insert_id]);
     } else {
@@ -1871,7 +1965,7 @@ function deleteEmployeeReview($id) {
 }
 
 // Function to update a review by ID
-function updateEmployeeReview($id, $employee_id, $email, $evaluation_field, $rating, $reviewer_email, $observations, $date) {
+function updateEmployeeReview($id, $employee_id, $email, $evaluation_field, $rating, $reviewer_email, $observations, $date, $public) {
     global $config;
     $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
 
@@ -1879,8 +1973,8 @@ function updateEmployeeReview($id, $employee_id, $email, $evaluation_field, $rat
         sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
     }
 
-    $stmt = $mysqli->prepare("UPDATE employee_reviews SET employee_id = ?, email = ?, evaluation_field = ?, rating = ?, reviewer_email = ?, observations = ?, date = ? WHERE id = ?");
-    $stmt->bind_param('ississsi', $employee_id, $email, $evaluation_field, $rating, $reviewer_email, $observations, $date, $id);
+    $stmt = $mysqli->prepare("UPDATE employee_reviews SET employee_id = ?, email = ?, evaluation_field = ?, rating = ?, reviewer_email = ?, observations = ?, date = ?, public = ? WHERE id = ?");
+    $stmt->bind_param('ississssi', $employee_id, $email, $evaluation_field, $rating, $reviewer_email, $observations, $date, $public, $id);
     if ($stmt->execute()) {
         sendJsonResponse(['success' => true]);
     } else {
@@ -2404,6 +2498,126 @@ function updateFeedback($id, $type = null, $description = null, $email = null, $
         sendJsonResponse(['success' => true]);
     } else {
         sendJsonResponse(['error' => 'Failed to update feedback'], 500);
+    }
+
+    $stmt->close();
+    $mysqli->close();
+}
+
+// Function to add a new employee enrollment record
+function addEmployeeEnrollment($email, $step, $value) {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+        return;
+    }
+
+    $stmt = $mysqli->prepare("
+        INSERT INTO employee_enrollment (email, step, value)
+        VALUES (?, ?, ?)
+    ");
+    $stmt->bind_param('sii', $email, $step, $value);
+
+    try {
+        if ($stmt->execute()) {
+            sendJsonResponse(['success' => 'Enrollment added successfully']);
+        }
+    } catch (mysqli_sql_exception $e) {
+        if ($stmt->errno === 1062) { // Duplicate entry error code
+            sendJsonResponse(['error' => 'Duplicate'], 409);
+        } else {
+            sendJsonResponse(['error' => 'Failed to add enrollment: ' . $stmt->error], 500);
+        }
+    }
+
+    $stmt->close();
+    $mysqli->close();
+}
+
+// Function to list employee enrollment records by email
+function listEmployeeEnrollment($email) {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $stmt = $mysqli->prepare("
+        SELECT id, email, step, value, date
+        FROM employee_enrollment
+        WHERE email = ?
+    ");
+    $stmt->bind_param('s', $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $enrollments = [];
+        while ($row = $result->fetch_assoc()) {
+            $enrollments[] = $row;
+        }
+        sendJsonResponse($enrollments);
+    } else {
+        sendJsonResponse(['error' => 'No enrollments found for the specified email'], 404);
+    }
+
+    $stmt->close();
+    $mysqli->close();
+}
+
+// Function to delete an employee enrollment record by ID
+function deleteEmployeeEnrollment($id) {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $stmt = $mysqli->prepare("
+        DELETE FROM employee_enrollment
+        WHERE id = ?
+    ");
+    $stmt->bind_param('i', $id);
+
+    if ($stmt->execute()) {
+        sendJsonResponse(['success' => 'Enrollment deleted successfully']);
+    } else {
+        sendJsonResponse(['error' => 'Failed to delete enrollment: ' . $stmt->error], 500);
+    }
+
+    $stmt->close();
+    $mysqli->close();
+}
+
+// Function to get enrollment status as a percentage
+function getEnrollmentStatus($email) {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $stmt = $mysqli->prepare("
+        SELECT SUM(value) as total_value
+        FROM employee_enrollment
+        WHERE email = ?
+    ");
+    $stmt->bind_param('s', $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($row = $result->fetch_assoc()) {
+        $totalValue = $row['total_value'];
+        $percentage = ($totalValue / 13) * 100;
+        $percentage = round($percentage, 2); // Round to two decimal places
+        sendJsonResponse(['percentage' => $percentage . '%']);
+    } else {
+        sendJsonResponse(['error' => 'No enrollments found for the specified email'], 404);
     }
 
     $stmt->close();
