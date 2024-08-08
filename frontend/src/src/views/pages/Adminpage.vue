@@ -51,8 +51,8 @@ const confirmDeleteUser = async () => {
 const roles = [
   'Registered User',
   'Employee',
-  'Reviewer Read Only',
-  'Reviewer Advanced',
+  'Employee Reviewer',
+  'Candidate Reviewer',
   'Admin',
   'Super Admin'
 ];

@@ -36,7 +36,12 @@ onBeforeMount(() => {
                     { label: 'Certifications Matrix', icon: 'pi pi-fw pi-check-circle', to: '/certificationsmatrix' },
                     { label: 'Skillsets Matrix', icon: 'pi pi-fw pi-star', to: '/skillsets' }
                 ]
-            },
+            }
+        );
+    }
+
+    if (admin.value > 2) {
+        menuItems.push(
             {
                 label: 'Candidates',
                 items: [
@@ -48,7 +53,6 @@ onBeforeMount(() => {
             }
         );
     }
-
     if (admin.value >= 5) {
         menuItems.push({
             label: 'Administration',
@@ -69,7 +73,18 @@ onBeforeMount(() => {
                 label: 'Documentation',
                 icon: 'pi pi-fw pi-question',
                 to: '/documentation'
+            },
+            {
+                label: 'Terms of Service',
+                icon: 'pi pi-fw pi-verified',
+                to: '/terms'
+            },
+            {
+                label: 'Privacy Policy',
+                icon: 'pi pi-fw pi-unlock',
+                to: '/privacy'
             }
+
         ]
     });
 

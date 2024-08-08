@@ -134,13 +134,33 @@ const router = createRouter({
                     path: '/documentation',
                     name: 'documentation',
                     component: () => import('@/views/utilities/Documentation.vue')
-                }
+                },
+                {
+                    path: '/terms',
+                    name: 'terms',
+                    component: () => import('@/views/pages/TermsOfService.vue')
+                },
+                {
+                    path: '/privacy',
+                    name: 'privacy',
+                    component: () => import('@/views/pages/Privacy.vue')
+                },
             ]
         },
         {
             path: '/landing',
             name: 'landing',
             component: () => import('@/views/pages/Landing.vue')
+        },
+        {
+            path: '/termsofservice',
+            name: 'termsofservice',
+            component: () => import('@/views/pages/TermsOfService.vue')
+        },
+        {
+            path: '/privacypolicy',
+            name: 'privacypolicy',
+            component: () => import('@/views/pages/Privacy.vue')
         },
         {
             path: '/notfound',
