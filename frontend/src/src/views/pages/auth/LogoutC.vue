@@ -24,8 +24,6 @@ const handleLogout = () => {
     });
 
 
-    // Optionally clear any other session-related cookies or local storage items here
-
     logoutMessage.value = 'You have successfully logged out';
 };
 
@@ -42,7 +40,7 @@ onMounted(() => {
                     <div class="text-center mb-5">
                         <img :src="logoUrl" alt="Samana logo" class="mb-2 w-6rem flex-shrink-0" />
                         <div class="text-900 text-3xl font-medium mb-3">{{ logoutMessage }}</div>
-                        <Button label="Login Again" class="w-full p-3 text-xl mt-3" @click="router.push('/auth/login')"></Button>
+                        <Button label="Login Again" class="w-full p-3 text-xl mt-3" @click="router.push('/auth/register')"></Button>
                     </div>
                 </div>
             </div>

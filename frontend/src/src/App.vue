@@ -53,15 +53,27 @@ const checkTokenAndRefresh = () => {
 
 // Logout user and clear session
 const logoutUser = () => {
-    sessionStorage.clear();
-    router.push('/auth/logout');
-};
+    const candidateToken = document.cookie.split('; ').find(row => row.startsWith('candidateToken='));
+    const userEmail = document.cookie.split('; ').find(row => row.startsWith('UserEmail='));
 
+    sessionStorage.clear();
+
+    if (!userEmail) {
+        router.push('/auth/logoutcandidate');
+    } else if (candidateToken) {
+        router.push('/auth/logoutcandidate');
+    } else {
+        router.push('/auth/logout');
+    }
+};
 // Set up activity tracking and token refresh logic
 onMounted(() => {
+
     activityEvents.forEach(event => window.addEventListener(event, resetIdleTimer));
     idleTimeout.value = setTimeout(logoutUser, convertMinutesToMilliseconds(IDLE_TIMEOUT_MINUTES));
     setInterval(checkTokenAndRefresh, convertMinutesToMilliseconds(TOKEN_REFRESH_THRESHOLD_MINUTES));
+
+
 });
 
 // Clean up listeners and timers when component is unmounted

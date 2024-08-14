@@ -94,6 +94,10 @@ switch ($request['action']) {
     case 'listJobPostings':
                 listJobPostings();
                 break;
+    case 'listAvailableJobs':
+                listAvailableJobs();
+                break;
+
 
     case 'getCandidate':
             if (isset($request['email'])) {
@@ -102,7 +106,54 @@ switch ($request['action']) {
              sendJsonResponse(['error' => 'No email specified'], 400);
                     }
                     break;
-            
+    case 'addCandidate':
+        if (isset($request['name'], $request['email'], $request['phone_number'], $request['location'], $request['english_level'], $request['profile_photo'], $request['candidate_cv'], $request['created_at'], $request['enabled'])) {
+            addCandidate(
+                $request['name'],
+                $request['email'],
+                $request['phone_number'],
+                $request['location'],
+                $request['english_level'],
+                $request['profile_photo'],
+                $request['candidate_cv'],
+                $request['created_at'],
+                $request['enabled']
+            );
+        } else {
+            sendJsonResponse(['error' => 'Missing parameters'], 400);
+        }
+        break;
+
+        case 'updateCandidate':
+            if (isset($request['id'], $request['name'], $request['email'], $request['phone_number'], $request['location'], $request['english_level'], $request['profile_photo'], $request['candidate_cv'], $request['enabled'])) {
+                updateCandidate(
+                    $request['id'],
+                    $request['name'],
+                    $request['email'],
+                    $request['phone_number'],
+                    $request['location'],
+                    $request['english_level'],
+                    $request['profile_photo'],
+                    $request['candidate_cv'],
+                    $request['enabled']
+                );
+            } else {
+                sendJsonResponse(['error' => 'Missing parameters'], 400);
+            }
+            break;
+        
+        case 'deleteCandidate':
+            if (isset($request['id'])) {
+                deleteCandidate($request['id']);
+            } else {
+                sendJsonResponse(['error' => 'Missing parameters'], 400);
+            }
+            break;
+                
+                
+                    
+
+
     case 'listCandidateCertifications':
             if (isset($request['email'])) {
                             listCandidateCertifications($request['email']);
@@ -465,7 +516,12 @@ case 'listAllReviews':
                 sendJsonResponse(['error' => 'Missing parameters'], 400);
             }
             break;
-        // Add this in the switch statement of apitest.php
+        
+        
+
+        
+        
+            // Add this in the switch statement of apitest.php
         case 'addCandidateCertification':
             if (isset($request['email'], $request['certification'])) {
                 addCandidateCertification($request['email'], $request['certification']);
@@ -831,6 +887,30 @@ function listJobPostings() {
     $mysqli->close();
 }
 
+
+// Handler function for getting all the job postings
+function listAvailableJobs() {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $result = $mysqli->query("SELECT * FROM job_postings WHERE enabled=1 ORDER BY id");
+
+    if ($result->num_rows > 0) {
+        $jobPostings = [];
+        while ($row = $result->fetch_assoc()) {
+            $jobPostings[] = $row;
+        }
+        sendJsonResponse($jobPostings);
+    } else {
+        sendJsonResponse(['error' => 'No job postings found'], 404);
+    }
+
+    $mysqli->close();
+}
 // Handler function for getting job details by ID
 function jobDetails($id) {
     global $config;
@@ -2594,6 +2674,69 @@ function getEnrollmentStatus($email) {
         sendJsonResponse(['percentage' => $percentage . '%']);
     } else {
         sendJsonResponse(['error' => 'No enrollments found for the specified email'], 404);
+    }
+
+    $stmt->close();
+    $mysqli->close();
+}
+
+function addCandidate($name, $email, $phone_number, $location, $english_level, $profile_photo, $candidate_cv, $created_at, $enabled) {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $stmt = $mysqli->prepare("INSERT INTO candidate_profiles (name, email, phone_number, location, english_level, profile_photo, candidate_cv, created_at, enabled) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('ssssssssi', $name, $email, $phone_number, $location, $english_level, $profile_photo, $candidate_cv, $created_at, $enabled);
+    
+    if ($stmt->execute()) {
+        sendJsonResponse(['success' => true, 'id' => $stmt->insert_id]);
+    } else {
+        sendJsonResponse(['error' => 'Failed to add candidate'], 500);
+    }
+
+    $stmt->close();
+    $mysqli->close();
+}
+
+function updateCandidate($id, $name, $email, $phone_number, $location, $english_level, $profile_photo, $candidate_cv, $enabled) {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $stmt = $mysqli->prepare("UPDATE candidate_profiles SET name = ?, email = ?, phone_number = ?, location = ?, english_level = ?, profile_photo = ?, candidate_cv = ?, enabled = ? WHERE id = ?");
+    $stmt->bind_param('sssssssii', $name, $email, $phone_number, $location, $english_level, $profile_photo, $candidate_cv, $enabled, $id);
+
+    if ($stmt->execute()) {
+        sendJsonResponse(['success' => true]);
+    } else {
+        sendJsonResponse(['error' => 'Failed to update candidate'], 500);
+    }
+
+    $stmt->close();
+    $mysqli->close();
+}
+
+function deleteCandidate($id) {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $stmt = $mysqli->prepare("DELETE FROM candidate_profiles WHERE id = ?");
+    $stmt->bind_param('i', $id);
+
+    if ($stmt->execute()) {
+        sendJsonResponse(['success' => true]);
+    } else {
+        sendJsonResponse(['error' => 'Failed to delete candidate'], 500);
     }
 
     $stmt->close();

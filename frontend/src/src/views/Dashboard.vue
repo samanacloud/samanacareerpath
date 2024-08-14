@@ -21,16 +21,25 @@ const router = useRouter();
 
 
 onBeforeMount(() => {
+
     userEmail.value = document.cookie.replace(/(?:(?:^|.*;\s*)userEmail\s*\=\s*([^;]*).*$)|^.*$/, "$1");
     admin.value = document.cookie.replace(/(?:(?:^|.*;\s*)admin\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 
+
+ 
     if (admin.value === '1') {
         sessionStorage.setItem('employeeEmail', userEmail.value);
         router.push('/employeeprofile');
     }
 });
 onMounted(() => {
+    const userEmail = document.cookie.replace(/(?:(?:^|.*;\s*)userEmail\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+    if (userEmail.includes('@gmail.com')) {
+        router.push('/landing');
+        return;
+    }
     fetchTableData();
+
 });
 
 const fetchTableData = async () => {

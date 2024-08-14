@@ -131,6 +131,11 @@ const router = createRouter({
                     component: () => import('@/views/pages/Feedback.vue')
                 },
                 {
+                    path: '/awsupload',
+                    name: 'awsupload',
+                    component: () => import('@/views/pages/AWSUpload.vue')
+                },
+                {
                     path: '/documentation',
                     name: 'documentation',
                     component: () => import('@/views/utilities/Documentation.vue')
@@ -163,6 +168,11 @@ const router = createRouter({
             component: () => import('@/views/pages/Privacy.vue')
         },
         {
+            path: '/jobs',
+            name: 'jobs',
+            component: () => import('@/views/pages/Landing.vue')
+        },
+        {
             path: '/notfound',
             name: 'notfound',
             component: () => import('@/views/pages/NotFound.vue')
@@ -174,11 +184,20 @@ const router = createRouter({
             component: () => import('@/views/pages/auth/Login.vue')
         },
         {
+            path: '/auth/register',
+            name: 'register',
+            component: () => import('@/views/pages/auth/Register.vue')
+        },
+        {
             path: '/auth/logout',
             name: 'logout',
             component: () => import('@/views/pages/auth/Logout.vue')
         },
-
+        {
+            path: '/auth/logoutcandidate',
+            name: 'logoutcandidate',
+            component: () => import('@/views/pages/auth/LogoutC.vue')
+        },
         {
             path: '/auth/access',
             name: 'accessDenied',

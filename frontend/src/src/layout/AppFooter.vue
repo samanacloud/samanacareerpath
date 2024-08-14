@@ -15,6 +15,11 @@ const logoUrl = computed(() => {
         by
         <span class="font-medium ml-2">Samana Group LLC </span>
          , All Rights Reserved
+         <div class="ml-4">
+          <a href="/TermsOfService.html" class="text-primary">Terms of Use</a> | 
+          <a href="/privacy.html" class="text-primary">Privacy Policy</a>
+      </div>
     </div>
+
 </template>
 <style lang="scss" scoped></style>

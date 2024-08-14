@@ -1,15 +1,59 @@
-<script>
-import { ref, onMounted } from 'vue';
+<script setup>
+import { useLayout } from '@/layout/composables/layout';
+import { ref, computed, onMounted, onBeforeMount } from 'vue';
+import { CountryService } from '@/service/CountryService';
+import { useRouter } from 'vue-router';
+import Toolbar from 'primevue/toolbar';
+import Card from 'primevue/card';
+import Button from 'primevue/button';
+import Dropdown from 'primevue/dropdown';
+import InputText from 'primevue/inputtext';
+import axios from 'axios';
+const { layoutConfig } = useLayout();
+const router = useRouter(); 
 
-export default {
-  name: 'PrivacyPolicy',
-  setup() {
-    const title = ref('Privacy Policy');
-    const content = ref('');
 
-    onMounted(() => {
-      // Fetch or initialize the content of the Privacy Policy here
-      content.value = `
+
+
+
+
+
+
+
+
+
+
+
+
+
+const logoUrl = 'samana-logo-white.png';
+const logoUrlD = 'samana-logo-dark.png';
+
+
+
+
+</script>
+
+<template>
+    <div class="toolbar-wrapper">
+        <Toolbar style="background-color: #133563;">
+            <template #start>
+                <img alt="logo" :src="logoUrl" height="40" />
+            </template>
+            <template #center>
+                <div class="center-content">
+                    <h4>Samana CareerPath</h4>
+                </div>
+            </template>
+
+        </Toolbar>
+    </div>
+   <div class="grid ">
+    <div class="col-12">
+      <div class="card"> 
+
+        <h2>Privacy Policy</h2>
+
         <h5>1. Introduction</h5>
         <p>Your privacy is critically important to us. At Samana CareerPath, we have a few fundamental principles:</p>
         <ul>
@@ -56,27 +100,70 @@ export default {
 
         <h5>7. Contact Us</h5>
         <p>If you have any questions about this Privacy Policy, please contact us at support@samanagroup.com</p>
-      `;
-    });
 
-    return {
-      title,
-      content
-    };
-  }
-};
-</script>
 
-<template>
-  <div class="card">
-    <h3>{{ title }}</h3>
-    <div v-html="content"></div>
-  </div>
+</div></div></div>
+<div class="layout-footer">
+    <img :src="logoUrl" alt="Logo" height="20" class="mr-2" />
+    by
+    <span class="font-medium ml-2">Samana Group LLC</span>, All Rights Reserved
+    <div class="ml-4">
+        <a href="/termsofservice" class="text-primary">Terms of Use</a> | 
+        <a href="/privacypolicy" class="text-primary">Privacy Policy</a>
+    </div>
+</div>
+
 </template>
 
-<style scoped>
-.card {
-  padding: 20px;
-  margin: 20px;
+<style lang="scss" scoped>
+
+
+
+.layout-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.1rem;
 }
+
+.toolbar-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Make sure it stays above other content */
+    background-color:  #133563; /* Ensure it has a solid background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for depth */
+    padding: 0; /* Remove any extra padding/margin if necessary */
+}
+
+/* Add top padding to the content to avoid being covered by the toolbar */
+body {
+    padding-top: 80px; /* Adjust according to the height of your Toolbar */
+}
+
+.layout-footer {
+    background-color: #e0f2ff;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem; /* Increase padding to make the footer higher */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow to give it some depth */
+}
+
+.intro-section {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+
+.center-content h4 {
+    margin: 0; /* Remove default margins */
+    color: white;
+}
+
+
 </style>
