@@ -135,7 +135,7 @@ onMounted(() => {
                         </template>
                         <template #footer>
                             <div class="flex gap-4 mt-1">
-                                <Button label="Details" severity="secondary" outlined class="w-full" @click="fetchJobDetails(job.id)" />
+                                <Button label="Details" severity="info" outlined class="w-full" @click="fetchJobDetails(job.id)" />
                                 <Button
                                     v-if="candidateEmail"
                                     label="Apply Now"
