@@ -146,8 +146,7 @@ function confirmDelete(event, id) {
                         </template>
                     </Column>
                 </DataTable>
-                <Button label="Add Review" raised @click="openReviewDialog()" class="mt-3" />
-                <div v-if="reviews.length == 0">Loading reviews...</div>
+                <div v-if="reviews.length == 0">No reviews found</div>
             </div>
         </div>
     </div>

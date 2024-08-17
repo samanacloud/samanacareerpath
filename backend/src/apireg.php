@@ -91,6 +91,13 @@ switch ($request['action']) {
                  sendJsonResponse(['error' => 'No email specified'], 400);
             }
             break;
+    case 'listCandidateRegistrations':
+        if (isset($request['email'])) {
+            listCandidateRegistrations($request['email']);
+        } else {
+                sendJsonResponse(['error' => 'No email specified'], 400);
+        }
+        break;
     case 'listJobPostings':
                 listJobPostings();
                 break;
@@ -845,6 +852,35 @@ function listCandidateReviews($email) {
     }
 
     $stmt = $mysqli->prepare("SELECT * FROM candidate_review WHERE email = ?");
+    $stmt->bind_param('s', $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $reviews = [];
+        while ($row = $result->fetch_assoc()) {
+            $reviews[] = $row;
+        }
+        sendJsonResponse($reviews);
+    } else {
+        sendJsonResponse(['error' => 'No reviews found for the specified email'], 404);
+    }
+
+    $stmt->close();
+    $mysqli->close();
+}
+
+
+// Handler function for listing candidate registrations
+function listCandidateRegistrations($email) {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $stmt = $mysqli->prepare("SELECT process FROM candidate_review WHERE email = ? AND interview = 'Registration'");
     $stmt->bind_param('s', $email);
     $stmt->execute();
     $result = $stmt->get_result();

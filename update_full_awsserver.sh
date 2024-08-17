@@ -15,15 +15,24 @@ tar -czvf scp.samana.cloud.tar.gz --exclude='./api_keys' .
 # Temporarily change permissions
 ssh -i /Users/juampa/Desktop/Samana/juano-scp.pem ubuntu@52.86.129.247 "sudo chmod 777 /opt/scp.samana.cloud/"
 
+# Shut down the Docker Container
+ssh -i /Users/juampa/Desktop/Samana/juano-scp.pem ubuntu@52.86.129.247 "cd /opt/scp.samana.cloud && docker compose down"
+
+# Clean the entire folder before copy all again
+ssh -i /Users/juampa/Desktop/Samana/juano-scp.pem ubuntu@52.86.129.247 "cd /opt/scp.samana.cloud && sudo rm -rf * "
+
 # Copy the archive to the remote server
 scp -i /Users/juampa/Desktop/Samana/juano-scp.pem scp.samana.cloud.tar.gz ubuntu@52.86.129.247:/opt/scp.samana.cloud/.
+
+
+
 
 # Extract the archive on the remote server
 ssh -i /Users/juampa/Desktop/Samana/juano-scp.pem ubuntu@52.86.129.247 "sudo tar -xzvf /opt/scp.samana.cloud/scp.samana.cloud.tar.gz -C /opt/scp.samana.cloud/"
 
 
 # Start the Docker containers using docker-compose
-ssh -i /Users/juampa/Desktop/Samana/juano-scp.pem ubuntu@52.86.129.247 "cd /opt/scp.samana.cloud && docker compose up -d --build"
+ssh -i /Users/juampa/Desktop/Samana/juano-scp.pem ubuntu@52.86.129.247 "cd /opt/scp.samana.cloud && docker compose up -d"
 
 # Remove the archive from the remote server
 ssh -i /Users/juampa/Desktop/Samana/juano-scp.pem ubuntu@52.86.129.247 "sudo rm /opt/scp.samana.cloud/scp.samana.cloud.tar.gz"

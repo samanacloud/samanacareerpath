@@ -50,6 +50,13 @@ const handleGoogleCallback = async () => {
 
             // Check if the email contains @gmail.com
             if (userInfo.email.includes('@gmail.com')) {
+                // Set the cookie with proper attributes and send to the candidates landing page
+                document.cookie = `CandidateToken=${access_token}; path=/; SameSite=Lax; Secure`;
+                document.cookie = `CandidateName=${userInfo.name}; path=/; SameSite=Lax; Secure`;
+                document.cookie = `ProfileImage=${userInfo.picture}; path=/; SameSite=Lax; Secure`;
+                document.cookie = `CandidateEmail=${userInfo.email}; path=/; SameSite=Lax; Secure`;
+                document.cookie = `CandidateidToken=${id_token}; path=/; SameSite=Lax; Secure`;
+
                 router.push('/landing');
                 return;
             }

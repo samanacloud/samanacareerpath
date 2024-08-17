@@ -25,22 +25,26 @@ $fileBase64 = $request['file']; // Assuming the file is sent as a base64 string
 $folder = $request['folder'];
 $email = $request['email'];
 
+// Replace '@' in the email with '_'
+$safeEmail = str_replace('@', '_', $email);
+
 // Determine the file name and folder based on the type
 $extension = pathinfo($request['fileName'], PATHINFO_EXTENSION);
 
 switch ($folder) {
     case 'CVs':
-        $fileName = $email . '_CV.' . $extension;
+        $fileName = $safeEmail . '_CV.' . $extension;
         break;
     case 'feedback':
-        $fileName = $email . '_feedback.' . $extension;
+        $fileName = $safeEmail . '_feedback.' . $extension;
         break;
     case 'images':
-        $fileName = $email . '_image.' . $extension;
+        $fileName = $safeEmail . '_image.' . $extension;
         break;
     default:
         sendJsonResponse(['error' => 'Invalid folder specified.'], 400);
 }
+
 
 // Decode the base64 file data
 $fileData = base64_decode($fileBase64);
@@ -53,6 +57,20 @@ $filePath = '/tmp/' . $fileName;
 
 if (file_put_contents($filePath, $fileData) === false) {
     sendJsonResponse(['error' => 'Failed to save file.'], 500);
+}
+
+// MIME type validation
+$allowedMimeTypes = [
+    'CVs' => ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
+    'feedback' => ['image/jpeg', 'image/png', 'image/gif'],
+    'images' => ['image/jpeg', 'image/png', 'image/gif'],
+];
+
+$mimeType = mime_content_type($filePath);
+
+if (!in_array($mimeType, $allowedMimeTypes[$folder])) {
+    unlink($filePath); // Clean up the temporary file
+    sendJsonResponse(['error' => 'Invalid file type.'], 400);
 }
 
 // Create an S3 client

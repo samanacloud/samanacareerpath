@@ -34,12 +34,15 @@ onBeforeMount(() => {
 });
 onMounted(() => {
     const userEmail = document.cookie.replace(/(?:(?:^|.*;\s*)userEmail\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-    if (userEmail.includes('@gmail.com')) {
+    const candidateEmail = document.cookie.replace(/(?:(?:^|.*;\s*)CandidateEmail\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+    if (userEmail.includes('@gmail.com') || candidateEmail) {
         router.push('/landing');
         return;
     }
-    fetchTableData();
 
+   
+    fetchTableData();
 });
 
 const fetchTableData = async () => {

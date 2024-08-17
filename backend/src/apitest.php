@@ -150,6 +150,13 @@ switch ($request['action']) {
                         sendJsonResponse(['error' => 'No processId specified'], 400);
                     }
                     break;
+    case 'getRegisteredCandidatesByProcess':
+        if (isset($request['processId'])) {
+            getRegisteredCandidatesByProcess($request['processId']);
+        } else {
+            sendJsonResponse(['error' => 'No processId specified'], 400);
+        }
+        break;
     case 'getCandidateReviews':
                         if (isset($request['email']) && isset($request['processId'])) {
                             getCandidateReviews($request['email'], $request['processId']);
@@ -160,6 +167,35 @@ switch ($request['action']) {
     case 'listJobCategories':
                             listJobCategories();
                             break;
+    case 'addJobProcess':
+        if (isset($request['job_category'], $request['job_title'], $request['job_details'], $request['workplace_type'], $request['job_type'], $request['linkedin_url'], $request['role_description'], $request['responsibilities'], $request['preferred_certifications'], $request['qualifications'], $request['salary_range'])) {
+            addJobProcess($request['job_category'], $request['job_title'], $request['job_details'], $request['workplace_type'], $request['job_type'], $request['linkedin_url'], $request['role_description'], $request['responsibilities'], $request['preferred_certifications'], $request['qualifications'], $request['salary_range']);
+        } else {
+            sendJsonResponse(['error' => 'Missing required fields'], 400);
+        }
+        break;
+    
+        case 'updateJobProcess':
+            if (isset($request['id'], $request['job_category'], $request['job_title'], $request['job_details'], $request['workplace_type'], $request['job_type'], $request['linkedin_url'], $request['role_description'], $request['responsibilities'], $request['preferred_certifications'], $request['qualifications'], $request['salary_range'], $request['enabled'])) {
+                updateJobProcess(
+                    $request['id'], 
+                    $request['job_category'], 
+                    $request['job_title'], 
+                    $request['job_details'], 
+                    $request['workplace_type'], 
+                    $request['job_type'], 
+                    $request['linkedin_url'], 
+                    $request['role_description'], 
+                    $request['responsibilities'], 
+                    $request['preferred_certifications'], 
+                    $request['qualifications'], 
+                    $request['salary_range'], 
+                    $request['enabled']
+                );
+            } else {
+                sendJsonResponse(['error' => 'Missing required fields'], 400);
+            }
+            break;
                         
     case 'addJobCategory':
                                 if (isset($request['category_name'])) {
@@ -967,6 +1003,40 @@ function getCandidatesByProcess($processId) {
     $stmt->close();
     $mysqli->close();
 }
+
+// Function to get candidate names and emails by process with Status registered
+function getRegisteredCandidatesByProcess($processId) {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $stmt = $mysqli->prepare("
+        SELECT cp.name, cp.email
+        FROM candidate_profiles cp
+        JOIN candidate_review cr ON cp.email = cr.email
+        WHERE cr.Process = ? AND cr.interview = 'Registration'
+    ");
+    $stmt->bind_param('i', $processId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $candidates = [];
+        while ($row = $result->fetch_assoc()) {
+            $candidates[] = $row;
+        }
+        sendJsonResponse($candidates);
+    } else {
+        sendJsonResponse(['error' => 'No candidates found for the specified process'], 404);
+    }
+
+    $stmt->close();
+    $mysqli->close();
+}
+
 
 // Function to get candidate reviews by email and process ID
 function getCandidateReviews($email, $processId) {
@@ -2618,6 +2688,50 @@ function getEnrollmentStatus($email) {
         sendJsonResponse(['percentage' => $percentage . '%']);
     } else {
         sendJsonResponse(['error' => 'No enrollments found for the specified email'], 404);
+    }
+
+    $stmt->close();
+    $mysqli->close();
+}
+function addJobProcess($jobCategory, $jobTitle, $jobDetails, $workplaceType, $jobType, $linkedinUrl, $roleDescription, $responsibilities, $preferredCertifications, $qualifications, $salaryRange) {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $postDate = date('Y-m-d');
+    $enabled = 1;
+
+    $stmt = $mysqli->prepare("INSERT INTO job_postings (job_category, job_title, job_details, Workplace_type, job_type, linkedin_url, role_description, responsibilities, preferred_certifications, qualifications, salary_range, post_date, enabled) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param('ssssssssssssi', $jobCategory, $jobTitle, $jobDetails, $workplaceType, $jobType, $linkedinUrl, $roleDescription, $responsibilities, $preferredCertifications, $qualifications, $salaryRange, $postDate, $enabled);
+
+    if ($stmt->execute()) {
+        sendJsonResponse(['success' => true, 'id' => $stmt->insert_id]);
+    } else {
+        sendJsonResponse(['error' => 'Failed to add job process'], 500);
+    }
+
+    $stmt->close();
+    $mysqli->close();
+}
+
+function updateJobProcess($id, $jobCategory, $jobTitle, $jobDetails, $workplaceType, $jobType, $linkedinUrl, $roleDescription, $responsibilities, $preferredCertifications, $qualifications, $salaryRange, $enabled) {
+    global $config;
+    $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
+
+    if ($mysqli->connect_error) {
+        sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
+    }
+
+    $stmt = $mysqli->prepare("UPDATE job_postings SET job_category = ?, job_title = ?, job_details = ?, Workplace_type = ?, job_type = ?, linkedin_url = ?, role_description = ?, responsibilities = ?, preferred_certifications = ?, qualifications = ?, salary_range = ?, enabled = ? WHERE id = ?");
+    $stmt->bind_param('sssssssssssii', $jobCategory, $jobTitle, $jobDetails, $workplaceType, $jobType, $linkedinUrl, $roleDescription, $responsibilities, $preferredCertifications, $qualifications, $salaryRange, $enabled, $id);
+
+    if ($stmt->execute()) {
+        sendJsonResponse(['success' => true]);
+    } else {
+        sendJsonResponse(['error' => 'Failed to update job process'], 500);
     }
 
     $stmt->close();

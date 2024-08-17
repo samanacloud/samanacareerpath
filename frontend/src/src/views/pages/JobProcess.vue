@@ -3,14 +3,142 @@ import { ref, onBeforeMount } from 'vue';
 import axios from 'axios';
 import { FilterMatchMode } from 'primevue/api';
 import Button from 'primevue/button';
+import { useToast } from 'primevue/usetoast';
 import Rating from 'primevue/rating';
 import Tag from 'primevue/tag';
 import { useRouter } from 'vue-router'; // Add this line
+import Tooltip from 'primevue/tooltip';
 
-// Function to get the base URL
-const baseURL = import.meta.env.VITE_SITE_URL 
-    ? `https://${import.meta.env.VITE_SITE_URL}` // Use https if VITE_SITE_URL is defined
-    : 'http://localhost:8080'; // Use localhost for development
+
+const toast = useToast();
+
+// Add Job Process
+const showAddDialog = ref(false); // Add this line
+
+
+const newJob = ref({
+  job_category: '',
+  job_title: '',
+  job_details: '',
+  workplace_type: '',
+  job_type: '',
+  salary_range: '',
+  role_description: '',
+  responsibilities: '',
+  preferred_certifications: '',
+  qualifications: '',
+  linkedin_url: '',
+  post_date: new Date().toISOString().slice(0, 10), // Add this line
+  enabled: 1
+});
+
+const jobCategories = [
+  { label: 'Consulting Services', value: 'Consulting Services' },
+  { label: 'VDI Managed Services', value: 'VDI Managed Services' },
+  { label: 'Administrative Role', value: 'Administrative Role' },
+  { label: 'Other', value: 'Other' }
+];
+
+const jobTypes = [
+  { label: 'Full-Time', value: 'Full-Time' },
+  { label: 'Partial Time', value: 'Partial Time' },
+  { label: 'Half Time', value: 'Half Time' },
+  { label: 'On Hour Basis', value: 'On Hour Basis' }
+];
+
+const workplaceTypes = [
+  { label: 'Remote', value: 'Remote' },
+  { label: 'On Site', value: 'On Site' },
+  { label: 'Hybrid', value: 'Hybrid' }
+];
+
+const addJobProcess = async () => {
+  try {
+    const response = await axios.post(`/api/apitest`, {
+      action: 'addJobProcess',
+      job_category: newJob.value.job_category,
+      job_title: newJob.value.job_title,
+      job_details: newJob.value.job_details,
+      workplace_type: newJob.value.workplace_type,
+      job_type: newJob.value.job_type,
+      salary_range: newJob.value.salary_range,
+      role_description: newJob.value.role_description,
+      responsibilities: newJob.value.responsibilities,
+      preferred_certifications: newJob.value.preferred_certifications,
+      qualifications: newJob.value.qualifications,
+      linkedin_url: newJob.value.linkedin_url
+    });
+
+    if (response.data.success) {
+      apiResponse.value = 'Job added successfully';
+      toast.add({ severity: 'success', summary: 'Success', detail: 'Job added successfully.', life: 3000 });
+
+      await listJobPostings(); // Refresh job list after successful update
+      showAddDialog.value = false; // Close the dialog
+    } else {
+      
+      toast.add({ severity: 'error', summary: 'Error adding job', detail: error, life: 3000 });
+    }
+  } catch (error) {
+    console.error('Error adding job:', error);
+    toast.add({ severity: 'error', summary: 'Error adding job', detail: error, life: 3000 });
+    apiResponse.value = 'Error: ' + error.message;
+  }
+};
+
+
+
+// Update Job Posting
+const showEditDialog = ref(false);
+const isEditing = ref(false);  // Correctly define the isEditing variable
+const editJob = (job) => {
+  selectedJob.value = { ...job };
+  showEditDialog.value = true;
+};
+
+
+
+
+isEditing.value = false; // Exit edit mode
+const updateJob = async () => {
+  try {
+    const response = await axios.post(`/api/apitest`, {
+      action: 'updateJobProcess',  // Ensure this is your correct action name
+      id: selectedJob.value.id,
+      job_category: selectedJob.value.job_category,
+      job_title: selectedJob.value.job_title,
+      job_details: selectedJob.value.job_details,
+      workplace_type: selectedJob.value.Workplace_type,
+      job_type: selectedJob.value.job_type,
+      linkedin_url: selectedJob.value.linkedin_url,
+      role_description: selectedJob.value.role_description,
+      responsibilities: selectedJob.value.responsibilities,
+      preferred_certifications: selectedJob.value.preferred_certifications,
+      qualifications: selectedJob.value.qualifications,
+      salary_range: selectedJob.value.salary_range,
+      enabled: selectedJob.value.enabled // Add the enabled field here
+    });
+
+    if (response.data.success) {
+      toast.add({ severity: 'success', summary: 'Success', detail: 'Job updated successfully.', life: 3000 });
+      await listJobPostings(); // Refresh job list after successful update
+      showEditDialog.value = false; // Close the dialog
+    } else {
+      toast.add({ severity: 'error', summary: 'Error updating job', detail: 'Failed to update job.', life: 3000 });
+    }
+  } catch (error) {
+    console.error('Error updating job:', error);
+    toast.add({ severity: 'error', summary: 'Error updating job', detail: error.message, life: 3000 });
+  }
+};
+
+
+
+
+
+
+
+
 
 // Initialize the router instance
 const router = useRouter(); // Add this line
@@ -32,8 +160,9 @@ const filters = ref({
 });
 const selectedJob = ref(null);
 const enrolledCandidates = ref([]);
+const registeredCandidates = ref([]);
 const candidateReviews = ref({});
-const isEditing = ref(false);
+
 const idFrozen = ref(false); // Add this line for dynamic toggling
 
 // Helper method to extract initials from a name
@@ -55,7 +184,7 @@ const groupReviewsByInterviewType = (reviews) => {
 // Fetch Job Postings
 const listJobPostings = async () => {
   try {
-    const response = await axios.post(`${baseURL}/api/apitest.php`, {
+    const response = await axios.post(`/api/apitest`, {
       action: 'listJobPostings'
     });
     jobs.value = Array.isArray(response.data) ? response.data : [response.data];
@@ -68,12 +197,13 @@ const listJobPostings = async () => {
 // Fetch Job Details by ID
 const fetchJobDetails = async (id) => {
   try {
-    const response = await axios.post(`${baseURL}/api/apitest.php`, {
+    const response = await axios.post(`/api/apitest`, {
       action: 'jobDetails',
       id: id
     });
     selectedJob.value = response.data;
     fetchEnrolledCandidates(id); // Fetch enrolled candidates when job details are fetched
+    fetchRegisteredCandidates(id); // Fetch registered candidates when job details are fetched
   } catch (error) {
     console.error('Error fetching job details:', error);
     selectedJob.value = null;
@@ -83,7 +213,7 @@ const fetchJobDetails = async (id) => {
 // Fetch Enrolled Candidates by Process ID
 const fetchEnrolledCandidates = async (processId) => {
   try {
-    const response = await axios.post(`${baseURL}/api/apitest.php`, {
+    const response = await axios.post(`/api/apitest`, {
       action: 'getCandidatesByProcess',
       processId: processId
     });
@@ -97,11 +227,25 @@ const fetchEnrolledCandidates = async (processId) => {
     enrolledCandidates.value = [];
   }
 };
+// Fetch Enrolled Candidates by Process ID
+const fetchRegisteredCandidates = async (processId) => {
+  try {
+    const response = await axios.post(`/api/apitest`, {
+      action: 'getRegisteredCandidatesByProcess',
+      processId: processId
+    });
+    registeredCandidates.value = response.data;
+ 
+  } catch (error) {
+    console.error('Error fetching enrolled candidates:', error);
+    registeredCandidates.value = [];
+  }
+};
 
 // Fetch Candidate Reviews by Email and Process ID
 const fetchCandidateReviews = async (email, processId) => {
   try {
-    const response = await axios.post(`${baseURL}/api/apitest.php`, {
+    const response = await axios.post(`/api/apitest`, {
       action: 'getCandidateReviews',
       email: email,
       processId: processId
@@ -113,35 +257,7 @@ const fetchCandidateReviews = async (email, processId) => {
   }
 };
 
-// Toggle Edit Mode
-const toggleEditMode = () => {
-  isEditing.value = !isEditing.value;
-  if (!isEditing.value) {
-    fetchJobDetails(selectedJob.value.id); // Reload original data when exiting edit mode
-  }
-};
 
-// Update Job
-const updateJob = async () => {
-  try {
-    const response = await axios.post(`${baseURL}/api/apitest.php`, {
-      action: 'updateJob',
-      jobData: selectedJob.value // Send the updated selectedJob object
-    });
-
-    if (response.data.success) {
-      apiResponse.value = 'Job updated successfully';
-      isEditing.value = false; // Exit edit mode
-      listJobPostings(); // Refresh job list
-    } else {
-      apiResponse.value = 'Error updating job';
-      // Handle errors or display an error message to the user
-    }
-  } catch (error) {
-    console.error('Error updating job:', error);
-    apiResponse.value = 'Error: ' + error.message;
-  }
-};
 
 // Correct the viewProfileDetails function
 const viewProfileDetails = (email) => {
@@ -158,6 +274,8 @@ onBeforeMount(listJobPostings);
     <div class="col-12">
       <div class="card">
         <h5>Jobs Process</h5>
+        <Button label="Add New Job Process" icon="pi pi-plus" class="mb-3" @click="showAddDialog = true" />
+
         <div>
           <DataTable
             :value="jobs"
@@ -175,14 +293,16 @@ onBeforeMount(listJobPostings);
               filter 
               filterPlaceholder="Select status" 
               :filterOptions="statusFilterOptions">
-                <template #body="slotProps">
-                    <span v-if="slotProps.data.enabled === 1" class="badge badge-success">Open</span>
-                    <span v-else class="badge badge-danger">Closed</span>
-                </template>
+              <template #body="slotProps">
+                  <span v-if="Number(slotProps.data.enabled) === 1" class="badge badge-success">Open</span>
+                  <span v-else class="badge badge-danger">Closed</span>
+              </template>
             </Column>
             <Column header="Actions" bodyStyle="text-align: center;">
               <template #body="slotProps">
-                <Button icon="pi pi-search" severity="success" text outlined raised @click="fetchJobDetails(slotProps.data.id)" />
+                <Button icon="pi pi-search" severity="success" text outlined raised @click="fetchJobDetails(slotProps.data.id)"  v-tooltip="'View Job Details'"/>
+                <Button icon="pi pi-pencil" severity="info" text outlined raised @click="editJob(slotProps.data)" v-tooltip="'Edit Job Details'" style="margin-left: 5px;"/>
+
               </template>
             </Column>
           </DataTable>
@@ -197,39 +317,14 @@ onBeforeMount(listJobPostings);
           <span v-if="selectedJob.enabled === 1" class="badge badge-success">Open</span>
           <span v-else class="badge badge-danger">Closed</span>
         </div>
-        <div v-if="isEditing">
-          <div class="p-3">
-            <h5>Salary Range:</h5>
-            <InputText v-model="selectedJob.salary_range" />
-            <h5>Job Type:</h5>
-            <InputText v-model="selectedJob.job_type" />
-            <h5>Workplace Type:</h5>
-            <InputText v-model="selectedJob.WorkPlace_type" />
-            <h5>Job Details:</h5>
-            <InputTextarea v-model="selectedJob.job_details" />
-            <h5>Role Description:</h5>
-            <InputTextarea v-model="selectedJob.role_description" />
-            <h5>Responsibilities:</h5>
-            <InputTextarea v-model="selectedJob.responsibilities" />
-            <h5>Qualifications:</h5>
-            <InputTextarea v-model="selectedJob.qualifications" />
-            <h5>LinkedIn URL:</h5>
-            <InputText v-model="selectedJob.linkedin_url" />
-            <h5>Enabled:</h5>
-            <Dropdown v-model="selectedJob.enabled" :options="[{label: 'Open', value: 1}, {label: 'Closed', value: 0}]" />
-          </div>
-          <div style="text-align: center;">
-            <Button label="Save" icon="pi pi-check" @click="updateJob" />
-            <Button label="Cancel" icon="pi pi-times" class="p-button-secondary" @click="toggleEditMode" />
-          </div>
-        </div>
-        <div v-else class="p-3">
+      
+        <div class="p-3">
           <h5>Salary Range:</h5>
           <p>{{ selectedJob.salary_range }}</p>
           <h5>Job Type:</h5>
           <p>{{ selectedJob.job_type }}</p>
           <h5>Workplace Type:</h5>
-          <p>{{ selectedJob.WorkPlace_type }}</p>
+          <p>{{ selectedJob.Workplace_type }}</p>
           <h5>Job Details:</h5>
           <p>{{ selectedJob.job_details }}</p>
           <h5>Role Description:</h5>
@@ -242,14 +337,14 @@ onBeforeMount(listJobPostings);
           <p><a :href="selectedJob.linkedin_url" target="_blank">{{ selectedJob.linkedin_url }}</a></p>
         </div>
         <div style="text-align: center;">
-          <Button label="Edit" icon="pi pi-pencil" @click="toggleEditMode" />
+          <Button icon="pi pi-pencil" severity="info" label="Edit Job Details" text outlined raised @click="showEditDialog = true"  v-tooltip="'Edit Job Details'"/>
         </div>
       </div>
     </div>
 
     <div class="col-12 xl:col-6" v-if="selectedJob">
       <div class="card">
-        <h5>Enrolled Candidates</h5>
+        <h5>Enrolled candidates for interview</h5>
         <div class="p-3">
           <DataTable :value="enrolledCandidates" :scrollable="true" scrollHeight="80vh" scrollDirection="both">
             <Column field="name" header="Name">
@@ -308,8 +403,154 @@ onBeforeMount(listJobPostings);
           </DataTable>
         </div>
       </div>
+      <div class="card">
+        <h5>Registered candidates for this process</h5>
+        <div class="p-3">
+          <DataTable :value="registeredCandidates" :scrollable="true" scrollHeight="80vh" scrollDirection="both">
+            <Column field="name" header="Name">
+              <template #body="slotProps">
+                <div>
+                  <b>{{ slotProps.data.name }}</b>
+                  <small style="display: block;">{{ slotProps.data.email }}</small> 
+                </div>
+              </template>
+            </Column>
+
+
+
+            <Column header="Profile Details" frozen alignFrozen="right">  
+              <template #body="slotProps">
+               <Button icon="pi pi-search" text raised outlined severity="success" @click="viewProfileDetails(slotProps.data.email)" />
+              </template>
+              </Column>
+         
+          </DataTable>
+        </div>
+      </div>
     </div>
 
+
+
+
+
+    <Dialog header="Add New Job Process" v-model:visible="showAddDialog" modal class="col-11 md:col-6">
+  <form @submit.prevent="addJobProcess">
+    <div class="formgrid grid p-fluid">
+      <div class="field col-12">
+        <label for="job_category">Job Category</label>
+        <Dropdown v-model="newJob.job_category" :options="jobCategories" optionLabel="label" optionValue="value" required />
+      </div>
+      <div class="field col-12">
+        <label for="job_title">Job Title</label>
+        <InputText v-model="newJob.job_title" required />
+      </div>
+      <div class="field col-12">
+        <label for="job_type">Job Type</label>
+        <Dropdown v-model="newJob.job_type" :options="jobTypes" optionLabel="label" optionValue="value" required />
+      </div>
+      <div class="field col-12">
+        <label for="workplace_type">Workplace Type</label>
+        <Dropdown v-model="newJob.workplace_type" :options="workplaceTypes" optionLabel="label" optionValue="value" required />
+      </div>
+      <div class="field col-12">
+        <label for="salary_range">Salary Range</label>
+        <InputText v-model="newJob.salary_range" required />
+      </div>
+      <div class="field col-12">
+        <label for="job_details">Job Details</label>
+        <Textarea v-model="newJob.job_details" autoResize required />
+      </div>
+      <div class="field col-12">
+        <label for="role_description">Role Description</label>
+        <Textarea v-model="newJob.role_description" autoResize required />
+      </div>
+      <div class="field col-12">
+        <label for="responsibilities">Responsibilities</label>
+        <Textarea v-model="newJob.responsibilities" autoResize required />
+      </div>
+      <div class="field col-12">
+        <label for="preferred_certifications">Preferred Certifications</label>
+        <Textarea v-model="newJob.preferred_certifications" autoResize required />
+      </div>
+      <div class="field col-12">
+        <label for="qualifications">Qualifications</label>
+        <Textarea v-model="newJob.qualifications" autoResize required />
+      </div>
+      <div class="field col-12">
+        <label for="linkedin_url">LinkedIn URL</label>
+        <InputText v-model="newJob.linkedin_url" />
+      </div>
+    </div>
+    <Button label="Submit" type="submit" class="w-full mt-3" />
+  </form>
+</Dialog>
+<Dialog header="Edit Job Process" v-model:visible="showEditDialog" modal class="col-11 md:col-6">
+  <form @submit.prevent="updateJob">
+    <div class="formgrid grid p-fluid">
+
+      <div class="field col-12  md:col-8">
+        <label for="job_title">Job Title</label>
+        <InputText v-model="selectedJob.job_title" required />
+      </div>
+      <div class="field col-12 md:col-4">
+        <label for="linkedin_url">Status</label>
+        <Dropdown 
+          v-model="selectedJob.enabled" 
+          :options="[
+            { label: 'Open', value: 1 }, 
+            { label: 'Closed', value: 0 }
+          ]" 
+          optionLabel="label" 
+          optionValue="value" 
+          placeholder="Select Status"
+        />
+       </div>
+      <div class="field col-12  md:col-6">
+        <label for="job_category">Job Category</label>
+        <Dropdown v-model="selectedJob.job_category" :options="jobCategories" optionLabel="label" optionValue="value" required />
+      </div>
+      <div class="field col-12  md:col-6">
+        <label for="job_type">Job Type</label>
+        <Dropdown v-model="selectedJob.job_type" :options="jobTypes" optionLabel="label" optionValue="value" required />
+      </div>
+      <div class="field col-12 md:col-6">
+        <label for="workplace_type">Workplace Type</label>
+        <Dropdown v-model="selectedJob.workplace_type" :options="workplaceTypes" optionLabel="label" optionValue="value" required />
+      </div>
+      <div class="field col-12 md:col-6">
+        <label for="salary_range">Salary Range</label>
+        <InputText v-model="selectedJob.salary_range" required />
+      </div>
+      <div class="field col-12">
+        <label for="job_details">Job Details</label>
+        <textarea v-model="selectedJob.job_details" class="p-inputtext p-component" rows="4" required></textarea>
+      </div>
+      <div class="field col-12">
+        <label for="role_description">Role Description</label>
+        <textarea v-model="selectedJob.role_description" class="p-inputtext p-component" rows="4" required></textarea>
+      </div>
+      <div class="field col-12">
+        <label for="responsibilities">Responsibilities</label>
+        <textarea v-model="selectedJob.responsibilities" class="p-inputtext p-component" rows="4" required></textarea>
+      </div>
+      <div class="field col-12">
+        <label for="preferred_certifications">Preferred Certifications</label>
+        <textarea v-model="selectedJob.preferred_certifications" class="p-inputtext p-component" rows="4" required></textarea>
+      </div>
+      <div class="field col-12">
+        <label for="qualifications">Qualifications</label>
+        <textarea v-model="selectedJob.qualifications" class="p-inputtext p-component" rows="4" required></textarea>
+      </div>
+      <div class="field col-12">
+        <label for="linkedin_url">LinkedIn URL</label>
+        <InputText v-model="selectedJob.linkedin_url" />
+      </div>
+
+    </div>
+    <Button label="Save" type="submit" class="w-full mt-3" />
+  </form>
+</Dialog>
+<Toast />
   </div>
 </template>
 

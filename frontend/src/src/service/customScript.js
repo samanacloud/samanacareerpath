@@ -1,47 +1,75 @@
-// src/service/customScript.js
-
 import axios from 'axios';
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { useToast } from 'primevue/usetoast';
 
-export function useApiFunctions(baseURL) {
-    const toast = useToast();
-    const apiResponse = ref('');
-    const router = useRouter();
-    
-    const fetchData = async (action, payload = {}) => {
-        try {
-            const response = await axios.post(`${baseURL}/api/apitest.php`, { action, ...payload });
-            return response.data;
-        } catch (error) {
-            apiResponse.value = 'Error: ' + error.message;
-            toast.add({ severity: 'error', summary: 'Error', detail: error.message, life: 3000 });
-            throw error;
-        }
+
+export async function uploadToAWSS3(file, type, email) {
+    // Check the file type based on the provided 'type'
+    const allowedFileTypes = {
+        CVs: ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
+        feedback: ['image/jpeg', 'image/png', 'image/gif'],
+        images: ['image/jpeg', 'image/png', 'image/gif'],
     };
 
-    const showToast = (severity, summary, detail, life = 3000) => {
-        toast.add({ severity, summary, detail, life });
-    };
+    // Set maximum file size based on the type
+    const maxFileSize = type === 'CVs' ? 10000000 : 5000000;
 
-    const validateSession = async () => {
-        try {
-            const response = await axios.get(`${baseURL}/api/check_session.php`);
-            if (!response.data.valid) {
-                showToast('warn', 'Session Expired', 'Your session has expired. Redirecting to login page.');
-                router.push('/auth/login');
+    if (!allowedFileTypes[type].includes(file.type)) {
+        return { success: false, message: "Invalid file type. Please upload a valid file." };
+    }
+
+    if (file.size > maxFileSize) {
+        return { success: false, message: `File size exceeds the limit. Maximum allowed size is ${maxFileSize / 1000000} MB.` };
+    }
+
+    const reader = new FileReader();
+
+    return new Promise((resolve, reject) => {
+        reader.onload = async () => {
+            const fileBase64 = reader.result.split(',')[1]; // Get base64 without the prefix
+
+            try {
+                const response = await axios.post('/api/upload_file_api.php', {
+                    file: fileBase64,
+                    folder: type,
+                    email: email,
+                    fileName: file.name,
+                });
+
+                if (response.data && response.data.url) {
+                    resolve({ success: true, url: response.data.url }); // Return success and the uploaded file URL
+                } else {
+                    resolve({ success: false, message: 'Upload failed.' }); // Return failure message
+                }
+            } catch (error) {
+                console.error('Upload error:', error);
+                resolve({ success: false, message: 'An error occurred during file upload.' }); // Return failure message
             }
-        } catch (error) {
-            showToast('error', 'Error', 'Failed to validate session.');
-            router.push('/auth/login');
-        }
-    };
+        };
 
-    return {
-        apiResponse,
-        fetchData,
-        showToast,
-        validateSession,
-    };
+        reader.onerror = (error) => {
+            console.error('File reading error:', error);
+            reject({ success: false, message: 'Failed to read the file' }); // Return failure message
+        };
+
+        reader.readAsDataURL(file);
+    });
+}
+
+
+
+export async function sendSlackNotification(message, channel) {
+    try {
+        const response = await axios.post('/api/slackProxy', {
+            message: message,
+            channel: channel
+        });
+
+        if (response.data && response.data.ok) {
+            return { success: true };
+        } else {
+            return { success: false, message: response.data.error || 'Failed to send message to Slack' };
+        }
+    } catch (error) {
+        console.error('Slack notification error:', error);
+        return { success: false, message: 'An error occurred while sending the Slack notification.' };
+    }
 }

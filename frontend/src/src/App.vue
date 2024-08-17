@@ -55,17 +55,21 @@ const checkTokenAndRefresh = () => {
 const logoutUser = () => {
     const candidateToken = document.cookie.split('; ').find(row => row.startsWith('candidateToken='));
     const userEmail = document.cookie.split('; ').find(row => row.startsWith('UserEmail='));
+    const candidateEmail = document.cookie.split('; ').find(row => row.startsWith('CandidateEmail='));
 
     sessionStorage.clear();
 
-    if (!userEmail) {
-        router.push('/auth/logoutcandidate');
-    } else if (candidateToken) {
+    const userEmailValue = userEmail ? userEmail.split('=')[1] : '';
+    const candidateEmailValue = candidateEmail ? candidateEmail.split('=')[1] : '';
+
+    if (userEmailValue.includes('@gmail.com') || candidateEmailValue.includes('@gmail.com')) {
         router.push('/auth/logoutcandidate');
     } else {
         router.push('/auth/logout');
     }
 };
+
+
 // Set up activity tracking and token refresh logic
 onMounted(() => {
 

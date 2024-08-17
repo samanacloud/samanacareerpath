@@ -6,6 +6,8 @@ import Knob from 'primevue/knob';
 import { ref, onMounted, watch } from 'vue';
 import Button from 'primevue/button';
 import { useRouter } from 'vue-router';
+import { sendSlackNotification } from '../../service/customScript';
+
 
 export default {
     setup() {
@@ -126,6 +128,10 @@ export default {
         handleStepToggle(step, isCompleted) {
             this.setEmployeeStep(this.employeeEmail, step, isCompleted ? 1 : 0);
             this.fetchEnrollmentStatus(); // Ensure the second knob updates when toggling steps
+            if (step === 13 && isCompleted) {
+            const message = `The Employee ${this.employeeEmail} has successfully completed the Onboarding Process.`;
+            sendSlackNotification(message, "#samana-careerpath");
+    }
         },
         fetchEnrollmentStatus() {
             fetch('/api/apitest.php', {

@@ -141,6 +141,11 @@ const router = createRouter({
                     component: () => import('@/views/utilities/Documentation.vue')
                 },
                 {
+                    path: '/slacktest',
+                    name: 'slacktest',
+                    component: () => import('@/views/pages/SlackTest.vue')
+                },
+                {
                     path: '/terms',
                     name: 'terms',
                     component: () => import('@/views/pages/TermsOfService.vue')

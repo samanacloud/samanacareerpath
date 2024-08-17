@@ -7,6 +7,7 @@ const fileInput = ref(null);
 const loading = ref(false);
 const uploadedUrl = ref(null);
 const toast = useToast();
+const selectedType = ref('CVs'); // Default selected type
 
 const uploadFile = async () => {
     if (!fileInput.value.files.length) {
@@ -19,7 +20,7 @@ const uploadFile = async () => {
 
     reader.onload = async () => {
         const fileBase64 = reader.result.split(',')[1]; // Get base64 without the prefix
-        const folder = 'CVs';
+        const folder = selectedType.value;
         const email = document.cookie.split('; ').find(row => row.startsWith('userEmail=')).split('=')[1];
 
         try {
@@ -48,6 +49,14 @@ const uploadFile = async () => {
         <div class="col-12 md:col-6">
             <div class="card">
                 <h5>AWS S3 File Upload</h5>
+                <div class="field">
+                    <label for="uploadType">Select Upload Type:</label>
+                    <select id="uploadType" v-model="selectedType" class="w-full">
+                        <option value="CVs">CVs</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="images">Images</option>
+                    </select>
+                </div>
                 <div class="field">
                     <input type="file" ref="fileInput" accept="*" class="w-full" />
                 </div>

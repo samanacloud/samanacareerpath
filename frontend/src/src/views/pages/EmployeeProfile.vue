@@ -9,6 +9,8 @@ import { useToast } from 'primevue/usetoast';
 import { useConfirm } from "primevue/useconfirm";
 import Timeline from 'primevue/timeline';
 import Card from 'primevue/card';
+import { uploadToAWSS3 } from '@/service/customScript';
+
 
 //redirects to unauthorized if the user role is lower than the pagerole
 import { getPageAuthorization } from '@/utils/utils';
@@ -105,15 +107,15 @@ const updateEmployeeProfile = async () => {
             ...employee.value
         });
         if (response.data.success) {
-            toast.add({ severity: 'success', summary: 'Success', detail: 'Employee updated successfully' });
+            toast.add({ severity: 'success', summary: 'Success', detail: 'Employee updated successfully', life: 3000 });
             isEdit.value = false;
             originalEmployee.value = { ...employee.value };
         } else {
-            toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to update employee' });
+            toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to update employee', life: 3000  });
         }
     } catch (error) {
         console.error('Error updating employee profile:', error.message);
-        toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to update employee' });
+        toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to update employee', life: 3000  });
     }
 };
 
@@ -200,16 +202,16 @@ const addCertificationToEmployee = async (certification) => {
             date: new Date().toISOString().split('T')[0] // Current date in YYYY-MM-DD format
         });
         if (response.data.success) {
-            toast.add({ severity: 'success', summary: 'Success', detail: 'Certification added successfully' });
+            toast.add({ severity: 'success', summary: 'Success', detail: 'Certification added successfully', life: 3000  });
             getEmployeeCertifications(); // Refresh certifications
 
             // Optionally, refresh the list of employee certifications here
         } else {
-            toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to add certification' });
+            toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to add certification', life: 3000  });
         }
     } catch (error) {
         console.error('Error adding certification:', error.message);
-        toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to add certification' });
+        toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to add certification', life: 3000  });
     }
 };
 
@@ -242,15 +244,15 @@ const deleteCertification = async (certificationId) => {
                     id: certificationId
                 });
                 if (response.data.success) {
-                    toast.add({ severity: 'success', summary: 'Success', detail: 'Certification deleted successfully' });
+                    toast.add({ severity: 'success', summary: 'Success', detail: 'Certification deleted successfully', life: 3000  });
                     
                     getEmployeeCertifications(); 
                 } else {
-                    toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to delete certification' });
+                    toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to delete certification', life: 3000  });
                 }
             } catch (error) {
                 console.error('Error deleting certification:', error.message);
-                toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to delete certification' });
+                toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to delete certification', life: 3000  });
             }
         },
         reject: () => {
@@ -259,7 +261,29 @@ const deleteCertification = async (certificationId) => {
     });
 };
 
+// function to update the profile picture and upload it to AWS S3
+const loadingProfilePhoto = ref(false);
 
+const onUploadProfilePhoto = async (event) => {
+    const file = event.files[0];
+    if (!file) {
+        toast.add({ severity: 'warn', summary: 'No File Selected', detail: 'Please select a file to upload.', life: 3000 });
+        return;
+    }
+
+    loadingProfilePhoto.value = true;
+
+    const result = await uploadToAWSS3(file, 'images', employee.value.primaryEmail);
+
+    loadingProfilePhoto.value = false;
+
+    if (result && result.success) {
+        employee.value.thumbnailPhotoURL = result.url; // Update the employee's photo URL
+        toast.add({ severity: 'success', summary: 'Upload Successful', detail: 'Profile photo uploaded successfully.', life: 3000 });
+    } else {
+        toast.add({ severity: 'error', summary: 'Upload Failed', detail: result.message, life: 3000 });
+    }
+};
 </script>
 
 <template>
@@ -288,6 +312,16 @@ const deleteCertification = async (certificationId) => {
                         <div class="field">
                             <label for="thumbnailPhotoURL">Profile Photo</label>
                             <img :src="employee.thumbnailPhotoURL || defaultProfileImage" alt="Profile Photo" class="profile-photo" />
+                            <FileUpload 
+                                mode="basic" 
+                                name="profile_photo" 
+                                accept="image/*" 
+                                :maxFileSize="5000000" 
+                                @select="(event) => onUploadProfilePhoto(event)" 
+                                customUpload 
+                                chooseLabel="Upload Photo"
+                            />
+                            <ProgressSpinner v-if="loadingProfilePhoto" style="width: 40px; height: 40px;" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s" />
                         </div>
                         <div class="field">
                             <label for="companyRole">Company Role</label>

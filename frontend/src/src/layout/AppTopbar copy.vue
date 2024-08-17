@@ -14,8 +14,6 @@ import ProgressSpinner from 'primevue/progressspinner';
 import Badge from 'primevue/badge';
 import Tooltip from 'primevue/tooltip';
 import Toast from 'primevue/toast';
-import { uploadToAWSS3 } from '@/service/customScript';
-
 
 const { layoutConfig, onMenuToggle } = useLayout();
 const $primevue = usePrimeVue();
@@ -142,20 +140,8 @@ const handleFeedbackSubmit = async () => {
         const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
 
         if (blob) {
-            const sessionEmail = getUserEmailFromCookie();
-            const currentDateTime = new Date().toISOString().replace(/T/, '_').replace(/:/g, '-').split('.')[0];
-            const fileName = `screenshot_${sessionEmail}_${currentDateTime}.png`;
-
-            const file = new File([blob], fileName, { type: 'image/png' });
-            
-            const result = await uploadToAWSS3(file, 'feedback', fileName);
-
-            if (result && result.success) {
-                uploadUrl.value = result.url;
-                await submitFeedback(uploadUrl.value);
-            } else {
-                throw new Error('Upload failed.');
-            }
+            uploadUrl.value = await uploadToGoogleDrive(blob, getAuthToken());
+            await submitFeedback(uploadUrl.value);
         }
     } catch (error) {
         console.error('Error capturing and uploading screenshot:', error);
@@ -253,7 +239,7 @@ const toggleFeedbackOverlay = (event) => {
         <router-link to="/" class="layout-topbar-logo">
             <img :src="logoUrl" alt="logo" class="logo-image" />
             <div class="app-title">
-                <span class="app-title">Samana CareerPath <small class="version-text">0.7 B</small></span>
+                <span class="app-title">Samana CareerPath <small class="version-text">0.65 B</small></span>
             </div>
         </router-link>
 
