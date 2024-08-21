@@ -52,7 +52,7 @@ const filteredEmployeesList = computed(() => {
 // Function to fetch enrollment status for a specific employee
 const fetchEnrollmentStatus = async (email) => {
   try {
-    const response = await axios.post(`/api/apitest`, {
+    const response = await axios.post(`/api/api`, {
       action: 'getEnrollmentStatus',
       email: email
     });
@@ -68,7 +68,7 @@ const fetchEnrollmentStatus = async (email) => {
 
 const listEmployees = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'listEmployees'
         });
         employeesList.value = response.data;
@@ -106,7 +106,7 @@ const editEmployee = (employeeData) => {
 
 const deleteEmployee = async (employeeId) => {
     try {
-        await axios.post(`/api/apitest`, {
+        await axios.post(`/api/api`, {
             action: 'deleteEmployee',
             id: employeeId
         });
@@ -151,7 +151,7 @@ const saveEmployee = async () => {
             delete employeePayload.id;
         }
 
-        await axios.post(`/api/apitest`, employeePayload);
+        await axios.post(`/api/api`, employeePayload);
         toast.add({ severity: 'success', summary: 'Success', detail: `Employee ${isEdit.value ? 'updated' : 'added'} successfully` });
         employeeDialog.value = false;
         listEmployees();

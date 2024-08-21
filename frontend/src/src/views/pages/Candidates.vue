@@ -41,7 +41,7 @@ const filteredCandidatesList = computed(() => {
 
 const listCandidateProfiles = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'listCandidateProfiles'
         });
         candidatesList.value = response.data;
@@ -72,7 +72,7 @@ const openEditDialog = (candidate) => {
 
 const updateCandidate = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'updateCandidate',
             id: editedCandidate.value.id,
             name: editedCandidate.value.name,
@@ -146,7 +146,7 @@ const defaultProfileImage = ref(null);
 // Load the default profile image path (e.g., from environmental variables)
 onBeforeMount(async () => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'getDefaultProfileImage'
         });
         defaultProfileImage.value = response.data; 

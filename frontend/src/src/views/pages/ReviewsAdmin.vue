@@ -42,7 +42,7 @@ onMounted(fetchReviews);
 
 async function fetchReviews() {
     try {
-        const response = await axios.post(`/api/apitest`, { action: 'listAllReviews' });
+        const response = await axios.post(`/api/api`, { action: 'listAllReviews' });
         reviews.value = response.data;
     } catch (error) {
         console.error("Error fetching reviews:", error);
@@ -79,7 +79,7 @@ async function handleAddOrEdit() {
     };
 
     try {
-        const response = await axios.post(`/api/apitest`, payload);
+        const response = await axios.post(`/api/api`, payload);
 
         if (response.data.success) {
             toast.add({ severity: 'success', summary: 'Success', detail: 'Review saved!', life: 3000 });
@@ -96,7 +96,7 @@ async function handleAddOrEdit() {
 
 async function handleDelete(id) {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'deleteEmployeeReview',
             id: id,
         });

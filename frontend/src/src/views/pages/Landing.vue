@@ -424,7 +424,7 @@ const updateCandidateProfile = async () => {
         style="background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), radial-gradient(77.36% 256.97% at 77.36% 57.52%, rgb(238, 239, 175) 0%, rgb(195, 227, 250) 100%); clip-path: ellipse(150% 87% at 93% 13%)"
     >
         <div class="mx-4 md:mx-8 mt-0 md:mt-4">
-            <h1 class="text-6xl font-bold text-gray-900 line-height-2"><span class="font-light block">Welcome to</span>SamanaGroup Jobs Portal</h1>
+            <h3 class="text-6xl font-bold text-gray-900 line-height-2"><span class="font-light block">Welcome to</span>Samana CareerPath</h3>
             <p class="font-normal text-2xl line-height-3 md:mt-3 text-gray-700">Discover top job opportunities that align with your skills and career goals. Join our team of experts in Cloud Computing and Managed Services technologies.</p>
             <br> <br> <br> <br>   
         </div>

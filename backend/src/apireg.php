@@ -61,36 +61,36 @@ switch ($request['action']) {
             sendJsonResponse(['error' => 'No Email specified'], 400);
         }
         break;
-    case 'listUsers':
-        listUsers();
-        break;
+   // case 'listUsers':
+    //    listUsers();
+    //    break;
     
     case 'getOverallInfo':
             getOverallInfo();
             break;
     // Test database connection
-    case 'testDbConnection':
-        testDbConnection();
-        break;
+   // case 'testDbConnection':
+   //     testDbConnection();
+   //     break;
     
-    case 'listCandidateProfiles':
-            listCandidateProfiles();
-            break;
+  //  case 'listCandidateProfiles':
+ //           listCandidateProfiles();
+ //           break;
 
-    case 'listCandidateSkillsets':
-            if (isset($request['email'])) {
-                listCandidateSkillsets($request['email']);
-            } else {
-                sendJsonResponse(['error' => 'No email specified'], 400);
-            }
-            break;
-   case 'listCandidateReviews':
-            if (isset($request['email'])) {
-                listCandidateReviews($request['email']);
-           } else {
-                 sendJsonResponse(['error' => 'No email specified'], 400);
-            }
-            break;
+//    case 'listCandidateSkillsets':
+ //           if (isset($request['email'])) {
+ //               listCandidateSkillsets($request['email']);
+ //           } else {
+  //              sendJsonResponse(['error' => 'No email specified'], 400);
+  //          }
+   //         break;
+  // case 'listCandidateReviews':
+  //          if (isset($request['email'])) {
+  //              listCandidateReviews($request['email']);
+   //        } else {
+  //               sendJsonResponse(['error' => 'No email specified'], 400);
+   //         }
+  //          break;
     case 'listCandidateRegistrations':
         if (isset($request['email'])) {
             listCandidateRegistrations($request['email']);
@@ -149,13 +149,13 @@ switch ($request['action']) {
             }
             break;
         
-        case 'deleteCandidate':
-            if (isset($request['id'])) {
-                deleteCandidate($request['id']);
-            } else {
-                sendJsonResponse(['error' => 'Missing parameters'], 400);
-            }
-            break;
+   //     case 'deleteCandidate':
+   //         if (isset($request['id'])) {
+    //            deleteCandidate($request['id']);
+    //        } else {
+   //             sendJsonResponse(['error' => 'Missing parameters'], 400);
+    //        }
+   //         break;
                 
                 
                     
@@ -177,354 +177,29 @@ switch ($request['action']) {
                 }
                 break;
 
-    case 'getCandidatesByProcess':
-                    if (isset($request['processId'])) {
-                        getCandidatesByProcess($request['processId']);
-                    } else {
-                        sendJsonResponse(['error' => 'No processId specified'], 400);
-                    }
-                    break;
-    case 'getCandidateReviews':
-                        if (isset($request['email']) && isset($request['processId'])) {
-                            getCandidateReviews($request['email'], $request['processId']);
-                        } else {
-                            sendJsonResponse(['error' => 'No email or processId specified'], 400);
-                        }
-                        break;
-    case 'listJobCategories':
-                            listJobCategories();
-                            break;
-                        
-    case 'addJobCategory':
-                                if (isset($request['category_name'])) {
-                                    addJobCategory($request['category_name']);
-                                } else {
-                                    sendJsonResponse(['error' => 'No category name specified'], 400);
-                                }
-                                break;
-    
-    case 'updateJobCategory':
-                                    if (isset($request['id']) && isset($request['category_name'])) {
-                                        updateJobCategory($request['id'], $request['category_name']);
-                                    } else {
-                                        sendJsonResponse(['error' => 'No id or category name specified'], 400);
-                                    }
-                                    break;                       
-    case 'deleteJobCategory':
-                                        if (isset($request['id'])) {
-                                            deleteJobCategory($request['id']);
-                                        } else {
-                                            sendJsonResponse(['error' => 'No id specified'], 400);
-                                        }
-                                        break;
-
-    case 'listJobSkillsets':
-        listJobSkillsets();
-        break;
-    
-    case 'addJobSkillset':
-            if (isset($request['category_id']) && isset($request['skillset_name'])) {
-                addJobSkillset($request['category_id'], $request['skillset_name']);
-            } else {
-                sendJsonResponse(['error' => 'No category ID or skillset name specified'], 400);
-            }
-            break;
-case 'updateJobSkillset':
-        if (isset($request['id']) && isset($request['category_id']) && isset($request['skillset_name'])) {
-            updateJobSkillset($request['id'], $request['category_id'], $request['skillset_name']);
-        } else {
-            sendJsonResponse(['error' => 'No id, category ID, or skillset name specified'], 400);
-        }
-        break;                                           
-
-    case 'deleteJobSkillset':
-        if (isset($request['id'])) {
-            deleteJobSkillset($request['id']);
-        } else {
-            sendJsonResponse(['error' => 'No id specified'], 400);
-        }
-        break;
-                                                    
-    case 'listJobCategoriesAndSkillsets': // New case for combined data
-        listJobCategoriesAndSkillsets(); // Call the new function
-     break;
-
+   // case 'getCandidatesByProcess':
+   //                 if (isset($request['processId'])) {
+   //                     getCandidatesByProcess($request['processId']);
+   //                 } else {
+   //                     sendJsonResponse(['error' => 'No processId specified'], 400);
+    //                }
+   //                 break;
+  //  case 'getCandidateReviews':
+  //                      if (isset($request['email']) && isset($request['processId'])) {
+   //                         getCandidateReviews($request['email'], $request['processId']);
+   //                     } else {
+   //                         sendJsonResponse(['error' => 'No email or processId specified'], 400);
+   //                     }
+   //                     break;
+  //  case 'listJobCategories':
+  //                          listJobCategories();
+   //                         break;
+  
     case 'listCertifications':
         listCertifications();
         break;
     
-    case 'addCertification':
-        if (isset($request['certification'])) {
-            addCertification($request['certification']);
-        } else {
-            sendJsonResponse(['error' => 'No certification specified'], 400);
-        }
-        break;
-    
-    case 'updateCertification':
-        if (isset($request['id']) && isset($request['certification'])) {
-            updateCertification($request['id'], $request['certification']);
-        } else {
-            sendJsonResponse(['error' => 'No id or certification specified'], 400);
-        }
-        break;
-    
-    case 'deleteCertification':
-        if (isset($request['id'])) {
-            deleteCertification($request['id']);
-        } else {
-            sendJsonResponse(['error' => 'No id specified'], 400);
-        }
-        break;
-                
-        case 'getReviewerName':
-            if (isset($request['email'])) {
-                getReviewerName($request['email']);
-            } else {
-                sendJsonResponse(['error' => 'No email specified'], 400);
-            }
-            break;
-        
-
-            case 'setCandidateSkillSet':
-                if (isset($request['candidate_id']) && isset($request['email']) && isset($request['category']) && isset($request['skillset']) && isset($request['rating']) && isset($request['reviewer_id']) && isset($request['reviewer_email']) && isset($request['timestamp'])) {
-                    setCandidateSkillSet($request['candidate_id'], $request['email'], $request['category'], $request['skillset'], $request['rating'], $request['reviewer_id'], $request['reviewer_email'], $request['comment'] ?? '', $request['timestamp']);
-                } else {
-                    sendJsonResponse(['error' => 'Missing parameters'], 400);
-                }
-                break;
-
-
-        case 'getCandidateSkillset':
-                if (isset($request['reviewer_email']) && isset($request['candidate_email'])) {
-                    getCandidateSkillset($request['reviewer_email'], $request['candidate_email']);
-                } else {
-                    sendJsonResponse(['error' => 'No reviewer_email or candidate_email specified'], 400);
-                }
-                break;
-
-    case 'deleteCandidateSkillset':
-        if (isset($request['id'])) {
-            deleteCandidateSkillset($request['id']);
-        } else {
-            sendJsonResponse(['error' => 'No ID specified'], 400);
-        }
-        break;
-
-        case 'getSkillsetCategory':
-            if (isset($request['id'])) {
-                getSkillsetCategory($request['id']);
-            } else {
-                sendJsonResponse(['error' => 'No category ID specified'], 400);
-            }
-            break;
-            case 'createInterview':
-                if (isset($request['email']) && isset($request['process']) && isset($request['salary_expectation']) && isset($request['availability']) && isset($request['interview']) && isset($request['interviewer_name']) && isset($request['interviewer_email']) && isset($request['evaluation_field']) && isset($request['rating']) && isset($request['observations']) && isset($request['approved']) && isset($request['review_date'])) {
-                    createInterview($request['email'], $request['process'], $request['salary_expectation'], $request['availability'], $request['interview'], $request['interviewer_name'], $request['interviewer_email'], $request['evaluation_field'], $request['rating'], $request['observations'], $request['approved'], $request['review_date']);
-                } else {
-                    sendJsonResponse(['error' => 'Missing parameters'], 400);
-                }
-                break;
-        
-                case 'getInterviews':
-                    if (isset($request['interviewer_email']) && isset($request['candidate_email'])) {
-                        getInterviews($request['interviewer_email'], $request['candidate_email']);
-                    } else {
-                        sendJsonResponse(['error' => 'Missing parameters'], 400);
-                    }
-                    break;
-        
-            case 'updateInterview':
-                if (isset($request['id']) && isset($request['email']) && isset($request['process']) && isset($request['salary_expectation']) && isset($request['availability']) && isset($request['interview']) && isset($request['interviewer_name']) && isset($request['interviewer_email']) && isset($request['evaluation_field']) && isset($request['rating']) && isset($request['observations']) && isset($request['approved']) && isset($request['review_date'])) {
-                    updateInterview($request['id'], $request['email'], $request['process'], $request['salary_expectation'], $request['availability'], $request['interview'], $request['interviewer_name'], $request['interviewer_email'], $request['evaluation_field'], $request['rating'], $request['observations'], $request['approved'], $request['review_date']);
-                } else {
-                    sendJsonResponse(['error' => 'Missing parameters'], 400);
-                }
-                break;
-        
-        case 'deleteInterview':
-            if (isset($request['id'])) {
-                deleteInterview($request['id']);
-            } else {
-                sendJsonResponse(['error' => 'Missing parameters'], 400);
-            }
-            break;
-
-    case 'addSystemUser':
-        if (isset($request['google_id'], $request['name'], $request['email'], $request['profile_image'], $request['admin'])) {
-            addSystemUser($request['google_id'], $request['name'], $request['email'], $request['profile_image'], $request['admin']);
-        } else {
-            sendJsonResponse(['error' => 'Missing parameters'], 400);
-        }
-        break;
-    
-    case 'updateSystemUser':
-        if (isset($request['id'], $request['google_id'], $request['name'], $request['email'], $request['profile_image'], $request['admin'])) {
-            updateSystemUser($request['id'], $request['google_id'], $request['name'], $request['email'], $request['profile_image'], $request['admin']);
-        } else {
-            sendJsonResponse(['error' => 'Missing parameters'], 400);
-        }
-        break;
-    
-    case 'deleteSystemUser':
-        if (isset($request['id'])) {
-            deleteSystemUser($request['id']);
-        } else {
-            sendJsonResponse(['error' => 'Missing parameters'], 400);
-        }
-        break;
-    
-    case 'listSystemUsers':
-        listSystemUsers();
-        break;
-        case 'listEmployees':
-            listEmployees();
-            break;
-    
-        case 'addEmployee':
-            if (isset($request['primaryEmail'], $request['fullName'], $request['companyRole'], $request['contractType'], $request['suspended'], $request['creationDate'])) {
-                addEmployee(
-                    $request['primaryEmail'],
-                    $request['recoveryEmail'] ?? null,
-                    $request['fullName'],
-                    $request['phone_mobile'] ?? null,
-                    $request['thumbnailPhotoURL'] ?? null,
-                    $request['companyRole'],
-                    $request['contractType'],
-                    $request['suspended'],
-                    $request['creationDate']
-                );
-            } else {
-                sendJsonResponse(['error' => 'Missing parameters'], 400);
-            }
-            break;
-    
-
-            case 'getEmployee':
-                if (isset($request['email'])) {
-                    getEmployee($request['email']);
-                } else {
-                    sendJsonResponse(['error' => 'No email specified'], 400);
-                }
-                break;
-        
-                case 'updateEmployee':
-                    if (isset($request['ID'], $request['primaryEmail'], $request['fullName'], $request['companyRole'], $request['contractType'], $request['suspended'], $request['creationDate'])) {
-                        updateEmployee(
-                            $request['ID'],
-                            $request['primaryEmail'],
-                            $request['recoveryEmail'] ?? null,
-                            $request['fullName'],
-                            $request['phone_mobile'] ?? null,
-                            $request['thumbnailPhotoURL'] ?? null,
-                            $request['companyRole'],
-                            $request['contractType'],
-                            $request['suspended'],
-                            $request['creationDate']
-                        );
-                    } else {
-                        sendJsonResponse(['error' => 'Missing parameters'], 400);
-                    }
-                    break;
-
-        case 'deleteEmployee':
-            if (isset($request['id'])) {
-                deleteEmployee($request['id']);
-            } else {
-                sendJsonResponse(['error' => 'No ID specified'], 400);
-            }
-            break;
-    
-            case 'listEmployeeCertifications':
-                if (isset($request['email'])) {
-                    listEmployeeCertifications($request['email']);
-                } else {
-                    sendJsonResponse(['error' => 'No email specified'], 400);
-                }
-                break;
-        
-            case 'addEmployeeCertification':
-                if (isset($request['email'], $request['certification'], $request['date'])) {
-                    addEmployeeCertification($request['email'], $request['certification'], $request['date']);
-                } else {
-                    sendJsonResponse(['error' => 'Missing parameters'], 400);
-                }
-                break;
-        
-            case 'deleteEmployeeCertification':
-                if (isset($request['id'])) {
-                    deleteEmployeeCertification($request['id']);
-                } else {
-                    sendJsonResponse(['error' => 'No ID specified'], 400);
-                }
-                break;
-    case 'listEmployeeSkillsets':
-        if (isset($request['email'])) {
-            listEmployeeSkillsets($request['email']);
-        } else {
-            sendJsonResponse(['error' => 'No email specified'], 400);
-        }
-        break;
-
-    case 'addEmployeeSkillset':
-        if (isset($request['employee_id'], $request['email'], $request['category'], $request['skillset'], $request['rating'], $request['reviewer_email'], $request['date'])) {
-            addEmployeeSkillset($request['employee_id'], $request['email'], $request['category'], $request['skillset'], $request['rating'], $request['reviewer_email'], $request['date']);
-        } else {
-            sendJsonResponse(['error' => 'Missing parameters'], 400);
-        }
-        break;
-
-    case 'deleteEmployeeSkillset':
-        if (isset($request['id'])) {
-            deleteEmployeeSkillset($request['id']);
-        } else {
-            sendJsonResponse(['error' => 'No ID specified'], 400);
-        }
-        break;
-    case 'listEmployeeReviews':
-        if (isset($request['email'])) {
-            listEmployeeReviews($request['email']);
-        } else {
-            sendJsonResponse(['error' => 'No email specified'], 400);
-        }
-        break;
-    case 'listPublicEmployeeReviews':
-        if (isset($request['email'])) {
-            listPublicEmployeeReviews($request['email']);
-        } else {
-            sendJsonResponse(['error' => 'No email specified'], 400);
-        }
-        break;
-
-case 'listAllReviews':
-            listAllReviews();
-            break;
-        
-    case 'addEmployeeReview':
-        if (isset($request['employee_id'], $request['email'], $request['evaluation_field'], $request['rating'], $request['reviewer_email'], $request['observations'], $request['date'], $request['public'])) {
-            addEmployeeReview($request['employee_id'], $request['email'], $request['evaluation_field'], $request['rating'], $request['reviewer_email'], $request['observations'], $request['date'], $request['public']);
-        } else {
-            sendJsonResponse(['error' => 'Missing parameters'], 400);
-        }
-        break;
-
-    case 'deleteEmployeeReview':
-        if (isset($request['id'])) {
-            deleteEmployeeReview($request['id']);
-        } else {
-            sendJsonResponse(['error' => 'No ID specified'], 400);
-        }
-        break;
-
-        case 'updateEmployeeReview':
-            if (isset($request['id'], $request['employee_id'], $request['email'], $request['evaluation_field'], $request['rating'], $request['reviewer_email'], $request['observations'], $request['date'], $request['public'])) {
-                updateEmployeeReview($request['id'], $request['employee_id'], $request['email'], $request['evaluation_field'], $request['rating'], $request['reviewer_email'], $request['observations'], $request['date'], $request['public']);
-            } else {
-                sendJsonResponse(['error' => 'Missing parameters'], 400);
-            }
-            break;
-        
-        
+   
 
         
         
@@ -544,86 +219,22 @@ case 'listAllReviews':
                 sendJsonResponse(['error' => 'Missing parameters'], 400);
             }
             break;
-        case 'addCandidateReview':
-            if (isset($request['email'], $request['process'], $request['salary_expectation'], $request['availability'], $request['interview'], $request['interviewer_name'], $request['interviewer_email'], $request['evaluation_field'], $request['rating'], $request['observations'], $request['approved'], $request['review_date'])) {
-                addCandidateReview($request['email'], $request['process'], $request['salary_expectation'], $request['availability'], $request['interview'], $request['interviewer_name'], $request['interviewer_email'], $request['evaluation_field'], $request['rating'], $request['observations'], $request['approved'], $request['review_date']);
-            } else {
-                sendJsonResponse(['error' => 'Missing parameters'], 400);
-            }
-            break;
-    
-        case 'removeCandidateReview':
-            if (isset($request['id'], $request['interviewer_email'])) {
-                removeCandidateReview($request['id'], $request['interviewer_email']);
-            } else {
-                sendJsonResponse(['error' => 'Missing parameters'], 400);
-            }
-            break;
+
+ 
    
     case 'getJobProcess':
         getJobProcess();
         break;   
 
-        case 'getCandidateSalaryExpectation':
-            if (isset($request['email'])) {
-                getCandidateSalaryExpectation($request['email']);
-            } else {
-                sendJsonResponse(['error' => 'Email not provided'], 400);
-            }
-            break;
+     
 
             // Add these case statements in the switch statement of apitest.php
-
-case 'listAdminRoles':
-    listAdminRoles();
-    break;
-
-case 'addAdminRole':
-    if (isset($request['functionName']) && isset($request['authrole'])) {
-        addAdminRole($request['functionName'], $request['authrole']);
-    } else {
-        sendJsonResponse(['error' => 'Missing parameters'], 400);
-    }
-    break;
-
-case 'updateAdminRole':
-    if (isset($request['id']) && isset($request['functionName']) && isset($request['authrole'])) {
-        updateAdminRole($request['id'], $request['functionName'], $request['authrole']);
-    } else {
-        sendJsonResponse(['error' => 'Missing parameters'], 400);
-    }
-    break;
-
-case 'deleteAdminRole':
-    if (isset($request['id'])) {
-        deleteAdminRole($request['id']);
-    } else {
-        sendJsonResponse(['error' => 'Missing parameters'], 400);
-    }
-    break;
-
-// Add this case statement in the switch statement of apitest.php
-
-case 'getAdminRole':
-    if (isset($request['functionName'])) {
-        getAdminRole($request['functionName']);
-    } else {
-        sendJsonResponse(['error' => 'No functionName specified'], 400);
-    }
-    break;
-    // Add these cases in the switch statement of apitest.php
-
-case 'listAllEmployeeCertifications':
-    listAllEmployeeCertifications();
-    break;
 
 case 'listAllCandidateCertifications':
     listAllCandidateCertifications();
     break;
 
-case 'listAllEmployeeSkillsets':
-    listAllEmployeeSkillsets();
-    break;
+
 
 case 'listAllCandidateSkillsets':
     listAllCandidateSkillsets();
@@ -656,48 +267,7 @@ case 'addFeedback':
         listFeedback();
         break;
 
-    case 'deleteFeedback':
-        if (isset($request['id'])) {
-            deleteFeedback($request['id']);
-        } else {
-            sendJsonResponse(['error' => 'No feedback ID specified'], 400);
-        }
-        break;
-    // New case for handling employee enrollment actions
-    case 'addEmployeeEnrollment':
-        if (isset($request['email']) && isset($request['step']) && isset($request['value'])) {
-            addEmployeeEnrollment($request['email'], $request['step'], $request['value']);
-        } else {
-            sendJsonResponse(['error' => 'Missing required parameters'], 400);
-        }
-        break;
-
-    case 'listEmployeeEnrollment':
-        if (isset($request['email'])) {
-            listEmployeeEnrollment($request['email']);
-        } else {
-            sendJsonResponse(['error' => 'No email specified'], 400);
-        }
-        break;
-
-    case 'deleteEmployeeEnrollment':
-        if (isset($request['id'])) {
-            deleteEmployeeEnrollment($request['id']);
-        } else {
-            sendJsonResponse(['error' => 'No ID specified'], 400);
-        }
-        break;
-    default:
-        sendJsonResponse(['error' => 'Invalid action specified'], 400);
-        break;
-
-    case 'getEnrollmentStatus':
-        if (isset($request['email'])) {
-            getEnrollmentStatus($request['email']);
-        } else {
-            sendJsonResponse(['error' => 'No email specified'], 400);
-        }
-        break;
+    
     
 }
 

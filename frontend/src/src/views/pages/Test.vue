@@ -18,7 +18,7 @@ const defaultProfileImage = '/public/samana-logo.png' // Path to the default use
 
 const testDbConnection = async () => {
   try {
-    const response = await axios.post(`/api/apitest`, {
+    const response = await axios.post(`/api/api`, {
       action: 'testDbConnection'
     })
     apiResponse.value = response.data.success ? 'Database connection successful' : 'Database connection failed'
@@ -29,7 +29,7 @@ const testDbConnection = async () => {
 
 const listUsers = async () => {
   try {
-    const response = await axios.post(`/api/apitest`, {
+    const response = await axios.post(`/api/api`, {
       action: 'listUsers'
     })
     usersList.value = response.data
@@ -41,7 +41,7 @@ const listUsers = async () => {
 
 const getUser = async (userId) => {
   try {
-    const response = await axios.post(`/api/apitest`, {
+    const response = await axios.post(`/api/api`, {
       action: 'getUser',
       userId: userId
     })

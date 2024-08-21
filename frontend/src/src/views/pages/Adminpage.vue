@@ -66,7 +66,7 @@ const filteredUsersList = computed(() => {
 
 const listSystemUsers = async () => {
   try {
-    const response = await axios.post(`/api/apitest`, {
+    const response = await axios.post(`/api/api`, {
       action: 'listSystemUsers'
     });
     usersList.value = response.data;
@@ -95,7 +95,7 @@ const showEditUserDialog = (user) => {
 
 const addUser = async () => {
   try {
-    await axios.post(`/api/apitest`, {
+    await axios.post(`/api/api`, {
       action: 'addSystemUser',
       google_id: userForm.value.google_id,
       name: userForm.value.name,
@@ -117,7 +117,7 @@ const addUser = async () => {
 
 const updateUser = async () => {
   try {
-    await axios.post(`/api/apitest`, {
+    await axios.post(`/api/api`, {
       action: 'updateSystemUser',
       id: userForm.value.id,
       google_id: userForm.value.google_id,
@@ -140,7 +140,7 @@ const updateUser = async () => {
 
 const deleteUser = async (id) => {
   try {
-    await axios.post(`/api/apitest`, {
+    await axios.post(`/api/api`, {
       action: 'deleteSystemUser',
       id: id
     });

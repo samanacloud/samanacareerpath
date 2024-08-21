@@ -79,7 +79,7 @@ export default {
   methods: {
     async submitFeedback(screenshotUrl) {
     try {
-      const response = await axios.post(`https://${import.meta.env.VITE_SITE_URL}/api/apitest.php`, {
+      const response = await axios.post(`/api/api`, {
         action: 'addFeedback',
         type: this.feedbackType,
         description: this.description,
@@ -174,7 +174,7 @@ export default {
     },
     async submitFeedback(screenshotUrl) {
       try {
-        const response = await axios.post(`https://${import.meta.env.VITE_SITE_URL}/api/apitest.php`, {
+        const response = await axios.post(`https://${import.meta.env.VITE_SITE_URL}/api/api`, {
           action: 'addFeedback',
           type: this.feedbackType,
           description: this.description,

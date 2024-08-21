@@ -60,7 +60,7 @@ export default {
         },
         async fetchEmployeeDetails(email) {
             try {
-                const response = await axios.post(`/api/apitest`, {
+                const response = await axios.post(`/api/api`, {
                     action: 'getEmployee',
                     email: email,
                 });
@@ -72,7 +72,7 @@ export default {
         },
         async fetchCertifications(email) {
             try {
-                const response = await axios.post(`/api/apitest`, {
+                const response = await axios.post(`/api/api`, {
                     action: 'listEmployeeCertifications',
                     email: email,
                 });

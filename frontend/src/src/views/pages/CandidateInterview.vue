@@ -110,9 +110,9 @@ const candidateReviews = ref([]);
 
 const getJobProcesses = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, { action: 'getJobProcess' });
+        const response = await axios.post(`/api/api`, { action: 'getJobProcess' });
         jobProcesses.value = response.data.map(process => ({
-            label: `[${process.id}] - ${process.job_title} - [${process.enabled === 1 ? 'Active' : 'Inactive'}]`,
+            label: `ID:[${process.id}] - ${process.job_title} - [${process.enabled ==='1' ? 'Active' : 'Inactive'}]`,
             value: process.id
         }));
     } catch (error) {
@@ -123,7 +123,7 @@ const getJobProcesses = async () => {
 
 const getCandidateReviews = async (email) => {
     try {
-        const response = await axios.post(`/api/apitest`, { action: 'listCandidateReviews', email });
+        const response = await axios.post(`/api/api`, { action: 'listCandidateReviews', email });
         candidateReviews.value = response.data;
     } catch (error) {
         apiResponse.value = 'Error fetching candidate reviews: ' + error.message;
@@ -142,7 +142,7 @@ const submitReview = async () => {
     }
 
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'addCandidateReview',
             email: candidateDetails.value.email,
             process: candidateReview.value.process,
@@ -206,7 +206,7 @@ const getReviewerEmail = async () => {
 // Fetch candidate details
 const getCandidateDetails = async (email) => {
     try {
-        const response = await axios.post(`/api/apitest`, { action: 'getCandidate', email });
+        const response = await axios.post(`/api/api`, { action: 'getCandidate', email });
         candidateDetails.value = response.data;
     } catch (error) {
         apiResponse.value = 'Error fetching candidate details: ' + error.message;
@@ -216,7 +216,7 @@ const getCandidateDetails = async (email) => {
 // Fetch job categories
 const fetchJobCategories = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, { action: 'listJobCategories' });
+        const response = await axios.post(`/api/api`, { action: 'listJobCategories' });
         categories.value = response.data;
     } catch (error) {
         console.error('Error fetching job categories:', error);
@@ -230,7 +230,7 @@ const fetchJobSkillsets = async (categoryId) => {
     } else {
         activeCategory.value = categoryId;
         try {
-            const response = await axios.post(`/api/apitest`, {
+            const response = await axios.post(`/api/api`, {
                 action: 'getSkillsetCategory',
                 id: categoryId
             });
@@ -251,7 +251,7 @@ const fetchJobSkillsets = async (categoryId) => {
 
 const getReviewerName = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'getReviewerName',
             email: reviewer_email.value
         });
@@ -264,7 +264,7 @@ const getReviewerName = async () => {
 
 const setCandidateSkillSet = async (candidateId, category, skillset, rating, reviewerId, reviewerEmail, comment, timestamp) => {
     try {
-        await axios.post(`/api/apitest`, {
+        await axios.post(`/api/api`, {
             action: 'setCandidateSkillSet',
             candidate_id: candidateId,
             category,
@@ -302,7 +302,7 @@ const goBack = () => {
 
 const getCandidateSkillsets = async (reviewer_email, candidate_email) => {
     try {
-        const response = await axios.post(`/api/apitest`, { 
+        const response = await axios.post(`/api/api`, { 
             action: 'getCandidateSkillset', 
             reviewer_email, 
             candidate_email 
@@ -341,7 +341,7 @@ const confirmDelete = (event, skillsetId) => {
 // Modified handleDelete function
 const handleDelete = async (data) => {
     try {
-        const response = await axios.post(`/api/apitest`, { action: 'deleteCandidateSkillset', id: data.id });
+        const response = await axios.post(`/api/api`, { action: 'deleteCandidateSkillset', id: data.id });
 
         // Check for successful deletion based on the updated response structure
         if (response.data.success) { // 'success' is now a boolean
@@ -380,7 +380,7 @@ const handleRatingChange = async (skillset, rating) => {
     };
 
     try {
-        const response = await axios.post(`/api/apitest`, payload);
+        const response = await axios.post(`/api/api`, payload);
         if (response.data && response.data.success) {
             toast.add({ severity: 'success', summary: 'Success', detail: 'Skillset rating saved successfully', life: 3000 });
 
@@ -425,7 +425,7 @@ watch(() => candidateReview.interview, (newInterview) => {
 });
 const addCertificationToCandidate = async (certification) => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'addCandidateCertification',
             email: candidateDetails.value.email,
             certification: certification.certification,
@@ -443,7 +443,7 @@ const addCertificationToCandidate = async (certification) => {
 };
 const listAvailableCertifications = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, { action: 'listCertifications' });
+        const response = await axios.post(`/api/api`, { action: 'listCertifications' });
         if (response.data && !response.data.error) {
             availableCertifications.value = response.data;
             filteredCertifications.value = availableCertifications.value; // Initialize filtered certifications
@@ -560,7 +560,6 @@ const listAvailableCertifications = async () => {
                                         <InputText id="review_date" type="text" v-model="candidateReview.review_date" :disabled="true" />
                                     </div>
                                 </div>
-                                <Button label="Submit Review" class="mr-2 mb-2" @click="confirmSubmitReview"></Button>
                             </div>
                         </AccordionTab>
                 </Accordion>

@@ -71,7 +71,7 @@ const handleGoogleCallback = async () => {
 
             // Check if the user exists
             const email = userInfo.email;
-            const userDetailsResponse = await axios.post(`/api/apitest`, {
+            const userDetailsResponse = await axios.post(`/api/api`, {
                 action: 'getUserDetails',
                 email
             });

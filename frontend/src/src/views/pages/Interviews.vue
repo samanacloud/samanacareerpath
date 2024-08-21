@@ -34,7 +34,7 @@ const goBack = () => {
 // Fetch candidate details
 const getCandidateDetails = async (email) => {
     try {
-        const response = await axios.post(`/api/apitest`, { action: 'getCandidate', email });
+        const response = await axios.post(`/api/api`, { action: 'getCandidate', email });
         candidateDetails.value = response.data;
     } catch (error) {
         apiResponse.value = 'Error fetching candidate details: ' + error.message;
@@ -44,7 +44,7 @@ const getCandidateDetails = async (email) => {
 // Fetch candidate skillsets
 const getCandidateSkillsets = async (email) => {
     try {
-        const response = await axios.post(`/api/apitest`, { action: 'listCandidateSkillsets', email });
+        const response = await axios.post(`/api/api`, { action: 'listCandidateSkillsets', email });
         candidateSkillsets.value = response.data;
     } catch (error) {
         apiResponse.value = 'Error fetching candidate skillsets: ' + error.message;
@@ -54,7 +54,7 @@ const getCandidateSkillsets = async (email) => {
 // Fetch candidate reviews
 const getCandidateReviews = async (email) => {
     try {
-        const response = await axios.post(`/api/apitest`, { action: 'listCandidateReviews', email });
+        const response = await axios.post(`/api/api`, { action: 'listCandidateReviews', email });
         candidateReviews.value = response.data;
     } catch (error) {
         apiResponse.value = 'Error fetching candidate reviews: ' + error.message;
@@ -66,7 +66,7 @@ const candidateCertifications = ref([]);
 
 const getCandidateCertifications = async (email) => {
     try {
-        const response = await axios.post(`/api/apitest`, { action: 'listCandidateCertifications', email });
+        const response = await axios.post(`/api/api`, { action: 'listCandidateCertifications', email });
         candidateCertifications.value = response.data;
     } catch (error) {
         apiResponse.value = 'Error fetching candidate certifications: ' + error.message;

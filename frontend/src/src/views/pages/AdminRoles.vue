@@ -34,7 +34,7 @@ const openAddDialog = () => {
 
 const fetchRoles = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'listAdminRoles'
         });
         roles.value = response.data;
@@ -68,7 +68,7 @@ const confirmDeleteRole = (role) => {
 
 const deleteRole = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'deleteAdminRole',
             id: roleToDelete.value.id
         });
@@ -87,7 +87,7 @@ const deleteRole = async () => {
 
 const updateRole = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'updateAdminRole',
             id: selectedRole.value.id,
             functionName: selectedRole.value.functionName,
@@ -107,7 +107,7 @@ const updateRole = async () => {
 
 const addRole = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'addAdminRole',
             functionName: newRole.value.functionName,
             authrole: newRole.value.authrole

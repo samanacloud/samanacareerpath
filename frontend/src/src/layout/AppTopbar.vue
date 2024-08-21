@@ -203,7 +203,7 @@ const uploadToGoogleDrive = async (blob, accessToken) => {
 
 const submitFeedback = async (screenshotUrl) => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'addFeedback',
             type: feedbackType.value,
             description: description.value,
@@ -253,7 +253,7 @@ const toggleFeedbackOverlay = (event) => {
         <router-link to="/" class="layout-topbar-logo">
             <img :src="logoUrl" alt="logo" class="logo-image" />
             <div class="app-title">
-                <span class="app-title">Samana CareerPath <small class="version-text">0.7 B</small></span>
+                <span class="app-title">Samana CareerPath <small class="version-text">0.8 B</small></span>
             </div>
         </router-link>
 

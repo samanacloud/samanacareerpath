@@ -30,7 +30,7 @@ onMounted(fetchCategories);
 
 async function fetchCategories() {
   try {
-    const response = await axios.post(`/api/apitest`, { action: 'listJobCategories' });
+    const response = await axios.post(`/api/api`, { action: 'listJobCategories' });
     categories.value = response.data;
   } catch (error) {
     console.error("Error fetching categories:", error);
@@ -41,7 +41,7 @@ async function fetchSkillsets(categoryId, categoryName) {
   selectedCategoryId.value = categoryId;
   selectedCategoryName.value = categoryName;
   try {
-    const response = await axios.post(`/api/apitest`, { action: 'listJobSkillsets' });
+    const response = await axios.post(`/api/api`, { action: 'listJobSkillsets' });
     skillsets.value = response.data.filter(skillset => skillset.category_id === categoryId);
   } catch (error) {
     console.error("Error fetching skillsets:", error);
@@ -85,7 +85,7 @@ async function handleAddOrEdit() {
   };
 
   try {
-    const response = await axios.post(`/api/apitest`, payload);
+    const response = await axios.post(`/api/api`, payload);
 
     if (response.data.success) {
       toast.add({ severity: 'success', summary: 'Success', detail: `${dialogData.value.type.charAt(0).toUpperCase() + dialogData.value.type.slice(1)} saved!`, life: 3000 });
@@ -106,7 +106,7 @@ async function handleAddOrEdit() {
 async function handleDelete(id, itemType) {
   const action = itemType === 'category' ? 'deleteJobCategory' : 'deleteJobSkillset';
   try {
-    const response = await axios.post(`/api/apitest`, {
+    const response = await axios.post(`/api/api`, {
       action,
       id: id,
     });

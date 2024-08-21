@@ -37,7 +37,7 @@ const showObservations = ref({});
 
 const getEmployeeDetails = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'getEmployee',
             email: employeeEmail.value
         });
@@ -57,14 +57,14 @@ const toggleObservations = (reviewId) => {
 
 const getEmployeeReviews = async (email) => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'listPublicEmployeeReviews',
             email
         });
         const reviews = response.data;
 
         for (const review of reviews) {
-            const reviewerResponse = await axios.post(`/api/apitest`, {
+            const reviewerResponse = await axios.post(`/api/api`, {
                 action: 'getReviewerName',
                 email: review.reviewer_email
             });
@@ -81,7 +81,7 @@ const getEmployeeReviews = async (email) => {
 // Function to fetch enrollment status
 const fetchEnrollmentStatus = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'getEnrollmentStatus',
             email: employeeEmail.value
         });
@@ -97,7 +97,7 @@ const fetchEnrollmentStatus = async () => {
 
 const updateEmployeeProfile = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'updateEmployee',
             ...employee.value
         });
@@ -140,7 +140,7 @@ const aiTraining = () => {
 
 const getEmployeeCertifications = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'listEmployeeCertifications',
             email: employeeEmail.value
         });
@@ -178,7 +178,7 @@ const calculateDuration = (creationDate) => {
 // Fetch all certifications
 const getAllCertifications = async () => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'listCertifications'
         });
         allCertifications.value = response.data;
@@ -190,7 +190,7 @@ const getAllCertifications = async () => {
 // Add certification to employee
 const addCertificationToEmployee = async (certification) => {
     try {
-        const response = await axios.post(`/api/apitest`, {
+        const response = await axios.post(`/api/api`, {
             action: 'addEmployeeCertification',
             email: employee.value.primaryEmail,
             certification: certification.certification,
@@ -234,7 +234,7 @@ const deleteCertification = async (certificationId) => {
         icon: 'pi pi-exclamation-triangle',
         accept: async () => { // Use async here
             try {
-                const response = await axios.post(`/api/apitest`, {
+                const response = await axios.post(`/api/api`, {
                     action: 'deleteEmployeeCertification',
                     id: certificationId
                 });

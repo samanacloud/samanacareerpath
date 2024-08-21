@@ -24,8 +24,8 @@ const idFrozen = ref(false); // Add this line for dynamic toggling
 
 const fetchCertifications = async () => {
   try {
-    const employeeResponse = await axios.post('/api/apitest.php', { action: 'listAllEmployeeCertifications' });
-    const candidateResponse = await axios.post('/api/apitest.php', { action: 'listAllCandidateCertifications' });
+    const employeeResponse = await axios.post('/api/api.php', { action: 'listAllEmployeeCertifications' });
+    const candidateResponse = await axios.post('/api/api.php', { action: 'listAllCandidateCertifications' });
 
     const employeeData = employeeResponse.data;
     const candidateData = candidateResponse.data;

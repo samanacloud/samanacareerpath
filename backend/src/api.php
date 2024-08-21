@@ -576,8 +576,8 @@ case 'listAllReviews':
             break;
     
         case 'removeCandidateReview':
-            if (isset($request['id'], $request['interviewer_email'])) {
-                removeCandidateReview($request['id'], $request['interviewer_email']);
+            if (isset($request['id'])) {
+                removeCandidateReview($request['id']);
             } else {
                 sendJsonResponse(['error' => 'Missing parameters'], 400);
             }
@@ -876,7 +876,7 @@ function listCandidateReviews($email) {
         sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
     }
 
-    $stmt = $mysqli->prepare("SELECT * FROM candidate_review WHERE email = ?");
+    $stmt = $mysqli->prepare("SELECT * FROM candidate_review WHERE email = ? AND interview != 'Registration'");
     $stmt->bind_param('s', $email);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -2149,7 +2149,7 @@ function addCandidateReview($email, $process, $salary_expectation, $availability
 }
 
 // Function to remove a candidate review by ID and interviewer_email
-function removeCandidateReview($id, $interviewer_email) {
+function removeCandidateReview($id) {
     global $config;
     $mysqli = new mysqli($config['database']['host'], $config['database']['user'], $config['database']['pass'], $config['database']['db']);
 
@@ -2157,8 +2157,8 @@ function removeCandidateReview($id, $interviewer_email) {
         sendJsonResponse(['error' => 'Database connection failed: ' . $mysqli->connect_error], 500);
     }
 
-    $stmt = $mysqli->prepare("DELETE FROM candidate_review WHERE id = ? AND interviewer_email = ?");
-    $stmt->bind_param('is', $id, $interviewer_email);
+    $stmt = $mysqli->prepare("DELETE FROM candidate_review WHERE id = ? ");
+    $stmt->bind_param('i', $id);
 
     if ($stmt->execute()) {
         sendJsonResponse(['success' => true]);

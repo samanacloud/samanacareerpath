@@ -17,9 +17,6 @@ const pageRole = 4; // Set the required role for this page
 getPageAuthorization(pageRole);
 
 
-const baseURL = import.meta.env.VITE_SITE_URL 
-    ? `https://${import.meta.env.VITE_SITE_URL}` 
-    : 'http://localhost:8080';
 
 const toast = useToast();
 const confirm = useConfirm();
@@ -32,7 +29,7 @@ onMounted(fetchCertifications);
 
 async function fetchCertifications() {
   try {
-    const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'listCertifications' });
+    const response = await axios.post(`/api/api`, { action: 'listCertifications' });
     certifications.value = response.data;
   } catch (error) {
     console.error("Error fetching certifications:", error);
@@ -61,7 +58,7 @@ async function handleAddOrEdit() {
 
   const action = dialogData.value.id ? 'updateCertification' : 'addCertification';
   try {
-    const response = await axios.post(`${baseURL}/api/apitest.php`, {
+    const response = await axios.post(`/api/api`, {
       action,
       id: dialogData.value.id,
       certification: dialogData.value.name
@@ -82,7 +79,7 @@ async function handleAddOrEdit() {
 
 async function handleDelete(certificationId) {
   try {
-    const response = await axios.post(`${baseURL}/api/apitest.php`, {
+    const response = await axios.post(`/api/api`, {
       action: 'deleteCertification',
       id: certificationId,
     });

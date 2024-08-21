@@ -54,7 +54,7 @@ const workplaceTypes = [
 
 const addJobProcess = async () => {
   try {
-    const response = await axios.post(`/api/apitest`, {
+    const response = await axios.post(`/api/api`, {
       action: 'addJobProcess',
       job_category: newJob.value.job_category,
       job_title: newJob.value.job_title,
@@ -102,7 +102,7 @@ const editJob = (job) => {
 isEditing.value = false; // Exit edit mode
 const updateJob = async () => {
   try {
-    const response = await axios.post(`/api/apitest`, {
+    const response = await axios.post(`/api/api`, {
       action: 'updateJobProcess',  // Ensure this is your correct action name
       id: selectedJob.value.id,
       job_category: selectedJob.value.job_category,
@@ -184,7 +184,7 @@ const groupReviewsByInterviewType = (reviews) => {
 // Fetch Job Postings
 const listJobPostings = async () => {
   try {
-    const response = await axios.post(`/api/apitest`, {
+    const response = await axios.post(`/api/api`, {
       action: 'listJobPostings'
     });
     jobs.value = Array.isArray(response.data) ? response.data : [response.data];
@@ -197,7 +197,7 @@ const listJobPostings = async () => {
 // Fetch Job Details by ID
 const fetchJobDetails = async (id) => {
   try {
-    const response = await axios.post(`/api/apitest`, {
+    const response = await axios.post(`/api/api`, {
       action: 'jobDetails',
       id: id
     });
@@ -213,7 +213,7 @@ const fetchJobDetails = async (id) => {
 // Fetch Enrolled Candidates by Process ID
 const fetchEnrolledCandidates = async (processId) => {
   try {
-    const response = await axios.post(`/api/apitest`, {
+    const response = await axios.post(`/api/api`, {
       action: 'getCandidatesByProcess',
       processId: processId
     });
@@ -230,7 +230,7 @@ const fetchEnrolledCandidates = async (processId) => {
 // Fetch Enrolled Candidates by Process ID
 const fetchRegisteredCandidates = async (processId) => {
   try {
-    const response = await axios.post(`/api/apitest`, {
+    const response = await axios.post(`/api/api`, {
       action: 'getRegisteredCandidatesByProcess',
       processId: processId
     });
@@ -245,7 +245,7 @@ const fetchRegisteredCandidates = async (processId) => {
 // Fetch Candidate Reviews by Email and Process ID
 const fetchCandidateReviews = async (email, processId) => {
   try {
-    const response = await axios.post(`/api/apitest`, {
+    const response = await axios.post(`/api/api`, {
       action: 'getCandidateReviews',
       email: email,
       processId: processId

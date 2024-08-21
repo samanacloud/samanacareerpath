@@ -164,81 +164,94 @@ watch(
 </script>
 
 <template>
-
-<div className="card">
-    <div class="grid">
-        <!-- Employee Section -->
-        <div class="col-12">
-            <h5>Employee</h5>
-        </div>
-        <div 
-          class="col-12 lg:col-6 xl:col-3" 
-          v-for="(table, index) in tableData.employee" 
-          :key="'employee-' + index"
-        >
-            <div class="card mb-0">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="block text-500 font-medium mb-3">{{ table.formatted_name }}</span>
-                        <div class="text-900 font-medium text-xl">{{ table.count }}</div>
-                    </div>
-                    <div class="flex align-items-center justify-content-center bg-blue-100 border-round" style="width: 2.5rem; height: 2.5rem">
-                        <i class="pi pi-users text-blue-500 text-xl"></i>
-                    </div>
-                </div>
-
-            </div>
+        <div
+        id="hero"
+        class="flex flex-column pt-4 px-4 lg:px-8 overflow-hidden"
+        style="background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), radial-gradient(77.36% 256.97% at 77.36% 57.52%, rgb(238, 239, 175) 0%, rgb(195, 227, 250) 100%); clip-path: ellipse(150% 87% at 93% 13%)"
+    >
+        <div class="mx-4 md:mx-8 mt-0 md:mt-4">
+            <h1 class="text-6xl font-bold text-gray-900 line-height-2"><span class="font-light block">Welcome to</span>SamanaGroup Jobs Portal</h1>
+            <p class="font-normal text-2xl line-height-3 md:mt-3 text-gray-700">Track your skills, certifications, and career progress effortlessly with Samana CareerPath. Welcome aboard!</p>
+            <br> <br> <br> <br>   
         </div>
 
 
 
 
-        <!-- Candidate Section -->
-        <div class="col-12">
-            <h5>Candidate</h5>
-        </div>
-        <div 
-          class="col-12 lg:col-6 xl:col-3" 
-          v-for="(table, index) in tableData.candidate" 
-          :key="'candidate-' + index"
-        >
-            <div class="card mb-0">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="block text-500 font-medium mb-3">{{ table.formatted_name }}</span>
-                        <div class="text-900 font-medium text-xl">{{ table.count }}</div>
-                    </div>
-                    <div class="flex align-items-center justify-content-center bg-orange-100 border-round" style="width: 2.5rem; height: 2.5rem">
-                        <i class="pi pi-user-plus text-orange-500 text-xl"></i>
-                    </div>
-                </div>
 
-            </div>
-        </div>
-
-
-        <!-- Users Section -->
-        <div class="col-12">
-            <h5>Users</h5>
-        </div>
-        <div 
-          class="col-12 lg:col-6 xl:col-3" 
-          v-for="(table, index) in tableData.users" 
-          :key="'users-' + index"
-        >
-            <div class="card mb-0">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="block text-500 font-medium mb-3">{{ table.formatted_name }}</span>
-                        <div class="text-900 font-medium text-xl">{{ table.count }}</div>
-                    </div>
-                    <div class="flex align-items-center justify-content-center bg-blue-100 border-round" style="width: 2.5rem; height: 2.5rem">
-                        <i class="pi pi-user text-cyan-500 text-xl"></i>
-                    </div>
-                </div>
-    
-            </div>
-        </div>
-    </div>
 </div>
+<div class="grid p-fluid">
+            <div class="col-12">
+                <h5>Quick Menu</h5>
+            </div>
+    
+            <div  class="col-12 md:col-6 lg:col-4">
+                        <Card>
+                            <template #title>Employees Dashboard</template>
+                            <template #subtitle>Employees information, reviews and more</template>
+                            <template #content>
+                                Access to the employees Dashboard, provide employee feedback and register skillsets.
+                            </template>
+                            <template #footer>
+                                <div class="flex gap-4 mt-1">
+                            
+                                    <Button
+                                        label="Access"
+                                        class="w-full"
+                                        outlined
+                                        raised
+                                        @click="router.push('/employees')"                         />
+                    
+                                </div>
+                            </template>
+                        </Card>
+            </div>
+            <div  class="col-12 md:col-6 lg:col-4">
+                        <Card>
+                            <template #title>Candidates Dashboard</template>
+                            <template #subtitle>Candidates information, reviews and more</template>
+                            <template #content>
+                                Access to the candidates Dashboard, provide  feedback and register skillsets during the interview.
+                            </template>
+                            <template #footer>
+                                <div class="flex gap-4 mt-1">
+                            
+                                    <Button
+                                        label="Access"
+                                        class="w-full"
+                                        outlined
+                                        raised
+                                        @click="router.push('/candidates')"                         />
+                    
+                                </div>
+                            </template>
+                        </Card>
+            </div>               
+            <div  class="col-12 md:col-6 lg:col-4">
+                        <Card>
+                            <template #title>Selection Process</template>
+                            <template #subtitle>View active jobs, candidates reviews and more</template>
+                            <template #content>
+                                Access to the Selection Process Dashboard, identify the current selection process and access to the candidates reviews through this module.
+                            </template>
+                            <template #footer>
+                                <div class="flex gap-4 mt-1">
+                            
+                                    <Button
+                                        label="Access"
+                                        class="w-full"
+                                        outlined
+                                        raised
+                                        @click="router.push('/jobprocess')"                         />
+                    
+                                </div>
+                            </template>
+                        </Card>
+            </div>  
+
+        </div>
+
+
+
+
 </template>
