@@ -12,10 +12,7 @@ const pageRole = 5; // Set the required role for this page
 getPageAuthorization(pageRole);
 
 
-// Function to get the base URL
-const baseURL = import.meta.env.VITE_SITE_URL 
-    ? `https://${import.meta.env.VITE_SITE_URL}` 
-    : 'http://localhost:8080'; 
+
 
 const usersList = ref([]);
 const apiResponse = ref('');
@@ -69,7 +66,7 @@ const filteredUsersList = computed(() => {
 
 const listSystemUsers = async () => {
   try {
-    const response = await axios.post(`${baseURL}/api/apitest.php`, {
+    const response = await axios.post(`/api/apitest`, {
       action: 'listSystemUsers'
     });
     usersList.value = response.data;
@@ -98,7 +95,7 @@ const showEditUserDialog = (user) => {
 
 const addUser = async () => {
   try {
-    await axios.post(`${baseURL}/api/apitest.php`, {
+    await axios.post(`/api/apitest`, {
       action: 'addSystemUser',
       google_id: userForm.value.google_id,
       name: userForm.value.name,
@@ -120,7 +117,7 @@ const addUser = async () => {
 
 const updateUser = async () => {
   try {
-    await axios.post(`${baseURL}/api/apitest.php`, {
+    await axios.post(`/api/apitest`, {
       action: 'updateSystemUser',
       id: userForm.value.id,
       google_id: userForm.value.google_id,
@@ -143,7 +140,7 @@ const updateUser = async () => {
 
 const deleteUser = async (id) => {
   try {
-    await axios.post(`${baseURL}/api/apitest.php`, {
+    await axios.post(`/api/apitest`, {
       action: 'deleteSystemUser',
       id: id
     });

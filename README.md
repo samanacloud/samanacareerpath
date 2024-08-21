@@ -12,6 +12,23 @@ Samana CareerPath is an ATS platform designed to help you track your employees, 
 - **Performance Monitoring**: Track and evaluate employee performance.
 
 
+## Samana Careerpath v0.8 Pre-Release
+
+### Recent Updates
+
+- Modified the authentication process to be processed in the backend and provide enhanced security.
+- Removed exposed environmental variables identified during troubleshooting.
+- Updated the Candidates module to edit candidate information.
+- Added the Candidates Admin module to delete and disable candidates.
+- Optimized backend functions to provide enhanced control.
+
+
+### New in Version 0.7 Beta
+- **Slack Notifications**: Notifications sent to Slack channels for candidate registrations, job submissions, and employee onboarding events.
+- **AWS S3 Integration**: Secure file uploads to AWS S3, with flexible policies for different file types.
+- **API Enhancements**: Backend API improvements for Slack integration and AWS S3 file handling.
+- **UI Improvements**: Minor fixes to the Employee Profile, Employee Onboarding, and Dashboard pages.
+
 
 ## Version 0.56 Beta
 
@@ -146,3 +163,4 @@ This project is licensed under the MIT License.
 ## Acknowledgments
 
 - Thanks to all the contributors and maintainers of the open-source libraries and tools used in this project.
+

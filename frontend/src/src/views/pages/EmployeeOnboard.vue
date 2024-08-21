@@ -72,7 +72,7 @@ export default {
             });
         },
         fetchEmployeeEnrollments() {
-            fetch('/api/apitest.php', {
+            fetch('/api/apitest', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -99,7 +99,7 @@ export default {
             });
         },
         setEmployeeStep(employeeEmail, step, value) {
-            fetch('/api/apitest.php', {
+            fetch('/api/apitest', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -134,7 +134,7 @@ export default {
     }
         },
         fetchEnrollmentStatus() {
-            fetch('/api/apitest.php', {
+            fetch('/api/apitest', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

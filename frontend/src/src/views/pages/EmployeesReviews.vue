@@ -22,10 +22,6 @@ const pageRole = 3; // Set the required role for this page
 getPageAuthorization(pageRole);
 
 
-// Function to get the base URL
-const baseURL = import.meta.env.VITE_SITE_URL 
-    ? `https://${import.meta.env.VITE_SITE_URL}` 
-    : 'http://localhost:8080'; // Use localhost for development
 
 const displayConfirmation = ref(false);
 const skillsetToDelete = ref(null); 
@@ -76,14 +72,14 @@ const toggleObservations = (reviewId) => {
 
 const getEmployeeReviews = async (email) => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'listEmployeeReviews',
             email
         });
         const reviews = response.data;
 
         for (const review of reviews) {
-            const reviewerResponse = await axios.post(`${baseURL}/api/apitest.php`, {
+            const reviewerResponse = await axios.post(`/api/apitest`, {
                 action: 'getReviewerName',
                 email: review.reviewer_email
             });
@@ -99,7 +95,7 @@ const getEmployeeReviews = async (email) => {
 
 const getEmployeeDetails = async (email) => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'getEmployee', email });
+        const response = await axios.post(`/api/apitest`, { action: 'getEmployee', email });
         employeeDetails.value = response.data;
         review.value.employee_id = response.data.ID;
 
@@ -111,7 +107,7 @@ const getEmployeeDetails = async (email) => {
 // Fetch job categories
 const fetchJobCategories = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'listJobCategories' });
+        const response = await axios.post(`/api/apitest`, { action: 'listJobCategories' });
         categories.value = response.data;
     } catch (error) {
         console.error('Error fetching job categories:', error);
@@ -135,7 +131,7 @@ const fetchJobSkillsets = async (categoryId) => {
     } else {
         activeCategory.value = categoryId;
         try {
-            const response = await axios.post(`${baseURL}/api/apitest.php`, {
+            const response = await axios.post(`/api/apitest`, {
                 action: 'getSkillsetCategory',
                 id: categoryId
             });
@@ -152,7 +148,7 @@ const fetchJobSkillsets = async (categoryId) => {
 
 const getReviewerName = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'getReviewerName',
             email: reviewer_email.value
         });
@@ -166,7 +162,7 @@ const getReviewerName = async () => {
 
 const setEmployeeSkillSet = async (employeeId, category, skillset, rating, reviewerId, reviewerEmail, comment, timestamp) => {
     try {
-        await axios.post(`${baseURL}/api/apitest.php`, {
+        await axios.post(`/api/apitest`, {
             action: 'addEmployeeSkillset',
             employee_id: employeeId,
             email: employeeDetails.value.primaryEmail,
@@ -200,7 +196,7 @@ const goBack = () => {
 
 const getEmployeeSkillsets = async (email) => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, { 
+        const response = await axios.post(`/api/apitest`, { 
             action: 'listEmployeeSkillsets', 
             email 
         });
@@ -208,7 +204,7 @@ const getEmployeeSkillsets = async (email) => {
         // Ensure reviewer_name is populated
         const skillsets = response.data;
         for (const skillset of skillsets) {
-            const reviewerResponse = await axios.post(`${baseURL}/api/apitest.php`, {
+            const reviewerResponse = await axios.post(`/api/apitest`, {
                 action: 'getReviewerName',
                 email: skillset.reviewer_email
             });
@@ -235,7 +231,7 @@ const confirmDelete = (event, skillsetId) => {
 
 const handleDelete = async (skillset) => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'deleteEmployeeSkillset', id: skillset.id });
+        const response = await axios.post(`/api/apitest`, { action: 'deleteEmployeeSkillset', id: skillset.id });
         
         if (response.data.success) {
             toast.add({ severity: 'success', summary: 'Success', detail: 'Skillset deleted successfully', life: 3000 });
@@ -273,7 +269,7 @@ const handleRatingChange = async (skillset, rating) => {
     };
 
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, payload);
+        const response = await axios.post(`/api/apitest`, payload);
         if (response.data && response.data.success) {
             toast.add({ severity: 'success', summary: 'Success', detail: 'Skillset rating saved successfully', life: 3000 });
 
@@ -305,7 +301,7 @@ const submitReview = async () => {
     }
 
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'addEmployeeReview',
             employee_id: review.value.employee_id,
             email: review.value.email,

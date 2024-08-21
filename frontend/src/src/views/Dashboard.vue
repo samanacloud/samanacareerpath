@@ -7,10 +7,6 @@ import { useRouter } from 'vue-router';
 
 const { isDarkTheme } = useLayout();
 
-// Function to get the base URL
-const baseURL = import.meta.env.VITE_SITE_URL 
-    ? `https://${import.meta.env.VITE_SITE_URL}` // Use https if VITE_SITE_URL is defined
-    : 'http://localhost:8080'; // Use localhost for development
 
 const tableData = ref([]);
 
@@ -47,7 +43,7 @@ onMounted(() => {
 
 const fetchTableData = async () => {
     try {
-        const response = await fetch(`${baseURL}/api/apitest.php`, {
+        const response = await fetch(`/api/apitest`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

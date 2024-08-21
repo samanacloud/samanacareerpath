@@ -14,10 +14,7 @@ getPageAuthorization(pageRole);
 
 
 
-// Function to get the base URL
-const baseURL = import.meta.env.VITE_SITE_URL 
-    ? `https://${import.meta.env.VITE_SITE_URL}` 
-    : 'http://localhost:8080'; 
+
 
 const roles = ref([]);
 const search = ref('');
@@ -37,7 +34,7 @@ const openAddDialog = () => {
 
 const fetchRoles = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'listAdminRoles'
         });
         roles.value = response.data;
@@ -71,7 +68,7 @@ const confirmDeleteRole = (role) => {
 
 const deleteRole = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'deleteAdminRole',
             id: roleToDelete.value.id
         });
@@ -90,7 +87,7 @@ const deleteRole = async () => {
 
 const updateRole = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'updateAdminRole',
             id: selectedRole.value.id,
             functionName: selectedRole.value.functionName,
@@ -110,7 +107,7 @@ const updateRole = async () => {
 
 const addRole = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'addAdminRole',
             functionName: newRole.value.functionName,
             authrole: newRole.value.authrole

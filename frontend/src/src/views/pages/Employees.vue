@@ -11,10 +11,7 @@ import { getPageAuthorization } from '@/utils/utils';
 const pageRole = 2; // Set the required role for this page
 getPageAuthorization(pageRole);
 
-// Function to get the base URL
-const baseURL = import.meta.env.VITE_SITE_URL 
-    ? `https://${import.meta.env.VITE_SITE_URL}` // Use https if VITE_SITE_URL is defined
-    : 'http://localhost:8080'; // Use localhost for development
+
 
     
 const employeesList = ref([]);
@@ -55,7 +52,7 @@ const filteredEmployeesList = computed(() => {
 // Function to fetch enrollment status for a specific employee
 const fetchEnrollmentStatus = async (email) => {
   try {
-    const response = await axios.post(`${baseURL}/api/apitest.php`, {
+    const response = await axios.post(`/api/apitest`, {
       action: 'getEnrollmentStatus',
       email: email
     });
@@ -71,7 +68,7 @@ const fetchEnrollmentStatus = async (email) => {
 
 const listEmployees = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'listEmployees'
         });
         employeesList.value = response.data;
@@ -109,7 +106,7 @@ const editEmployee = (employeeData) => {
 
 const deleteEmployee = async (employeeId) => {
     try {
-        await axios.post(`${baseURL}/api/apitest.php`, {
+        await axios.post(`/api/apitest`, {
             action: 'deleteEmployee',
             id: employeeId
         });
@@ -154,7 +151,7 @@ const saveEmployee = async () => {
             delete employeePayload.id;
         }
 
-        await axios.post(`${baseURL}/api/apitest.php`, employeePayload);
+        await axios.post(`/api/apitest`, employeePayload);
         toast.add({ severity: 'success', summary: 'Success', detail: `Employee ${isEdit.value ? 'updated' : 'added'} successfully` });
         employeeDialog.value = false;
         listEmployees();

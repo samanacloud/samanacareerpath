@@ -26,10 +26,6 @@ getPageAuthorization(pageRole);
 const idFrozen = ref(false); // Add this line for dynamic toggling
 
 
-// Function to get the base URL
-const baseURL = import.meta.env.VITE_SITE_URL 
-    ? `https://${import.meta.env.VITE_SITE_URL}` 
-    : 'http://localhost:8080'; // Use localhost for development
 
 const displayConfirmation = ref(false);
 const skillsetToDelete = ref(null); 
@@ -114,7 +110,7 @@ const candidateReviews = ref([]);
 
 const getJobProcesses = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'getJobProcess' });
+        const response = await axios.post(`/api/apitest`, { action: 'getJobProcess' });
         jobProcesses.value = response.data.map(process => ({
             label: `[${process.id}] - ${process.job_title} - [${process.enabled === 1 ? 'Active' : 'Inactive'}]`,
             value: process.id
@@ -127,7 +123,7 @@ const getJobProcesses = async () => {
 
 const getCandidateReviews = async (email) => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'listCandidateReviews', email });
+        const response = await axios.post(`/api/apitest`, { action: 'listCandidateReviews', email });
         candidateReviews.value = response.data;
     } catch (error) {
         apiResponse.value = 'Error fetching candidate reviews: ' + error.message;
@@ -146,7 +142,7 @@ const submitReview = async () => {
     }
 
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'addCandidateReview',
             email: candidateDetails.value.email,
             process: candidateReview.value.process,
@@ -210,7 +206,7 @@ const getReviewerEmail = async () => {
 // Fetch candidate details
 const getCandidateDetails = async (email) => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'getCandidate', email });
+        const response = await axios.post(`/api/apitest`, { action: 'getCandidate', email });
         candidateDetails.value = response.data;
     } catch (error) {
         apiResponse.value = 'Error fetching candidate details: ' + error.message;
@@ -220,7 +216,7 @@ const getCandidateDetails = async (email) => {
 // Fetch job categories
 const fetchJobCategories = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'listJobCategories' });
+        const response = await axios.post(`/api/apitest`, { action: 'listJobCategories' });
         categories.value = response.data;
     } catch (error) {
         console.error('Error fetching job categories:', error);
@@ -234,7 +230,7 @@ const fetchJobSkillsets = async (categoryId) => {
     } else {
         activeCategory.value = categoryId;
         try {
-            const response = await axios.post(`${baseURL}/api/apitest.php`, {
+            const response = await axios.post(`/api/apitest`, {
                 action: 'getSkillsetCategory',
                 id: categoryId
             });
@@ -255,7 +251,7 @@ const fetchJobSkillsets = async (categoryId) => {
 
 const getReviewerName = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'getReviewerName',
             email: reviewer_email.value
         });
@@ -268,7 +264,7 @@ const getReviewerName = async () => {
 
 const setCandidateSkillSet = async (candidateId, category, skillset, rating, reviewerId, reviewerEmail, comment, timestamp) => {
     try {
-        await axios.post(`${baseURL}/api/apitest.php`, {
+        await axios.post(`/api/apitest`, {
             action: 'setCandidateSkillSet',
             candidate_id: candidateId,
             category,
@@ -306,7 +302,7 @@ const goBack = () => {
 
 const getCandidateSkillsets = async (reviewer_email, candidate_email) => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, { 
+        const response = await axios.post(`/api/apitest`, { 
             action: 'getCandidateSkillset', 
             reviewer_email, 
             candidate_email 
@@ -345,7 +341,7 @@ const confirmDelete = (event, skillsetId) => {
 // Modified handleDelete function
 const handleDelete = async (data) => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'deleteCandidateSkillset', id: data.id });
+        const response = await axios.post(`/api/apitest`, { action: 'deleteCandidateSkillset', id: data.id });
 
         // Check for successful deletion based on the updated response structure
         if (response.data.success) { // 'success' is now a boolean
@@ -384,7 +380,7 @@ const handleRatingChange = async (skillset, rating) => {
     };
 
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, payload);
+        const response = await axios.post(`/api/apitest`, payload);
         if (response.data && response.data.success) {
             toast.add({ severity: 'success', summary: 'Success', detail: 'Skillset rating saved successfully', life: 3000 });
 
@@ -429,7 +425,7 @@ watch(() => candidateReview.interview, (newInterview) => {
 });
 const addCertificationToCandidate = async (certification) => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'addCandidateCertification',
             email: candidateDetails.value.email,
             certification: certification.certification,
@@ -447,7 +443,7 @@ const addCertificationToCandidate = async (certification) => {
 };
 const listAvailableCertifications = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'listCertifications' });
+        const response = await axios.post(`/api/apitest`, { action: 'listCertifications' });
         if (response.data && !response.data.error) {
             availableCertifications.value = response.data;
             filteredCertifications.value = availableCertifications.value; // Initialize filtered certifications

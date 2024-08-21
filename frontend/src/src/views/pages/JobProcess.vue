@@ -344,7 +344,7 @@ onBeforeMount(listJobPostings);
 
     <div class="col-12 xl:col-6" v-if="selectedJob">
       <div class="card">
-        <h5>Enrolled candidates for interview</h5>
+        <h5>Interviews Results</h5>
         <div class="p-3">
           <DataTable :value="enrolledCandidates" :scrollable="true" scrollHeight="80vh" scrollDirection="both">
             <Column field="name" header="Name">
@@ -436,23 +436,24 @@ onBeforeMount(listJobPostings);
     <Dialog header="Add New Job Process" v-model:visible="showAddDialog" modal class="col-11 md:col-6">
   <form @submit.prevent="addJobProcess">
     <div class="formgrid grid p-fluid">
-      <div class="field col-12">
-        <label for="job_category">Job Category</label>
-        <Dropdown v-model="newJob.job_category" :options="jobCategories" optionLabel="label" optionValue="value" required />
-      </div>
+
       <div class="field col-12">
         <label for="job_title">Job Title</label>
         <InputText v-model="newJob.job_title" required />
       </div>
-      <div class="field col-12">
+      <div class="field col-12 md:col-6">
+        <label for="job_category">Job Category</label>
+        <Dropdown v-model="newJob.job_category" :options="jobCategories" optionLabel="label" optionValue="value" required />
+      </div>
+      <div class="field col-12 md:col-6">
         <label for="job_type">Job Type</label>
         <Dropdown v-model="newJob.job_type" :options="jobTypes" optionLabel="label" optionValue="value" required />
       </div>
-      <div class="field col-12">
+      <div class="field col-12 md:col-6">
         <label for="workplace_type">Workplace Type</label>
         <Dropdown v-model="newJob.workplace_type" :options="workplaceTypes" optionLabel="label" optionValue="value" required />
       </div>
-      <div class="field col-12">
+      <div class="field col-12 md:col-6">
         <label for="salary_range">Salary Range</label>
         <InputText v-model="newJob.salary_range" required />
       </div>

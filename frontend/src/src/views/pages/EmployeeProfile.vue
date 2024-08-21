@@ -19,11 +19,6 @@ getPageAuthorization(pageRole);
 
 
 
-
-const baseURL = import.meta.env.VITE_SITE_URL 
-    ? `https://${import.meta.env.VITE_SITE_URL}` 
-    : 'http://localhost:8080';
-
     
 const router = useRouter();
 const enrollmentPercentage = ref(null); // New ref to store enrollment percentage
@@ -42,7 +37,7 @@ const showObservations = ref({});
 
 const getEmployeeDetails = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'getEmployee',
             email: employeeEmail.value
         });
@@ -62,14 +57,14 @@ const toggleObservations = (reviewId) => {
 
 const getEmployeeReviews = async (email) => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'listPublicEmployeeReviews',
             email
         });
         const reviews = response.data;
 
         for (const review of reviews) {
-            const reviewerResponse = await axios.post(`${baseURL}/api/apitest.php`, {
+            const reviewerResponse = await axios.post(`/api/apitest`, {
                 action: 'getReviewerName',
                 email: review.reviewer_email
             });
@@ -86,7 +81,7 @@ const getEmployeeReviews = async (email) => {
 // Function to fetch enrollment status
 const fetchEnrollmentStatus = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'getEnrollmentStatus',
             email: employeeEmail.value
         });
@@ -102,7 +97,7 @@ const fetchEnrollmentStatus = async () => {
 
 const updateEmployeeProfile = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'updateEmployee',
             ...employee.value
         });
@@ -145,7 +140,7 @@ const aiTraining = () => {
 
 const getEmployeeCertifications = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'listEmployeeCertifications',
             email: employeeEmail.value
         });
@@ -183,7 +178,7 @@ const calculateDuration = (creationDate) => {
 // Fetch all certifications
 const getAllCertifications = async () => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'listCertifications'
         });
         allCertifications.value = response.data;
@@ -195,7 +190,7 @@ const getAllCertifications = async () => {
 // Add certification to employee
 const addCertificationToEmployee = async (certification) => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'addEmployeeCertification',
             email: employee.value.primaryEmail,
             certification: certification.certification,
@@ -239,7 +234,7 @@ const deleteCertification = async (certificationId) => {
         icon: 'pi pi-exclamation-triangle',
         accept: async () => { // Use async here
             try {
-                const response = await axios.post(`${baseURL}/api/apitest.php`, {
+                const response = await axios.post(`/api/apitest`, {
                     action: 'deleteEmployeeCertification',
                     id: certificationId
                 });
@@ -316,10 +311,10 @@ const onUploadProfilePhoto = async (event) => {
                                 mode="basic" 
                                 name="profile_photo" 
                                 accept="image/*" 
+                                chooseLabel="Photo"
                                 :maxFileSize="5000000" 
                                 @select="(event) => onUploadProfilePhoto(event)" 
                                 customUpload 
-                                chooseLabel="Upload Photo"
                             />
                             <ProgressSpinner v-if="loadingProfilePhoto" style="width: 40px; height: 40px;" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s" />
                         </div>

@@ -15,9 +15,6 @@ import { getPageAuthorization } from '@/utils/utils';
 const pageRole = 3; // Set the required role for this page
 getPageAuthorization(pageRole);
 
-const baseURL = import.meta.env.VITE_SITE_URL 
-    ? `https://${import.meta.env.VITE_SITE_URL}` 
-    : 'http://localhost:8080';
 
 const toast = useToast();
 const confirm = useConfirm();
@@ -33,7 +30,7 @@ onMounted(fetchCategories);
 
 async function fetchCategories() {
   try {
-    const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'listJobCategories' });
+    const response = await axios.post(`/api/apitest`, { action: 'listJobCategories' });
     categories.value = response.data;
   } catch (error) {
     console.error("Error fetching categories:", error);
@@ -44,7 +41,7 @@ async function fetchSkillsets(categoryId, categoryName) {
   selectedCategoryId.value = categoryId;
   selectedCategoryName.value = categoryName;
   try {
-    const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'listJobSkillsets' });
+    const response = await axios.post(`/api/apitest`, { action: 'listJobSkillsets' });
     skillsets.value = response.data.filter(skillset => skillset.category_id === categoryId);
   } catch (error) {
     console.error("Error fetching skillsets:", error);
@@ -88,7 +85,7 @@ async function handleAddOrEdit() {
   };
 
   try {
-    const response = await axios.post(`${baseURL}/api/apitest.php`, payload);
+    const response = await axios.post(`/api/apitest`, payload);
 
     if (response.data.success) {
       toast.add({ severity: 'success', summary: 'Success', detail: `${dialogData.value.type.charAt(0).toUpperCase() + dialogData.value.type.slice(1)} saved!`, life: 3000 });
@@ -109,7 +106,7 @@ async function handleAddOrEdit() {
 async function handleDelete(id, itemType) {
   const action = itemType === 'category' ? 'deleteJobCategory' : 'deleteJobSkillset';
   try {
-    const response = await axios.post(`${baseURL}/api/apitest.php`, {
+    const response = await axios.post(`/api/apitest`, {
       action,
       id: id,
     });

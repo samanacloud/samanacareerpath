@@ -60,6 +60,7 @@ onBeforeMount(() => {
                 { label: 'Admin Dashboard', icon: 'pi pi-fw pi-cog', to: '/admin' },
                 { label: 'Skillsets Admin', icon: 'pi pi-fw pi-cog', to: '/skillsetsadmin' },
                 { label: 'Certifications Admin', icon: 'pi pi-fw pi-cog', to: '/certificationsadmin' },
+                { label: 'Candidates Admin', icon: 'pi pi-fw pi-cog', to: '/candidatesadmin' },
                 { label: 'Reviews Admin', icon: 'pi pi-fw pi-chart-line', to: '/reviewsadmin' },
                 { label: 'Admin Roles', icon: 'pi pi-fw pi-eye', to: '/adminroles' }
             ]

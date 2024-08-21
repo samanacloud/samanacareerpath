@@ -63,9 +63,8 @@ services:
       - NODE_PORT=${NODE_PORT}
       - NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL}
       - VITE_GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
-      - VITE_GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
-      - VITE_GOOGLE_API_KEY=${GOOGLE_API_KEY}
       - VITE_SITE_URL=${SITE_URL}
+      
    # volumes:
     #  - ./frontend/src:/usr/src/src/app  #The folder is not being overwritted and the vendor folder did not dissapeared
     env_file:

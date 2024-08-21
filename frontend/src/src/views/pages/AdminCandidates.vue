@@ -3,11 +3,9 @@ import { ref, onBeforeMount, computed } from 'vue';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
 import Tooltip from 'primevue/tooltip';
-import InputSwitch from 'primevue/inputswitch';
-import { uploadToAWSS3 } from '@/service/customScript';
-
 import { useToast } from 'primevue/usetoast';
 import { useConfirm } from 'primevue/useconfirm';
+import InputSwitch from 'primevue/inputswitch';
 const confirm = useConfirm(); // Initialize confirm
 const toast = useToast();
 
@@ -38,30 +36,25 @@ const filteredCandidatesList = computed(() => {
     candidate.name.toLowerCase().includes(searchTerm)
   );
 });
-
-const listCandidateProfiles = async () => {
+//Function to delete candidate
+const deleteCandidate = async (id) => {
     try {
         const response = await axios.post(`/api/apitest`, {
-            action: 'listCandidateProfiles'
+            action: 'deleteCandidate',
+            id: id
         });
-        candidatesList.value = response.data;
-        apiResponse.value = 'Candidates listed successfully';
+
+        if (response.data.success) {
+            candidatesList.value = candidatesList.value.filter(candidate => candidate.id !== id);
+            toast.add({ severity: 'success', summary: 'Success', detail: 'Candidate deleted successfully', life: 3000 });
+        } else {
+            toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to delete candidate', life: 3000 });
+        }
     } catch (error) {
-        apiResponse.value = 'Error: ' + error.message;
+        toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to delete candidate', life: 3000 });
     }
 };
-
-const viewProfileDetails = (email) => {
-    sessionStorage.setItem('candidateEmail', email);
-    router.push('/candidatesreviews');
-};
-
-const viewProfileDetailstest = (email) => {
-    sessionStorage.setItem('candidateEmail', email);
-    router.push('tcandidatesreviews');
-};
-
-//Update candidate Details
+//function to update the candidate
 const showEditDialog = ref(false); // State for controlling edit dialog visibility
 const editedCandidate = ref({}); // Store the candidate being edited
 
@@ -99,44 +92,27 @@ const updateCandidate = async () => {
         toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to update candidate', life: 3000 });
     }
 };
-//Upload candidate photo and CV
-const loadingCV = ref(false);
-const loadingProfilePhoto = ref(false);
-// Upload file for CV and Profile Photo
-const onUpload = async (event, type) => {
-    const file = event.files[0];
-    if (!file) {
-        toast.add({ severity: 'warn', summary: 'No File Selected', detail: 'Please select a file to upload.', life: 3000 });
-        return;
-    }
 
-    // Set the correct loading state
-    if (type === 'CVs') {
-        loadingCV.value = true;
-    } else if (type === 'images') {
-        loadingProfilePhoto.value = true;
+const listCandidateProfiles = async () => {
+    try {
+        const response = await axios.post(`/api/apitest`, {
+            action: 'listCandidateProfiles'
+        });
+        candidatesList.value = response.data;
+        apiResponse.value = 'Candidates listed successfully';
+    } catch (error) {
+        apiResponse.value = 'Error: ' + error.message;
     }
+};
 
-    // Call the custom script to upload the file
-    const result = await uploadToAWSS3(file, type, editedCandidate.value.email);
+const viewProfileDetails = (email) => {
+    sessionStorage.setItem('candidateEmail', email);
+    router.push('/candidatesreviews');
+};
 
-    // Reset the loading state
-    if (type === 'CVs') {
-        loadingCV.value = false;
-    } else if (type === 'images') {
-        loadingProfilePhoto.value = false;
-    }
-
-    if (result && result.success) {
-        if (type === 'CVs') {
-            editedCandidate.value.candidate_cv = result.url; // Prepopulate the CV URL field with the uploaded file URL
-        } else if (type === 'images') {
-            editedCandidate.value.profile_photo = result.url; // Update profile photo with the new URL
-        }
-        toast.add({ severity: 'success', summary: 'Upload Successful', detail: 'File uploaded successfully.', life: 3000 });
-    } else {
-        toast.add({ severity: 'error', summary: 'Upload Failed', detail: result.message, life: 3000 });
-    }
+const viewProfileDetailstest = (email) => {
+    sessionStorage.setItem('candidateEmail', email);
+    router.push('tcandidatesreviews');
 };
 
 
@@ -170,7 +146,7 @@ onBeforeMount(() => {
     <div class="grid">
         <div class="col-12">
             <div class="card">
-                <h5>Candidates Dashboard</h5>
+                <h5>Candidates Admin</h5>
                 <div class="flex justify-content-between flex-column sm:flex-row">
                     <h6>Search by Name</h6>
                     <InputText type="text" v-model="searchName" placeholder="Search by name" class="p-inputtext-sm" />
@@ -197,14 +173,20 @@ onBeforeMount(() => {
                     <Column header="Profile Details" bodyStyle="text-align: center" frozen alignFrozen="right">
                         <template #body="{ data }">
                             <Button icon="pi pi-search" text raised outlined severity="success" @click="viewProfileDetails(data.email)" v-tooltip="'View Profile Details'" />
-                            <Button icon="pi pi-pencil" severity="info" outlined text raised @click="openEditDialog(data)" v-tooltip="'Edit Candidate Details'" />
+                            <Button icon="pi pi-pencil" severity="info" outlined text raised @click="openEditDialog(data)" v-tooltip="'Edit Candidate'" />
+                            <Button icon="pi pi-trash" severity="danger" outlined text raised @click="() => $confirm.require({
+                                    message: 'Are you sure you want to delete this candidate?',
+                                    header: 'Confirm',
+                                    icon: 'pi pi-exclamation-triangle',
+                                    accept: () => deleteCandidate(data.id)
+                                })" v-tooltip="'Delete Candidate'"/>
+
 
                         </template>
                     </Column>
                 </DataTable>
             </div>
         </div>
-
         <Dialog header="Edit Candidate" v-model:visible="showEditDialog" class="col-11 md:col-6">
             <form @submit.prevent="updateCandidate">
                 <div class="p-fluid">
@@ -222,41 +204,19 @@ onBeforeMount(() => {
                     </div>
                     <div class="field">
                         <label for="location">Location</label>
-                        <InputText v-model="editedCandidate.location" id="location" type="text" />
+                        <InputText v-model="editedCandidate.location" id="location" type="text" disabled/>
                     </div>
                     <div class="field">
                         <label for="english_level">English Level</label>
-                        <InputText v-model="editedCandidate.english_level" id="english_level" type="text" />
+                        <InputText v-model="editedCandidate.english_level" id="english_level" type="text" disabled/>
                     </div>
                     <div class="field">
                         <label for="profile_photo">Profile Photo</label>
-                        <div class="flex align-items-center">
-                            <InputText v-model="editedCandidate.profile_photo" id="profile_photo" type="text" required disabled />
-                            <FileUpload 
-                                mode="basic" 
-                                name="profile_photo" 
-                                chooseLabel="Photo"
-                                accept="image/*" 
-                                :maxFileSize="5000000" 
-                                @select="(event) => onUpload(event, 'images')" 
-                            />
-                            <ProgressSpinner v-if="loadingProfilePhoto" style="width: 40px; height: 40px;" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s" />
-                        </div>
+                        <InputText v-model="editedCandidate.profile_photo" id="profile_photo" type="text" disabled />
                     </div>
                     <div class="field">
-                        <label for="candidate_cv">Candidate CV (PDF Only)</label>
-                        <div class="flex align-items-center">
-                            <InputText v-model="editedCandidate.candidate_cv" id="candidate_cv" type="text" required disabled />
-                            <FileUpload 
-                                mode="basic" 
-                                name="candidate_cv" 
-                                accept=".pdf" 
-                                chooseLabel="CV"
-                                :maxFileSize="10000000" 
-                                @select="(event) => onUpload(event, 'CVs')" 
-                            />
-                            <ProgressSpinner v-if="loadingCV" style="width: 40px; height: 40px;" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s" />        
-                        </div>    
+                        <label for="candidate_cv">Candidate CV</label>
+                        <InputText v-model="editedCandidate.candidate_cv" id="candidate_cv" type="text" disabled/>
                     </div>
                     <div class="field">
                         <label for="enabled">Status</label>

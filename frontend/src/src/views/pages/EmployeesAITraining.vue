@@ -11,9 +11,7 @@ const pageRole = 1; // Set the required role for this page
 getPageAuthorization(pageRole);
 
 
-const baseURL = import.meta.env.VITE_SITE_URL 
-    ? `https://${import.meta.env.VITE_SITE_URL}`
-    : '';
+
 
 const openaiBaseURL = 'https://api.openai.com/v1';
 const openaiApiKey = import.meta.env.VITE_OPENAI_API_KEY;
@@ -62,7 +60,7 @@ export default {
         },
         async fetchEmployeeDetails(email) {
             try {
-                const response = await axios.post(`${baseURL}/api/apitest.php`, {
+                const response = await axios.post(`/api/apitest`, {
                     action: 'getEmployee',
                     email: email,
                 });
@@ -74,7 +72,7 @@ export default {
         },
         async fetchCertifications(email) {
             try {
-                const response = await axios.post(`${baseURL}/api/apitest.php`, {
+                const response = await axios.post(`/api/apitest`, {
                     action: 'listEmployeeCertifications',
                     email: email,
                 });
@@ -85,44 +83,28 @@ export default {
             }
         },
         async showRecommendedTraining() {
-            try {
-                this.loading = true;
-                let prompt;
-                if (this.certifications.length > 0) {
-                    prompt = `Search in the pluralsight website and Provide only 3 recent training courses with descriptions and  links that helps the student to improve their skillsets in complementary technologies using as base that he already has knowledge on the following certifications: ${this.certifications.map(cert => cert.certification).join(', ')}, Format the response as JSON with the following structure:  title, description, and link in json format. Do not provide anything else.`;
-                } else {
-                    prompt = `Search in the pluralsight website and Provide only 3 recent training courses with descriptions and  links for career development. Format the response as JSON with the following structure:  title, description, and link in json format. Do not provide anything else.`;
-                }
-  
-                const response = await axios.post(
-                    `${openaiBaseURL}/chat/completions`,
-                    {
-                        model: 'gpt-4o-mini',
-                        messages: [
-                            { role: 'system', content: 'You are a trainer specialized in IT, that gives training recommendations for a team of engineers that works in a IT managed services company. Every request, you search to identify on internet and provide only updated content.' },
-                            { role: 'user', content: prompt }
-                        ],
-                        max_tokens: 500,
-                        n: 1,
-                        temperature: 0.7,
-                    },
-                    {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${openaiApiKey}`,
-                        },
-                    }
-                );
-  
-                // Parse the response to extract recommended training topics
-                this.recommendedTraining = JSON.parse(response.data.choices[0].message.content.replace(/```json|```/g, ''));
-            } catch (error) {
-                console.error('Error fetching recommended training:', error);
-                // Handle the error appropriately (e.g., display an error message to the user)
-            } finally {
-                this.loading = false;
+        try {
+            this.loading = true;
+
+            // Convert the certifications array into a single string
+            const certificationsString = this.certifications.map(cert => cert.certification).join(', ');
+
+            const response = await axios.post('/api/ainode.php', {
+                certifications: certificationsString, // Send as a single string
+            });
+
+            if (response.data.recommendedTraining.error) {
+                console.error('Error from OpenAI:', response.data.recommendedTraining.error);
+                this.recommendedTraining = []; // Handle error
+            } else {
+                this.recommendedTraining = response.data.recommendedTraining; // Set the valid training data
             }
-        },
+        } catch (error) {
+            console.error('Error fetching recommended training:', error);
+        } finally {
+            this.loading = false;
+        }
+    },
     },
     components: {
         DataTable,

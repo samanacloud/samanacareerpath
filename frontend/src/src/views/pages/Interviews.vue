@@ -16,10 +16,7 @@ const pageRole = 2; // Set the required role for this page
 getPageAuthorization(pageRole);
 
 
-// Function to get the base URL
-const baseURL = import.meta.env.VITE_SITE_URL 
-    ? `https://${import.meta.env.VITE_SITE_URL}` // Use https if VITE_SITE_URL is defined
-    : 'http://localhost:8080'; // Use localhost for development
+
 
 const candidateDetails = ref(null);
 const candidateSkillsets = ref([]);
@@ -37,7 +34,7 @@ const goBack = () => {
 // Fetch candidate details
 const getCandidateDetails = async (email) => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'getCandidate', email });
+        const response = await axios.post(`/api/apitest`, { action: 'getCandidate', email });
         candidateDetails.value = response.data;
     } catch (error) {
         apiResponse.value = 'Error fetching candidate details: ' + error.message;
@@ -47,7 +44,7 @@ const getCandidateDetails = async (email) => {
 // Fetch candidate skillsets
 const getCandidateSkillsets = async (email) => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'listCandidateSkillsets', email });
+        const response = await axios.post(`/api/apitest`, { action: 'listCandidateSkillsets', email });
         candidateSkillsets.value = response.data;
     } catch (error) {
         apiResponse.value = 'Error fetching candidate skillsets: ' + error.message;
@@ -57,7 +54,7 @@ const getCandidateSkillsets = async (email) => {
 // Fetch candidate reviews
 const getCandidateReviews = async (email) => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'listCandidateReviews', email });
+        const response = await axios.post(`/api/apitest`, { action: 'listCandidateReviews', email });
         candidateReviews.value = response.data;
     } catch (error) {
         apiResponse.value = 'Error fetching candidate reviews: ' + error.message;
@@ -69,7 +66,7 @@ const candidateCertifications = ref([]);
 
 const getCandidateCertifications = async (email) => {
     try {
-        const response = await axios.post(`${baseURL}/api/apitest.php`, { action: 'listCandidateCertifications', email });
+        const response = await axios.post(`/api/apitest`, { action: 'listCandidateCertifications', email });
         candidateCertifications.value = response.data;
     } catch (error) {
         apiResponse.value = 'Error fetching candidate certifications: ' + error.message;

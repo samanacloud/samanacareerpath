@@ -28,7 +28,7 @@ const resetIdleTimer = () => {
 // Refresh the token before it expires
 const refreshToken = async () => {
     try {
-        const response = await axios.post('/path-to-refresh-token-endpoint', {
+        const response = await axios.post('/api/refreshtoken', {
             refresh_token: sessionStorage.getItem('refreshToken'),
         });
 
@@ -62,8 +62,8 @@ const logoutUser = () => {
     const userEmailValue = userEmail ? userEmail.split('=')[1] : '';
     const candidateEmailValue = candidateEmail ? candidateEmail.split('=')[1] : '';
 
-    if (userEmailValue.includes('@gmail.com') || candidateEmailValue.includes('@gmail.com')) {
-        router.push('/auth/logoutcandidate');
+    if (userEmailValue.includes('gmail.com') || candidateEmailValue.includes('gmail.com')) {
+        router.push('/auth/logout');
     } else {
         router.push('/auth/logout');
     }

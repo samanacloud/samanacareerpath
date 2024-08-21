@@ -203,7 +203,7 @@ const uploadToGoogleDrive = async (blob, accessToken) => {
 
 const submitFeedback = async (screenshotUrl) => {
     try {
-        const response = await axios.post(`https://${import.meta.env.VITE_SITE_URL}/api/apitest.php`, {
+        const response = await axios.post(`/api/apitest`, {
             action: 'addFeedback',
             type: feedbackType.value,
             description: description.value,

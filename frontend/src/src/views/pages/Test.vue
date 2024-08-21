@@ -9,8 +9,7 @@ defineProps({
   }
 })
 
-// Function to get the base URL from environmental variables
-const baseURL = import.meta.env.VITE_SITE_URL;
+
 
 const apiResponse = ref('')
 const usersList = ref([])
@@ -19,7 +18,7 @@ const defaultProfileImage = '/public/samana-logo.png' // Path to the default use
 
 const testDbConnection = async () => {
   try {
-    const response = await axios.post(`https://${baseURL}/api/apitest.php`, {
+    const response = await axios.post(`/api/apitest`, {
       action: 'testDbConnection'
     })
     apiResponse.value = response.data.success ? 'Database connection successful' : 'Database connection failed'
@@ -30,7 +29,7 @@ const testDbConnection = async () => {
 
 const listUsers = async () => {
   try {
-    const response = await axios.post(`https://${baseURL}/api/apitest.php`, {
+    const response = await axios.post(`/api/apitest`, {
       action: 'listUsers'
     })
     usersList.value = response.data
@@ -42,7 +41,7 @@ const listUsers = async () => {
 
 const getUser = async (userId) => {
   try {
-    const response = await axios.post(`https://${baseURL}/api/apitest.php`, {
+    const response = await axios.post(`/api/apitest`, {
       action: 'getUser',
       userId: userId
     })

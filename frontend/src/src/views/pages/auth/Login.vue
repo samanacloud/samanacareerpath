@@ -3,8 +3,8 @@ import { useLayout } from '@/layout/composables/layout';
 import { ref, computed, onMounted } from 'vue';
 import AppConfig from '@/layout/AppConfig.vue';
 import { useRouter } from 'vue-router';
-import axios from 'axios';
 import { useToast } from 'primevue/usetoast';
+import axios from 'axios';
 
 const { layoutConfig } = useLayout();
 const router = useRouter();
@@ -14,111 +14,88 @@ const logoUrl = computed(() => {
     return `/${layoutConfig.darkTheme.value ? 'samana-logo-white' : 'samana-logo-dark'}.png`;
 });
 
-// Function to get the base URL
-const baseURL = import.meta.env.VITE_SITE_URL 
-    ? `https://${import.meta.env.VITE_SITE_URL}` 
-    : 'http://localhost:8080'; 
-
-// Use environmental variables
-const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-const clientSecret = import.meta.env.VITE_GOOGLE_CLIENT_SECRET;
-const redirectUri = `${window.location.origin}/auth/login`;
+const convertCookieValue = (name) => {
+    const value = document.cookie
+        .split('; ')
+        .find(row => row.startsWith(name))
+        ?.split('=')[1];
+    return value ? decodeURIComponent(value.replace(/\+/g, ' ')) : null;
+};
 
 const loginWithGoogle = async () => {
-    const scope = 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/drive.file';
-    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&access_type=online`;
-
-    window.location.href = authUrl;
+    window.location.href = `/api/oauthRedirect`;
 };
 
-const handleGoogleCallback = async () => {
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('code');
-    if (code) {
-        try {
-            const tokenResponse = await axios.post('https://oauth2.googleapis.com/token', {
-                code,
-                client_id: clientId,
-                client_secret: clientSecret,
-                redirect_uri: redirectUri,
-                grant_type: 'authorization_code'
-            });
+onMounted(async () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const status = urlParams.get('status');
+    const message = urlParams.get('message');
+    const userData = urlParams.get('userData');
 
-            const { access_token, id_token } = tokenResponse.data; // Extract id_token as well
-            const userInfoResponse = await axios.get(`https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`);
-            const userInfo = userInfoResponse.data;
+    if (userData) {
+        const userInfo = JSON.parse(decodeURIComponent(userData));
+        const email = userInfo.email;
 
-            // Check if the email contains @gmail.com
-            if (userInfo.email.includes('@gmail.com')) {
-                // Set the cookie with proper attributes and send to the candidates landing page
-                document.cookie = `CandidateToken=${access_token}; path=/; SameSite=Lax; Secure`;
-                document.cookie = `CandidateName=${userInfo.name}; path=/; SameSite=Lax; Secure`;
-                document.cookie = `ProfileImage=${userInfo.picture}; path=/; SameSite=Lax; Secure`;
-                document.cookie = `CandidateEmail=${userInfo.email}; path=/; SameSite=Lax; Secure`;
-                document.cookie = `CandidateidToken=${id_token}; path=/; SameSite=Lax; Secure`;
+        // Delete existing cookies
+        document.cookie = 'userName=; Max-Age=-99999999;';
+        document.cookie = 'userEmail=; Max-Age=-99999999;';
+        document.cookie = 'userProfileImage=; Max-Age=-99999999;';
+        document.cookie = 'CandidateName=; Max-Age=-99999999;';
+        document.cookie = 'CandidateEmail=; Max-Age=-99999999;';
+        document.cookie = 'ProfileImage=; Max-Age=-99999999;';
+        document.cookie = 'admin=; Max-Age=-99999999;';
 
-                router.push('/landing');
-                return;
-            }
-
-            // Calculate expiration time (20 minutes from now)
-            const expirationDate = new Date();
-            expirationDate.setTime(expirationDate.getTime() + 20 * 60 * 1000); // 20 minutes * 60 seconds * 1000 milliseconds
-            const expires = expirationDate.toUTCString();
-
-            // Set the cookie with proper attributes
-            document.cookie = `authToken=${access_token}; path=/; SameSite=Lax; Secure`;
-            document.cookie = `userName=${userInfo.name}; path=/; SameSite=Lax; Secure`;
-            document.cookie = `userProfileImage=${userInfo.picture}; path=/; SameSite=Lax; Secure`;
-            document.cookie = `userEmail=${userInfo.email}; path=/; SameSite=Lax; Secure`;
-            document.cookie = `idToken=${id_token}; path=/; SameSite=Lax; Secure`;
-
-            // Check if the user exists
-            const email = userInfo.email;
-            const userDetailsResponse = await axios.post(`${baseURL}/api/apitest.php`, {
-                action: 'getUserDetails',
-                email
-            });
-
-            if (userDetailsResponse.data.error === 'User not found') {
-                // If user does not exist, add the user and set admin=0 in the cookie
-                // Show unauthorized message
-                toast.add({
-                    severity: 'error',
-                    summary: 'Unauthorized',
-                    detail: 'You are not authorized to access this platform. Please contact your administrator.',
-                    life: 5000
+        if (email.includes('@samanagroup.co')) {
+            try {
+                const userDetailsResponse = await axios.post(`/api/apireg`, {
+                    action: 'getUserDetails',
+                    email
                 });
-            } else if (userDetailsResponse.data.error === 'Unauthorized') {
-                // Show unauthorized message
-                toast.add({
-                    severity: 'error',
-                    summary: 'Unauthorized',
-                    detail: 'You are not authorized to access this platform. Please contact your administrator.',
-                    life: 5000
-                });
-            } else {
-                // If user exists, set admin=value in the cookie
+
                 const adminValue = userDetailsResponse.data.admin;
-                document.cookie = `admin=${adminValue}; path=/; SameSite=Lax; Secure`;
-                router.push('/');
-            }
 
-            console.log('User Info:', userInfo);
-        } catch (error) {
-            console.error('Error during Google login callback:', error);
-            toast.add({
-                severity: 'error',
-                summary: 'Login Error: Unauthorized',
-                detail: 'You are not authorized to access this platform. Please contact your administrator.',
-                life: 5000
-            });
+                // Set new cookies
+                document.cookie = `authToken=${userInfo.accessToken}; path=/; SameSite=Lax; Secure`;
+                document.cookie = `userName=${userInfo.name}; path=/; SameSite=Lax; Secure`;
+                document.cookie = `userProfileImage=${userInfo.picture}; path=/; SameSite=Lax; Secure`;
+                document.cookie = `userEmail=${userInfo.email}; path=/; SameSite=Lax; Secure`;
+                document.cookie = `idToken=${userInfo.idToken}; path=/; SameSite=Lax; Secure`;
+                document.cookie = `admin=${adminValue}; path=/; SameSite=Lax; Secure`;
+
+                router.push('/');
+            } catch (error) {
+                toast.add({
+                    severity: 'error',
+                    summary: 'Error',
+                    detail: 'Failed to retrieve user details. Please try again.',
+                    life: 5000
+                });
+            }
+        } else if (email.includes('@gmail.com')) {
+            document.cookie = `CandidateToken=${userInfo.accessToken}; path=/; SameSite=Lax; Secure`;
+            document.cookie = `CandidateName=${userInfo.name}; path=/; SameSite=Lax; Secure`;
+            document.cookie = `ProfileImage=${userInfo.picture}; path=/; SameSite=Lax; Secure`;
+            document.cookie = `CandidateEmail=${userInfo.email}; path=/; SameSite=Lax; Secure`;
+            document.cookie = `CandidateidToken=${userInfo.idToken}; path=/; SameSite=Lax; Secure`;
+            router.push('/landing');
         }
     }
-};
 
-onMounted(() => {
-    handleGoogleCallback();
+    if (status === 'success') {
+        toast.add({
+            severity: 'success',
+            summary: 'Login Successful',
+            detail: message,
+            life: 5000
+        });
+    } else if (status === 'error') {
+        toast.add({
+            severity: 'error',
+            summary: 'Login Error',
+            detail: message,
+            life: 5000
+        });
+    }
 });
 </script>
 
@@ -136,20 +113,18 @@ onMounted(() => {
                         <Button label="Login with Google" icon="pi pi-google" class="w-full p-3 text-xl mt-3" @click="loginWithGoogle"></Button>
                     </div>
                     <div class="layout-footer">
-    <img :src="logoUrl" alt="Logo" height="20" class="mr-2" />
-    by
-    <span class="font-medium ml-2">Samana Group LLC</span>, All Rights Reserved
-    <div class="ml-4">
-        <a href="/termsofservice" class="text-primary">Terms of Use</a> | 
-        <a href="/privacypolicy" class="text-primary">Privacy Policy</a>
-    </div>
-</div>
+                        <img :src="logoUrl" alt="Logo" height="20" class="mr-2" />
+                        by
+                        <span class="font-medium ml-2">Samana Group LLC</span>, All Rights Reserved
+                        <div class="ml-4">
+                            <a href="/termsofservice" class="text-primary">Terms of Use</a> | 
+                            <a href="/privacypolicy" class="text-primary">Privacy Policy</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-
     <Toast />
 </template>
 

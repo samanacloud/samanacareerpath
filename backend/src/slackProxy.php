@@ -1,6 +1,6 @@
 <?php
 // Load environment variables
-$token = getenv('VITA_SLACK_BOT_TOKEN');
+$token = getenv('SLACK_BOT_TOKEN');
 
 // Get the POST data from the frontend
 $data = json_decode(file_get_contents('php://input'), true);

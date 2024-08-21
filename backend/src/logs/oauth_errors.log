@@ -1,0 +1,18 @@
+[2024-08-20 17:30:59] Exception during authentication: Client error: `POST https://oauth2.googleapis.com/token` resulted in a `400 Bad Request` response:
+{
+  "error": "redirect_uri_mismatch",
+  "error_description": "Bad Request"
+}
+
+[2024-08-20 17:33:38] Exception during authentication: Client error: `POST https://oauth2.googleapis.com/token` resulted in a `400 Bad Request` response:
+{
+  "error": "redirect_uri_mismatch",
+  "error_description": "Bad Request"
+}
+
+[2024-08-20 17:35:42] Exception during authentication: Client error: `POST https://oauth2.googleapis.com/token` resulted in a `400 Bad Request` response:
+{
+  "error": "redirect_uri_mismatch",
+  "error_description": "Bad Request"
+}
+

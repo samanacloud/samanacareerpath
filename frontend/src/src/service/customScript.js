@@ -27,7 +27,7 @@ export async function uploadToAWSS3(file, type, email) {
             const fileBase64 = reader.result.split(',')[1]; // Get base64 without the prefix
 
             try {
-                const response = await axios.post('/api/upload_file_api.php', {
+                const response = await axios.post('/api/upload_file_api', {
                     file: fileBase64,
                     folder: type,
                     email: email,

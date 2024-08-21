@@ -7,7 +7,7 @@ rm scp.samana.cloud.tar.gz
  mysqldump -P 3306 jobs_samana_db > db/scp.samana.cloud.sql
 
 # Updating the database locally
-cp db/scp.samana.cloud.sql db/jobs_samana_db.sql
+mv db/scp.samana.cloud.sql db/jobs_samana_db.sql
 
 # Create a new tar.gz archive, excluding the 'api_keys' directory
 tar -czvf scp.samana.cloud.tar.gz --exclude='./api_keys' .

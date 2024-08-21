@@ -1,0 +1,42 @@
+Headers: Array
+(
+    [Host] => scp.samana.cloud
+    [X-Real-IP] => 192.168.65.1
+    [X-Forwarded-For] => 192.168.65.1
+    [X-Forwarded-Proto] => https
+    [Connection] => close
+    [Content-Length] => 59
+    [User-Agent] => curl/8.7.1
+    [Accept] => */*
+    [Content-Type] => application/json
+)
+
+Body: {"type": "url_verification", "challenge": "test_challenge"}
+Headers: Array
+(
+    [Host] => scp.samana.cloud
+    [X-Real-IP] => 192.168.65.1
+    [X-Forwarded-For] => 192.168.65.1
+    [X-Forwarded-Proto] => https
+    [Connection] => close
+    [Content-Length] => 59
+    [User-Agent] => curl/8.7.1
+    [Accept] => */*
+    [Content-Type] => application/json
+)
+
+Body: {"type": "url_verification", "challenge": "test_challenge"}
+Headers: Array
+(
+    [Host] => scp.samana.cloud
+    [X-Real-IP] => 192.168.65.1
+    [X-Forwarded-For] => 192.168.65.1
+    [X-Forwarded-Proto] => https
+    [Connection] => close
+    [Content-Length] => 58
+    [User-Agent] => curl/8.7.1
+    [Accept] => */*
+    [Content-Type] => application/json
+)
+
+Body: {"type": "url_verification", "challenge": "Hello I am JP"}

@@ -12,16 +12,8 @@ const router = createRouter({
                     name: 'dashboard',
                     component: () => import('@/views/Dashboard.vue')
                 },
-                {
-                    path: '/test',
-                    name: 'test',
-                    component: () => import('@/views/pages/Test.vue')
-                },
-                {
-                    path: '/upload',
-                    name: 'upload',
-                    component: () => import('@/views/pages/upload.vue')
-                },
+
+
                 {
                     path: '/admin',
                     name: 'admin',
@@ -121,6 +113,11 @@ const router = createRouter({
                     component: () => import('@/views/pages/AdminRoles.vue')
                 },
                 {
+                    path: '/candidatesadmin',
+                    name: 'candidatesadmin',
+                    component: () => import('@/views/pages/AdminCandidates.vue')
+                },
+                {
                     path: '/unauthorized',
                     name: 'unauthorized',
                     component: () => import('@/views/pages/Unauthorized.vue')
@@ -130,11 +127,7 @@ const router = createRouter({
                     name: 'feedback',
                     component: () => import('@/views/pages/Feedback.vue')
                 },
-                {
-                    path: '/awsupload',
-                    name: 'awsupload',
-                    component: () => import('@/views/pages/AWSUpload.vue')
-                },
+
                 {
                     path: '/documentation',
                     name: 'documentation',
@@ -214,47 +207,47 @@ const router = createRouter({
             name: 'error',
             component: () => import('@/views/pages/auth/Error.vue')
         },
-        {
-            path: '/test/temployees',
-            name: 'temployees',
-            component: () => import('@/views/pages/Employees.vue')
-        },
-        {
-            path: '/test/tcandidates',
-            name: 'tcandidates',
-            component: () => import('@/views/pages/Candidates.vue')
-        },
-        {
-            path: '/test/tcandidatesreviews',
-            name: 'tcandidatesreviews',
-            component: () => import('@/views/pages/CandidatesReviews.vue')
-        },
-        {
-            path: '/test/temployeesreviews',
-            name: 'temployeesreviews',
-            component: () => import('@/views/pages/CandidatesReviews.vue')
-        },
-        {
-            path: '/test/tjobprocess',
-            name: 'tjobprocess',
-            component: () => import('@/views/pages/JobProcess.vue')
-        },
-        {
-            path: '/test/tskillsetsadmin',
-            name: 'tskillsetsadmin',
-            component: () => import('@/views/pages/SkillsetsAdmin.vue')
-        },
-        {
-            path: '/test/tcertificationsadmin',
-            name: 'tcertificationsadmin',
-            component: () => import('@/views/pages/CertificationsAdmin.vue')
-        },
-        
-        {
-            path: '/test/tcandidateinterview',
-            name: 'tcandidateinterview',
-            component: () => import('@/views/pages/CandidateInterview.vue')
-        },
+   //     {
+   //         path: '/test/temployees',
+   //         name: 'temployees',
+   //         component: () => import('@/views/pages/Employees.vue')
+   //     },
+   //    {
+   //         path: '/test/tcandidates',
+   //         name: 'tcandidates',
+   //         component: () => import('@/views/pages/Candidates.vue')
+   //     },
+   //     {
+   //         path: '/test/tcandidatesreviews',
+   //         name: 'tcandidatesreviews',
+   //         component: () => import('@/views/pages/CandidatesReviews.vue')
+   //     },
+   //     {
+  //          path: '/test/temployeesreviews',
+   //         name: 'temployeesreviews',
+  //          component: () => import('@/views/pages/CandidatesReviews.vue')
+  //      },
+   //     {
+   //         path: '/test/tjobprocess',
+   //         name: 'tjobprocess',
+   //         component: () => import('@/views/pages/JobProcess.vue')
+   //     },
+   //     {
+    //        path: '/test/tskillsetsadmin',
+    //        name: 'tskillsetsadmin',
+   //         component: () => import('@/views/pages/SkillsetsAdmin.vue')
+  //     },
+   //     {
+   //         path: '/test/tcertificationsadmin',
+   //         name: 'tcertificationsadmin',
+   //         component: () => import('@/views/pages/CertificationsAdmin.vue')
+   //     },
+   //     
+   //     {
+   //         path: '/test/tcandidateinterview',
+  //          name: 'tcandidateinterview',
+  //          component: () => import('@/views/pages/CandidateInterview.vue')
+  //      },
 
 
 

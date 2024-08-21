@@ -14,7 +14,7 @@
   
   const sendMessage = async () => {
     try {
-      const response = await axios.post('/api/slackProxy.php', {
+      const response = await axios.post('/api/slackProxy', {
         channel: '#samana-careerpath',
         message: message.value
       });
