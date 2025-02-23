@@ -1,0 +1,19 @@
+# Environment files
+.env
+.env.*
+!.env.example
+*.secrets
+
+
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Docker
+docker-compose.override.yml

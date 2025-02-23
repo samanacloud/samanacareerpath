@@ -1,0 +1,45 @@
+# FastAPI for Web Framework
+fastapi==0.109.2
+uvicorn[standard]==0.27.1
+python-multipart==0.0.6  # Required for form data handling
+
+# GraphQL Integration
+strawberry-graphql==0.219.2
+
+# Environment variables
+python-dotenv==1.0.1
+
+# JWT handling
+python-jose[cryptography]>=3.3.0
+
+# Password hashing
+passlib[bcrypt]>=1.7.4
+
+# MongoDB
+motor==3.3.2
+pymongo==4.6.1
+
+# Authentication & Google Services (includes Gmail)
+authlib==1.3.0  # For OAuth2 (Google & Azure)
+
+# OpenAI
+openai>=1.12.0
+
+# Deepseek
+requests>=2.31.0  # For Deepseek API calls
+
+# Slack
+slack-sdk==3.26.1
+
+# Google OAuth dependencies
+google-auth==2.27.0
+google-auth-oauthlib==1.2.0
+google-auth-httplib2==0.2.0
+httpx==0.26.0
+
+# Google Sheets API
+google-api-python-client>=2.0.0
+google-auth>=2.0.0
+google-auth-oauthlib>=1.0.0
+google-auth-httplib2>=0.1.0
+gspread==6.0.2  # Added gspread for Google Sheets integration

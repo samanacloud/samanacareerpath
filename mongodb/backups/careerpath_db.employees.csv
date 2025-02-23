@@ -1,0 +1,162 @@
+_id,companyId,companyName,name,email,country,role,phone,status,createdAt,updatedAt
+67b9c25dd65ecbe87577c052,6792df37ae32f695bcd13420,Samana Group LLC,Juan Pablo Otalvaro,juan.otalvaro@samanagroup.com,Colombia,Enterprise Architect,+573138060575,active,2025-02-22T12:26:05.373Z,2025-02-22T14:25:20.268Z
+67b9d1ef7635d2ae25dd8bfc,6792df37ae32f695bcd13420,Samana Group LLC,Alex  Preczewski,alex.preczewski@samanagroup.co,Colombia,Service Desk Engineer L3,+573158268892,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8bfd,6792df37ae32f695bcd13420,Samana Group LLC,Alonso Maury Santana Torres,alonso.santana@samanagroup.co,Colombia,Service Delivery Manager,+0000000000,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8bfe,6792df37ae32f695bcd13420,Samana Group LLC,Andres  Cubas,andres.cubas@samanagroup.co,Colombia,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8bff,6792df37ae32f695bcd13420,Samana Group LLC,Andres Camilo Gari Gomez Casseres,andres.gari@samanagroup.co,Colombia,Service Desk Engineer L1,+573217763612,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c00,6792df37ae32f695bcd13420,Samana Group LLC,Andres Mauricio Monroy Sicuariza,andres.monroy@samanagroup.co,Colombia,Service Desk Engineer L1,+573115678673,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c01,6792df37ae32f695bcd13420,Samana Group LLC,Carlos Posada,carlos.posada@samanagroup.co,Colombia,Service Desk Engineer L3,+573004721380,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c02,6792df37ae32f695bcd13420,Samana Group LLC,Cesar Garcia,cesar.garcia@samanagroup.co,Colombia,Service Delivery Manager,+573203054056,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c03,6792df37ae32f695bcd13420,Samana Group LLC,Cristhian Camilo  Ramos Ligio,cristhian.ramos@samanagroup.co,Colombia,Service Desk Engineer L1,+573058172566,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c04,6792df37ae32f695bcd13420,Samana Group LLC,Daniel Alfredo Linero Vassallo,daniel.linero@samanagroup.co,Colombia,Service Desk Engineer L1,+573016620125,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c05,6792df37ae32f695bcd13420,Samana Group LLC,Danny Jose Ruiz Pico,danny.ruiz@samanagroup.co,Colombia,Service Delivery Manager,+0000000000,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c06,6792df37ae32f695bcd13420,Samana Group LLC,Efren Garcia Schumm,efren.garcia@samanagroup.co,Colombia,Service Desk Engineer L1,+528111929382,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c07,6792df37ae32f695bcd13420,Samana Group LLC,Fabian Baena,fabian.baena@samanagroup.co,United States,CTO,+17863856106,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c08,6792df37ae32f695bcd13420,Samana Group LLC,Felipe Bernal,felipe.bernal@samanagroup.co,United States,COO,+19549372592,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c09,6792df37ae32f695bcd13420,Samana Group LLC,Felipe Valencia,felipe.valencia@samanagroup.co,Colombia,Service Desk Engineer L1,+573115615919,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c0a,6792df37ae32f695bcd13420,Samana Group LLC,Fernando  Marin,fernando.marin@samanagroup.co,Colombia,CFO,+0000000000,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c0b,6792df37ae32f695bcd13420,Samana Group LLC,German Toro,german.toro@samanagroup.co,Colombia,Service Desk Engineer L1,+573136265284,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c0c,6792df37ae32f695bcd13420,Samana Group LLC,Gonzalo Rodriguez,Gonzalo.Rodriguez@samanagroup.co,Colombia,Service Desk Engineer L1,+525535618668,inactive,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c0d,6792df37ae32f695bcd13420,Samana Group LLC,Itau Answering Service Care,itauasc@samanagroup.com,United States,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c0e,6792df37ae32f695bcd13420,Samana Group LLC,Jair Becerra Espinosa,jair.becerra@samanagroup.com,Mexico,Service Desk Engineer L1,+525534660573,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c0f,6792df37ae32f695bcd13420,Samana Group LLC,Jair Reyes,jair.reyes@samanagroup.com,Colombia,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c10,6792df37ae32f695bcd13420,Samana Group LLC,John Bromfield,john.bromfield@samana-communications.com,United States,Sales ,+0000000000,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c11,6792df37ae32f695bcd13420,Samana Group LLC,John Bromfield,john.bromfield@samanagroup.com,United States,Sales ,+0000000000,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c12,6792df37ae32f695bcd13420,Samana Group LLC,Jonathan Piedrahita,jonathan.piedrahita@samanagroup.co,Colombia,Service Desk Engineer L1,+573186459284,inactive,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c13,6792df37ae32f695bcd13420,Samana Group LLC,Jorge Rodriguez,jorge.rodriguez@samanagroup.co,Colombia,Service Desk Engineer L3,+0000000000,inactive,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c14,6792df37ae32f695bcd13420,Samana Group LLC,Jorge Gomez,Jorge.Gomez@samanagroup.co,Colombia,CEO,+17862881522,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c15,6792df37ae32f695bcd13420,Samana Group LLC,Jorge Salazar Collante,jorge.salazar@samanagroup.co,Colombia,Service Desk Engineer L1,+573007283763,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c16,6792df37ae32f695bcd13420,Samana Group LLC,Jose Curi,jose.curi@samanagroup.co,Colombia,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c17,6792df37ae32f695bcd13420,Samana Group LLC,Juan Daniel Vega Bustos,juan.vega@samanagroup.co,Colombia,Service Desk Engineer L1,+573212349259,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c19,6792df37ae32f695bcd13420,Samana Group LLC,Julian Gomez,julian.gomez@samanagroup.co,Colombia,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c1a,6792df37ae32f695bcd13420,Samana Group LLC,Julian David Maldonado Ramos,julian.maldonado@samanagroup.co,Colombia,Service Desk Engineer L1,+573044910424,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c1b,6792df37ae32f695bcd13420,Samana Group LLC,Juliano Reckziegel,juliano.reckziegel@samanagroup.co,Brazil,Service Desk Engineer L1,+13054149041,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c1c,6792df37ae32f695bcd13420,Samana Group LLC,Kelsey Kempler,kelsey.kempler@samanagroup.co,United States,Service Desk Engineer L1,+19048065223,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c1d,6792df37ae32f695bcd13420,Samana Group LLC,Lucas Blumer,lucas.blumer@samanagroup.com,Brazil,Service Desk Engineer L1,+5511963229806,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c1e,6792df37ae32f695bcd13420,Samana Group LLC,Luiz Szente,luiz.szente@samanagroup.co,Colombia,Service Desk Engineer L1,+5511971734031,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c1f,6792df37ae32f695bcd13420,Samana Group LLC,Marcela Matos Lasprilla,marcela.matos@samanagroup.co,Chile,Service Desk Engineer L1,+573017996407,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c20,6792df37ae32f695bcd13420,Samana Group LLC,Marcelo Schultheis,marcelo.schultheis@samanagroup.co,Argentina,Service Desk Engineer L1,+5493436453549,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c21,6792df37ae32f695bcd13420,Samana Group LLC,Mario Andres Ayala Paez,mario.ayala@samanagroup.co,Colombia,Service Desk Engineer L1,+573006228134,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c22,6792df37ae32f695bcd13420,Samana Group LLC,Mauricio Llano Lopez,mauricio.llano@samanagroup.co,Colombia,Service Desk Engineer L1,+576012535272,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c23,6792df37ae32f695bcd13420,Samana Group LLC,Miguel Geronimo Ayala Paez,miguel.ayala@samanagroup.co,Colombia,Service Desk Engineer L1,573113576470,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c24,6792df37ae32f695bcd13420,Samana Group LLC,Moises Blanco,Moises.Blanco@samanagroup.co,Colombia,Enterprise Architect,+573008143276,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c25,6792df37ae32f695bcd13420,Samana Group LLC,Nicolas Becerra Gomez,nicolas.becerra@samanagroup.co,Colombia,Service Desk Engineer L1,+573053978335,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c26,6792df37ae32f695bcd13420,Samana Group LLC,Rob Ryan,rob.ryan@samanagroup.com,United States,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c27,6792df37ae32f695bcd13420,Samana Group LLC,Samana Support,technicalsupport@samanagroup.co,Colombia,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c28,6792df37ae32f695bcd13420,Samana Group LLC,Samana Remote Services,remoteservices@samanagroup.co,United States,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c29,6792df37ae32f695bcd13420,Samana Group LLC,Samana Webinars,webinars@samanagroup.com,United States,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c2a,6792df37ae32f695bcd13420,Samana Group LLC,Samir Arjona Borja,samir.arjona@samanagroup.co,Colombia,Service Desk Engineer L1,+573243157723,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c2b,6792df37ae32f695bcd13420,Samana Group LLC,Siddarth Gopinath,siddarth.gopinath@samanagroup.com,India,Service Desk Engineer L1, +91 8892816427,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c2c,6792df37ae32f695bcd13420,Samana Group LLC,Viviana  Gutierrez,viviana.gutierrez@samanagroup.co,Colombia,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373Z,2025-02-22T12:26:05.373Z
+67b9d1ef7635d2ae25dd8c2e,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c2f,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c30,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c31,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c32,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c33,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c34,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c35,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c36,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c37,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c38,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c39,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c3a,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c3b,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c3c,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c3d,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c3e,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c3f,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c40,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c41,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c42,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c43,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c44,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c45,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c46,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c47,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c48,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c49,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c4a,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c4b,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c4c,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c4d,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c4e,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c4f,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c50,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c51,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c52,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c53,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c54,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c55,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c56,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c57,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c58,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c59,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c5a,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c5b,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c5c,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c5d,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c5e,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c5f,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c60,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c61,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c62,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c63,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c64,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c65,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c66,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c67,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c68,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c69,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c6a,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c6b,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c6c,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c6d,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c6e,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c6f,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c70,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c71,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c72,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c73,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c74,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c75,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c76,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c77,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c78,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c79,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c7a,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c7b,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c7c,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c7d,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c7e,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c7f,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c80,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c81,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c82,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c83,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c84,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c85,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c86,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c87,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c88,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c89,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c8a,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c8b,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c8c,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c8d,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c8e,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c8f,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c90,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c91,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c92,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c93,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c94,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c95,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c96,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c97,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c98,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c99,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c9a,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c9b,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c9c,,,,,,,,,,
+67b9d1ef7635d2ae25dd8c9d,,,,,,,,,,
