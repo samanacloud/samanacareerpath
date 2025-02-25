@@ -1,13 +1,15 @@
 import strawberry
 from modules.users.mutations import UserMutations
-from modules.skillsets.mutations import SkillsetMutations
+from modules.skillsetsdata.mutations import SkillsetDataMutations
 from modules.certifications.mutations import CertificationMutations
 from modules.employees.mutations import EmployeeMutations
 from modules.candidates.mutations import CandidateMutations
 from modules.recruitment.mutations import RecruitmentMutations
+from modules.interviews.mutations import InterviewMutations
+from modules.certificationdata.mutations import CertificationDataMutations
 
 @strawberry.type
-class Mutation(UserMutations, SkillsetMutations, CertificationMutations, EmployeeMutations, CandidateMutations, RecruitmentMutations):
+class Mutation(UserMutations, SkillsetDataMutations, CertificationMutations, EmployeeMutations, CandidateMutations, RecruitmentMutations, InterviewMutations, CertificationDataMutations):
     pass
 
     @strawberry.mutation

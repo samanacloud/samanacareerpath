@@ -57,6 +57,7 @@ class CandidateMutations:
         update_data = {
             "recruitmentProcessId": input.recruitmentProcessId,
             "recruitmentProcessName": input.recruitmentProcessName,
+            "salaryExpectation": input.salaryExpectation,
             "updatedAt": datetime.utcnow()
         }
         

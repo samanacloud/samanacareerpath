@@ -1,163 +1,50 @@
-companyId,companyName,name,email,country,role,phone,status,createdAt,updatedAt,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Alex  Preczewski,alex.preczewski@samanagroup.co,Colombia,Service Desk Engineer L3,+573158268892,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Alonso Maury Santana Torres,alonso.santana@samanagroup.co,Colombia,Service Delivery Manager,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Andres  Cubas,andres.cubas@samanagroup.co,Colombia,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Andres Camilo Gari Gomez Casseres,andres.gari@samanagroup.co,Colombia,Service Desk Engineer L1,+573217763612,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Andres Mauricio Monroy Sicuariza,andres.monroy@samanagroup.co,Colombia,Service Desk Engineer L1,+573115678673,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Carlos Posada,carlos.posada@samanagroup.co,Colombia,Service Desk Engineer L3,+573004721380,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Cesar Garcia,cesar.garcia@samanagroup.co,Colombia,Service Delivery Manager,+573203054056,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Cristhian Camilo  Ramos Ligio,cristhian.ramos@samanagroup.co,Colombia,Service Desk Engineer L1,+573058172566,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Daniel Alfredo Linero Vassallo,daniel.linero@samanagroup.co,Colombia,Service Desk Engineer L1,+573016620125,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Danny Jose Ruiz Pico,danny.ruiz@samanagroup.co,Colombia,Service Delivery Manager,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Efren Garcia Schumm,efren.garcia@samanagroup.co,Colombia,Service Desk Engineer L1,+528111929382,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Fabian Baena,fabian.baena@samanagroup.co,United States,CTO,+17863856106,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Felipe Bernal,felipe.bernal@samanagroup.co,United States,COO,+19549372592,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Felipe Valencia,felipe.valencia@samanagroup.co,Colombia,Service Desk Engineer L1,+573115615919,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Fernando  Marin,fernando.marin@samanagroup.co,Colombia,CFO,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,German Toro,german.toro@samanagroup.co,Colombia,Service Desk Engineer L1,+573136265284,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Gonzalo Rodriguez,Gonzalo.Rodriguez@samanagroup.co,Colombia,Service Desk Engineer L1,+525535618668,inactive,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Itau Answering Service Care,itauasc@samanagroup.com,United States,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Jair Becerra Espinosa,jair.becerra@samanagroup.com,Mexico,Service Desk Engineer L1,+525534660573,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Jair Reyes,jair.reyes@samanagroup.com,Colombia,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,John Bromfield,john.bromfield@samana-communications.com,United States,Sales ,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,John Bromfield,john.bromfield@samanagroup.com,United States,Sales ,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Jonathan Piedrahita,jonathan.piedrahita@samanagroup.co,Colombia,Service Desk Engineer L1,+573186459284,inactive,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Jorge Rodriguez,jorge.rodriguez@samanagroup.co,Colombia,Service Desk Engineer L3,+0000000000,inactive,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Jorge Gomez,Jorge.Gomez@samanagroup.co,Colombia,CEO,+17862881522,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Jorge Salazar Collante,jorge.salazar@samanagroup.co,Colombia,Service Desk Engineer L1,+573007283763,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Jose Curi,jose.curi@samanagroup.co,Colombia,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Juan Daniel Vega Bustos,juan.vega@samanagroup.co,Colombia,Service Desk Engineer L1,+573212349259,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Juan Pablo Otalvaro,juan.otalvaro@samanagroup.co,United Arab Emirates,Enterprise Architect,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Julian Gomez,julian.gomez@samanagroup.co,Colombia,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Julian David Maldonado Ramos,julian.maldonado@samanagroup.co,Colombia,Service Desk Engineer L1,+573044910424,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Juliano Reckziegel,juliano.reckziegel@samanagroup.co,Brazil,Service Desk Engineer L1,+13054149041,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Kelsey Kempler,kelsey.kempler@samanagroup.co,United States,Service Desk Engineer L1,+19048065223,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Lucas Blumer,lucas.blumer@samanagroup.com,Brazil,Service Desk Engineer L1,+5511963229806,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Luiz Szente,luiz.szente@samanagroup.co,Colombia,Service Desk Engineer L1,+5511971734031,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Marcela Matos Lasprilla,marcela.matos@samanagroup.co,Chile,Service Desk Engineer L1,+573017996407,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Marcelo Schultheis,marcelo.schultheis@samanagroup.co,Argentina,Service Desk Engineer L1,+5493436453549,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Mario Andres Ayala Paez,mario.ayala@samanagroup.co,Colombia,Service Desk Engineer L1,+573006228134,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Mauricio Llano Lopez,mauricio.llano@samanagroup.co,Colombia,Service Desk Engineer L1,+576012535272,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Miguel Geronimo Ayala Paez,miguel.ayala@samanagroup.co,Colombia,Service Desk Engineer L1,573113576470,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Moises Blanco,Moises.Blanco@samanagroup.co,Colombia,Enterprise Architect,+573008143276,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Nicolas Becerra Gomez,nicolas.becerra@samanagroup.co,Colombia,Service Desk Engineer L1,+573053978335,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Rob Ryan,rob.ryan@samanagroup.com,United States,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Samana Support,technicalsupport@samanagroup.co,Colombia,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Samana Remote Services,remoteservices@samanagroup.co,United States,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Samana Webinars,webinars@samanagroup.com,United States,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Samir Arjona Borja,samir.arjona@samanagroup.co,Colombia,Service Desk Engineer L1,+573243157723,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Siddarth Gopinath,siddarth.gopinath@samanagroup.com,India,Service Desk Engineer L1, +91 8892816427,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-6792df37ae32f695bcd13420,Samana Group LLC,Viviana  Gutierrez,viviana.gutierrez@samanagroup.co,Colombia,Service Desk Engineer L1,+0000000000,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,
+companyId,companyName,name,email,country,role,phone,status,createdAt,updatedAt
+6792df37ae32f695bcd13420,Samana Group LLC,Alex  Preczewski,alex.preczewski@samanagroup.co,Colombia,Service Desk Engineer L3,5.73158E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Alonso Maury Santana Torres,alonso.santana@samanagroup.co,Colombia,Service Delivery Manager,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Andres  Cubas,andres.cubas@samanagroup.co,Colombia,Service Desk Engineer L1,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Andres Camilo Gari Gomez Casseres,andres.gari@samanagroup.co,Colombia,Service Desk Engineer L1,5.73218E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Andres Mauricio Monroy Sicuariza,andres.monroy@samanagroup.co,Colombia,Service Desk Engineer L1,5.73116E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Carlos Posada,carlos.posada@samanagroup.co,Colombia,Service Desk Engineer L3,5.73005E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Cesar Garcia,cesar.garcia@samanagroup.co,Colombia,Service Delivery Manager,5.73203E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Cristhian Camilo  Ramos Ligio,cristhian.ramos@samanagroup.co,Colombia,Service Desk Engineer L1,5.73058E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Daniel Alfredo Linero Vassallo,daniel.linero@samanagroup.co,Colombia,Service Desk Engineer L1,5.73017E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Danny Jose Ruiz Pico,danny.ruiz@samanagroup.co,Colombia,Service Delivery Manager,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Efren Garcia Schumm,efren.garcia@samanagroup.co,Colombia,Service Desk Engineer L1,5.28112E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Fabian Baena,fabian.baena@samanagroup.co,United States,CTO,17863856106,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Felipe Bernal,felipe.bernal@samanagroup.co,United States,COO,19549372592,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Felipe Valencia,felipe.valencia@samanagroup.co,Colombia,Service Desk Engineer L1,5.73116E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Fernando  Marin,fernando.marin@samanagroup.co,Colombia,CFO,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,German Toro,german.toro@samanagroup.co,Colombia,Service Desk Engineer L1,5.73136E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Gonzalo Rodriguez,Gonzalo.Rodriguez@samanagroup.co,Colombia,Service Desk Engineer L1,5.25536E+11,inactive,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Itau Answering Service Care,itauasc@samanagroup.com,United States,Service Desk Engineer L1,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Jair Becerra Espinosa,jair.becerra@samanagroup.com,Mexico,Service Desk Engineer L1,5.25535E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Jair Reyes,jair.reyes@samanagroup.com,Colombia,Service Desk Engineer L1,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,John Bromfield,john.bromfield@samana-communications.com,United States,Sales ,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,John Bromfield,john.bromfield@samanagroup.com,United States,Sales ,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Jonathan Piedrahita,jonathan.piedrahita@samanagroup.co,Colombia,Service Desk Engineer L1,5.73186E+11,inactive,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Jorge Rodriguez,jorge.rodriguez@samanagroup.co,Colombia,Service Desk Engineer L3,0,inactive,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Jorge Gomez,Jorge.Gomez@samanagroup.co,Colombia,CEO,17862881522,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Jorge Salazar Collante,jorge.salazar@samanagroup.co,Colombia,Service Desk Engineer L1,5.73007E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Jose Curi,jose.curi@samanagroup.co,Colombia,Service Desk Engineer L1,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Juan Daniel Vega Bustos,juan.vega@samanagroup.co,Colombia,Service Desk Engineer L1,5.73212E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Juan Pablo Otalvaro,juan.otalvaro@samanagroup.co,United Arab Emirates,Enterprise Architect,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Julian Gomez,julian.gomez@samanagroup.co,Colombia,Service Desk Engineer L1,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Julian David Maldonado Ramos,julian.maldonado@samanagroup.co,Colombia,Service Desk Engineer L1,5.73045E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Juliano Reckziegel,juliano.reckziegel@samanagroup.co,Brazil,Service Desk Engineer L1,13054149041,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Kelsey Kempler,kelsey.kempler@samanagroup.co,United States,Service Desk Engineer L1,19048065223,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Lucas Blumer,lucas.blumer@samanagroup.com,Brazil,Service Desk Engineer L1,5.51196E+12,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Luiz Szente,luiz.szente@samanagroup.co,Colombia,Service Desk Engineer L1,5.51197E+12,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Marcela Matos Lasprilla,marcela.matos@samanagroup.co,Chile,Service Desk Engineer L1,5.73018E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Marcelo Schultheis,marcelo.schultheis@samanagroup.co,Argentina,Service Desk Engineer L1,5.49344E+12,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Mario Andres Ayala Paez,mario.ayala@samanagroup.co,Colombia,Service Desk Engineer L1,5.73006E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Mauricio Llano Lopez,mauricio.llano@samanagroup.co,Colombia,Service Desk Engineer L1,5.76013E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Miguel Geronimo Ayala Paez,miguel.ayala@samanagroup.co,Colombia,Service Desk Engineer L1,5.73114E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Moises Blanco,Moises.Blanco@samanagroup.co,Colombia,Enterprise Architect,5.73008E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Nicolas Becerra Gomez,nicolas.becerra@samanagroup.co,Colombia,Service Desk Engineer L1,5.73054E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Rob Ryan,rob.ryan@samanagroup.com,United States,Service Desk Engineer L1,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Samana Support,technicalsupport@samanagroup.co,Colombia,Service Desk Engineer L1,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Samana Remote Services,remoteservices@samanagroup.co,United States,Service Desk Engineer L1,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Samana Webinars,webinars@samanagroup.com,United States,Service Desk Engineer L1,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Samir Arjona Borja,samir.arjona@samanagroup.co,Colombia,Service Desk Engineer L1,5.73243E+11,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Siddarth Gopinath,siddarth.gopinath@samanagroup.com,India,Service Desk Engineer L1, +91 8892816427,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00
+6792df37ae32f695bcd13420,Samana Group LLC,Viviana  Gutierrez,viviana.gutierrez@samanagroup.co,Colombia,Service Desk Engineer L1,0,active,2025-02-22T12:26:05.373+00:00,2025-02-22T12:26:05.373+00:00

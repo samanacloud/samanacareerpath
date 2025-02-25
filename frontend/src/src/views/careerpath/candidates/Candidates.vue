@@ -67,13 +67,13 @@
 
                     <Column field="country" header="Country" sortable>
                         <template #body="{ data }">
-                            <span class="text-gray-700">{{ data.country }}</span>
+                            <span class="text-sm text-gray-500">{{ data.country }}</span>
                         </template>
                     </Column>
 
                     <Column field="phone" header="Phone" sortable>
                         <template #body="{ data }">
-                            <span class="text-gray-700">{{ data.phone }}</span>
+                            <span class="text-sm text-gray-500">{{ data.phone }}</span>
                         </template>
                     </Column>
 
@@ -83,7 +83,7 @@
                                 v-if="data.candidateCV" 
                                 :href="data.candidateCV" 
                                 target="_blank"
-                                class="text-primary-500 hover:underline"
+                                class="text-sm text-primary-500 hover:underline"
                             >
                                 View CV
                             </a>
@@ -91,6 +91,15 @@
                         </template>
                     </Column>
 
+             
+
+                    <Column field="recruitmentProcessName" header="Recruitment Process" sortable>
+                        <template #body="{ data }">
+                            <span class="text-sm text-gray-500">
+                                {{ data.recruitmentProcessName || 'Not assigned' }}
+                            </span>
+                        </template>
+                    </Column>
                     <Column field="status" header="Status" sortable>
                         <template #body="{ data }">
                             <Tag 
@@ -100,22 +109,7 @@
                             />
                         </template>
                     </Column>
-
-                    <Column field="recruitmentProcessName" header="Recruitment Process" sortable>
-                        <template #body="{ data }">
-                            <span class="text-gray-700">
-                                {{ data.recruitmentProcessName || 'Not assigned' }}
-                            </span>
-                        </template>
-                    </Column>
-
-                    <Column :exportable="false" style="width:100px">
-                        <template #body="{ data }">
-                            <div class="flex gap-2">
-                                <!-- Edit and Delete buttons removed -->
-                            </div>
-                        </template>
-                    </Column>
+                  
                 </DataTable>
             </div>
         </div>
@@ -241,6 +235,21 @@
                                     <label for="recruitmentProcessName">Recruitment Process Name</label>
                                 </FloatLabel>
                             </div>
+
+                            <div class="flex flex-col gap-2">
+                                <div class="field">
+                                    <label>Salary Expectation</label>
+                                    <InputNumber 
+                                        v-model="candidate.salaryExpectation" 
+                                        placeholder="Salary Expectation" 
+                                        mode="currency" 
+                                        currency="USD"
+                                        :min="0"
+                                        :max="1000000"
+                                        class="w-full"
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </Fieldset>
                     
@@ -330,7 +339,9 @@ const deleteCandidateDialog = ref(false);
 const submitted = ref(false);
 const allCandidates = ref([]);
 const candidates = ref([]);
-const candidate = ref({});
+const candidate = ref({
+    salaryExpectation: null
+});
 const candidateToDelete = ref(null);
 const showInactive = ref(false);
 const sessionInfo = ref(null);
@@ -489,7 +500,8 @@ function openNewCandidate() {
         country: '',
         phone: '+0000000000',
         candidateCV: '',
-        status: 'active'
+        status: 'active',
+        salaryExpectation: null
     };
     submitted.value = false;
     candidateDialog.value = true;
@@ -544,7 +556,8 @@ async function saveCandidate() {
                     candidateCV: candidate.value.candidateCV,
                     status: candidate.value.status,
                     recruitmentProcessId: candidate.value.recruitmentProcessId,
-                    recruitmentProcessName: candidate.value.recruitmentProcessName
+                    recruitmentProcessName: candidate.value.recruitmentProcessName,
+                    salaryExpectation: candidate.value.salaryExpectation
                 }
             }
             : { 
@@ -557,7 +570,8 @@ async function saveCandidate() {
                     candidateCV: candidate.value.candidateCV,
                     status: candidate.value.status,
                     recruitmentProcessId: candidate.value.recruitmentProcessId,
-                    recruitmentProcessName: candidate.value.recruitmentProcessName
+                    recruitmentProcessName: candidate.value.recruitmentProcessName,
+                    salaryExpectation: candidate.value.salaryExpectation
                 }
             };
 

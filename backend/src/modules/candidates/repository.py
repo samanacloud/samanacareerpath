@@ -22,6 +22,7 @@ class CandidateRepository:
             "phone": data["phone"],
             "candidateCV": data["candidateCV"],
             "status": data.get("status", "active"),
+            "salaryExpectation": data.get("salaryExpectation"),
             "createdAt": datetime.utcnow(),
             "updatedAt": datetime.utcnow()
         }

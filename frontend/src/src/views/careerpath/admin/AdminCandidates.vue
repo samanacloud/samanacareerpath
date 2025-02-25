@@ -49,7 +49,8 @@
                     v-model:filters="filters"
                     filterDisplay="menu"
                     :globalFilterFields="['candidateName', 'email', 'country']"
-                    class="p-4"
+                    class="p-4 cursor-pointer"
+                    @row-click="onRowClick"
                 >
                     <Column field="candidateName" header="Name" sortable>
                         <template #body="{ data }">
@@ -67,30 +68,31 @@
 
                     <Column field="country" header="Country" sortable>
                         <template #body="{ data }">
-                            <span class="text-gray-700">{{ data.country }}</span>
+                            <span class="text-sm text-gray-500">{{ data.country }}</span>
                         </template>
                     </Column>
 
                     <Column field="phone" header="Phone" sortable>
                         <template #body="{ data }">
-                            <span class="text-gray-700">{{ data.phone }}</span>
+                            <span class="text-sm text-gray-500">{{ data.phone }}</span>
                         </template>
                     </Column>
 
-                    <Column field="candidateCV" header="CV" sortable>
+                    <Column field="salaryExpectation" header="Salary Expectation" sortable>
                         <template #body="{ data }">
-                            <a 
-                                v-if="data.candidateCV" 
-                                :href="data.candidateCV" 
-                                target="_blank"
-                                class="text-primary-500 hover:underline"
-                            >
-                                View CV
-                            </a>
-                            <span v-else class="text-gray-400">No CV</span>
+                            <span class="text-sm text-gray-500">
+                                {{ data.salaryExpectation ? `$${Number(data.salaryExpectation).toLocaleString()}` : 'Not specified' }}
+                            </span>
                         </template>
                     </Column>
 
+                    <Column field="recruitmentProcessName" header="Recruitment Process" sortable>
+                        <template #body="{ data }">
+                            <span class="text-sm text-gray-500">
+                                {{ data.recruitmentProcessName || 'Not assigned' }}
+                            </span>
+                        </template>
+                    </Column>
                     <Column field="status" header="Status" sortable>
                         <template #body="{ data }">
                             <Tag 
@@ -100,15 +102,6 @@
                             />
                         </template>
                     </Column>
-
-                    <Column field="recruitmentProcessName" header="Recruitment Process" sortable>
-                        <template #body="{ data }">
-                            <span class="text-gray-700">
-                                {{ data.recruitmentProcessName || 'Not assigned' }}
-                            </span>
-                        </template>
-                    </Column>
-
                     <Column :exportable="false" style="width:100px">
                         <template #body="{ data }">
                             <div class="flex gap-2">
@@ -255,6 +248,21 @@
                                     <label for="recruitmentProcessName">Recruitment Process Name</label>
                                 </FloatLabel>
                             </div>
+
+                            <div class="flex flex-col gap-2">
+                                <FloatLabel variant="on">
+                                    <InputNumber 
+                                        id="salaryExpectation" 
+                                        v-model="candidate.salaryExpectation" 
+                                        mode="currency" 
+                                        currency="USD" 
+                                        :min="0"
+                                        :max="1000000"
+                                        class="w-full"
+                                    />
+                                    <label for="salaryExpectation">Salary Expectation</label>
+                                </FloatLabel>
+                            </div>
                         </div>
                     </Fieldset>
                     
@@ -375,6 +383,7 @@ const LIST_CANDIDATES = `
             status
             recruitmentProcessId
             recruitmentProcessName
+            salaryExpectation
             createdAt
             updatedAt
         }
@@ -503,7 +512,8 @@ function openNewCandidate() {
         country: '',
         phone: '+0000000000',
         candidateCV: '',
-        status: 'active'
+        status: 'active',
+        salaryExpectation: null
     };
     submitted.value = false;
     candidateDialog.value = true;
@@ -558,7 +568,8 @@ async function saveCandidate() {
                     candidateCV: candidate.value.candidateCV,
                     status: candidate.value.status,
                     recruitmentProcessId: candidate.value.recruitmentProcessId,
-                    recruitmentProcessName: candidate.value.recruitmentProcessName
+                    recruitmentProcessName: candidate.value.recruitmentProcessName,
+                    salaryExpectation: candidate.value.salaryExpectation
                 }
             }
             : { 
@@ -571,7 +582,8 @@ async function saveCandidate() {
                     candidateCV: candidate.value.candidateCV,
                     status: candidate.value.status,
                     recruitmentProcessId: candidate.value.recruitmentProcessId,
-                    recruitmentProcessName: candidate.value.recruitmentProcessName
+                    recruitmentProcessName: candidate.value.recruitmentProcessName,
+                    salaryExpectation: candidate.value.salaryExpectation
                 }
             };
 
@@ -717,6 +729,19 @@ const validateEmail = () => {
     // This empty function is needed to satisfy template reference
     // Actual validation is handled by isValidEmail in the Message component
 };
+
+function onRowClick(event) {
+    // Only navigate if clicking the row (not buttons)
+    const isButton = event.originalEvent.target.closest('button') || 
+                    event.originalEvent.target.closest('.p-column-header');
+    
+    if (!isButton && event.data?.id) {
+        router.push({
+            name: 'profiles-id',
+            params: { id: event.data.id }
+        });
+    }
+}
 </script>
 
 <style scoped>

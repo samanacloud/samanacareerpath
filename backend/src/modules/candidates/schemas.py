@@ -15,6 +15,7 @@ class Candidate:
     phone: str = strawberry.field(description="Phone Number")
     candidateCV: str = strawberry.field(description="Candidate CV URL")
     status: str = strawberry.field(description="Candidate Status")
+    salaryExpectation: Optional[int] = None
     createdAt: datetime = strawberry.field(description="Creation timestamp")
     updatedAt: datetime = strawberry.field(description="Last update timestamp")
 
@@ -30,6 +31,7 @@ class CreateCandidateInput:
     phone: str
     candidateCV: str
     status: str = strawberry.field(default="active", description="Candidate status")
+    salaryExpectation: Optional[int] = None
 
 @strawberry.input
 class UpdateCandidateInput:
@@ -43,9 +45,11 @@ class UpdateCandidateInput:
     phone: Optional[str] = None
     candidateCV: Optional[str] = None
     status: Optional[str] = None
+    salaryExpectation: Optional[int] = None
 
 @strawberry.input
 class EnrollCandidateInput:
     id: str
     recruitmentProcessId: str
-    recruitmentProcessName: str 
+    recruitmentProcessName: str
+    salaryExpectation: Optional[int] = None 

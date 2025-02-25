@@ -1,0 +1,375 @@
+companyId,companyName,email,skillsetCategory,skillsetName,skillsetRating,reviewedBy,reviewerEmail
+6792df37ae32f695bcd13420,Samana Group LLC,alonso.santana@samanagroup.co,AWS,EC2 Management,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,alonso.santana@samanagroup.co,AWS,S3 Storage Solutions,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,alonso.santana@samanagroup.co,AWS,VPC Configuration,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,alonso.santana@samanagroup.co,AWS,IAM Policies and Roles,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.cubas@samanagroup.co,AWS,EC2 Management,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.cubas@samanagroup.co,AWS,S3 Storage Solutions,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.cubas@samanagroup.co,AWS,VPC Configuration,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.cubas@samanagroup.co,AWS,IAM Policies and Roles,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.cubas@samanagroup.co,NetScaler,Load Balancing Configuration,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.cubas@samanagroup.co,NetScaler,SSL Offloading,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Moises.Blanco@samanagroup.co,NetScaler,Load Balancing Configuration,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Moises.Blanco@samanagroup.co,NetScaler,SSL Offloading,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Moises.Blanco@samanagroup.co,NetScaler,Content Switching,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Moises.Blanco@samanagroup.co,NetScaler,Global Server Load Balancing (GSLB),5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Moises.Blanco@samanagroup.co,NetScaler,Application Firewall Configuration,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Moises.Blanco@samanagroup.co,NetScaler,NetScaler Gateway Setup,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Moises.Blanco@samanagroup.co,NetScaler,High Availability,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Moises.Blanco@samanagroup.co,NetScaler,Networking and TCP Optimization,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Moises.Blanco@samanagroup.co,NetScaler,Monitoring and Logging,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Moises.Blanco@samanagroup.co,NetScaler,"Authentication, Authorization, and Auditing (AAA)",5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,juan.otalvaro@samanagroup.co,AWS,EC2 Management,4,Julian Gomez,julian.gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,juan.otalvaro@samanagroup.co,AWS,EC2 Management,3,Julian Gomez,julian.gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,juan.otalvaro@samanagroup.co,Citrix Virtual Apps and Desktops,Installation and Configuration,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Juan.otalvaro@samanagroup.co,Windows Server Administration,Active Directory Management,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Juan.otalvaro@samanagroup.co,Citrix Virtual Apps and Desktops,Managing Machine Catalogs and Delivery Groups,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Juan.otalvaro@samanagroup.co,Citrix Virtual Apps and Desktops,Application Publishing,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Juan.otalvaro@samanagroup.co,Citrix Virtual Apps and Desktops,Profile Management,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Juan.otalvaro@samanagroup.co,Citrix Virtual Apps and Desktops,StoreFront Configuration,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Juan.otalvaro@samanagroup.co,Citrix Virtual Apps and Desktops,Citrix Policies,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Juan.otalvaro@samanagroup.co,Citrix Virtual Apps and Desktops,Monitoring and Troubleshooting,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,Juan.otalvaro@samanagroup.co,Citrix Virtual Apps and Desktops,Citrix Director,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,viru8589@gmail.com,Citrix Virtual Apps and Desktops,Installation and Configuration,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,viru8589@gmail.com,Citrix Virtual Apps and Desktops,Managing Machine Catalogs and Delivery Groups,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,viru8589@gmail.com,Citrix Virtual Apps and Desktops,Application Publishing,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,viru8589@gmail.com,Citrix Virtual Apps and Desktops,Profile Management,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,viru8589@gmail.com,Citrix Virtual Apps and Desktops,StoreFront Configuration,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,viru8589@gmail.com,Citrix Virtual Apps and Desktops,Citrix Policies,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,viru8589@gmail.com,Citrix Virtual Apps and Desktops,Monitoring and Troubleshooting,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,ttbass@gmail.com,Citrix Virtual Apps and Desktops,Installation and Configuration,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,ttbass@gmail.com,Citrix Virtual Apps and Desktops,Managing Machine Catalogs and Delivery Groups,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,ttbass@gmail.com,Citrix Virtual Apps and Desktops,Application Publishing,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,ttbass@gmail.com,Citrix Virtual Apps and Desktops,StoreFront Configuration,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,ericjpardo@gmail.com,Citrix Virtual Apps and Desktops,Installation and Configuration,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Citrix Virtual Apps and Desktops,Installation and Configuration,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Citrix Virtual Apps and Desktops,Managing Machine Catalogs and Delivery Groups,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,EC2 Management,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,S3 Storage Solutions,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,VPC Configuration,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,IAM Policies and Roles,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,Citrix Virtual Apps and Desktops,Installation and Configuration,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,Citrix Virtual Apps and Desktops,Managing Machine Catalogs and Delivery Groups,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,Citrix Virtual Apps and Desktops,Application Publishing,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Windows Server Administration,Active Directory Management,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Windows Server Administration,Installation and Configuration,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Windows Server Administration,Group Policy Management,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Windows Server Administration,DNS and DHCP Configuration,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Windows Server Administration,File and Storage Services,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Windows Server Administration,Remote Desktop Services (RDS),5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Windows Server Administration,Backup and Restore,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Windows Server Administration,PowerShell Scripting,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Citrix Virtual Apps and Desktops,Application Publishing,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Citrix Virtual Apps and Desktops,Profile Management,4,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Citrix Virtual Apps and Desktops,StoreFront Configuration,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Citrix Virtual Apps and Desktops,Citrix Policies,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Citrix Virtual Apps and Desktops,Monitoring and Troubleshooting,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Citrix Virtual Apps and Desktops,Citrix Director,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Citrix Virtual Apps and Desktops,Citrix Studio,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Citrix Virtual Apps and Desktops,Load Balancing,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Windows Server Administration,Installation and Configuration,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Windows Server Administration,Active Directory Management,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Windows Server Administration,Group Policy Management,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Windows Server Administration,DNS and DHCP Configuration,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Windows Server Administration,File and Storage Services,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Windows Server Administration,Windows Server Update Services (WSUS),3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Windows Server Administration,Remote Desktop Services (RDS),5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Windows Server Administration,Performance Monitoring and Tuning,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Windows Server Administration,Backup and Restore,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Windows Server Administration,PowerShell Scripting,2,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Citrix Virtual Apps and Desktops,Installation and Configuration,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Citrix Virtual Apps and Desktops,Managing Machine Catalogs and Delivery Groups,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Citrix Virtual Apps and Desktops,Application Publishing,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Citrix Virtual Apps and Desktops,Profile Management,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Citrix Virtual Apps and Desktops,StoreFront Configuration,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Citrix Virtual Apps and Desktops,Citrix Policies,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Citrix Virtual Apps and Desktops,Monitoring and Troubleshooting,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Citrix Virtual Apps and Desktops,Citrix Director,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Citrix Virtual Apps and Desktops,Citrix Studio,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Citrix Virtual Apps and Desktops,Load Balancing,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Networking,Fundamentals,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Networking,OSI and TCP/IP Models,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Networking,Switching Concepts,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Networking,IPv4 and IPv6 Addressing,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Networking,VLANs,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Networking,Routing,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Networking,Troubleshooting,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marlonpachecoc@gmail.com,Networking,Cloud Networking,2,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Citrix Virtual Apps and Desktops,Installation and Configuration,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Citrix Virtual Apps and Desktops,Managing Machine Catalogs and Delivery Groups,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Citrix Virtual Apps and Desktops,Application Publishing,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Citrix Virtual Apps and Desktops,Profile Management,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Citrix Virtual Apps and Desktops,StoreFront Configuration,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Citrix Virtual Apps and Desktops,Citrix Policies,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Citrix Virtual Apps and Desktops,Monitoring and Troubleshooting,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Citrix Virtual Apps and Desktops,Citrix Director,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Citrix Virtual Apps and Desktops,Citrix Studio,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Citrix Virtual Apps and Desktops,Load Balancing,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Windows Server Administration,Installation and Configuration,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Windows Server Administration,Active Directory Management,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Windows Server Administration,Group Policy Management,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Windows Server Administration,DNS and DHCP Configuration,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Windows Server Administration,File and Storage Services,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Windows Server Administration,Windows Server Update Services (WSUS),5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Windows Server Administration,Performance Monitoring and Tuning,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Windows Server Administration,Backup and Restore,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Windows Server Administration,Remote Desktop Services (RDS),5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,henry.marquez.b@gmail.com,Windows Server Administration,PowerShell Scripting,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Communication Skills,Verbal Communication,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Communication Skills,Nonverbal Communication,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Communication Skills,Listening Skills,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Communication Skills,Public Speaking,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Communication Skills,Emotional Intelligence,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Communication Skills,Presentation Skills,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Communication Skills,Persuasion and Influence,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Communication Skills,Conflict Resolution,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Communication Skills,Interpersonal Skills,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Communication Skills,Written Communication,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Problem Solving Skills,Analytical Thinking,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Problem Solving Skills,Creative Problem Solving,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Problem Solving Skills,Decision Making,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Problem Solving Skills,Strategic Thinking,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Problem Solving Skills,Root Cause Analysis,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Problem Solving Skills,Troubleshooting,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Problem Solving Skills,Resourcefulness,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Problem Solving Skills,Risk Management,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Problem Solving Skills,Innovative Solutions,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Problem Solving Skills,Process Improvement,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,English Level,Basic Understanding,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,English Level,Conversational Fluency,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,English Level,Professional Proficiency,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,English Level,Advanced Vocabulary,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,English Level,Grammar Accuracy,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,English Level,Pronunciation Clarity,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,English Level,Reading Comprehension,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,English Level,Writing Skills,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,English Level,Listening Comprehension,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,English Level,Public Speaking Proficiency,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,ttbass@gmail.com,Windows Server Administration,Installation and Configuration,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Citrix Virtual Apps and Desktops,Profile Management,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Citrix Virtual Apps and Desktops,Installation and Configuration,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Citrix Virtual Apps and Desktops,Application Publishing,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Citrix Virtual Apps and Desktops,StoreFront Configuration,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,xencerra@gmail.com,Citrix Virtual Apps and Desktops,Citrix Policies,5,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,otalvaroj@gmail.com,AWS,EC2 Management,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,Windows Server Administration,Active Directory Management,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,Windows Server Administration,Group Policy Management,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,Windows Server Administration,DNS and DHCP Configuration,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Basic Understanding,1,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Basic Understanding,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Basic Understanding,1,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Professional Proficiency,1,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Basic Understanding,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Conversational Fluency,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Professional Proficiency,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Professional Proficiency,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Professional Proficiency,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Professional Proficiency,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Professional Proficiency,5,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Professional Proficiency,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Advanced Vocabulary,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Grammar Accuracy,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Advanced Vocabulary,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Grammar Accuracy,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Grammar Accuracy,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Grammar Accuracy,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Advanced Vocabulary,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Pronunciation Clarity,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Reading Comprehension,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Listening Comprehension,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Public Speaking Proficiency,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Basic Understanding,1,Jorge Gomez,Jorge.Gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Conversational Fluency,1,Jorge Gomez,Jorge.Gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Professional Proficiency,1,Jorge Gomez,Jorge.Gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Advanced Vocabulary,1,Jorge Gomez,Jorge.Gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Grammar Accuracy,1,Jorge Gomez,Jorge.Gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Pronunciation Clarity,1,Jorge Gomez,Jorge.Gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Reading Comprehension,1,Jorge Gomez,Jorge.Gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Writing Skills,1,Jorge Gomez,Jorge.Gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Listening Comprehension,1,Jorge Gomez,Jorge.Gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Writing Skills,1,Jorge Gomez,Jorge.Gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Public Speaking Proficiency,1,Jorge Gomez,Jorge.Gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Writing Skills,5,Jorge Gomez,Jorge.Gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Writing Skills,1,Jorge Gomez,Jorge.Gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,English Level,Writing Skills,1,Jorge Gomez,Jorge.Gomez@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Verbal Communication,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Nonverbal Communication,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Listening Skills,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Public Speaking,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Written Communication,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Emotional Intelligence,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Presentation Skills,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Presentation Skills,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Conflict Resolution,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Conflict Resolution,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Conflict Resolution,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Conflict Resolution,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Conflict Resolution,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Conflict Resolution,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Persuasion and Influence,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Conflict Resolution,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Communication Skills,Interpersonal Skills,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Windows Server Administration,Installation and Configuration,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Windows Server Administration,Active Directory Management,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Windows Server Administration,Group Policy Management,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Windows Server Administration,DNS and DHCP Configuration,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Windows Server Administration,Remote Desktop Services (RDS),2,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Windows Server Administration,Windows Server Update Services (WSUS),1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andrea.vanessa.giraldo@gmail.com,Windows Server Administration,Group Policy Management,1,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,EC2 Management,2,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,S3 Storage Solutions,2,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,VPC Configuration,2,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,IAM Policies and Roles,1,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,Problem Solving Skills,Creative Problem Solving,3,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,English Level,Basic Understanding,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,English Level,Conversational Fluency,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,English Level,Professional Proficiency,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,English Level,Advanced Vocabulary,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,English Level,Grammar Accuracy,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,English Level,Pronunciation Clarity,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,English Level,Reading Comprehension,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,English Level,Writing Skills,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,English Level,Listening Comprehension,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,English Level,Public Speaking Proficiency,2,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,EC2 Management,2,Alonso Santana,alonso.santana@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,S3 Storage Solutions,1,Alonso Santana,alonso.santana@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,VPC Configuration,1,Alonso Santana,alonso.santana@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,IAM Policies and Roles,1,Alonso Santana,alonso.santana@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,EC2 Management,2,Alonso Santana,alonso.santana@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,RDS Management,1,Alonso Santana,alonso.santana@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,CloudFormation Templates,1,Alonso Santana,alonso.santana@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,Lambda Functions,1,Alonso Santana,alonso.santana@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,Route 53 DNS Management,1,Alonso Santana,alonso.santana@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,CloudWatch Monitoring,1,Alonso Santana,alonso.santana@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,estebanx00@gmail.com,AWS,Security Groups and Network ACLs,1,Alonso Santana,alonso.santana@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,English Level,Conversational Fluency,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,English Level,Professional Proficiency,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Windows Server Administration,Installation and Configuration,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Windows Server Administration,Active Directory Management,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Windows Server Administration,Group Policy Management,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Windows Server Administration,DNS and DHCP Configuration,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Networking,Fundamentals,4,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Networking,OSI and TCP/IP Models,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Networking,Switching Concepts,4,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Networking,IPv4 and IPv6 Addressing,2,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Networking,Routing,4,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Windows Server Administration,Installation and Configuration,4,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Windows Server Administration,Active Directory Management,3,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Windows Server Administration,DNS and DHCP Configuration,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Windows Server Administration,Performance Monitoring and Tuning,4,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Communication Skills,Verbal Communication,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Communication Skills,Nonverbal Communication,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Communication Skills,Listening Skills,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Communication Skills,Public Speaking,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Communication Skills,Written Communication,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Communication Skills,Emotional Intelligence,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Communication Skills,Presentation Skills,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Communication Skills,Persuasion and Influence,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Communication Skills,Interpersonal Skills,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Communication Skills,Conflict Resolution,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Problem Solving Skills,Analytical Thinking,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Problem Solving Skills,Creative Problem Solving,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Problem Solving Skills,Decision Making,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Problem Solving Skills,Strategic Thinking,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Problem Solving Skills,Root Cause Analysis,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Problem Solving Skills,Troubleshooting,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Problem Solving Skills,Resourcefulness,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Problem Solving Skills,Risk Management,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Problem Solving Skills,Innovative Solutions,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,marioayalapaez27@gmail.com,Problem Solving Skills,Process Improvement,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,English Level,Basic Understanding,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,English Level,Conversational Fluency,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,English Level,Professional Proficiency,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,English Level,Advanced Vocabulary,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Networking,Fundamentals,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Networking,OSI and TCP/IP Models,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Windows Server Administration,Group Policy Management,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Windows Server Administration,Active Directory Management,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Citrix Virtual Apps and Desktops,Installation and Configuration,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Citrix Virtual Apps and Desktops,StoreFront Configuration,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Citrix Virtual Apps and Desktops,Application Publishing,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Microsoft Azure,Azure Virtual Machines,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Microsoft Azure,Azure Storage Solutions,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Networking,Fundamentals,2,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Networking,OSI and TCP/IP Models,1,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Networking,Switching Concepts,1,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Networking,IPv4 and IPv6 Addressing,1,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Networking,Routing,2,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Networking,Troubleshooting,3,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Windows Server Administration,Installation and Configuration,2,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Windows Server Administration,Active Directory Management,1,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Windows Server Administration,DNS and DHCP Configuration,3,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,jorgeesalazar0212@gmail.com,Windows Server Administration,Performance Monitoring and Tuning,4,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,samirarjona11@gmail.com,Networking,OSI and TCP/IP Models,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,samirarjona11@gmail.com,Networking,Fundamentals,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,samirarjona11@gmail.com,Networking,Switching Concepts,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,samirarjona11@gmail.com,Networking,IPv4 and IPv6 Addressing,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,samirarjona11@gmail.com,Networking,Fundamentals,4,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,samirarjona11@gmail.com,Networking,OSI and TCP/IP Models,4,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,samirarjona11@gmail.com,Networking,Switching Concepts,4,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,samirarjona11@gmail.com,Networking,IPv4 and IPv6 Addressing,4,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,samirarjona11@gmail.com,Networking,Routing,4,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,samirarjona11@gmail.com,Windows Server Administration,DNS and DHCP Configuration,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,samirarjona11@gmail.com,Windows Server Administration,Performance Monitoring and Tuning,4,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,samirarjona11@gmail.com,Windows Server Administration,File and Storage Services,2,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,samirarjona11@gmail.com,Windows Server Administration,Group Policy Management,2,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,samirarjona11@gmail.com,Windows Server Administration,Active Directory Management,3,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Networking,Fundamentals,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Networking,OSI and TCP/IP Models,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Networking,IPv4 and IPv6 Addressing,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Networking,Switching Concepts,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Networking,"Network Security (ACL, NAT)",4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,AWS,EC2 Management,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,AWS,S3 Storage Solutions,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,AWS,VPC Configuration,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Microsoft Azure,Azure Virtual Machines,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Microsoft Azure,Azure Storage Solutions,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Microsoft Azure,Azure Virtual Network (VNet) Configuration,4,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Linux Knowledge,Python Scripting,3,Juan Otalvaro,juan.otalvaro@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Networking,IPv4 and IPv6 Addressing,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Networking,OSI and TCP/IP Models,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Networking,Switching Concepts,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Networking,Routing,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Networking,VLANs,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,AWS,EC2 Management,3,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,AWS,VPC Configuration,3,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Windows Server Administration,File and Storage Services,3,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Windows Server Administration,Performance Monitoring and Tuning,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Windows Server Administration,DNS and DHCP Configuration,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Windows Server Administration,Active Directory Management,5,Fabian Baena,fabian.baena@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Verbal Communication,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Nonverbal Communication,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Listening Skills,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Public Speaking,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Written Communication,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Emotional Intelligence,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Presentation Skills,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Persuasion and Influence,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Conflict Resolution,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Interpersonal Skills,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Verbal Communication,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Verbal Communication,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Conflict Resolution,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Persuasion and Influence,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Verbal Communication,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Nonverbal Communication,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Listening Skills,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Public Speaking,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Nonverbal Communication,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Written Communication,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Emotional Intelligence,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Presentation Skills,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Persuasion and Influence,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Conflict Resolution,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Communication Skills,Interpersonal Skills,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Problem Solving Skills,Analytical Thinking,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Problem Solving Skills,Creative Problem Solving,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Problem Solving Skills,Decision Making,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Problem Solving Skills,Strategic Thinking,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Problem Solving Skills,Root Cause Analysis,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Problem Solving Skills,Troubleshooting,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Problem Solving Skills,Resourcefulness,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Problem Solving Skills,Risk Management,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Problem Solving Skills,Innovative Solutions,3,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Problem Solving Skills,Innovative Solutions,4,Danny Ruiz,danny.ruiz@samanagroup.co
+6792df37ae32f695bcd13420,Samana Group LLC,andres.camilo201007@gmail.com,Problem Solving Skills,Process Improvement,3,Danny Ruiz,danny.ruiz@samanagroup.co

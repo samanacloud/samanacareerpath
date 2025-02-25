@@ -67,6 +67,12 @@ const routes = [
                 meta: { requiresAuth: true }
             },
             {
+                path: '/profile/:id',
+                name: 'profiles-id',
+                component: CandidatesProfiles,
+                meta: { requiresAuth: true }
+            },
+            {
                 path: '/candidates-workflows',
                 name: 'selection-workflows',
                 component: SelectionWorkFlows,

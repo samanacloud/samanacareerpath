@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 import LazyImage from '@/components/landing/LazyImage.vue';
 import { useToast } from 'primevue/usetoast';
 import { useRouter } from 'vue-router';
+import ProgressSpinner from 'primevue/progressspinner';
 
 const email = ref('');
 const password = ref('');
@@ -12,6 +13,7 @@ const showEmailForm = ref(false);
 const showVerificationForm = ref(false);
 const verificationCode = ref('');
 const isLoading = ref(false);
+const isLoadingGoogle = ref(false);
 const toast = useToast();
 const router = useRouter();
 
@@ -146,11 +148,10 @@ const verifyCode = async () => {
 
 // Handle social login
 const handleGoogleLogin = async () => {
-    if (isLoading.value) return;
+    if (isLoadingGoogle.value) return;
     
-    isLoading.value = true;
+    isLoadingGoogle.value = true;
     try {
-        // First, get the Google OAuth URL from our backend
         const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/google/url`, {
             method: 'POST',
             headers: {
@@ -165,7 +166,6 @@ const handleGoogleLogin = async () => {
         const data = await response.json();
 
         if (response.ok && data.url) {
-            // Redirect to Google's OAuth page
             window.location.href = data.url;
         } else {
             showToast('error', 'Error', data.detail?.message || 'Failed to initialize Google login');
@@ -174,7 +174,7 @@ const handleGoogleLogin = async () => {
         console.error('Google login error:', error);
         showToast('error', 'Error', 'Failed to initialize Google login');
     } finally {
-        isLoading.value = false;
+        isLoadingGoogle.value = false;
     }
 };
 
@@ -189,6 +189,21 @@ const switchToEmailLogin = () => {
 </script>
 
 <template>
+    <!-- Loading Overlay -->
+    <div v-if="isLoading || isLoadingGoogle" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+        <div class="bg-white dark:bg-surface-900 p-8 rounded-lg shadow-lg flex flex-col items-center">
+            <ProgressSpinner 
+                style="width:50px;height:50px" 
+                strokeWidth="8" 
+                fill="var(--surface-ground)" 
+                animationDuration=".5s"
+            />
+            <span class="mt-4 text-lg font-semibold text-surface-900 dark:text-surface-0">
+                Authenticating...
+            </span>
+        </div>
+    </div>
+
     <div class="bg-surface-50 dark:bg-surface-950 flex items-center justify-center min-h-screen min-w-[100vw] overflow-hidden">
         <Toast />
         
@@ -206,7 +221,7 @@ const switchToEmailLogin = () => {
                         <Button 
                             class="p-button-google p-button-raised w-full" 
                             @click="handleGoogleLogin"
-                            :loading="isLoading"
+                            :loading="isLoadingGoogle"
                         >
                             <i class="pi pi-google mr-2"></i>
                             Continue with Google
@@ -408,5 +423,50 @@ const switchToEmailLogin = () => {
     opacity: 0.6;
     cursor: not-allowed;
     background-color: var(--surface-200);
+}
+
+/* Add this new style for the spinner overlay */
+.fixed {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-opacity-50 {
+    opacity: 0.5;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+/* Add specific styles for Google button loading state */
+.p-button-google:disabled {
+    background-color: #357abd !important;
+    border-color: #357abd !important;
+    opacity: 0.8;
+}
+
+/* Add some transitions for smooth loading state changes */
+.button-button {
+    transition: opacity 0.3s ease;
+}
+
+.button-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Optional: Add animation for the loading overlay */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fixed {
+    animation: fadeIn 0.3s ease;
 }
 </style>

@@ -38,7 +38,7 @@ const sessionInfo = ref(null);
 // Function to fetch and update session info
 const fetchSessionInfo = async () => {
     try {
-        const response = await fetch('core/auth/verify/session', {
+        const response = await fetch('/core/auth/verify/session', {
             method: 'GET',
             credentials: 'include',
             headers: {

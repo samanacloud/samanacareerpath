@@ -1,0 +1,5742 @@
+[
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "XenApp/XenDesktop Deployment & Management",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Configuration & Customization",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Performance Optimization",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "User Profile & Session Management",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Troubleshooting & Support",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "English",
+    "skillsetName": "English Proficiency Level",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Configuration & Administration",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Load Balancing & SSL Offloading",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Traffic Optimization & Performance Tuning",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Security & Access Control",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Troubleshooting & Root Cause Analysis",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Configuration & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Routing & Switching Fundamentals",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Security & Firewalls",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Troubleshooting & Performance Monitoring",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "\"Protocols & Standards (TCP/IP",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DNS",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DHCP",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " etc.)\"",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Deployment & Configuration (including XenServer & PVS/MCS)",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Resource Management & Scaling",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "High Availability & Disaster Recovery",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Performance Optimization Across Platforms",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Troubleshooting & Support in Virtual Environments",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "\"Server Installation & Configuration (e.g.",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": " Windows Server)\"",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Maintenance & Upgrades",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Incident & Problem Management (ITIL)",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "\"Active Directory",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " DNS",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " and Group Policy Management\"",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": "Powershell",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Linux Administration",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Command Line Proficiency",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Shell Scripting",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " System Security & Hardening",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " Package Management & Updates",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " AWS Service Deployment & Management",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": "\" EC2",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " S3",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "josearielromeroarias@gmail.com",
+    "skillsetCategory": "Programming\r",
+    "skillsetName": " RDS",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "josearielromeroarias@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "XenApp/XenDesktop Deployment & Management",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Configuration & Customization",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Performance Optimization",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "User Profile & Session Management",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Troubleshooting & Support",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "English",
+    "skillsetName": "English Proficiency Level",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Configuration & Administration",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Load Balancing & SSL Offloading",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Traffic Optimization & Performance Tuning",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Security & Access Control",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Troubleshooting & Root Cause Analysis",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Configuration & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Routing & Switching Fundamentals",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Security & Firewalls",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Troubleshooting & Performance Monitoring",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "\"Protocols & Standards (TCP/IP",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DNS",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DHCP",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " etc.)\"",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Deployment & Configuration (including XenServer & PVS/MCS)",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Resource Management & Scaling",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "High Availability & Disaster Recovery",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Performance Optimization Across Platforms",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Troubleshooting & Support in Virtual Environments",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "\"Server Installation & Configuration (e.g.",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": " Windows Server)\"",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Maintenance & Upgrades",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Incident & Problem Management (ITIL)",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "\"Active Directory",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " DNS",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " and Group Policy Management\"",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": "Powershell",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Linux Administration",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Command Line Proficiency",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Shell Scripting",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " System Security & Hardening",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " Package Management & Updates",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " AWS Service Deployment & Management",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": "\" EC2",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " S3",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "manuelandresfierro@gmail.com",
+    "skillsetCategory": "Programming\r",
+    "skillsetName": " RDS",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "manuelandresfierro@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "XenApp/XenDesktop Deployment & Management",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Configuration & Customization",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Performance Optimization",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "User Profile & Session Management",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Troubleshooting & Support",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "English",
+    "skillsetName": "English Proficiency Level",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Configuration & Administration",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Load Balancing & SSL Offloading",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Traffic Optimization & Performance Tuning",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Security & Access Control",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Troubleshooting & Root Cause Analysis",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Configuration & Management",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Routing & Switching Fundamentals",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Security & Firewalls",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Troubleshooting & Performance Monitoring",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "\"Protocols & Standards (TCP/IP",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DNS",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DHCP",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " etc.)\"",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Deployment & Configuration (including XenServer & PVS/MCS)",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Resource Management & Scaling",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "High Availability & Disaster Recovery",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Performance Optimization Across Platforms",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Troubleshooting & Support in Virtual Environments",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "\"Server Installation & Configuration (e.g.",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": " Windows Server)\"",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Maintenance & Upgrades",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Incident & Problem Management (ITIL)",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "\"Active Directory",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " DNS",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " and Group Policy Management\"",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": "Powershell",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Linux Administration",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Command Line Proficiency",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Shell Scripting",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " System Security & Hardening",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " Package Management & Updates",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " AWS Service Deployment & Management",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": "\" EC2",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " S3",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "vinithavijayakumar2403@gmail.com",
+    "skillsetCategory": "Programming\r",
+    "skillsetName": " RDS",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "vinithavijayakumar2403@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "XenApp/XenDesktop Deployment & Management",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Configuration & Customization",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Performance Optimization",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "User Profile & Session Management",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Troubleshooting & Support",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "English",
+    "skillsetName": "English Proficiency Level",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Configuration & Administration",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Load Balancing & SSL Offloading",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Traffic Optimization & Performance Tuning",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Security & Access Control",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Troubleshooting & Root Cause Analysis",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Configuration & Management",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Routing & Switching Fundamentals",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Security & Firewalls",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Troubleshooting & Performance Monitoring",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "\"Protocols & Standards (TCP/IP",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DNS",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DHCP",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " etc.)\"",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Deployment & Configuration (including XenServer & PVS/MCS)",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Resource Management & Scaling",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "High Availability & Disaster Recovery",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Performance Optimization Across Platforms",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Troubleshooting & Support in Virtual Environments",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "\"Server Installation & Configuration (e.g.",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": " Windows Server)\"",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Maintenance & Upgrades",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Incident & Problem Management (ITIL)",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "\"Active Directory",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " DNS",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " and Group Policy Management\"",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": "Powershell",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Linux Administration",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Command Line Proficiency",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Shell Scripting",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " System Security & Hardening",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " Package Management & Updates",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " AWS Service Deployment & Management",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": "\" EC2",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " S3",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "pauvel2310@gmail.com",
+    "skillsetCategory": "Programming\r",
+    "skillsetName": " RDS",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "pauvel2310@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "XenApp/XenDesktop Deployment & Management",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Configuration & Customization",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Performance Optimization",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "User Profile & Session Management",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Troubleshooting & Support",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "English",
+    "skillsetName": "English Proficiency Level",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Configuration & Administration",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Load Balancing & SSL Offloading",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Traffic Optimization & Performance Tuning",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Security & Access Control",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Troubleshooting & Root Cause Analysis",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Configuration & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Routing & Switching Fundamentals",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Security & Firewalls",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Troubleshooting & Performance Monitoring",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "\"Protocols & Standards (TCP/IP",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DNS",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DHCP",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " etc.)\"",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Deployment & Configuration (including XenServer & PVS/MCS)",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Resource Management & Scaling",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "High Availability & Disaster Recovery",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Performance Optimization Across Platforms",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Troubleshooting & Support in Virtual Environments",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "\"Server Installation & Configuration (e.g.",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": " Windows Server)\"",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Maintenance & Upgrades",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Incident & Problem Management (ITIL)",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "\"Active Directory",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " DNS",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " and Group Policy Management\"",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": "Powershell",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Linux Administration",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Command Line Proficiency",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Shell Scripting",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " System Security & Hardening",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " Package Management & Updates",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " AWS Service Deployment & Management",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": "\" EC2",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " S3",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "cesar.macassi96@gmail.com",
+    "skillsetCategory": "Programming\r",
+    "skillsetName": " RDS",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "cesar.macassi96@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "XenApp/XenDesktop Deployment & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Configuration & Customization",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Performance Optimization",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "User Profile & Session Management",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Troubleshooting & Support",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "English",
+    "skillsetName": "English Proficiency Level",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Configuration & Administration",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Load Balancing & SSL Offloading",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Traffic Optimization & Performance Tuning",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Security & Access Control",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Troubleshooting & Root Cause Analysis",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Configuration & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Routing & Switching Fundamentals",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Security & Firewalls",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Troubleshooting & Performance Monitoring",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "\"Protocols & Standards (TCP/IP",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DNS",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DHCP",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " etc.)\"",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Deployment & Configuration (including XenServer & PVS/MCS)",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Resource Management & Scaling",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "High Availability & Disaster Recovery",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Performance Optimization Across Platforms",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Troubleshooting & Support in Virtual Environments",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "\"Server Installation & Configuration (e.g.",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": " Windows Server)\"",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Maintenance & Upgrades",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Incident & Problem Management (ITIL)",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "\"Active Directory",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " DNS",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " and Group Policy Management\"",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": "Powershell",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Linux Administration",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Command Line Proficiency",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Shell Scripting",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " System Security & Hardening",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " Package Management & Updates",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " AWS Service Deployment & Management",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": "\" EC2",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " S3",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "niveditayadav1621@gmail.com",
+    "skillsetCategory": "Programming\r",
+    "skillsetName": " RDS",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "niveditayadav1621@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "XenApp/XenDesktop Deployment & Management",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Configuration & Customization",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Performance Optimization",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "User Profile & Session Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Troubleshooting & Support",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "English",
+    "skillsetName": "English Proficiency Level",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Configuration & Administration",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Load Balancing & SSL Offloading",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Traffic Optimization & Performance Tuning",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Security & Access Control",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Troubleshooting & Root Cause Analysis",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Configuration & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Routing & Switching Fundamentals",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Security & Firewalls",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Troubleshooting & Performance Monitoring",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "\"Protocols & Standards (TCP/IP",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DNS",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DHCP",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " etc.)\"",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Deployment & Configuration (including XenServer & PVS/MCS)",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Resource Management & Scaling",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "High Availability & Disaster Recovery",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Performance Optimization Across Platforms",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Troubleshooting & Support in Virtual Environments",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "\"Server Installation & Configuration (e.g.",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": " Windows Server)\"",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Maintenance & Upgrades",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Incident & Problem Management (ITIL)",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "\"Active Directory",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " DNS",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " and Group Policy Management\"",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": "Powershell",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Linux Administration",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Command Line Proficiency",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Shell Scripting",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " System Security & Hardening",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " Package Management & Updates",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " AWS Service Deployment & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": "\" EC2",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " S3",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "daniela.pld@gmail.com",
+    "skillsetCategory": "Programming\r",
+    "skillsetName": " RDS",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "daniela.pld@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "XenApp/XenDesktop Deployment & Management",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Configuration & Customization",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Performance Optimization",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "User Profile & Session Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Troubleshooting & Support",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "English",
+    "skillsetName": "English Proficiency Level",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Configuration & Administration",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Load Balancing & SSL Offloading",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Traffic Optimization & Performance Tuning",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Security & Access Control",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Troubleshooting & Root Cause Analysis",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Configuration & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Routing & Switching Fundamentals",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Security & Firewalls",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Troubleshooting & Performance Monitoring",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "\"Protocols & Standards (TCP/IP",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DNS",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DHCP",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " etc.)\"",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Deployment & Configuration (including XenServer & PVS/MCS)",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Resource Management & Scaling",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "High Availability & Disaster Recovery",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Performance Optimization Across Platforms",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Troubleshooting & Support in Virtual Environments",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "\"Server Installation & Configuration (e.g.",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": " Windows Server)\"",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Maintenance & Upgrades",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Incident & Problem Management (ITIL)",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "\"Active Directory",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " DNS",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " and Group Policy Management\"",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": "Powershell",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Linux Administration",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Command Line Proficiency",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Shell Scripting",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " System Security & Hardening",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " Package Management & Updates",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " AWS Service Deployment & Management",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": "\" EC2",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " S3",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "rcastellano23@gmail.com",
+    "skillsetCategory": "Programming\r",
+    "skillsetName": " RDS",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "rcastellano23@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "XenApp/XenDesktop Deployment & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Configuration & Customization",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Performance Optimization",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "User Profile & Session Management",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Troubleshooting & Support",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "English",
+    "skillsetName": "English Proficiency Level",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Configuration & Administration",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Load Balancing & SSL Offloading",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Traffic Optimization & Performance Tuning",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Security & Access Control",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Troubleshooting & Root Cause Analysis",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Configuration & Management",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Routing & Switching Fundamentals",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Security & Firewalls",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Troubleshooting & Performance Monitoring",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "\"Protocols & Standards (TCP/IP",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DNS",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DHCP",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " etc.)\"",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Deployment & Configuration (including XenServer & PVS/MCS)",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Resource Management & Scaling",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "High Availability & Disaster Recovery",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Performance Optimization Across Platforms",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Troubleshooting & Support in Virtual Environments",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "\"Server Installation & Configuration (e.g.",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": " Windows Server)\"",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Maintenance & Upgrades",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Incident & Problem Management (ITIL)",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "\"Active Directory",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " DNS",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " and Group Policy Management\"",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": "Powershell",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Linux Administration",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Command Line Proficiency",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Shell Scripting",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " System Security & Hardening",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " Package Management & Updates",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " AWS Service Deployment & Management",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": "\" EC2",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " S3",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "jr.ruiz.cuba@gmail.com",
+    "skillsetCategory": "Programming\r",
+    "skillsetName": " RDS",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "jr.ruiz.cuba@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "XenApp/XenDesktop Deployment & Management",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Configuration & Customization",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Performance Optimization",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "User Profile & Session Management",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Troubleshooting & Support",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "English",
+    "skillsetName": "English Proficiency Level",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Configuration & Administration",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Load Balancing & SSL Offloading",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Traffic Optimization & Performance Tuning",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Security & Access Control",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Troubleshooting & Root Cause Analysis",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Configuration & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Routing & Switching Fundamentals",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Security & Firewalls",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Troubleshooting & Performance Monitoring",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "\"Protocols & Standards (TCP/IP",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DNS",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DHCP",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " etc.)\"",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Deployment & Configuration (including XenServer & PVS/MCS)",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Resource Management & Scaling",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "High Availability & Disaster Recovery",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Performance Optimization Across Platforms",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Troubleshooting & Support in Virtual Environments",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "\"Server Installation & Configuration (e.g.",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": " Windows Server)\"",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Maintenance & Upgrades",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Incident & Problem Management (ITIL)",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "\"Active Directory",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " DNS",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " and Group Policy Management\"",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": "Powershell",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Linux Administration",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Command Line Proficiency",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Shell Scripting",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " System Security & Hardening",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " Package Management & Updates",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " AWS Service Deployment & Management",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": "\" EC2",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " S3",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johancr@gmail.com",
+    "skillsetCategory": "Programming\r",
+    "skillsetName": " RDS",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johancr@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "XenApp/XenDesktop Deployment & Management",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Configuration & Customization",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Performance Optimization",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "User Profile & Session Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Troubleshooting & Support",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "English",
+    "skillsetName": "English Proficiency Level",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Configuration & Administration",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Load Balancing & SSL Offloading",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Traffic Optimization & Performance Tuning",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Security & Access Control",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Troubleshooting & Root Cause Analysis",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Configuration & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Routing & Switching Fundamentals",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Security & Firewalls",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Troubleshooting & Performance Monitoring",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "\"Protocols & Standards (TCP/IP",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DNS",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DHCP",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " etc.)\"",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Deployment & Configuration (including XenServer & PVS/MCS)",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Resource Management & Scaling",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "High Availability & Disaster Recovery",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Performance Optimization Across Platforms",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Troubleshooting & Support in Virtual Environments",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "\"Server Installation & Configuration (e.g.",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": " Windows Server)\"",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Maintenance & Upgrades",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Incident & Problem Management (ITIL)",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "\"Active Directory",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " DNS",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " and Group Policy Management\"",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": "Powershell",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Linux Administration",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Command Line Proficiency",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Shell Scripting",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " System Security & Hardening",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " Package Management & Updates",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " AWS Service Deployment & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": "\" EC2",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " S3",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "johan16161@gmail.com",
+    "skillsetCategory": "Programming\r",
+    "skillsetName": " RDS",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "johan16161@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "XenApp/XenDesktop Deployment & Management",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Configuration & Customization",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Performance Optimization",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "User Profile & Session Management",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Troubleshooting & Support",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "English",
+    "skillsetName": "English Proficiency Level",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Configuration & Administration",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Load Balancing & SSL Offloading",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Traffic Optimization & Performance Tuning",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Security & Access Control",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Troubleshooting & Root Cause Analysis",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Configuration & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Routing & Switching Fundamentals",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Security & Firewalls",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Troubleshooting & Performance Monitoring",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "\"Protocols & Standards (TCP/IP",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DNS",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DHCP",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " etc.)\"",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Deployment & Configuration (including XenServer & PVS/MCS)",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Resource Management & Scaling",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "High Availability & Disaster Recovery",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Performance Optimization Across Platforms",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Troubleshooting & Support in Virtual Environments",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "\"Server Installation & Configuration (e.g.",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": " Windows Server)\"",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Maintenance & Upgrades",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Incident & Problem Management (ITIL)",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "\"Active Directory",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " DNS",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " and Group Policy Management\"",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": "Powershell",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Linux Administration",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Command Line Proficiency",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Shell Scripting",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " System Security & Hardening",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " Package Management & Updates",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " AWS Service Deployment & Management",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": "\" EC2",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " S3",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "andressernas17@gmail.com",
+    "skillsetCategory": "Programming\r",
+    "skillsetName": " RDS",
+    "skillsetRating": 1,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "andressernas17@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "XenApp/XenDesktop Deployment & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Configuration & Customization",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Performance Optimization",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "User Profile & Session Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Troubleshooting & Support",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "English",
+    "skillsetName": "English Proficiency Level",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Configuration & Administration",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Load Balancing & SSL Offloading",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Traffic Optimization & Performance Tuning",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Security & Access Control",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Troubleshooting & Root Cause Analysis",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Configuration & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Routing & Switching Fundamentals",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Security & Firewalls",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Troubleshooting & Performance Monitoring",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "\"Protocols & Standards (TCP/IP",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DNS",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DHCP",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " etc.)\"",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Deployment & Configuration (including XenServer & PVS/MCS)",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Resource Management & Scaling",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "High Availability & Disaster Recovery",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Performance Optimization Across Platforms",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Troubleshooting & Support in Virtual Environments",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "\"Server Installation & Configuration (e.g.",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": " Windows Server)\"",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Maintenance & Upgrades",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Incident & Problem Management (ITIL)",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "\"Active Directory",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " DNS",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " and Group Policy Management\"",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": "Powershell",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Linux Administration",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Command Line Proficiency",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Shell Scripting",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " System Security & Hardening",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " Package Management & Updates",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " AWS Service Deployment & Management",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": "\" EC2",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " S3",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "wsedieltm@gmail.com",
+    "skillsetCategory": "Programming\r",
+    "skillsetName": " RDS",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "wsedieltm@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "XenApp/XenDesktop Deployment & Management",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Configuration & Customization",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Performance Optimization",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "User Profile & Session Management",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Citrix VDI Technologies",
+    "skillsetName": "Troubleshooting & Support",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "English",
+    "skillsetName": "English Proficiency Level",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Configuration & Administration",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Load Balancing & SSL Offloading",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Traffic Optimization & Performance Tuning",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Security & Access Control",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "NetScaler",
+    "skillsetName": "Troubleshooting & Root Cause Analysis",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Configuration & Management",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Routing & Switching Fundamentals",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Network Security & Firewalls",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "Troubleshooting & Performance Monitoring",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Networking",
+    "skillsetName": "\"Protocols & Standards (TCP/IP",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DNS",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " DHCP",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": " etc.)\"",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Deployment & Configuration (including XenServer & PVS/MCS)",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Virtualization Technologies",
+    "skillsetName": "Resource Management & Scaling",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "High Availability & Disaster Recovery",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Performance Optimization Across Platforms",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "Troubleshooting & Support in Virtual Environments",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": "\"Server Installation & Configuration (e.g.",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Windows Server",
+    "skillsetName": " Windows Server)\"",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Maintenance & Upgrades",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "Incident & Problem Management (ITIL)",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": "\"Active Directory",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " DNS",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Linux",
+    "skillsetName": " and Group Policy Management\"",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": "Powershell",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Linux Administration",
+    "skillsetRating": 4,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Command Line Proficiency",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " Shell Scripting",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "AWS",
+    "skillsetName": " System Security & Hardening",
+    "skillsetRating": 5,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " Package Management & Updates",
+    "skillsetRating": 2,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " AWS Service Deployment & Management",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": "\" EC2",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Programming",
+    "skillsetName": " S3",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  },
+  {
+    "companyId": "6792df37ae32f695bcd13420",
+    "companyName": "Samana Group LLC",
+    "email": "ralphalfred391@gmail.com",
+    "skillsetCategory": "Programming\r",
+    "skillsetName": " RDS",
+    "skillsetRating": 3,
+    "reviewedBy": "Candidate",
+    "reviewerEmail": "ralphalfred391@gmail.com"
+  }
+]
