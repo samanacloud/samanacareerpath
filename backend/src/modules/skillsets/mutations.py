@@ -1,81 +1,28 @@
 import strawberry
 from typing import Optional
-from .schemas import Skillset, SkillsetMutationResponse, SkillsetInput, UpdateSkillsetInput
+from datetime import datetime
+from .schemas import Skillset, CreateSkillsetInput, UpdateSkillsetInput
 from .repository import SkillsetRepository
 
 @strawberry.type
 class SkillsetMutations:
     @strawberry.mutation
-    async def create_skillset(self, input: SkillsetInput) -> SkillsetMutationResponse:
+    async def createSkillset(self, input: CreateSkillsetInput) -> Skillset:
         """Create a new skillset"""
         repo = SkillsetRepository()
-        try:
-            skillset = await repo.create_skillset({
-                "companyId": input.companyId,
-                "skillsetCategory": input.skillsetCategory,
-                "skillsetName": input.skillsetName,
-                "skillsetDescription": input.skillsetDescription
-            })
-            return SkillsetMutationResponse(
-                status="success",
-                skillset=skillset,
-                message="Skillset created successfully"
-            )
-        except Exception as e:
-            return SkillsetMutationResponse(
-                status="error",
-                error=str(e)
-            )
+        data = input.__dict__
+        result = await repo.create_skillset(data)
+        return Skillset(**result)
 
     @strawberry.mutation
-    async def update_skillset(self, input: UpdateSkillsetInput) -> SkillsetMutationResponse:
+    async def modifySkillset(self, id: str, input: UpdateSkillsetInput) -> Optional[Skillset]:
         """Update an existing skillset"""
         repo = SkillsetRepository()
-        try:
-            updateData = {
-                "skillsetCategory": input.skillsetCategory,
-                "skillsetName": input.skillsetName,
-                "skillsetDescription": input.skillsetDescription
-            }
-            # Remove None values
-            updateData = {k: v for k, v in updateData.items() if v is not None}
-            
-            skillset = await repo.update_skillset(input.id, input.companyId, updateData)
-            if not skillset:
-                return SkillsetMutationResponse(
-                    status="error",
-                    error="Skillset not found or no changes provided"
-                )
-            
-            return SkillsetMutationResponse(
-                status="success",
-                skillset=skillset,
-                message="Skillset updated successfully"
-            )
-        except Exception as e:
-            return SkillsetMutationResponse(
-                status="error",
-                error=str(e)
-            )
+        result = await repo.update_skillset(id, input.__dict__)
+        return Skillset(**result) if result else None
 
     @strawberry.mutation
-    async def delete_skillset(self, id: str, companyId: str) -> SkillsetMutationResponse:
+    async def removeSkillset(self, id: str) -> bool:
         """Delete a skillset"""
         repo = SkillsetRepository()
-        try:
-            success = await repo.delete_skillset(id, companyId)
-            if not success:
-                return SkillsetMutationResponse(
-                    status="error",
-                    error="Skillset not found"
-                )
-            
-            return SkillsetMutationResponse(
-                status="success",
-                message="Skillset deleted successfully"
-            )
-        except Exception as e:
-            return SkillsetMutationResponse(
-                status="error",
-                error=str(e)
-            ) 
+        return await repo.delete_skillset(id) 

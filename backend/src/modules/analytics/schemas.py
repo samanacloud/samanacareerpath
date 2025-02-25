@@ -1,4 +1,5 @@
 import strawberry
+from typing import Optional
 
 @strawberry.type
 class ProcessCandidateAnalytics:
@@ -6,6 +7,15 @@ class ProcessCandidateAnalytics:
     email: str
     country: str
     salaryExpectation: int
+    skillsetAvg: float
+    interviewYes: int
+    interviewMaybe: int
+    interviewNo: int
+    interviewRating: float
+    certificationCount: int
+
+@strawberry.type
+class CandidateAnalytics:
     skillsetAvg: float
     interviewYes: int
     interviewMaybe: int

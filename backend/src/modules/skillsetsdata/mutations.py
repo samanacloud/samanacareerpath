@@ -9,7 +9,9 @@ class SkillsetDataMutations:
     async def assign_skillset(self, input: AssignSkillsetInput) -> Optional[SkillsetData]:
         """Assign new skillset to user"""
         repo = SkillsetDataRepository()
-        result = await repo.create_skillset(input.__dict__)
+        input_data = input.__dict__.copy()
+        input_data.pop('notes', None)
+        result = await repo.create_skillset(input_data)
         return SkillsetData(**result) if result else None
 
     @strawberry.mutation

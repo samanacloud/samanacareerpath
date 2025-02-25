@@ -49,6 +49,11 @@ const fetchSessionInfo = async () => {
         if (response.ok) {
             const data = await response.json();
             sessionInfo.value = data.user;
+            // Store the session info in localStorage for use in other components
+            if(data.user){
+                localStorage.setItem('userName', data.user.userName || '');
+                localStorage.setItem('userEmail', data.user.email || '');
+            }
         }
     } catch (error) {
         console.error('Error fetching session info:', error);
@@ -82,6 +87,8 @@ const handleLogout = async () => {
         if (response.ok) {
             // Clear local storage
             localStorage.removeItem('session_token');
+            localStorage.removeItem('userName');
+            localStorage.removeItem('userEmail');
             // Redirect to login page with success message
             router.push({
                 path: '/auth/login',

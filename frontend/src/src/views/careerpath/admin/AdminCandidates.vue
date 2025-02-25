@@ -3,9 +3,9 @@
         <Toast />
         <ConfirmDialog />
 
-        <!-- Header Section -->
         <div class="flex flex-col gap-4">
-            <div class="flex items-center justify-between">
+            <!-- Header Section -->
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
                     <h1 class="text-2xl font-medium text-900">Candidates</h1>
                     <p class="text-sm font-medium text-500">Manage your organization's candidates</p>
@@ -15,22 +15,22 @@
                     icon="pi pi-plus" 
                     outlined 
                     raised 
-                    class="bg-white" 
+                    class="bg-white self-start sm:self-auto" 
                     @click="openNewCandidate" 
                 />
             </div>
 
             <!-- Search and Filter Bar -->
-            <div class="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
-                <IconField class="w-96">
+            <div class="flex flex-col md:flex-row justify-between items-center bg-white p-4 rounded-lg shadow-sm gap-4">
+                <IconField class="w-full md:w-96">
                     <InputIcon class="pi pi-search" />
                     <InputText 
                         v-model="filters['global'].value" 
-                        placeholder="Search candidates..." 
+                        placeholder="Search by name, email, country, phone, recruitment process, or status..." 
                         class="w-full"
                     />
                 </IconField>
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-3 self-end md:self-auto">
                     <label class="text-gray-600">Show Inactive</label>
                     <ToggleSwitch v-model="showInactive" @change="filterCandidates" />
                 </div>
@@ -48,7 +48,7 @@
                     responsiveLayout="scroll"
                     v-model:filters="filters"
                     filterDisplay="menu"
-                    :globalFilterFields="['candidateName', 'email', 'country']"
+                    :globalFilterFields="['candidateName', 'email', 'country', 'phone', 'recruitmentProcessName', 'status']"
                     class="p-4 cursor-pointer"
                     @row-click="onRowClick"
                 >
@@ -66,19 +66,19 @@
                         </template>
                     </Column>
 
-                    <Column field="country" header="Country" sortable>
+                    <Column field="country" header="Country" sortable class="hidden md:table-cell">
                         <template #body="{ data }">
                             <span class="text-sm text-gray-500">{{ data.country }}</span>
                         </template>
                     </Column>
 
-                    <Column field="phone" header="Phone" sortable>
+                    <Column field="phone" header="Phone" sortable class="hidden md:table-cell">
                         <template #body="{ data }">
                             <span class="text-sm text-gray-500">{{ data.phone }}</span>
                         </template>
                     </Column>
 
-                    <Column field="salaryExpectation" header="Salary Expectation" sortable>
+                    <Column field="salaryExpectation" header="Salary Expectation" sortable class="hidden md:table-cell">
                         <template #body="{ data }">
                             <span class="text-sm text-gray-500">
                                 {{ data.salaryExpectation ? `$${Number(data.salaryExpectation).toLocaleString()}` : 'Not specified' }}
@@ -86,14 +86,14 @@
                         </template>
                     </Column>
 
-                    <Column field="recruitmentProcessName" header="Recruitment Process" sortable>
+                    <Column field="recruitmentProcessName" header="Recruitment Process" sortable class="hidden md:table-cell">
                         <template #body="{ data }">
                             <span class="text-sm text-gray-500">
                                 {{ data.recruitmentProcessName || 'Not assigned' }}
                             </span>
                         </template>
                     </Column>
-                    <Column field="status" header="Status" sortable>
+                    <Column field="status" header="Status" sortable class="hidden md:table-cell">
                         <template #body="{ data }">
                             <Tag 
                                 :severity="data.status === 'active' ? 'success' : 'danger'" 
@@ -779,5 +779,40 @@ function onRowClick(event) {
         height: 44px;
         font-size: 15px;
     }
+    
+    /* Mobile-specific DataTable styles */
+    :deep(.p-datatable .p-datatable-tbody > tr > td) {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    :deep(.p-datatable .p-datatable-thead > tr > th) {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    /* Make the name column wider on mobile */
+    :deep(.p-datatable .p-datatable-tbody > tr > td:first-child) {
+        width: 70%;
+    }
+    
+    /* Make the action column take the remaining space */
+    :deep(.p-datatable .p-datatable-tbody > tr > td:last-child) {
+        width: 30%;
+    }
+}
+
+/* Add hover effect to DataTable rows */
+:deep(.p-datatable .p-datatable-tbody tr:hover) {
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+:deep(.p-datatable .p-datatable-tbody tr:focus) {
+    outline: none;
+    background-color: #e9ecef;
+}
+
+:deep(.p-datatable .p-datatable-tbody td) {
+    transition: background-color 0.2s;
 }
 </style> 

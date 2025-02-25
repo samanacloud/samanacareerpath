@@ -1,87 +1,64 @@
-from typing import Optional, List, Dict, Any
+from datetime import datetime
+from typing import List, Dict, Optional
 from bson import ObjectId
 from database import get_database
 
 class SkillsetRepository:
     def __init__(self):
-        self.collectionName = "skillsets"
+        self.collection_name = "skillsets"
 
-    async def _get_db(self):
-        """Get database connection"""
-        return await get_database()
-
-    def _format_skillset(self, skillset: Dict[str, Any]) -> Dict[str, Any]:
-        """Format skillset document by converting _id to id"""
-        if skillset:
-            skillset["id"] = str(skillset.pop("_id"))
-            return skillset
-        return None
-
-    async def create_skillset(self, data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    async def create_skillset(self, data: Dict) -> Dict:
         """Create a new skillset"""
-        db = await self._get_db()
-        skillsetDoc = {
-            "companyId": data["companyId"],
-            "skillsetCategory": data["skillsetCategory"],
-            "skillsetName": data["skillsetName"],
-            "skillsetDescription": data["skillsetDescription"]
+        db = await get_database()
+        
+        result = await db[self.collection_name].insert_one(data)
+        # Fetch the newly created document with proper ID conversion
+        inserted_doc = await db[self.collection_name].find_one({"_id": result.inserted_id})
+        return self._convert_id(inserted_doc)
+
+    async def update_skillset(self, skillset_id: str, data: Dict) -> Optional[Dict]:
+        """Update a skillset by ID"""
+        db = await get_database()
+        
+        update_data = {
+            **{k: v for k, v in data.items() if v is not None}
         }
-        result = await db[self.collectionName].insert_one(skillsetDoc)
-        createdDoc = await db[self.collectionName].find_one({"_id": result.inserted_id})
-        return self._format_skillset(createdDoc)
-
-    async def get_skillset_by_id(self, skillsetId: str, companyId: str) -> Optional[Dict[str, Any]]:
-        """Get a skillset by ID and company ID"""
-        db = await self._get_db()
-        result = await db[self.collectionName].find_one({
-            "_id": ObjectId(skillsetId),
-            "companyId": companyId
-        })
-        return self._format_skillset(result)
-
-    async def get_all_skillsets(self, companyId: str) -> List[Dict[str, Any]]:
-        """Get all skillsets for a company"""
-        db = await self._get_db()
-        cursor = db[self.collectionName].find({"companyId": companyId})
-        skillsets = []
-        async for doc in cursor:
-            skillsets.append(self._format_skillset(doc))
-        return skillsets
-
-    async def get_skillsets_by_category(self, companyId: str, skillsetCategory: str) -> List[Dict[str, Any]]:
-        """Get all skillsets in a specific category for a company"""
-        db = await self._get_db()
-        cursor = db[self.collectionName].find({
-            "companyId": companyId,
-            "skillsetCategory": skillsetCategory
-        })
-        skillsets = []
-        async for doc in cursor:
-            skillsets.append(self._format_skillset(doc))
-        return skillsets
-
-    async def update_skillset(self, skillsetId: str, companyId: str, data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
-        """Update a skillset"""
-        db = await self._get_db()
-        updateData = {k: v for k, v in data.items() if v is not None and k != "companyId"}
-        if not updateData:
-            return None
-
-        result = await db[self.collectionName].find_one_and_update(
-            {
-                "_id": ObjectId(skillsetId),
-                "companyId": companyId
-            },
-            {"$set": updateData},
+        
+        result = await db[self.collection_name].find_one_and_update(
+            {"_id": ObjectId(skillset_id)},
+            {"$set": update_data},
             return_document=True
         )
-        return self._format_skillset(result)
+        
+        if result:
+            result["id"] = str(result.pop("_id"))
+            return result
+        return None
 
-    async def delete_skillset(self, skillsetId: str, companyId: str) -> bool:
-        """Delete a skillset"""
-        db = await self._get_db()
-        result = await db[self.collectionName].delete_one({
-            "_id": ObjectId(skillsetId),
-            "companyId": companyId
-        })
-        return result.deleted_count > 0 
+    async def delete_skillset(self, skillset_id: str) -> bool:
+        """Delete a skillset by ID"""
+        db = await get_database()
+        result = await db[self.collection_name].delete_one({"_id": ObjectId(skillset_id)})
+        return result.deleted_count > 0
+
+    async def get_skillsets_by_company(self, company_id: str) -> List[Dict]:
+        """Get all skillsets for a company"""
+        db = await get_database()
+        cursor = db[self.collection_name].find({"companyId": company_id})
+        return [self._convert_id(skillset) async for skillset in cursor]
+
+    async def get_skillset_categories(self, company_id: str) -> List[str]:
+        """Get distinct skillset categories for a company"""
+        db = await get_database()
+        return await db[self.collection_name].distinct(
+            "skillsetCategory",
+            {"companyId": company_id}
+        )
+
+    def _convert_id(self, document: Dict) -> Dict:
+        """Convert MongoDB _id to id"""
+        document["id"] = str(document.pop("_id"))
+        # Remove timestamp fields if they exist
+        document.pop("createdAt", None)
+        document.pop("updatedAt", None)
+        return document 

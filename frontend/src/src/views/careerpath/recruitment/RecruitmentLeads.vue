@@ -2,6 +2,12 @@
   <div class="card">
     <Toast />
     <ConfirmDialog />
+    
+    <!-- Breadcrumb Navigation -->
+    <div class="compact-breadcrumb mb-3">
+      <Breadcrumb :home="breadcrumbHome" :model="breadcrumbItems" />
+    </div>
+    
     <div class="flex items-center justify-between mb-4">
         <div>
           <h1 class="text-2xl font-medium text-900">Recruitment Leads</h1>
@@ -15,18 +21,12 @@
         />
       </div>
     <!-- Header Section -->
-    <div class="card p-4">
-      <Toast />
-      <ConfirmDialog />
-
-      <!-- Header with title and add button -->
-   
-
+    <div class="card p-2 md:p-4">
       <!-- Processes Section -->
-      <div class="bg-white p-4 rounded-lg shadow-sm">
-        <div class="flex justify-between items-center mb-4">
+      <div class="bg-white p-2 md:p-4 rounded-lg shadow-sm">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-4">
           <!-- Search Bar -->
-          <IconField class="w-96">
+          <IconField class="w-full md:w-96">
             <InputIcon class="pi pi-search" />
             <InputText 
               v-model="filters.global.value" 
@@ -49,17 +49,16 @@
           </div>
         </template>
         <template v-else>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Process Grid (visible when no process is selected or showProcessDetails is false) -->
+          <div v-if="!selectedProcessId || !showProcessDetails" class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             <div v-for="process in filteredProcesses" 
                  :key="process.id" 
-                 class="border rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
-                 @click="fetchCandidates(process.id)">
+                 class="border rounded-lg p-3 hover:bg-blue-50 hover:border-blue-200 transition-all cursor-pointer process-card"
+                 @click="selectProcess(process.id)">
               <div class="flex justify-between items-start mb-2">
                 <div class="flex flex-col">
                   <h3 class="text-lg font-semibold">{{ process.jobName }}</h3>
                   <span class="text-sm text-gray-500">{{ process.jobCategory }}</span>
-
-            
                 </div>
                 
                 <div class="flex gap-2">
@@ -67,39 +66,48 @@
                     icon="pi pi-pencil" 
                     text 
                     rounded 
-                    @click="editProcess(process)"
+                    @click.stop="editProcess(process)"
                     class="text-green-500 hover:text-green-700"
+                  />
+                  <Button 
+                    icon="pi pi-user-plus" 
+                    text 
+                    rounded 
+                    @click.stop="openEnrollCandidateDialog(process)"
+                    class="text-blue-500 hover:text-blue-700"
+                    v-tooltip.top="'Enroll Candidate'"
                   />
                   <Button 
                     icon="pi pi-trash" 
                     text 
                     rounded 
-                    @click="confirmDelete(process)"
+                    @click.stop="confirmDelete(process)"
                     class="text-red-500 hover:text-red-700"
                     severity="danger"
                   />
-                  
                 </div>
               </div>
-              <div class="text-sm">
-                <span class="font-medium text-gray-700">Workplace:</span>
-                <span class="text-gray-600 ml-1">{{ process.workplaceType }}</span>
-              </div>
-              <div class="text-sm">
-                <span class="font-medium text-gray-700">Type:</span>
-                <span class="text-gray-600 ml-1">{{ process.jobType }}</span>
-              </div>
-              <div class="text-sm">
-                <span class="font-medium text-gray-700">Salary Range:</span>
-                <span class="text-gray-600 ml-1">{{ process.salaryRange }}</span>
-              </div>
-              <div class="text-sm text-gray-500 mb-2">
-                <i class="pi pi-calendar mr-1"></i>
-                Created: {{ new Date(process.createdAt).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                }) }}
+              <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-sm">
+                <div>
+                  <span class="font-medium text-gray-700">Workplace:</span>
+                  <span class="text-gray-600 ml-1">{{ process.workplaceType }}</span>
+                </div>
+                <div>
+                  <span class="font-medium text-gray-700">Type:</span>
+                  <span class="text-gray-600 ml-1">{{ process.jobType }}</span>
+                </div>
+                <div class="col-span-2">
+                  <span class="font-medium text-gray-700">Salary Range:</span>
+                  <span class="text-gray-600 ml-1">{{ process.salaryRange }}</span>
+                </div>
+                <div class="col-span-2 text-gray-500 mb-1">
+                  <i class="pi pi-calendar mr-1"></i>
+                  Created: {{ new Date(process.createdAt).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                  }) }}
+                </div>
               </div>
               <div class="mt-2 flex justify-end">
                 <Tag 
@@ -111,23 +119,107 @@
             </div>
           </div>
 
-          <!-- New Details Section -->
-          <div class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
-            <h3 class="text-lg font-semibold mb-4">Details</h3>
-            <div class="text-gray-600">
-              Recruitment process statistics and detailed insights will be displayed here.
-              <!-- Example content (commented out for now) -->
-              <!-- <div class="grid grid-cols-2 gap-4">
-                <div class="p-4 bg-white rounded shadow">
-                  <h4 class="font-medium mb-2">Application Status</h4>
-                  <p class="text-sm">Chart or statistics here</p>
-                </div>
-                <div class="p-4 bg-white rounded shadow">
-                  <h4 class="font-medium mb-2">Candidate Pipeline</h4>
-                  <p class="text-sm">Pipeline visualization here</p>
-                </div>
-              </div> -->
+          <!-- Process Details View (visible when a process is selected and showProcessDetails is true) -->
+          <div v-if="selectedProcessId && showProcessDetails" class="process-details-view">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl font-semibold text-blue-800">
+                {{ selectedProcess?.jobName }}
+                <span class="text-sm font-normal text-blue-600 ml-2">({{ selectedProcess?.jobCategory }})</span>
+              </h3>
+              <Button 
+                icon="pi pi-arrow-left" 
+                :label="isMobile ? undefined : 'Back to Leads'" 
+                severity="danger" 
+                outlined raised
+                @click="closeProcessDetails"
+                class="close-details-btn"
+              />
             </div>
+
+            <!-- Details Section as Fieldset -->
+            <Fieldset 
+              class="mt-4 process-details-fieldset" 
+              :toggleable="true" 
+              v-model:collapsed="detailsCollapsed"
+              ref="processDetailsFieldset"
+            >
+              <template #legend>
+                <div class="flex items-center gap-2">
+                  <i class="pi pi-info-circle text-blue-500"></i>
+                  <span class="font-medium">Process Details</span>
+                  <span v-if="selectedProcess" class="text-sm text-primary-500">({{ selectedProcess.jobName }})</span>
+                  <Button v-if="detailsCollapsed" 
+                    icon="pi pi-chevron-down" 
+                    class="expand-button p-button-primary"
+                    @click="expandDetails"
+                  >
+                    <span class="text-xs ml-1">Expand Details</span>
+                  </Button>
+                </div>
+              </template>
+              
+              <div v-if="selectedProcess" class="text-gray-600">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                  <div class="p-3 bg-white rounded shadow">
+                    <h4 class="font-medium mb-2">Process Information</h4>
+                    <div class="text-sm space-y-2">
+                      <div class="flex justify-between">
+                        <span class="text-gray-500">Job Name:</span>
+                        <span class="font-medium">{{ selectedProcess.jobName }}</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-500">Category:</span>
+                        <span>{{ selectedProcess.jobCategory }}</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-500">Workplace:</span>
+                        <span>{{ selectedProcess.workplaceType }}</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-500">Job Type:</span>
+                        <span>{{ selectedProcess.jobType }}</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-500">Salary Range:</span>
+                        <span>{{ selectedProcess.salaryRange }}</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="p-3 bg-white rounded shadow">
+                    <h4 class="font-medium mb-2">Candidate Pipeline</h4>
+                    <div v-if="candidates.length > 0" class="text-sm space-y-2">
+                      <div class="flex justify-between">
+                        <span class="text-gray-500">Total Candidates:</span>
+                        <span class="font-medium">{{ candidates.length }}</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-500">New:</span>
+                        <span>{{ candidates.filter(c => c.status === 'new').length }}</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-500">Reviewed:</span>
+                        <span>{{ candidates.filter(c => c.status === 'reviewed').length }}</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-500">Interviewed:</span>
+                        <span>{{ candidates.filter(c => c.status === 'interviewed').length }}</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-500">Rejected:</span>
+                        <span>{{ candidates.filter(c => c.status === 'rejected').length }}</span>
+                      </div>
+                    </div>
+                    <div v-else class="text-sm text-gray-500 italic">
+                      No candidates found for this process.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div v-else class="text-gray-600">
+                Select a recruitment process to view details and candidates.
+              </div>
+            </Fieldset>
           </div>
         </template>
       </div>
@@ -297,139 +389,308 @@
       </template>
     </Dialog>
 
-    <!-- Candidates Section -->
-    <div class="mt-6 p-4 bg-white rounded-lg border border-gray-200" v-if="selectedProcess">
-      <h3 class="text-lg font-semibold mb-4">Candidates for {{ selectedProcess.jobName }}</h3>
-      
-      <div v-if="loadingCandidates" class="text-center py-4">
-        <i class="pi pi-spin pi-spinner text-2xl"></i>
-        <p class="text-gray-600 mt-2">Loading candidates...</p>
+    <!-- Enroll Candidate Dialog -->
+    <Dialog
+      v-model:visible="enrollCandidateDialog"
+      :style="{ width: '95%', maxWidth: '550px' }"
+      header="Enroll Candidate"
+      :modal="true"
+      class="p-fluid"
+    >
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-1">
+          <label for="candidate" class="font-medium text-gray-700">Select Candidate</label>
+          <AutoComplete
+            id="candidate"
+            v-model="selectedCandidate"
+            :suggestions="filteredCandidates"
+            @complete="searchCandidates"
+            field="candidateName"
+            optionLabel="candidateName"
+            dropdown
+            forceSelection
+            class="w-full"
+            placeholder="Type to search candidates"
+          >
+            <template #item="slotProps">
+              <div class="flex flex-col">
+                <div>{{ slotProps.item.candidateName }}</div>
+                <small class="text-gray-500">{{ slotProps.item.email }}</small>
+              </div>
+            </template>
+            <template #option="slotProps">
+              <div class="flex flex-col">
+                <div>{{ slotProps.option.candidateName }}</div>
+                <small class="text-gray-500">{{ slotProps.option.email }}</small>
+              </div>
+            </template>
+            <template #value="slotProps">
+              <div>{{ slotProps.value?.candidateName || '' }}</div>
+            </template>
+          </AutoComplete>
+          <small v-if="enrollSubmitted && !selectedCandidate" class="p-error">Candidate is required.</small>
+        </div>
+        
+        <div class="flex flex-col gap-1">
+          <label for="salaryExpectation" class="font-medium text-gray-700">Salary Expectation</label>
+          <InputNumber
+            id="salaryExpectation"
+            v-model="salaryExpectation"
+            mode="currency"
+            currency="USD"
+            locale="en-US"
+            :minFractionDigits="0"
+            class="w-full"
+          />
+          <small v-if="enrollSubmitted && !salaryExpectation" class="p-error">Salary expectation is required.</small>
+        </div>
+        
+        <div class="flex justify-end gap-2 mt-4">
+          <Button
+            label="Cancel"
+            icon="pi pi-times"
+            text
+            @click="closeEnrollCandidateDialog"
+          />
+          <Button
+            label="Enroll"
+            icon="pi pi-check"
+            @click="enrollCandidate"
+          />
+        </div>
+      </div>
+    </Dialog>
+
+    <!-- Candidates and Analytics Section -->
+    <div class="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-4" v-if="selectedProcess && showProcessDetails">
+      <!-- Candidates Table (takes 2/3 of the space on large screens) -->
+      <div class="lg:col-span-2 p-4 bg-white rounded-lg border border-gray-200">
+        <h3 class="text-lg font-semibold mb-4">Candidates for {{ selectedProcess.jobName }}</h3>
+        
+        <div v-if="loadingCandidates" class="text-center py-4">
+          <i class="pi pi-spin pi-spinner text-2xl"></i>
+          <p class="text-gray-600 mt-2">Loading candidates...</p>
+        </div>
+
+        <div v-else>
+          <div class="mb-3 text-sm text-gray-600">
+            <i class="pi pi-info-circle mr-1"></i>
+            Candidates are sorted by Approved Interviews (highest first), then by Skillset Rating (highest first).
+          </div>
+          <DataTable
+            :value="sortedCandidates" 
+            dataKey="id"
+            class="p-datatable-sm"
+            :paginator="true" 
+            :rows="10"
+            :rowsPerPageOptions="[5, 10, 20, 50]"
+            responsiveLayout="stack"
+            breakpoint="960px"
+            :loading="loadingCandidates"
+            :globalFilterFields="['candidateName', 'email', 'country']"
+            v-model:filters="filters"
+            filterDisplay="menu"
+            @row-click="onRowClick"
+          >
+            <Column field="candidateName" header="Candidate" sortable>
+              <template #body="{ data }">
+                <div class="flex items-center gap-2">
+                  <Avatar 
+                    :label="getInitials(data.candidateName)" 
+                    class="w-8 h-8 bg-primary-100 text-primary-700 font-medium" 
+                    size="normal" 
+                    shape="circle"
+                  />
+                  <div class="flex flex-col">
+                    <span class="font-medium">{{ data.candidateName }}</span>
+                    <span class="text-sm text-gray-500">{{ data.email }}</span>
+                    <!-- Mobile-only metrics display -->
+                    <div class="md:hidden mt-2 flex flex-wrap gap-3 text-sm" v-if="candidateAnalytics[data.email]">
+                      <div class="flex items-center gap-1" v-tooltip="`Average Skillset Rating`">
+                        <i class="pi pi-star-fill text-yellow-500"></i>
+                        <span>{{ candidateAnalytics[data.email]?.skillsetAvg?.toFixed(1) || '0.0' }}</span>
+                      </div>
+                      <div class="flex items-center gap-1" v-tooltip="`Approved Interviews`">
+                        <i class="pi pi-check-circle text-green-500"></i>
+                        <span>{{ candidateAnalytics[data.email]?.interviewYes || 0 }}</span>
+                      </div>
+                      <div class="flex items-center gap-1" v-tooltip="`Pending Interviews`">
+                        <i class="pi pi-clock text-yellow-500"></i>
+                        <span>{{ candidateAnalytics[data.email]?.interviewMaybe || 0 }}</span>
+                      </div>
+                      <div class="flex items-center gap-1" v-tooltip="`Rejected Interviews`">
+                        <i class="pi pi-times-circle text-red-500"></i>
+                        <span>{{ candidateAnalytics[data.email]?.interviewNo || 0 }}</span>
+                      </div>
+                      <div class="flex items-center gap-1" v-tooltip="`Certifications`">
+                        <i class="pi pi-id-card text-blue-500"></i>
+                        <span>{{ candidateAnalytics[data.email]?.certificationCount || 0 }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </template>
+            </Column>
+
+            <Column field="country" header="Country" sortable class="hidden md:table-cell">
+              <template #body="{ data }">
+                <span class="text-gray-700 capitalize">{{ data.country?.toLowerCase() }}</span>
+              </template>
+            </Column>
+
+            <Column header="Metrics" class="hidden md:table-cell">
+              <template #body="{ data }">
+                <div v-if="candidateAnalytics[data.email]" class="flex items-center gap-3 text-sm">
+                  <div class="flex items-center gap-1" v-tooltip="`Average Skillset Rating`">
+                    <i class="pi pi-star-fill text-yellow-500"></i>
+                    <span>{{ candidateAnalytics[data.email]?.skillsetAvg?.toFixed(1) || '0.0' }}</span>
+                  </div>
+                  <div class="flex items-center gap-1" v-tooltip="`Approved Interviews`">
+                    <i class="pi pi-check-circle text-green-500"></i>
+                    <span>{{ candidateAnalytics[data.email]?.interviewYes || 0 }}</span>
+                  </div>
+                  <div class="flex items-center gap-1" v-tooltip="`Pending Interviews`">
+                    <i class="pi pi-clock text-yellow-500"></i>
+                    <span>{{ candidateAnalytics[data.email]?.interviewMaybe || 0 }}</span>
+                  </div>
+                  <div class="flex items-center gap-1" v-tooltip="`Rejected Interviews`">
+                    <i class="pi pi-times-circle text-red-500"></i>
+                    <span>{{ candidateAnalytics[data.email]?.interviewNo || 0 }}</span>
+                  </div>
+                  <div class="flex items-center gap-1" v-tooltip="`Certifications`">
+                    <i class="pi pi-id-card text-blue-500"></i>
+                    <span>{{ candidateAnalytics[data.email]?.certificationCount || 0 }}</span>
+                  </div>
+                </div>
+                <div v-else class="text-gray-400 text-sm">
+                  Loading metrics...
+                </div>
+              </template>
+            </Column>
+          </DataTable>
+        </div>
       </div>
 
-      <div v-else>
-        <DataTable
-          :value="candidates" 
-          dataKey="id"
-          class="p-datatable-sm"
-          :paginator="true" 
-          :rows="10"
-          :rowsPerPageOptions="[5, 10, 20, 50]"
-          responsiveLayout="scroll"
-          :loading="loadingCandidates"
-          :globalFilterFields="['candidateName', 'email', 'country', 'status']"
-          v-model:filters="filters"
-          filterDisplay="menu"
-          @row-click="onRowClick"
-        >
-          <Column field="candidateName" header="Candidate" sortable>
-            <template #body="{ data }">
-              <div class="flex items-center gap-2">
-                <Avatar 
-                  :label="getInitials(data.candidateName)" 
-                  class="w-8 h-8 bg-primary-100 text-primary-700 font-medium" 
-                  size="normal" 
-                  shape="circle"
-                />
-                <div class="flex flex-col">
-                  <span class="font-medium">{{ data.candidateName }}</span>
-                  <span class="text-sm text-gray-500">{{ data.email }}</span>
-                </div>
-              </div>
-            </template>
-          </Column>
+      <!-- Process Analytics Summary (takes 1/3 of the space on large screens) -->
+      <div class="p-4 bg-white rounded-lg border border-gray-200">
+        <h3 class="text-lg font-semibold mb-4">Process Analytics</h3>
+        
+        <div v-if="loadingProcessAnalytics" class="text-center py-4">
+          <i class="pi pi-spin pi-spinner text-2xl"></i>
+          <p class="text-gray-600 mt-2">Loading analytics...</p>
+        </div>
 
-          <Column field="country" header="Country" sortable>
-            <template #body="{ data }">
-              <span class="text-gray-700 capitalize">{{ data.country?.toLowerCase() }}</span>
-            </template>
-          </Column>
+        <div v-else-if="processAnalytics.candidates.length === 0" class="text-center py-4 text-gray-500">
+          No analytics data available for this process.
+        </div>
 
-          <Column field="status" header="Status" sortable>
-            <template #body="{ data }">
-              <Tag 
-                :severity="getStatusSeverity(data.status)" 
-                :value="data.status"
-                class="text-xs"
-              />
-            </template>
-            <template #filter="{ filterModel, filterCallback }">
-              <Dropdown 
-                v-model="filterModel.value" 
-                :options="statusOptions" 
-                placeholder="Any Status" 
-                class="p-column-filter" 
-                @change="filterCallback()"
-              />
-            </template>
-          </Column>
-
-          <Column field="createdAt" header="Applied" sortable>
-            <template #body="{ data }">
-              <span class="text-gray-700">
-                {{ new Date(data.createdAt).toLocaleDateString() }}
+        <div v-else class="space-y-4">
+          <!-- Skillset Ratings Card -->
+          <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+            <h4 class="font-medium text-gray-800 mb-3 flex items-center">
+              <i class="pi pi-star-fill text-yellow-500 mr-2"></i>
+              Skillset Ratings
+            </h4>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-gray-600">Average Rating:</span>
+              <span class="font-medium">
+                {{ calculateAverage(processAnalytics.candidates.map(c => c.skillsetAvg)).toFixed(1) }}
               </span>
-            </template>
-          </Column>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-gray-600">Highest Rating:</span>
+              <span class="font-medium">
+                {{ Math.max(...processAnalytics.candidates.map(c => c.skillsetAvg)).toFixed(1) }}
+              </span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-600">Lowest Rating:</span>
+              <span class="font-medium">
+                {{ Math.min(...processAnalytics.candidates.map(c => c.skillsetAvg || 0)).toFixed(1) }}
+              </span>
+            </div>
+          </div>
 
-          <Column header="Metrics" style="min-width: 250px">
-            <template #body="{ data }">
-              <div v-if="candidateAnalytics[data.email]" class="flex items-center gap-3 text-sm">
-                <div class="flex items-center gap-1" v-tooltip="`Average Skillset Rating`">
-                  <i class="pi pi-star-fill text-yellow-500"></i>
-                  <span>{{ candidateAnalytics[data.email].skillsetAvg?.toFixed(1) || '0.0' }}</span>
-                </div>
-                <div class="flex items-center gap-1" v-tooltip="`Approved Interviews`">
-                  <i class="pi pi-check-circle text-green-500"></i>
-                  <span>{{ candidateAnalytics[data.email].interviewYes }}</span>
-                </div>
-                <div class="flex items-center gap-1" v-tooltip="`Pending Interviews`">
-                  <i class="pi pi-clock text-yellow-500"></i>
-                  <span>{{ candidateAnalytics[data.email].interviewMaybe }}</span>
-                </div>
-                <div class="flex items-center gap-1" v-tooltip="`Rejected Interviews`">
-                  <i class="pi pi-times-circle text-red-500"></i>
-                  <span>{{ candidateAnalytics[data.email].interviewNo }}</span>
-                </div>
-                <div class="flex items-center gap-1" v-tooltip="`Certifications`">
-                  <i class="pi pi-certificate text-blue-500"></i>
-                  <span>{{ candidateAnalytics[data.email].certificationCount }}</span>
-                </div>
-              </div>
-              <div v-else class="text-gray-400 text-sm">
-                Loading metrics...
-              </div>
-            </template>
-          </Column>
+          <!-- Interview Stats Card -->
+          <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+            <h4 class="font-medium text-gray-800 mb-3 flex items-center">
+              <i class="pi pi-comments text-blue-500 mr-2"></i>
+              Interview Statistics
+            </h4>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-gray-600">Approved:</span>
+              <span class="font-medium text-green-600">
+                {{ processAnalytics.candidates.reduce((sum, c) => sum + c.interviewYes, 0) }}
+              </span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-gray-600">Pending:</span>
+              <span class="font-medium text-yellow-600">
+                {{ processAnalytics.candidates.reduce((sum, c) => sum + c.interviewMaybe, 0) }}
+              </span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-600">Rejected:</span>
+              <span class="font-medium text-red-600">
+                {{ processAnalytics.candidates.reduce((sum, c) => sum + c.interviewNo, 0) }}
+              </span>
+            </div>
+          </div>
 
-          <Column :exportable="false" style="width:100px">
-            <template #body="{ data }">
-              <div class="flex gap-2">
-                <Button 
-                  icon="pi pi-eye" 
-                  text 
-                  rounded 
-                  class="text-gray-500 hover:text-primary-500"
-                  @click="viewCandidate(data)"
-                />
-                <Button 
-                  icon="pi pi-trash" 
-                  text 
-                  rounded 
-                  severity="danger" 
-                  class="hover:text-red-600"
-                  @click="confirmDeleteCandidate(data)"
-                />
-              </div>
-            </template>
-          </Column>
-        </DataTable>
+          <!-- Certifications Card -->
+          <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+            <h4 class="font-medium text-gray-800 mb-3 flex items-center">
+              <i class="pi pi-id-card text-blue-500 mr-2"></i>
+              Certifications
+            </h4>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-gray-600">Total Certifications:</span>
+              <span class="font-medium">
+                {{ processAnalytics.candidates.reduce((sum, c) => sum + c.certificationCount, 0) }}
+              </span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-600">Average per Candidate:</span>
+              <span class="font-medium">
+                {{ (processAnalytics.candidates.reduce((sum, c) => sum + c.certificationCount, 0) / 
+                    processAnalytics.candidates.length).toFixed(1) }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Salary Expectations Card -->
+          <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+            <h4 class="font-medium text-gray-800 mb-3 flex items-center">
+              <i class="pi pi-dollar text-green-500 mr-2"></i>
+              Salary Expectations
+            </h4>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-gray-600">Average:</span>
+              <span class="font-medium">
+                ${{ calculateAverage(processAnalytics.candidates.map(c => c.salaryExpectation)).toFixed(0) }}
+              </span>
+            </div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-gray-600">Highest:</span>
+              <span class="font-medium">
+                ${{ Math.max(...processAnalytics.candidates.map(c => c.salaryExpectation || 0)).toFixed(0) }}
+              </span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-600">Lowest:</span>
+              <span class="font-medium">
+                ${{ Math.min(...processAnalytics.candidates.filter(c => c.salaryExpectation > 0).map(c => c.salaryExpectation)).toFixed(0) }}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, onBeforeMount, watch } from 'vue';
 import { useToast } from 'primevue/usetoast';
 import { useConfirm } from 'primevue/useconfirm';
 import Select from 'primevue/select';
@@ -443,6 +704,10 @@ import Avatar from 'primevue/avatar';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Dropdown from 'primevue/dropdown';
+import Breadcrumb from 'primevue/breadcrumb';
+import Dialog from 'primevue/dialog';
+import AutoComplete from 'primevue/autocomplete';
+import InputNumber from 'primevue/inputnumber';
 
 const toast = useToast();
 const confirm = useConfirm();
@@ -465,6 +730,65 @@ const selectedProcessId = ref(null);
 const loadingCandidates = ref(false);
 const statusOptions = ref(['new', 'reviewed', 'interviewed', 'rejected']);
 const candidateAnalytics = ref({});
+const processAnalytics = ref({ candidates: [] });
+const loadingProcessAnalytics = ref(false);
+
+// Add breadcrumb configuration
+const breadcrumbHome = ref({ icon: 'pi pi-home', to: '/' });
+const breadcrumbItems = ref([
+  { label: 'Career Path', to: '/careerpath' },
+  { label: 'Recruitment', disabled: true }
+]);
+
+// Add mobile detection
+const isMobile = ref(false);
+const detailsCollapsed = ref(true);
+const showProcessDetails = ref(false);
+
+const checkMobile = () => {
+  const windowIsMobile = window.innerWidth < 768;
+  
+  // Check if user has a preference for the details section
+  const userPreference = localStorage.getItem('recruitmentLeadsDetailsExpanded');
+  
+  if (userPreference === 'true') {
+    // User previously expanded the details, so keep it expanded
+    detailsCollapsed.value = false;
+  } else {
+    // Otherwise use the window size to determine if collapsed
+    detailsCollapsed.value = windowIsMobile;
+  }
+  
+  // Update isMobile for responsive behaviors
+  isMobile.value = windowIsMobile;
+};
+
+// Handle details toggle
+const handleDetailsToggle = (e) => {
+  console.log('Details toggled:', e);
+  
+  // Store user preference in localStorage
+  if (e.value === false) {
+    // User expanded the details
+    localStorage.setItem('recruitmentLeadsDetailsExpanded', 'true');
+  } else {
+    // User collapsed the details
+    localStorage.setItem('recruitmentLeadsDetailsExpanded', 'false');
+  }
+};
+
+// Check mobile on mount and window resize
+onBeforeMount(() => {
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+});
+
+onMounted(() => {
+  // Cleanup event listener
+  return () => {
+    window.removeEventListener('resize', checkMobile);
+  };
+});
 
 // Simple filter setup
 const filters = ref({
@@ -576,6 +900,25 @@ const CANDIDATE_ANALYTICS_QUERY = `
       interviewNo
       interviewRating
       certificationCount
+    }
+  }
+`;
+
+const RECRUITMENT_PROCESS_ANALYTICS_QUERY = `
+  query RecruitmentProcessAnalytics($recruitmentProcessId: String!) {
+    recruitmentProcessAnalytics(recruitmentProcessId: $recruitmentProcessId) {
+      candidates {
+        candidateName
+        email
+        country
+        salaryExpectation
+        skillsetAvg
+        interviewYes
+        interviewMaybe
+        interviewNo
+        interviewRating
+        certificationCount
+      }
     }
   }
 `;
@@ -841,13 +1184,15 @@ const isConfirmationValid = computed(() => {
   }
 });
 
-// Add fetch method
+// Update the fetchCandidates function to also fetch process analytics
 async function fetchCandidates(processId) {
   try {
     loadingCandidates.value = true;
+    loadingProcessAnalytics.value = true;
     selectedProcessId.value = processId;
     
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
+    // Fetch candidates
+    const candidatesResponse = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -857,33 +1202,96 @@ async function fetchCandidates(processId) {
       })
     });
 
-    const result = await response.json();
+    const candidatesResult = await candidatesResponse.json();
     
-    if (result.errors) {
-      throw new Error(result.errors[0]?.message || 'Failed to fetch candidates');
+    if (candidatesResult.errors) {
+      throw new Error(candidatesResult.errors[0]?.message || 'Failed to fetch candidates');
     }
 
-    candidates.value = result.data?.candidatesByRecruitmentProcessId || [];
+    candidates.value = candidatesResult.data?.candidatesByRecruitmentProcessId || [];
     
-    // Fetch analytics for each candidate
-    const analyticsPromises = candidates.value.map(async candidate => {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          query: CANDIDATE_ANALYTICS_QUERY,
-          variables: { email: candidate.email }
-        })
-      });
-      return res.json();
+    // Fetch process analytics in parallel
+    const analyticsResponse = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({
+        query: RECRUITMENT_PROCESS_ANALYTICS_QUERY,
+        variables: { recruitmentProcessId: processId }
+      })
     });
 
-    const analyticsResults = await Promise.all(analyticsPromises);
-    analyticsResults.forEach((result, index) => {
-      candidateAnalytics.value[candidates.value[index].email] = result.data?.candidateAnalytics;
+    const analyticsResult = await analyticsResponse.json();
+    
+    if (analyticsResult.errors) {
+      console.error('Analytics error:', analyticsResult.errors);
+      // Don't throw here, just log the error and continue
+    } else {
+      processAnalytics.value = analyticsResult.data?.recruitmentProcessAnalytics || { candidates: [] };
+      
+      // Create a map of analytics by email for easy access
+      const analyticsMap = {};
+      processAnalytics.value.candidates.forEach(candidate => {
+        analyticsMap[candidate.email] = candidate;
+      });
+      
+      // Update candidateAnalytics with the data from process analytics
+      processAnalytics.value.candidates.forEach(candidate => {
+        candidateAnalytics.value[candidate.email] = {
+          skillsetAvg: candidate.skillsetAvg,
+          interviewYes: candidate.interviewYes,
+          interviewMaybe: candidate.interviewMaybe,
+          interviewNo: candidate.interviewNo,
+          interviewRating: candidate.interviewRating,
+          certificationCount: candidate.certificationCount
+        };
+      });
+    }
+
+    // If we didn't get analytics for all candidates, fetch them individually
+    const missingAnalytics = candidates.value.filter(
+      candidate => !candidateAnalytics.value[candidate.email]
+    );
+    
+    if (missingAnalytics.length > 0) {
+      const analyticsPromises = missingAnalytics.map(async candidate => {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify({
+            query: CANDIDATE_ANALYTICS_QUERY,
+            variables: { email: candidate.email }
+          })
+        });
+        const result = await res.json();
+        return { email: candidate.email, data: result.data?.candidateAnalytics };
+      });
+
+      const individualAnalyticsResults = await Promise.all(analyticsPromises);
+      individualAnalyticsResults.forEach(result => {
+        if (result.data) {
+          candidateAnalytics.value[result.email] = result.data;
+        }
+      });
+    }
+
+    // Add analytics data directly to candidates for sorting
+    candidates.value = candidates.value.map(candidate => {
+      const analytics = candidateAnalytics.value[candidate.email] || {};
+      return {
+        ...candidate,
+        skillsetAvg: analytics.skillsetAvg || 0,
+        interviewYes: analytics.interviewYes || 0,
+        interviewMaybe: analytics.interviewMaybe || 0,
+        interviewNo: analytics.interviewNo || 0,
+        interviewRating: analytics.interviewRating || 0,
+        certificationCount: analytics.certificationCount || 0
+      };
     });
 
   } catch (error) {
+    console.error('Error fetching data:', error);
     toast.add({
       severity: 'error',
       summary: 'Error',
@@ -892,6 +1300,7 @@ async function fetchCandidates(processId) {
     });
   } finally {
     loadingCandidates.value = false;
+    loadingProcessAnalytics.value = false;
   }
 }
 
@@ -947,6 +1356,13 @@ function onRowClick(event) {
   }
 }
 
+// Add helper function for calculating averages
+function calculateAverage(values) {
+  const validValues = values.filter(v => v !== null && v !== undefined && !isNaN(v));
+  if (validValues.length === 0) return 0;
+  return validValues.reduce((sum, val) => sum + val, 0) / validValues.length;
+}
+
 // Initialize component
 onMounted(async () => {
   try {
@@ -956,6 +1372,214 @@ onMounted(async () => {
     console.error('Error initializing recruitment leads page:', error);
     toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to load data', life: 3000 });
   }
+});
+
+// Add a reference to the fieldset
+const processDetailsFieldset = ref(null);
+
+// Function to expand the details
+const expandDetails = (event) => {
+  event.stopPropagation(); // Prevent the fieldset's own toggle from firing
+  detailsCollapsed.value = false;
+  localStorage.setItem('recruitmentLeadsDetailsExpanded', 'true');
+};
+
+// Watch for changes to the collapsed state
+watch(detailsCollapsed, (newValue) => {
+  localStorage.setItem('recruitmentLeadsDetailsExpanded', (!newValue).toString());
+});
+
+// Add a function to select a process and show details
+function selectProcess(processId) {
+  selectedProcessId.value = processId;
+  showProcessDetails.value = true;
+  fetchCandidates(processId);
+}
+
+// Add a function to close process details and return to the grid
+function closeProcessDetails() {
+  showProcessDetails.value = false;
+}
+
+// Add these variables for the enroll candidate dialog
+const enrollCandidateDialog = ref(false);
+const selectedCandidate = ref(null);
+const salaryExpectation = ref(null);
+const enrollSubmitted = ref(false);
+const filteredCandidates = ref([]);
+const allCandidates = ref([]);
+const enrollmentProcess = ref(null);
+
+// Add these functions for the enroll candidate dialog
+function openEnrollCandidateDialog(process) {
+  enrollmentProcess.value = process;
+  selectedCandidate.value = null;
+  salaryExpectation.value = null;
+  enrollSubmitted.value = false;
+  enrollCandidateDialog.value = true;
+  
+  // Fetch candidates if not already loaded
+  if (allCandidates.value.length === 0) {
+    fetchAllCandidates();
+  }
+}
+
+function closeEnrollCandidateDialog() {
+  enrollCandidateDialog.value = false;
+  selectedCandidate.value = null;
+  salaryExpectation.value = null;
+  enrollSubmitted.value = false;
+}
+
+async function fetchAllCandidates() {
+  try {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: `
+          query CandidatesByCompanyId($companyId: String!) {
+            candidatesByCompanyId(companyId: $companyId) {
+              candidateName
+              email
+              id
+            }
+          }
+        `,
+        variables: {
+          companyId: sessionInfo.value?.companyId || '',
+        },
+      }),
+    });
+
+    const result = await response.json();
+    if (result.errors) {
+      throw new Error(result.errors[0]?.message || 'Failed to fetch candidates');
+    }
+
+    allCandidates.value = result.data.candidatesByCompanyId || [];
+  } catch (error) {
+    console.error('Error fetching candidates:', error);
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Failed to fetch candidates',
+      life: 3000,
+    });
+  }
+}
+
+function searchCandidates(event) {
+  const query = event.query.toLowerCase();
+  filteredCandidates.value = allCandidates.value.filter(
+    candidate => 
+      candidate.candidateName.toLowerCase().includes(query) || 
+      candidate.email.toLowerCase().includes(query)
+  );
+}
+
+async function enrollCandidate() {
+  enrollSubmitted.value = true;
+  
+  // Validate form
+  if (!selectedCandidate.value || !salaryExpectation.value) {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Please fill in all required fields',
+      life: 3000,
+    });
+    return;
+  }
+  
+  try {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: `
+          mutation EnrollCandidate($input: EnrollCandidateInput!) {
+            enrollCandidate(input: $input) {
+              id
+              candidateName
+              email
+              status
+              salaryExpectation
+              recruitmentProcessId
+            }
+          }
+        `,
+        variables: {
+          input: {
+            id: selectedCandidate.value.id,
+            recruitmentProcessId: enrollmentProcess.value.id,
+            recruitmentProcessName: enrollmentProcess.value.jobName,
+            salaryExpectation: salaryExpectation.value
+          },
+        },
+      }),
+    });
+
+    const result = await response.json();
+    if (result.errors) {
+      throw new Error(result.errors[0]?.message || 'Failed to enroll candidate');
+    }
+
+    // Show success toast
+    toast.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: 'Candidate enrolled successfully',
+      life: 3000,
+    });
+    
+    // Refresh candidates list if we're viewing this process
+    if (selectedProcessId.value === enrollmentProcess.value.id) {
+      fetchCandidates(selectedProcessId.value);
+    }
+    
+    // Ask if user wants to enroll another candidate - only show this dialog once
+    confirm.require({
+      message: 'Do you want to enroll another candidate?',
+      header: 'Confirmation',
+      icon: 'pi pi-question-circle',
+      acceptClass: 'p-button-success',
+      accept: () => {
+        // Reset form but keep dialog open
+        selectedCandidate.value = null;
+        salaryExpectation.value = null;
+        enrollSubmitted.value = false;
+      },
+      reject: () => {
+        closeEnrollCandidateDialog();
+      }
+    });
+    
+  } catch (error) {
+    console.error('Error enrolling candidate:', error);
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: error.message || 'Failed to enroll candidate',
+      life: 3000,
+    });
+  }
+}
+
+// Replace the existing sortedCandidates computed property with the following:
+const sortedCandidates = computed(() => {
+  return candidates.value.slice().sort((a, b) => {
+    // Sort by number of interviewYes descending
+    if (b.interviewYes !== a.interviewYes) {
+      return b.interviewYes - a.interviewYes;
+    }
+    // Then sort by skillsetAvg descending; ensure they are numbers
+    return Number(b.skillsetAvg) - Number(a.skillsetAvg);
+  });
 });
 </script>
 
@@ -1066,4 +1690,297 @@ label {
 :deep(.p-datatable .p-datatable-tbody td) {
   transition: background-color 0.2s;
 }
+
+:deep(.p-datatable-responsive-stack) .p-datatable-tbody > tr {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+:deep(.p-datatable-responsive-stack) .p-datatable-tbody > tr > td {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: none;
+}
+
+:deep(.p-datatable-responsive-stack) .p-datatable-tbody > tr > td:last-child {
+  justify-content: flex-end;
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  :deep(.p-datatable .p-paginator-bottom) {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  :deep(.p-datatable .p-paginator-element) {
+    min-width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+/* Compact Breadcrumb Styles */
+.compact-breadcrumb {
+  padding: 0.5rem 0;
+}
+
+.compact-breadcrumb :deep(.p-breadcrumb) {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+.compact-breadcrumb :deep(.p-breadcrumb .p-breadcrumb-list) {
+  margin: 0;
+  padding: 0;
+}
+
+.compact-breadcrumb :deep(.p-breadcrumb .p-menuitem-text) {
+  font-size: 0.875rem;
+}
+
+.compact-breadcrumb :deep(.p-breadcrumb .p-menuitem-icon) {
+  font-size: 0.875rem;
+}
+
+.compact-breadcrumb :deep(.p-breadcrumb-chevron) {
+  margin: 0 0.25rem;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .compact-breadcrumb :deep(.p-breadcrumb .p-menuitem-text) {
+    font-size: 0.75rem;
+  }
+  
+  .compact-breadcrumb :deep(.p-breadcrumb .p-menuitem-icon) {
+    font-size: 0.75rem;
+  }
+  
+  .compact-breadcrumb :deep(.p-breadcrumb-chevron) {
+    margin: 0 0.15rem;
+    font-size: 0.65rem;
+  }
+}
+
+/* Add to the style section */
+:deep(.p-fieldset) {
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+:deep(.p-fieldset:hover) {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+:deep(.p-fieldset-legend) {
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+  transition: background-color 0.2s;
+}
+
+:deep(.p-fieldset-legend:hover) {
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
+:deep(.p-fieldset-toggleable .p-fieldset-legend) {
+  padding-right: 2.5rem;
+  position: relative;
+}
+
+:deep(.p-fieldset-toggleable .p-fieldset-legend-text) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+:deep(.p-fieldset-toggler) {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  transition: all 0.2s;
+}
+
+:deep(.p-fieldset-toggler:hover) {
+  background-color: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+  :deep(.p-fieldset-legend) {
+    padding: 0.5rem 1rem;
+  }
+  
+  :deep(.p-fieldset-toggler) {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+/* Add styles for the process details fieldset */
+.process-details-fieldset {
+  border: 1px solid #e0e7ff;
+  border-radius: 8px;
+  overflow: visible;
+  position: relative;
+}
+
+.process-details-fieldset:deep(.p-fieldset-legend) {
+  background-color: #f0f7ff;
+  border-left: 3px solid #3b82f6;
+  padding-left: 1rem;
+  cursor: pointer;
+  width: auto;
+  min-width: 200px;
+}
+
+.process-details-fieldset:deep(.p-fieldset-toggler) {
+  background-color: #3b82f6;
+  color: white;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+  z-index: 1;
+}
+
+.process-details-fieldset:deep(.p-fieldset-toggler:hover) {
+  background-color: #2563eb;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.expand-button {
+  margin-left: 8px;
+  background-color: rgba(59, 130, 246, 0.1);
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.expand-button:hover {
+  background-color: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.expand-button:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+  outline: none;
+}
+
+.expand-button .p-button-icon {
+  font-size: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .expand-button {
+    padding: 0.35rem 0.6rem;
+  }
+  
+  .expand-button .p-button-icon {
+    font-size: 0.85rem;
+  }
+  
+  .expand-button span {
+    font-size: 0.8rem !important;
+  }
+}
+
+.expand-hint {
+  font-weight: 500;
+}
+
+/* Add keyframes animation for the pulse effect */
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+    box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.2);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+}
+
+.process-card {
+  border-width: 1px;
+  transition: all 0.2s ease;
+}
+
+.process-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.process-details-view {
+  animation: fadeIn 0.3s ease;
+}
+
+.close-details-btn {
+  transition: all 0.2s ease;
+}
+
+.close-details-btn:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  transform: scale(1.02);
+}
+
+/* Mobile-specific styles for the back button */
+@media (max-width: 768px) {
+  .close-details-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  
+  .close-details-btn:deep(.p-button-icon) {
+    font-size: 1rem;
+    margin-right: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 </style>
+

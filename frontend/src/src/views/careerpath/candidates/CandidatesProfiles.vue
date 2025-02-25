@@ -1,5 +1,12 @@
 <template>
   <div class="p-4">
+    <Toast />
+    <ConfirmDialog />
+    <!-- Breadcrumb Navigation -->
+    <div class="compact-breadcrumb mb-3">
+      <Breadcrumb :home="breadcrumbHome" :model="breadcrumbItems" @item-click="navigateTo" />
+    </div>
+    
     <div v-if="loading" class="text-center p-8">
       <ProgressSpinner style="width: 50px; height: 50px" />
       <p class="mt-2 text-gray-600">Loading candidate profile...</p>
@@ -79,13 +86,16 @@
    
             <!-- Update action buttons -->
             <div class="w-full mt-6 flex gap-2">
-              <Button class="flex-1" severity="info" @click="reviewCandidate" size="small">
+              <Button class="flex-1" severity="info" @click="showInterviewForm" size="small" 
+                     v-tooltip.top="'Interview Candidate'">
                 <i class="pi pi-eye"></i>
               </Button>
-              <Button class="flex-1" severity="success" @click="scheduleInterview" size="small">
-                <i class="pi pi-calendar-plus"></i>
+              <Button class="flex-1" severity="warning" @click="toggleSkillsetAssessment" size="small"
+                     v-tooltip.top="'Assess Skillsets'">
+                <i class="pi pi-star"></i>
               </Button>
-              <Button class="flex-1" severity="warning" @click="contactCandidate" size="small">
+              <Button class="flex-1" severity="success" @click="contactCandidate" size="small"
+                     v-tooltip.top="'Contact Candidate'">
                 <i class="pi pi-envelope"></i>
               </Button>
             </div>
@@ -110,10 +120,146 @@
       
       
       <!-- Skillset Widget Card -->
-      <div class="col-span-12 md:col-span-8">
-        
+      <div class="col-span-12 md:col-span-8 relative">
+        <!-- Interview Card (not modal anymore) -->
+        <div v-if="showInterviewModal" ref="interviewCard" class="interview-card card mb-6 p-4 shadow-md border border-gray-200">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-bold text-indigo-700">Interview Candidate</h3>
+            <Button icon="pi pi-times" class="p-button-rounded p-button-text" @click="closeInterviewForm" />
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div class="field">
+              <label for="candidateName" class="block text-sm font-medium text-gray-700 mb-1">Candidate Name</label>
+              <InputText id="candidateName" v-model="newInterview.candidateName" disabled class="w-full" />
+            </div>
+            
+            <div class="field">
+              <label for="evaluationField" class="block text-sm font-medium text-gray-700 mb-1">Evaluation Field</label>
+              <Select id="evaluationField" v-model="newInterview.evaluationField" :options="evaluationFields" 
+                        placeholder="Select a field" class="w-full" />
+            </div>
+            
+            <div class="field">
+              <label for="rating" class="block text-sm font-medium text-gray-700 mb-1">Rating</label>
+              <Rating v-model="newInterview.rating" :stars="5" />
+            </div>
+            
+            <div class="field">
+              <label for="approved" class="block text-sm font-medium text-gray-700 mb-1">Approval Status</label>
+              <Select id="approved" v-model="newInterview.approved" :options="approvalOptions" 
+                        optionLabel="label" optionValue="value" placeholder="Select status" class="w-full" />
+            </div>
+          </div>
+          
+          <div class="field mb-4">
+            <label for="observations" class="block text-sm font-medium text-gray-700 mb-1">Observations</label>
+            <Textarea id="observations" v-model="newInterview.observations" rows="3" class="w-full" />
+          </div>
+          
+          <div class="flex justify-end gap-2">
+            <Button label="Cancel" class="p-button-outlined" @click="closeInterviewForm" />
+            <Button label="Submit Review" severity="success" @click="confirmSubmit" />
+          </div>
+        </div>
+
+        <!-- Skillset Assessment Form -->
+        <div v-if="showSkillsetAssessment" ref="skillsetAssessmentCard" class="card p-4 mb-4">
+          <div class="flex items-center justify-between mb-4 cursor-pointer">
+            <div class="flex items-center gap-2">
+              <i class="pi pi-star text-blue-500"></i>
+              <h5 class="font-semibold m-0">Skillset Assessment</h5>
+              <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
+                {{ filteredCompanySkillsets.length }}
+              </div>
+            </div>
+            <Button icon="pi pi-times" class="p-button-rounded p-button-text" @click="showSkillsetAssessment = false" />
+          </div>
+          
+          <!-- Categories Section -->
+          <div class="mb-4">
+            <h6 class="text-sm font-medium text-gray-700 mb-2">Categories</h6>
+            <div class="flex flex-wrap gap-1">
+              <Chip 
+                v-for="category in skillsetCategories" 
+                :key="category"
+                :label="category"
+                :class="{ 
+                  'bg-primary-500 text-primary-500 shadow-lg': selectedSkillsetCategory === category,
+                  'hover:bg-primary-50 hover:text-primary-500 hover:shadow-lg transition-all duration-200': true
+                }"
+                @click="selectedSkillsetCategory = category"
+                class="cursor-pointer border-1 border-transparent bg-surface-100 shadow-sm text-xs px-2 py-1"
+              />
+            </div>
+          </div>
+          
+          <!-- Skillsets List -->
+          <div v-if="selectedSkillsetCategory" class="mb-4">
+            <h6 class="text-sm font-medium text-gray-700 mb-2">Skillsets in {{ selectedSkillsetCategory }}</h6>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div 
+                v-for="skillset in filteredCompanySkillsets" 
+                :key="skillset.id" 
+                class="p-3 border rounded-lg hover:bg-surface-100 cursor-pointer relative"
+                :class="{'border-primary-500 bg-primary-50': selectedSkillset && selectedSkillset.id === skillset.id}"
+              >
+                <div class="flex justify-between items-start">
+                  <div class="flex-1">
+                    <div class="font-medium flex items-center gap-1">
+                      <span v-tooltip.right="skillset.description" class="hidden md:inline">
+                        {{ skillset.name }}
+                      </span>
+                      <span class="md:hidden">{{ skillset.name }}</span>
+                      <Button 
+                        icon="pi pi-info-circle" 
+                        class="p-button-text p-button-rounded p-button-sm text-gray-500 hover:text-primary-500 md:hidden"
+                        @click.stop="showMobileDescription(skillset.description)"
+                      />
+                    </div>
+                    <div class="text-xs text-gray-500 md:hidden mt-1">
+                      {{ truncateDescription(skillset.description) }}
+                    </div>
+                  </div>
+                  <i 
+                    v-if="selectedSkillset?.id === skillset.id" 
+                    class="pi pi-check-circle text-primary-500 ml-2"
+                  ></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Assessment Form -->
+          <div v-if="selectedSkillset" class="border-t pt-4 mt-4">
+            <h6 class="font-medium mb-3">Assess: {{ selectedSkillset.name }}</h6>
+            <div class="mb-3">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Rating</label>
+              <Rating v-model="newSkillsetAssessment.rating" :stars="5" />
+            </div>
+            <div class="mb-3">
+              <label class="block text-sm font-medium text-gray-7 mb-1">Notes</label>
+              <Textarea v-model="newSkillsetAssessment.notes" rows="2" class="w-full" />
+            </div>
+            <div class="flex justify-end gap-2">
+              <Button label="Cancel" class="p-button-outlined" @click="cancelSkillsetAssessment" />
+              <Button label="Submit Assessment" severity="warning" @click="submitSkillsetAssessment" />
+            </div>
+          </div>
+        </div>
+
         <div class="card p-4">
-          <h5 class="mb-4">Skillsets</h5>
+          <div class="flex items-center justify-between mb-4 cursor-pointer" @click="toggleAllSkillsets">
+            <div class="flex items-center gap-2">
+              <i class="pi pi-list text-blue-500"></i>
+              <h5 class="font-semibold m-0">Skillsets</h5>
+              <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
+                {{ Object.keys(groupedSkills).length }}
+              </div>
+            </div>
+            <i :class="`pi ${areAllSkillsetsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
+          </div>
+          
           <div v-if="skillsetData.length === 0" class="text-gray-500 italic">
             No skillset assessments available
           </div>
@@ -138,7 +284,7 @@
                       <span class="text-sm">{{ skill.skillsetName }}</span>
                       <div class="flex justify-end">
                         <Rating v-model="skill.skillsetRating" readonly :stars="5" 
-                                v-tooltip="`Reviewed by: ${skill.reviewers.map(r => `${r.name} (${r.email})`).join('\n')}`" />
+                                v-tooltip="`Reviewed by: ${skill.reviewers.map(r => r.name).join(', ')}`" />
                       </div>
                       <div class="text-[10px] bg-gray-100 px-1.5 py-0.5 rounded-full border border-gray-200 text-center w-[26px]"
                            v-tooltip="`${skill.reviewCount} reviews`">
@@ -151,13 +297,151 @@
             </div>
           </div>
         </div>
+        
+        <!-- Conditionally show certifications and reviews in the same column when skillsets are collapsed -->
+        <div v-if="areAllSkillsetsCollapsed" class="mt-4 space-y-4">
+          <!-- Interview Reviews Section -->
+          <div class="card p-4">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-2">
+                <i class="pi pi-comments text-indigo-500"></i>
+                <h5 class="font-semibold m-0">Interview Reviews</h5>
+                <div class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2 py-0.5 rounded-full">
+                  {{ interviewsData.length }}
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <div v-if="interviewsData.length === 0" class="text-gray-500 italic py-4 text-center">
+                No reviews available
+              </div>
+              <div v-else>
+                <!-- Review Categories Tabs -->
+                <div class="border-b border-gray-200 mb-4">
+                  <ul class="flex flex-wrap -mb-px text-sm font-medium text-center">
+                    <li v-for="(reviews, field) in groupedReviews" :key="field" class="mr-2">
+                      <button 
+                        @click="selectedReviewCategory = field"
+                        class="inline-block p-2 rounded-t-lg"
+                        :class="selectedReviewCategory === field 
+                          ? 'border-b-2 border-indigo-500 text-indigo-600 active' 
+                          : 'border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300'"
+                      >
+                        {{ field }}
+                        <span class="ml-1 bg-gray-100 text-gray-700 text-xs font-medium px-1.5 py-0.5 rounded-full">
+                          {{ reviews.length }}
+                        </span>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                
+                <!-- Reviews for Selected Category -->
+                <div v-for="(reviews, field) in groupedReviews" :key="field" v-show="selectedReviewCategory === field">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div 
+                      v-for="(review, index) in reviews" 
+                      :key="index" 
+                      class="bg-gray-50 rounded-lg p-4 border-l-4"
+                      :class="{
+                        'border-green-500': review.approved === 'Yes',
+                        'border-yellow-500': review.approved === 'Pending',
+                        'border-red-500': review.approved === 'No'
+                      }"
+                    >
+                      <div class="flex justify-between items-start mb-3">
+                        <div>
+                          <div class="font-medium text-gray-900">{{ review.interviewedBy }}</div>
+                          <div class="text-xs text-gray-500">{{ formatDate(review.createdAt) }}</div>
+                        </div>
+                        <div :class="{
+                          'bg-green-100 text-green-800': review.approved === 'Yes',
+                          'bg-yellow-100 text-yellow-800': review.approved === 'Pending',
+                          'bg-red-100 text-red-800': review.approved === 'No'
+                        }" class="text-xs font-medium px-2 py-0.5 rounded-full">
+                          {{ review.approved }}
+                        </div>
+                      </div>
+                      
+                      <div class="mb-3">
+                        <div class="text-sm text-gray-700 mb-1">Rating:</div>
+                        <Rating :modelValue="review.rating" readonly :stars="5" />
+                      </div>
+                      
+                      <div class="mt-3">
+                        <div class="text-sm text-gray-700 mb-1">Observations:</div>
+                        <p class="text-sm text-gray-600" :class="review.showFullObservation ? 'show-full' : 'line-clamp-3'">
+                          {{ review.observations }}
+                        </p>
+                        <button 
+                          v-if="review.observations && review.observations.length > 150" 
+                          @click="toggleObservation(review)"
+                          class="text-xs text-indigo-600 mt-1 hover:underline"
+                        >
+                          {{ review.showFullObservation ? 'Show less' : 'Read more' }}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Certifications Section -->
+          <div class="card p-4">
+            <div class="flex items-center justify-between mb-4 cursor-pointer" @click="toggleCertifications">
+              <div class="flex items-center gap-2">
+                <i class="pi pi-certificate text-blue-500"></i>
+                <h5 class="font-semibold m-0">Certifications</h5>
+                <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
+                  {{ certificationsData.length }}
+                </div>
+              </div>
+              <i :class="`pi ${isCertificationsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
+            </div>
+            
+            <transition name="fade">
+              <div v-if="!isCertificationsCollapsed">
+                <div v-if="certificationsData.length === 0" class="text-gray-500 italic py-4 text-center">
+                  No certifications recorded
+                </div>
+                <div v-else class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div 
+                    v-for="(certification, index) in certificationsData" 
+                    :key="index" 
+                    class="bg-gray-50 rounded-lg p-4 border-l-4"
+                    :class="isCertificationActive(certification) ? 'border-green-500' : 'border-red-500'"
+                  >
+                    <div class="flex justify-between items-start">
+                      <div class="flex-1">
+                        <h6 class="font-medium text-gray-900 mb-1 line-clamp-2">{{ certification.certificationName }}</h6>
+                        
+                        <div class="flex items-center text-xs text-gray-500 mt-2">
+                          <i class="pi pi-calendar mr-1"></i>
+                          <span>Expires: {{ formatDate(certification.certificationExpiration) }}</span>
+                        </div>
+                      </div>
+                      <Tag 
+                        :value="isCertificationActive(certification) ? 'active' : 'expired'"
+                        :severity="isCertificationActive(certification) ? 'success' : 'danger'"
+                        class="text-xs ml-2 shrink-0"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </transition>
+          </div>
+        </div>
       </div>
       
       <!-- Charts Section -->
       <transition name="fade">
         <div v-if="isAnyCategoryOpen" class="col-span-12">
           <div class="card p-4">
-            <h5 class="mb-4">Candidate Analitics - {{ selectedCategory }}</h5>
+            <h5 class="mb-4">Candidate Analytics - {{ selectedCategory }}</h5>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <!-- Basic Bar Chart Widget -->
               <div class="card p-4">
@@ -184,119 +468,172 @@
         </div>
       </transition>
       
-      <!-- Updated Certifications Section -->
-      <div class="col-span-12">
-        <fieldset class="border p-2 rounded">
-          <legend class="cursor-pointer" @click="isCertificationsExpanded = !isCertificationsExpanded">
-            <div class="flex items-center gap-2 px-2">
-              <h5 class="font-semibold">Certifications ({{ certificationsData.length }})</h5>
-              <i :class="`pi pi-chevron-${isCertificationsExpanded ? 'up' : 'down'} text-sm`"></i>
+      <!-- Certifications and Reviews Sections (only shown when skillsets are not collapsed) -->
+      <div v-if="!areAllSkillsetsCollapsed" class="col-span-12">
+        <!-- Updated Candidate Reviews Section -->
+        <div class="card p-4">
+          <div class="flex items-center justify-between mb-4 cursor-pointer" @click="isReviewsExpanded = !isReviewsExpanded">
+            <div class="flex items-center gap-2">
+              <i class="pi pi-comments text-indigo-500"></i>
+              <h5 class="font-semibold m-0">Interview Reviews</h5>
+              <div class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2 py-0.5 rounded-full">
+                {{ interviewsData.length }}
+              </div>
             </div>
-          </legend>
+            <i :class="`pi ${isReviewsExpanded ? 'pi-chevron-up' : 'pi-chevron-down'} text-gray-500`"></i>
+          </div>
+          
           <transition name="fade">
-            <div v-if="isCertificationsExpanded" class="p-4">
-              <div v-if="certificationsData.length === 0" class="text-gray-500 italic">
+            <div v-if="isReviewsExpanded">
+              <div v-if="interviewsData.length === 0" class="text-gray-500 italic py-4 text-center">
+                No reviews available
+              </div>
+              <div v-else>
+                <!-- Review Categories Tabs -->
+                <div class="border-b border-gray-200 mb-4">
+                  <ul class="flex flex-wrap -mb-px text-sm font-medium text-center">
+                    <li v-for="(reviews, field) in groupedReviews" :key="field" class="mr-2">
+                      <button 
+                        @click="selectedReviewCategory = field"
+                        class="inline-block p-2 rounded-t-lg"
+                        :class="selectedReviewCategory === field 
+                          ? 'border-b-2 border-indigo-500 text-indigo-600 active' 
+                          : 'border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300'"
+                      >
+                        {{ field }}
+                        <span class="ml-1 bg-gray-100 text-gray-700 text-xs font-medium px-1.5 py-0.5 rounded-full">
+                          {{ reviews.length }}
+                        </span>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                
+                <!-- Reviews for Selected Category -->
+                <div v-for="(reviews, field) in groupedReviews" :key="field" v-show="selectedReviewCategory === field">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div 
+                      v-for="(review, index) in reviews" 
+                      :key="index" 
+                      class="bg-gray-50 rounded-lg p-4 border-l-4"
+                      :class="{
+                        'border-green-500': review.approved === 'Yes',
+                        'border-yellow-500': review.approved === 'Pending',
+                        'border-red-500': review.approved === 'No'
+                      }"
+                    >
+                      <div class="flex justify-between items-start mb-3">
+                        <div>
+                          <div class="font-medium text-gray-900">{{ review.interviewedBy }}</div>
+                          <div class="text-xs text-gray-500">{{ formatDate(review.createdAt) }}</div>
+                        </div>
+                        <div :class="{
+                          'bg-green-100 text-green-800': review.approved === 'Yes',
+                          'bg-yellow-100 text-yellow-800': review.approved === 'Pending',
+                          'bg-red-100 text-red-800': review.approved === 'No'
+                        }" class="text-xs font-medium px-2 py-0.5 rounded-full">
+                          {{ review.approved }}
+                        </div>
+                      </div>
+                      
+                      <div class="mb-3">
+                        <div class="text-sm text-gray-700 mb-1">Rating:</div>
+                        <Rating :modelValue="review.rating" readonly :stars="5" />
+                      </div>
+                      
+                      <div class="mt-3">
+                        <div class="text-sm text-gray-700 mb-1">Observations:</div>
+                        <p class="text-sm text-gray-600" :class="review.showFullObservation ? 'show-full' : 'line-clamp-3'">
+                          {{ review.observations }}
+                        </p>
+                        <button 
+                          v-if="review.observations && review.observations.length > 150" 
+                          @click="toggleObservation(review)"
+                          class="text-xs text-indigo-600 mt-1 hover:underline"
+                        >
+                          {{ review.showFullObservation ? 'Show less' : 'Read more' }}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </transition>
+        </div>
+        
+        <!-- Updated Certifications Section -->
+        <div class="card p-4">
+          <div class="flex items-center justify-between mb-4 cursor-pointer" @click="toggleCertifications">
+            <div class="flex items-center gap-2">
+              <i class="pi pi-certificate text-blue-500"></i>
+              <h5 class="font-semibold m-0">Certifications</h5>
+              <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
+                {{ certificationsData.length }}
+              </div>
+            </div>
+            <i :class="`pi ${isCertificationsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
+          </div>
+          
+          <transition name="fade">
+            <div v-if="!isCertificationsCollapsed">
+              <div v-if="certificationsData.length === 0" class="text-gray-500 italic py-4 text-center">
                 No certifications recorded
               </div>
-              <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div v-else class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div 
                   v-for="(certification, index) in certificationsData" 
                   :key="index" 
-                  class="card p-4"
-                  v-tooltip="`Expires: ${formatDate(certification.certificationExpiration)}`"
+                  class="bg-gray-50 rounded-lg p-4 border-l-4"
+                  :class="isCertificationActive(certification) ? 'border-green-500' : 'border-red-500'"
                 >
-                  <div class="flex justify-between items-center gap-2">
-                    <div class="font-medium whitespace-normal break-words pr-2">
-                      {{ certification.certificationName }}
+                  <div class="flex justify-between items-start">
+                    <div class="flex-1">
+                      <h6 class="font-medium text-gray-900 mb-1 line-clamp-2">{{ certification.certificationName }}</h6>
+                      
+                      <div class="flex items-center text-xs text-gray-500 mt-2">
+                        <i class="pi pi-calendar mr-1"></i>
+                        <span>Expires: {{ formatDate(certification.certificationExpiration) }}</span>
+                      </div>
                     </div>
                     <Tag 
                       :value="isCertificationActive(certification) ? 'active' : 'expired'"
                       :severity="isCertificationActive(certification) ? 'success' : 'danger'"
-                      class="text-xs lowercase scale-90 origin-right shrink-0"
+                      class="text-xs ml-2 shrink-0"
                     />
                   </div>
-                  <div class="mt-2 text-sm text-gray-600">
-                    <div>Issued by: {{ certification.companyName }}</div>
-                    <div>Expires: {{ formatDate(certification.certificationExpiration) }}</div>
-                  </div>
                 </div>
               </div>
             </div>
           </transition>
-        </fieldset>
+        </div>
       </div>
       
-      <!-- Updated Candidate Reviews Section -->
-      <div class="col-span-12">
-        <fieldset class="border p-2 rounded">
-          <legend class="cursor-pointer" @click="isReviewsExpanded = !isReviewsExpanded">
-            <div class="flex items-center gap-2 px-2">
-              <h5 class="font-semibold">Candidate Reviews ({{ interviewsData.length }})</h5>
-              <i :class="`pi pi-chevron-${isReviewsExpanded ? 'up' : 'down'} text-sm`"></i>
-            </div>
-          </legend>
-          <transition name="fade">
-            <div v-if="isReviewsExpanded" class="p-4">
-              <div v-if="interviewsData.length === 0" class="text-gray-500 italic">
-                No reviews available
-              </div>
-              <div v-else class="grid grid-cols-1 gap-4">
-                <div v-for="(reviews, field) in groupedReviews" :key="field" class="card p-4">
-                  <h6 class="font-semibold mb-4">{{ field }}</h6>
-                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div v-for="(review, index) in reviews" :key="index" class="card p-4">
-                      <div class="grid grid-cols-2 gap-2 text-sm">
-                        <div class="font-medium">Rating:</div>
-                        <div>
-                          <Rating :modelValue="review.rating" readonly :stars="5" />
-                        </div>
-                        
-                        <div class="font-medium">Interviewed By:</div>
-                        <div>{{ review.interviewedBy }}</div>
-                        
-                        <div class="font-medium">Approval Status:</div>
-                        <div :class="{
-                          'text-green-500': review.approved === 'Yes',
-                          'text-yellow-500': review.approved === 'Pending',
-                          'text-red-500': review.approved === 'No'
-                        }">
-                          {{ review.approved }}
-                        </div>
-                        
-                        <div class="font-medium">Date:</div>
-                        <div>{{ formatDate(review.createdAt) }}</div>
-                      </div>
-                      
-                      <div class="mt-4 text-sm">
-                        <div class="font-medium mb-1">Observations:</div>
-                        <p class="text-gray-600">{{ review.observations }}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </transition>
-        </fieldset>
-      </div>
-
       <!-- Metadata Section -->
       <div class="col-span-12">
-        <fieldset class="border p-2 rounded">
-          <legend class="px-2">
-            <h5 class="font-semibold">System Information</h5>
-          </legend>
-          <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-            <div class="flex items-center gap-2 text-gray-600">
-              <i class="pi pi-id-card"></i>
-              <span>Profile ID: <span class="font-mono text-primary-500">{{ candidateData.id }}</span></span>
+        <div class="card p-4">
+          <div class="flex items-center gap-2 mb-4">
+            <i class="pi pi-cog text-gray-500"></i>
+            <h5 class="font-semibold m-0">System Information</h5>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div class="flex items-center gap-2 p-3 bg-gray-50 rounded-lg">
+              <i class="pi pi-id-card text-gray-500"></i>
+              <div>
+                <div class="text-gray-500">Profile ID</div>
+                <div class="font-mono text-primary-500">{{ candidateData.id }}</div>
+              </div>
             </div>
-            <div class="flex items-center gap-2 text-gray-600">
-              <i class="pi pi-database"></i>
-              <span>Company ID: <span class="font-mono text-primary-500">{{ candidateData.companyId }}</span></span>
+            <div class="flex items-center gap-2 p-3 bg-gray-50 rounded-lg">
+              <i class="pi pi-database text-gray-500"></i>
+              <div>
+                <div class="text-gray-500">Company ID</div>
+                <div class="font-mono text-primary-500">{{ candidateData.companyId }}</div>
+              </div>
             </div>
           </div>
-        </fieldset>
+        </div>
       </div>
 
       <!-- In the Charts Section -->
@@ -305,17 +642,58 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from "vue";
+import { ref, computed, onMounted, watch, onBeforeUnmount } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import Chart from 'primevue/chart';
 import Rating from 'primevue/rating';
 import Avatar from 'primevue/avatar';
 import Button from 'primevue/button';
 import Tag from 'primevue/tag';
+import Breadcrumb from 'primevue/breadcrumb';
+import ProgressSpinner from 'primevue/progressspinner';
+import Select from 'primevue/select';
+import Textarea from 'primevue/textarea';
+import InputText from 'primevue/inputtext';
+import InputNumber from 'primevue/inputnumber';
+import Toast from 'primevue/toast';
+import { useToast } from 'primevue/usetoast';
+import ConfirmDialog from 'primevue/confirmdialog';
+import { useConfirm } from 'primevue/useconfirm';
+import Chip from 'primevue/chip';
 
 const route = useRoute();
 const router = useRouter();
 const loading = ref(true);
+const toast = useToast();
+const confirm = useConfirm();
+
+// Add this at the top of the script section, with other reactive variables
+const showSkillsetAssessment = ref(false);
+const skillsetAssessmentCard = ref(null);
+
+// Breadcrumb configuration
+const breadcrumbHome = ref({ icon: 'pi pi-home', to: '/' });
+const breadcrumbItems = computed(() => {
+  // Use shorter labels on mobile
+  const isMobile = window.innerWidth < 640;
+  
+  return [
+    { 
+      label: isMobile ? 'Career' : 'Career Path', 
+      to: '/careerpath' 
+    },
+    { 
+      label: 'Candidates', 
+      command: () => router.go(-1) 
+    },
+    { 
+      label: isMobile 
+        ? (candidateData.value.candidateName ? formattedName.value.split(' ')[0] : 'Profile')
+        : (candidateData.value.candidateName ? formattedName.value : 'Profile'), 
+      disabled: true 
+    }
+  ];
+});
 
 // Updated candidateData
 const candidateData = ref({
@@ -640,7 +1018,19 @@ const groupedSkills = computed(() => {
     }
     groups[skill.skillsetCategory].push(skill);
   });
-  return groups;
+  
+  // Sort skills within each category alphabetically
+  Object.keys(groups).forEach(category => {
+    groups[category].sort((a, b) => a.skillsetName.localeCompare(b.skillsetName));
+  });
+  
+  // Create a sorted version of the groups object
+  const sortedGroups = {};
+  Object.keys(groups).sort().forEach(category => {
+    sortedGroups[category] = groups[category];
+  });
+  
+  return sortedGroups;
 });
 
 // Calculate average rating for a category
@@ -749,15 +1139,40 @@ async function fetchInterviews() {
   }
 }
 
-// Update onMounted hook
+// Update onMounted to fetch data
 onMounted(async () => {
-  if (route.params.id) {
+  // Initialize UI state based on screen size
+  checkScreenSize();
+  window.addEventListener('resize', checkScreenSize);
+  
+  const candidateId = route.params.id;
+  
+  if (!candidateId) {
+    router.push('/careerpath');
+    return;
+  }
+  
+  try {
+    loading.value = true;
     await fetchCandidate();
-    await Promise.all([
-      fetchSkillsets(),
-      fetchCertifications(),
-      fetchInterviews()
-    ]);
+    
+    if (candidateData.value.email) {
+      await Promise.all([
+        fetchSkillsets(),
+        fetchInterviews(),
+        fetchCertifications()
+      ]);
+    }
+  } catch (error) {
+    console.error('Error loading candidate data:', error);
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: 'Failed to load candidate data',
+      life: 3000
+    });
+  } finally {
+    loading.value = false;
   }
 });
 
@@ -771,7 +1186,14 @@ const groupedReviews = computed(() => {
     }
     groups[field].push(review);
   });
-  return groups;
+  
+  // Create a new sorted object with alphabetically sorted keys
+  const sortedGroups = {};
+  Object.keys(groups).sort().forEach(field => {
+    sortedGroups[field] = groups[field];
+  });
+  
+  return sortedGroups;
 });
 
 // Update allSkillsAverage to handle empty skillset
@@ -782,7 +1204,41 @@ const allSkillsAverage = computed(() => {
 });
 
 // Add to the script section
+const isCertificationsExpanded = ref(false);
 const isReviewsExpanded = ref(false);
+const selectedReviewCategory = ref('');
+const areAllSkillsetsCollapsed = ref(true);
+const isCertificationsCollapsed = ref(true);
+
+// Add toggle function for certifications in collapsed view
+const toggleCertifications = () => {
+  isCertificationsCollapsed.value = !isCertificationsCollapsed.value;
+};
+
+// Watch for changes in areAllSkillsetsCollapsed to auto-expand reviews but keep certifications collapsed
+watch(() => areAllSkillsetsCollapsed.value, (newValue) => {
+  if (newValue === true) {
+    // When skillsets are collapsed, auto-expand reviews but keep certifications collapsed
+    isReviewsExpanded.value = true;
+    isCertificationsCollapsed.value = true;
+  }
+}, { immediate: true });
+
+// Function to toggle full observation text
+const toggleObservation = (review) => {
+  if (!review.showFullObservation) {
+    review.showFullObservation = true;
+  } else {
+    review.showFullObservation = false;
+  }
+};
+
+// Set the first review category as default when reviews are loaded
+watch(() => interviewsData.value, (newInterviews) => {
+  if (newInterviews.length > 0 && Object.keys(groupedReviews.value).length > 0) {
+    selectedReviewCategory.value = Object.keys(groupedReviews.value)[0];
+  }
+}, { immediate: true });
 
 // Add to the script section
 const certificationsData = ref([]);
@@ -892,10 +1348,12 @@ watch(() => route.params.id, async (newId) => {
 
 // Add new computed property for category averages
 const categoryAverages = computed(() => {
-  return Object.entries(groupedSkills.value).map(([category, skills]) => ({
-    category,
-    average: calculateAverage(skills)
-  }));
+  return Object.entries(groupedSkills.value)
+    .map(([category, skills]) => ({
+      category,
+      average: calculateAverage(skills)
+    }))
+    .sort((a, b) => a.category.localeCompare(b.category));
 });
 
 // Add new radar chart data for category averages
@@ -912,8 +1370,472 @@ const categoryRadarData = computed(() => {
   };
 });
 
+// Add navigation function for breadcrumb
+const navigateTo = (event) => {
+  if (event.item) {
+    if (event.item.command) {
+      event.item.command();
+    } else if (event.item.to) {
+      router.push(event.item.to);
+    }
+  }
+};
+
+// Add toggleAllSkillsets function
+const toggleAllSkillsets = () => {
+  areAllSkillsetsCollapsed.value = !areAllSkillsetsCollapsed.value;
+  
+  // If we're expanding skillsets, close any open categories
+  if (!areAllSkillsetsCollapsed.value) {
+    openCategories.value.clear();
+  }
+  
+  // When skillsets are collapsed, ensure a review category is selected
+  if (areAllSkillsetsCollapsed.value && interviewsData.value.length > 0) {
+    if (!selectedReviewCategory.value && Object.keys(groupedReviews.value).length > 0) {
+      selectedReviewCategory.value = Object.keys(groupedReviews.value)[0];
+    }
+  }
+};
+
+// Check if we should collapse skillsets based on screen size
+const checkScreenSize = () => {
+  // Always keep skillsets collapsed by default for better visibility of certifications and interviews
+  areAllSkillsetsCollapsed.value = true;
+};
+
+// Clean up resize listener
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', checkScreenSize);
+});
+
+// Add new state for interview modal
+const showInterviewModal = ref(false);
+const interviewCard = ref(null);
+
+// Function to show interview form and scroll to it
+const showInterviewForm = () => {
+  showInterviewModal.value = true;
+  
+  // Wait for the DOM to update after showing the modal
+  setTimeout(() => {
+    if (interviewCard.value) {
+      interviewCard.value.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start'
+      });
+    }
+  }, 100);
+};
+
+// Function to close interview form and scroll to top
+const closeInterviewForm = () => {
+  showInterviewModal.value = false;
+  
+  // Scroll to top of the page
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+};
+
+const newInterview = ref({
+  candidateName: '',
+  evaluationField: null,
+  rating: 3,
+  approved: null,
+  observations: ''
+});
+
+// Populate candidate name when showing the modal
+watch(showInterviewModal, (newValue) => {
+  if (newValue) {
+    newInterview.value.candidateName = formattedName.value;
+  }
+});
+
+// Reset skillset assessment form when closed
+watch(showSkillsetAssessment, (newValue) => {
+  if (!newValue) {
+    // Reset form fields when closing
+    selectedSkillsetCategory.value = null;
+    selectedSkillset.value = null;
+    newSkillsetAssessment.value = {
+      candidateEmail: '',
+      skillsetName: '',
+      skillsetCategory: '',
+      score: 0,
+      notes: '',
+      assessedBy: ''
+    };
+    
+    // Scroll to profile section (same behavior as interview form)
+    const profileSection = document.querySelector('.col-span-12.md\\:col-span-4');
+    if (profileSection) {
+      profileSection.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start'
+      });
+    }
+  } else {
+    // Set candidate email when opening
+    newSkillsetAssessment.value.candidateEmail = candidateData.value?.email || '';
+  }
+});
+
+// Replace the evaluationFields computed property with a static array
+const evaluationFields = [
+  'HR - General Technical Evaluation',
+  'CTO - Technical Evaluation',
+  'SDD - Portfolio Review',
+  'SDM - Problem Solving and Communication Skills',
+  'CEO - Alignment with Company Vision'
+];
+
+const approvalOptions = [
+  { label: 'Approved', value: 'Approved' },
+  { label: 'Pending', value: 'Pending' },
+  { label: 'Rejected', value: 'Rejected' }
+];
+
+// Add confirmation dialog
+const confirmSubmit = () => {
+  confirm.require({
+    message: 'Are you sure you want to submit this review? This action cannot be undone.',
+    header: 'Confirmation',
+    icon: 'pi pi-exclamation-triangle',
+    accept: () => {
+      submitInterview();
+    },
+    reject: () => {
+      // User rejected the confirmation
+    }
+  });
+};
+
+// Update the submitInterview function to use the GraphQL mutation
+const submitInterview = async () => {
+  // Validate form
+  if (!newInterview.value.evaluationField) {
+    toast.add({ severity: 'error', summary: 'Error', detail: 'Please select an evaluation field', life: 3000 });
+    return;
+  }
+  
+  if (!newInterview.value.approved) {
+    toast.add({ severity: 'error', summary: 'Error', detail: 'Please select an approval status', life: 3000 });
+    return;
+  }
+  
+  if (!newInterview.value.observations) {
+    toast.add({ severity: 'error', summary: 'Error', detail: 'Please provide observations', life: 3000 });
+    return;
+  }
+  
+  try {
+    // Prepare the interview data using stored reviewer info
+    const interviewData = {
+        companyId: candidateData.value.companyId,
+        companyName: candidateData.value.companyName,
+        email: candidateData.value.email,
+        recruitmentProcessId: candidateData.value.recruitmentProcessId,
+        recruitmentProcessName: candidateData.value.recruitmentProcessName,
+        availability: "Within one month",
+        evaluationField: newInterview.value.evaluationField,
+        rating: newInterview.value.rating,
+        approved: newInterview.value.approved,
+        observations: newInterview.value.observations,
+        interviewedBy: reviewerName.value,  // Use logged in user's name
+        interviewerEmail: reviewerEmail.value  // Use logged in user's email
+    };
+    
+    console.log('Submitting interview with data:', interviewData);
+    
+    // GraphQL mutation
+    const ADD_INTERVIEW = `
+      mutation AddInterview($input: AddInterviewInput!) {
+        addInterview(input: $input) {
+          id
+          evaluationField
+          rating
+          approved
+          observations
+          interviewedBy
+          interviewerEmail
+          createdAt
+        }
+      }
+    `;
+    
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: ADD_INTERVIEW,
+        variables: { input: interviewData }
+      })
+    });
+
+    const result = await response.json();
+    console.log('Interview submission result:', result);
+    
+    if (result.errors) {
+      throw new Error(result.errors[0]?.message || 'Failed to submit interview');
+    }
+    
+    // Check if the mutation was successful but returned null
+    if (result.data && result.data.addInterview === null) {
+      // The interview might have been created in the database but there was an error returning it
+      // We'll fetch the interviews again to update the UI
+      await fetchInterviews();
+      toast.add({ severity: 'success', summary: 'Success', detail: 'Interview submitted successfully', life: 3000 });
+      closeInterviewForm();
+      
+      // Reset form
+      newInterview.value = {
+        candidateName: '',
+        evaluationField: null,
+        rating: 3,
+        approved: null,
+        observations: ''
+      };
+      return;
+    }
+    
+    // Add the new interview to the local data if it was returned
+    if (result.data?.addInterview) {
+      interviewsData.value.push(result.data.addInterview);
+      
+      // Update the selected review category if needed
+      if (!selectedReviewCategory.value) {
+        selectedReviewCategory.value = result.data.addInterview.evaluationField;
+      }
+      
+      toast.add({ severity: 'success', summary: 'Success', detail: 'Interview submitted successfully', life: 3000 });
+      closeInterviewForm();
+      
+      // Reset form
+      newInterview.value = {
+        candidateName: '',
+        evaluationField: null,
+        rating: 3,
+        approved: null,
+        observations: ''
+      };
+    }
+  } catch (error) {
+    console.error('Error submitting interview:', error);
+    toast.add({ severity: 'error', summary: 'Error', detail: error.message || 'Failed to submit interview', life: 3000 });
+  }
+};
+
+// Inside the <script setup> section, add the following reactive variables near the other declarations
+const reviewerName = ref(localStorage.getItem('userName') || '');
+const reviewerEmail = ref(localStorage.getItem('userEmail') || '');
+
+// Add new state for skillset assessment
+const selectedSkillsetCategory = ref(null);
+const selectedSkillset = ref(null);
+const companySkillsets = ref([]);
+const skillsetCategories = ref([]);
+const newSkillsetAssessment = ref({
+  rating: 3,
+  notes: ''
+});
+
+// GraphQL queries for skillsets
+const CATEGORIES_QUERY = `
+  query ListSkillsetsCategories($companyId: String!) {
+    listSkillsetsCategories(companyId: $companyId)
+  }
+`;
+
+const SKILLSETS_QUERY = `
+  query ListSkillsetsByCompanyId($companyId: String!) {
+    listSkillsetsByCompanyId(companyId: $companyId) {
+      id
+      skillsetName
+      skillsetDescription
+      skillsetCategory
+    }
+  }
+`;
+
+const ASSIGN_SKILLSET_MUTATION = `
+  mutation AssignSkillset($input: AssignSkillsetInput!) {
+    assignSkillset(input: $input) {
+      id
+      skillsetCategory
+      skillsetName
+      skillsetRating
+      reviewedBy
+      reviewerEmail
+      companyId
+      email
+    }
+  }
+`;
+
+// Add skillset assessment functions
+const toggleSkillsetAssessment = async () => {
+  showSkillsetAssessment.value = !showSkillsetAssessment.value;
+  
+  if (showSkillsetAssessment.value) {
+    await fetchSkillsetCategories();
+    await fetchCompanySkillsets();
+    
+    // Wait for the DOM to update after showing the form
+    setTimeout(() => {
+      if (skillsetAssessmentCard.value) {
+        skillsetAssessmentCard.value.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start'
+        });
+      }
+    }, 100);
+  }
+};
+
+// Fetch skillset categories
+async function fetchSkillsetCategories() {
+  try {
+    const response = await fetch('/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: CATEGORIES_QUERY,
+        variables: { companyId: candidateData.value.companyId }
+      })
+    });
+    
+    const data = await response.json();
+    skillsetCategories.value = data.data.listSkillsetsCategories;
+  } catch (error) {
+    toast.add({ 
+      severity: 'error', 
+      summary: 'Error', 
+      detail: 'Failed to load skillset categories', 
+      life: 3000 
+    });
+  }
+}
+
+// Fetch company skillsets
+async function fetchCompanySkillsets() {
+  try {
+    const response = await fetch('/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: SKILLSETS_QUERY,
+        variables: { companyId: candidateData.value.companyId }
+      })
+    });
+    
+    const data = await response.json();
+    companySkillsets.value = data.data.listSkillsetsByCompanyId.map(item => ({
+      id: item.id,
+      name: item.skillsetName,
+      description: item.skillsetDescription,
+      category: item.skillsetCategory
+    }));
+  } catch (error) {
+    toast.add({ 
+      severity: 'error', 
+      summary: 'Error', 
+      detail: 'Failed to load company skillsets', 
+      life: 3000 
+    });
+  }
+}
+
+// Computed property for filtered skillsets based on selected category
+const filteredCompanySkillsets = computed(() => {
+  if (!selectedSkillsetCategory.value) return [];
+  return companySkillsets.value.filter(s => s.category === selectedSkillsetCategory.value);
+});
+
+const selectSkillsetForAssessment = (skillset) => {
+  selectedSkillset.value = skillset;
+};
+
+const cancelSkillsetAssessment = () => {
+  selectedSkillset.value = null;
+  newSkillsetAssessment.value = {
+    rating: 3,
+    notes: ''
+  };
+};
+
+const submitSkillsetAssessment = async () => {
+  try {
+    const response = await fetch('/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: ASSIGN_SKILLSET_MUTATION,
+        variables: {
+          input: {
+            companyId: candidateData.value.companyId,
+            email: candidateData.value.email,
+            skillsetCategory: selectedSkillset.value.category,
+            skillsetName: selectedSkillset.value.name,
+            skillsetRating: newSkillsetAssessment.value.rating,
+            reviewedBy: reviewerName.value,
+            reviewerEmail: reviewerEmail.value,
+            notes: newSkillsetAssessment.value.notes
+          }
+        }
+      })
+    });
+    
+    const result = await response.json();
+    
+    if (result.errors) {
+      throw new Error(result.errors[0].message);
+    }
+    
+    toast.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: 'Skillset assessment submitted successfully',
+      life: 3000
+    });
+    
+    // Refresh skillsets data
+    await fetchSkillsets();
+    
+    // Reset form
+    selectedSkillset.value = null;
+    newSkillsetAssessment.value = {
+      rating: 3,
+      notes: ''
+    };
+  } catch (error) {
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: error.message || 'Failed to submit assessment',
+      life: 3000
+    });
+  }
+};
+
 // Add to the script section
-const isCertificationsExpanded = ref(false);
+const showMobileDescription = (description) => {
+  toast.add({
+    severity: 'info',
+    summary: 'Skillset Description',
+    detail: description,
+    life: 5000,
+    closable: true,
+    className: 'mobile-description-toast'
+  });
+};
+
+const truncateDescription = (desc) => {
+  if (!desc) return '';
+  return desc.length > 50 ? desc.substring(0, 50) + '...' : desc;
+};
 </script>
 
 <style scoped>
@@ -921,12 +1843,99 @@ const isCertificationsExpanded = ref(false);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   background-color: #fff;
   border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Section headers with icons */
+.card h5.font-semibold {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Clickable section headers */
+.cursor-pointer {
+  transition: background-color 0.2s;
+  border-radius: 4px;
+}
+
+.cursor-pointer:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Compact Breadcrumb Styles */
+.compact-breadcrumb {
+  padding: 0.5rem 0;
+}
+
+.compact-breadcrumb :deep(.p-breadcrumb) {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+.compact-breadcrumb :deep(.p-breadcrumb .p-breadcrumb-list) {
+  margin: 0;
+  padding: 0;
+}
+
+.compact-breadcrumb :deep(.p-breadcrumb .p-menuitem-text) {
+  font-size: 0.875rem;
+}
+
+.compact-breadcrumb :deep(.p-breadcrumb .p-menuitem-icon) {
+  font-size: 0.875rem;
+}
+
+.compact-breadcrumb :deep(.p-breadcrumb-chevron) {
+  margin: 0 0.25rem;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .compact-breadcrumb :deep(.p-breadcrumb .p-menuitem-text) {
+    font-size: 0.75rem;
+  }
+  
+  .compact-breadcrumb :deep(.p-breadcrumb .p-menuitem-icon) {
+    font-size: 0.75rem;
+  }
+  
+  .compact-breadcrumb :deep(.p-breadcrumb-chevron) {
+    margin: 0 0.15rem;
+    font-size: 0.65rem;
+  }
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Remove line-clamp when expanded */
+.show-full {
+  -webkit-line-clamp: unset;
 }
 
 /* Add transition for smooth collapse/expand */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.2s ease, max-height 0.2s ease;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+  overflow: hidden;
 }
 
 .fade-enter-from,
@@ -935,12 +1944,24 @@ const isCertificationsExpanded = ref(false);
   max-height: 0;
 }
 
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+  max-height: 1000px;
+}
+
 fieldset {
   border: 1px solid #e5e7eb;
   border-radius: 0.375rem;
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+fieldset:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 legend {
@@ -948,6 +1969,8 @@ legend {
   font-size: 0.875rem;
   font-weight: 500;
   color: #374151;
+  transition: background-color 0.2s;
+  border-radius: 4px;
 }
 
 legend:hover {
@@ -957,6 +1980,8 @@ legend:hover {
 ul {
   max-height: 300px; /* Adjust this value based on your needs */
   overflow-y: auto;
+  padding-left: 0;
+  list-style-type: none;
 }
 
 :deep(.p-tooltip) {
@@ -972,5 +1997,59 @@ ul {
 :deep(.p-tooltip-text) {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+/* Interview Card Styles */
+.interview-card {
+  border-left: 4px solid #4f46e5;
+  transition: all 0.3s ease;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom Chip Styles */
+:deep(.p-chip) {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  transition: all 0.2s ease;
+  background-color: var(--surface-100);
+  color: var(--text-color);
+  border: 1px solid var(--surface-border);
+}
+
+:deep(.p-chip:hover) {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: var(--primary-50) !important;
+  color: var(--primary-500) !important;
+  border-color: var(--primary-100);
+}
+
+:deep(.p-chip.bg-primary-500) {
+  background-color: var(--primary-500) !important;
+  color: white !important;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+  border-color: var(--primary-500);
+}
+
+:deep(.mobile-description-toast) {
+  @media (max-width: 768px) {
+    width: 90vw;
+    left: 5vw;
+    right: 5vw;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+}
+
+:deep(.p-tooltip) {
+  max-width: 300px;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 </style> 

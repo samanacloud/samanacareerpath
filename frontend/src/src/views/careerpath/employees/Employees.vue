@@ -50,6 +50,7 @@
                     filterDisplay="menu"
                     :globalFilterFields="['name', 'email', 'role', 'country']"
                     class="p-4"
+                    @row-click="onRowClick"
                 >
                     <Column field="name" header="Name" sortable>
                         <template #body="{ data }">
@@ -667,6 +668,18 @@ function onCountrySelect(event) {
     employee.value.country = event.value.name;
 }
 
+// Add function to handle row clicks
+function onRowClick(event) {
+    // Only navigate if clicking the row (not buttons)
+    const isButton = event.originalEvent.target.closest('button') || 
+                    event.originalEvent.target.closest('.p-column-header');
+    
+    if (!isButton && event.data?.id) {
+        // You can implement navigation to employee details page here if needed
+        console.log('Employee clicked:', event.data);
+    }
+}
+
 // Update onMounted
 onMounted(async () => {
     try {
@@ -784,5 +797,21 @@ label {
     :deep(.p-toggleswitch) {
         height: 28px;
     }
+}
+
+/* Add hover effect to DataTable rows */
+:deep(.p-datatable .p-datatable-tbody tr:hover) {
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+:deep(.p-datatable .p-datatable-tbody tr:focus) {
+    outline: none;
+    background-color: #e9ecef;
+}
+
+:deep(.p-datatable .p-datatable-tbody td) {
+    transition: background-color 0.2s;
 }
 </style> 

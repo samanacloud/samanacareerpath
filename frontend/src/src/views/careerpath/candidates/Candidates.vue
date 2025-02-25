@@ -50,6 +50,7 @@
                     filterDisplay="menu"
                     :globalFilterFields="['candidateName', 'email', 'country']"
                     class="p-4"
+                    @row-click="onRowClick"
                 >
                     <Column field="candidateName" header="Name" sortable>
                         <template #body="{ data }">
@@ -717,6 +718,20 @@ const validateEmail = () => {
     // This empty function is needed to satisfy template reference
     // Actual validation is handled by isValidEmail in the Message component
 };
+
+// Add function to handle row clicks and navigate to candidate profile
+function onRowClick(event) {
+    // Only navigate if clicking the row (not buttons)
+    const isButton = event.originalEvent.target.closest('button') || 
+                    event.originalEvent.target.closest('.p-column-header');
+    
+    if (!isButton && event.data?.id) {
+        router.push({
+            name: 'profiles-id',
+            params: { id: event.data.id }
+        });
+    }
+}
 </script>
 
 <style scoped>
@@ -754,5 +769,21 @@ const validateEmail = () => {
         height: 44px;
         font-size: 15px;
     }
+}
+
+/* Add hover effect to DataTable rows */
+:deep(.p-datatable .p-datatable-tbody tr:hover) {
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+:deep(.p-datatable .p-datatable-tbody tr:focus) {
+    outline: none;
+    background-color: #e9ecef;
+}
+
+:deep(.p-datatable .p-datatable-tbody td) {
+    transition: background-color 0.2s;
 }
 </style> 
