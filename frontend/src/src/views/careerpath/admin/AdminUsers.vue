@@ -762,6 +762,7 @@
   const roles = [
     { label: 'Administrator', value: 'Administrator' },
     { label: 'Reviewer', value: 'Reviewer' },
+    { label: 'Manager', value: 'Manager' },
     { label: 'SuperAdmin', value: 'SuperAdmin' }
   ];
 

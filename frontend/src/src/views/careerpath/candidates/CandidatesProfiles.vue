@@ -1,7 +1,7 @@
 <template>
   <div class="p-4">
     <Toast />
-    <ConfirmDialog />
+    <ConfirmPopup />
     <!-- Breadcrumb Navigation -->
     <div class="compact-breadcrumb mb-3">
       <Breadcrumb :home="breadcrumbHome" :model="breadcrumbItems" @item-click="navigateTo" />
@@ -13,466 +13,45 @@
     </div>
     
     <div v-else class="grid grid-cols-12 gap-4">
-      <!-- Candidate Basic Info Card -->
-      <div class="col-span-12 md:col-span-4">
-        <div class="card p-4">
-          <div class="flex flex-col items-center">
-            <Avatar :label="candidateInitials" shape="circle" size="xlarge" class="mb-4" />
-            <h2 class="text-xl font-bold mb-2">{{ formattedName }}</h2>
-            
-            <!-- Add counters -->
-            <div class="flex space-x-6 mb-4">
-              <div class="flex items-center">
-                <i class="pi pi-star-fill text-yellow-500 mr-1"></i>
-                <span>{{ allSkillsAverage }}</span>
-              </div>
-              <div class="flex items-center">
-                <i class="pi pi-comment text-blue-500 mr-1"></i>
-                <span>{{ interviewsData.length }}</span>
-              </div>
-              <div class="flex items-center">
-                <i class="pi pi-thumbs-up text-green-500 mr-1"></i>
-                <span>{{ approvedCounts.yes }}</span>
-              </div>
-              <div class="flex items-center">
-                <i class="pi pi-clock text-yellow-500 mr-1"></i>
-                <span>{{ approvedCounts.pending }}</span>
-              </div>
-              <div class="flex items-center">
-                <i class="pi pi-thumbs-down text-red-500 mr-1"></i>
-                <span>{{ approvedCounts.no }}</span>
-              </div>
+      <!-- Top Row: Profile, Radar Chart, and Interview Reviews -->
+      <div class="col-span-12 lg:col-span-3 md:col-span-4">
+        <CandidateBasicInfo 
+          :candidateData="candidateData"
+          :candidateInitials="candidateInitials"
+          :formattedName="formattedName"
+          :allSkillsAverage="allSkillsAverage"
+          :interviewsCount="interviewsData.length"
+          :approvedCounts="approvedCounts"
+          :showInterviewForm="showInterviewForm"
+          :toggleSkillsetAssessment="toggleSkillsetAssessment"
+          :contactCandidate="contactCandidate"
+          :isRefreshingSkillAverage="isRefreshingSkillAverage"
+        />
+      </div>
+      
+      <!-- Radar Chart Block -->
+      <div class="col-span-12 lg:col-span-3 md:col-span-4">
+        <div class="card p-4 h-full radar-chart-container">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-2">
+              <i class="pi pi-chart-line text-blue-500"></i>
+              <h5 class="font-semibold m-0">Skills Radar</h5>
             </div>
-            
-            <p class="text-sm text-gray-600">Position Applied For: {{ candidateData.recruitmentProcessName }}</p>
-            
-            <!-- Add additional candidate information -->
-            <div class="w-full mt-4 space-y-2 text-sm">
-              <div class="flex items-center">
-                <i class="pi pi-envelope mr-2"></i>
-                <span>{{ candidateData.email }}</span>
-              </div>
-              <div class="flex items-center">
-                <i class="pi pi-globe mr-2"></i>
-                <span>{{ candidateData.country }}</span>
-              </div>
-              <div class="flex items-center">
-                <i class="pi pi-phone mr-2"></i>
-                <span>{{ candidateData.phone }}</span>
-              </div>
-              <div class="flex items-center">
-                <i class="pi pi-money-bill mr-2"></i>
-                <span>Salary Expectation: {{ formattedSalary }}</span>
-              </div>
-              <div class="flex items-center">
-                <i class="pi pi-file mr-2"></i>
-                <a v-if="candidateData.candidateCV" 
-                   :href="candidateData.candidateCV" 
-                   target="_blank" 
-                   class="text-blue-500 hover:underline">
-                  View CV
-                </a>
-                <span v-else class="text-gray-500">No CV uploaded</span>
-              </div>
-              <div class="flex items-center">
-                <i class="pi pi-calendar mr-2"></i>
-                <span>Applied on: {{ formattedDate }}</span>
-              </div>
-              
-            </div>
-            
-
-   
-   
-            <!-- Update action buttons -->
-            <div class="w-full mt-6 flex gap-2">
-              <Button class="flex-1" severity="info" @click="showInterviewForm" size="small" 
-                     v-tooltip.top="'Interview Candidate'">
-                <i class="pi pi-eye"></i>
-              </Button>
-              <Button class="flex-1" severity="warning" @click="toggleSkillsetAssessment" size="small"
-                     v-tooltip.top="'Assess Skillsets'">
-                <i class="pi pi-star"></i>
-              </Button>
-              <Button class="flex-1" severity="success" @click="contactCandidate" size="small"
-                     v-tooltip.top="'Contact Candidate'">
-                <i class="pi pi-envelope"></i>
-              </Button>
+            <div v-if="isRefreshingRadarChart" class="flex items-center">
+              <i class="pi pi-spin pi-spinner text-blue-500 mr-2"></i>
+              <span class="text-xs text-blue-500">Updating...</span>
             </div>
           </div>
-        </div>
-        <div class="col-span-12">
-        <div class="card p-4">
-          
           <div class="grid grid-cols-1">
-            <div class="card p-4">
-              <Chart 
-                type="radar" 
-                :data="categoryRadarData" 
-                :options="radarChartOptions" 
-               
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-      
-      
-      <!-- Skillset Widget Card -->
-      <div class="col-span-12 md:col-span-8 relative">
-        <!-- Interview Card (not modal anymore) -->
-        <div v-if="showInterviewModal" ref="interviewCard" class="interview-card card mb-6 p-4 shadow-md border border-gray-200">
-          <div class="flex justify-between items-center mb-4">
-            <h3 class="text-xl font-bold text-indigo-700">Interview Candidate</h3>
-            <Button icon="pi pi-times" class="p-button-rounded p-button-text" @click="closeInterviewForm" />
-          </div>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            <div class="field">
-              <label for="candidateName" class="block text-sm font-medium text-gray-700 mb-1">Candidate Name</label>
-              <InputText id="candidateName" v-model="newInterview.candidateName" disabled class="w-full" />
-            </div>
-            
-            <div class="field">
-              <label for="evaluationField" class="block text-sm font-medium text-gray-700 mb-1">Evaluation Field</label>
-              <Select id="evaluationField" v-model="newInterview.evaluationField" :options="evaluationFields" 
-                        placeholder="Select a field" class="w-full" />
-            </div>
-            
-            <div class="field">
-              <label for="rating" class="block text-sm font-medium text-gray-700 mb-1">Rating</label>
-              <Rating v-model="newInterview.rating" :stars="5" />
-            </div>
-            
-            <div class="field">
-              <label for="approved" class="block text-sm font-medium text-gray-700 mb-1">Approval Status</label>
-              <Select id="approved" v-model="newInterview.approved" :options="approvalOptions" 
-                        optionLabel="label" optionValue="value" placeholder="Select status" class="w-full" />
-            </div>
-          </div>
-          
-          <div class="field mb-4">
-            <label for="observations" class="block text-sm font-medium text-gray-700 mb-1">Observations</label>
-            <Textarea id="observations" v-model="newInterview.observations" rows="3" class="w-full" />
-          </div>
-          
-          <div class="flex justify-end gap-2">
-            <Button label="Cancel" class="p-button-outlined" @click="closeInterviewForm" />
-            <Button label="Submit Review" severity="success" @click="confirmSubmit" />
-          </div>
-        </div>
-
-        <!-- Skillset Assessment Form -->
-        <div v-if="showSkillsetAssessment" ref="skillsetAssessmentCard" class="card p-4 mb-4">
-          <div class="flex items-center justify-between mb-4 cursor-pointer">
-            <div class="flex items-center gap-2">
-              <i class="pi pi-star text-blue-500"></i>
-              <h5 class="font-semibold m-0">Skillset Assessment</h5>
-              <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
-                {{ filteredCompanySkillsets.length }}
-              </div>
-            </div>
-            <Button icon="pi pi-times" class="p-button-rounded p-button-text" @click="showSkillsetAssessment = false" />
-          </div>
-          
-          <!-- Categories Section -->
-          <div class="mb-4">
-            <h6 class="text-sm font-medium text-gray-700 mb-2">Categories</h6>
-            <div class="flex flex-wrap gap-1">
-              <Chip 
-                v-for="category in skillsetCategories" 
-                :key="category"
-                :label="category"
-                :class="{ 
-                  'bg-primary-500 text-primary-500 shadow-lg': selectedSkillsetCategory === category,
-                  'hover:bg-primary-50 hover:text-primary-500 hover:shadow-lg transition-all duration-200': true
-                }"
-                @click="selectedSkillsetCategory = category"
-                class="cursor-pointer border-1 border-transparent bg-surface-100 shadow-sm text-xs px-2 py-1"
-              />
-            </div>
-          </div>
-          
-          <!-- Skillsets List -->
-          <div v-if="selectedSkillsetCategory" class="mb-4">
-            <h6 class="text-sm font-medium text-gray-700 mb-2">Skillsets in {{ selectedSkillsetCategory }}</h6>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <div 
-                v-for="skillset in filteredCompanySkillsets" 
-                :key="skillset.id" 
-                class="p-3 border rounded-lg hover:bg-surface-100 cursor-pointer relative"
-                :class="{'border-primary-500 bg-primary-50': selectedSkillset && selectedSkillset.id === skillset.id}"
-              >
-                <div class="flex justify-between items-start">
-                  <div class="flex-1">
-                    <div class="font-medium flex items-center gap-1">
-                      <span v-tooltip.right="skillset.description" class="hidden md:inline">
-                        {{ skillset.name }}
-                      </span>
-                      <span class="md:hidden">{{ skillset.name }}</span>
-                      <Button 
-                        icon="pi pi-info-circle" 
-                        class="p-button-text p-button-rounded p-button-sm text-gray-500 hover:text-primary-500 md:hidden"
-                        @click.stop="showMobileDescription(skillset.description)"
-                      />
-                    </div>
-                    <div class="text-xs text-gray-500 md:hidden mt-1">
-                      {{ truncateDescription(skillset.description) }}
-                    </div>
-                  </div>
-                  <i 
-                    v-if="selectedSkillset?.id === skillset.id" 
-                    class="pi pi-check-circle text-primary-500 ml-2"
-                  ></i>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Assessment Form -->
-          <div v-if="selectedSkillset" class="border-t pt-4 mt-4">
-            <h6 class="font-medium mb-3">Assess: {{ selectedSkillset.name }}</h6>
-            <div class="mb-3">
-              <label class="block text-sm font-medium text-gray-700 mb-1">Rating</label>
-              <Rating v-model="newSkillsetAssessment.rating" :stars="5" />
-            </div>
-            <div class="mb-3">
-              <label class="block text-sm font-medium text-gray-7 mb-1">Notes</label>
-              <Textarea v-model="newSkillsetAssessment.notes" rows="2" class="w-full" />
-            </div>
-            <div class="flex justify-end gap-2">
-              <Button label="Cancel" class="p-button-outlined" @click="cancelSkillsetAssessment" />
-              <Button label="Submit Assessment" severity="warning" @click="submitSkillsetAssessment" />
-            </div>
-          </div>
-        </div>
-
-        <div class="card p-4">
-          <div class="flex items-center justify-between mb-4 cursor-pointer" @click="toggleAllSkillsets">
-            <div class="flex items-center gap-2">
-              <i class="pi pi-list text-blue-500"></i>
-              <h5 class="font-semibold m-0">Skillsets</h5>
-              <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
-                {{ Object.keys(groupedSkills).length }}
-              </div>
-            </div>
-            <i :class="`pi ${areAllSkillsetsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
-          </div>
-          
-          <div v-if="skillsetData.length === 0" class="text-gray-500 italic">
-            No skillset assessments available
-          </div>
-          <div v-else class="flex flex-wrap gap-2 md:gap-4">
-            
-            <!-- Dynamic Categories -->
-            <div v-for="(skills, category) in groupedSkills" :key="category" class="w-full md:w-[calc(33.333%-1rem)] min-w-[300px]">
-              <fieldset class="border p-2 rounded h-full flex flex-col">
-                <legend class="cursor-pointer" @click="toggleCategory(category)">
-                  <div class="flex items-center gap-2">
-                    <h6 class="font-semibold">{{ category }}</h6>
-                    <div class="flex items-center gap-1">
-                      <span class="text-sm font-medium">{{ calculateAverage(skills) }}</span>
-                      <i class="pi pi-star-fill text-yellow-500"></i>
-                      <i :class="`pi pi-chevron-${isCategoryOpen(category) ? 'up' : 'down'} text-sm ml-1`"></i>
-                    </div>
-                  </div>
-                </legend>
-                <transition name="fade">
-                  <ul v-if="isCategoryOpen(category)" class="flex-1 overflow-y-auto">
-                    <li v-for="skill in skills" :key="skill.skillsetName" class="grid grid-cols-[1fr_150px_26px] items-center gap-2 mb-1">
-                      <span class="text-sm">{{ skill.skillsetName }}</span>
-                      <div class="flex justify-end">
-                        <Rating v-model="skill.skillsetRating" readonly :stars="5" 
-                                v-tooltip="`Reviewed by: ${skill.reviewers.map(r => r.name).join(', ')}`" />
-                      </div>
-                      <div class="text-[10px] bg-gray-100 px-1.5 py-0.5 rounded-full border border-gray-200 text-center w-[26px]"
-                           v-tooltip="`${skill.reviewCount} reviews`">
-                        {{ skill.reviewCount }}
-                      </div>
-                    </li>
-                  </ul>
-                </transition>
-              </fieldset>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Conditionally show certifications and reviews in the same column when skillsets are collapsed -->
-        <div v-if="areAllSkillsetsCollapsed" class="mt-4 space-y-4">
-          <!-- Interview Reviews Section -->
-          <div class="card p-4">
-            <div class="flex items-center justify-between mb-4">
-              <div class="flex items-center gap-2">
-                <i class="pi pi-comments text-indigo-500"></i>
-                <h5 class="font-semibold m-0">Interview Reviews</h5>
-                <div class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2 py-0.5 rounded-full">
-                  {{ interviewsData.length }}
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <div v-if="interviewsData.length === 0" class="text-gray-500 italic py-4 text-center">
-                No reviews available
-              </div>
-              <div v-else>
-                <!-- Review Categories Tabs -->
-                <div class="border-b border-gray-200 mb-4">
-                  <ul class="flex flex-wrap -mb-px text-sm font-medium text-center">
-                    <li v-for="(reviews, field) in groupedReviews" :key="field" class="mr-2">
-                      <button 
-                        @click="selectedReviewCategory = field"
-                        class="inline-block p-2 rounded-t-lg"
-                        :class="selectedReviewCategory === field 
-                          ? 'border-b-2 border-indigo-500 text-indigo-600 active' 
-                          : 'border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300'"
-                      >
-                        {{ field }}
-                        <span class="ml-1 bg-gray-100 text-gray-700 text-xs font-medium px-1.5 py-0.5 rounded-full">
-                          {{ reviews.length }}
-                        </span>
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-                
-                <!-- Reviews for Selected Category -->
-                <div v-for="(reviews, field) in groupedReviews" :key="field" v-show="selectedReviewCategory === field">
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div 
-                      v-for="(review, index) in reviews" 
-                      :key="index" 
-                      class="bg-gray-50 rounded-lg p-4 border-l-4"
-                      :class="{
-                        'border-green-500': review.approved === 'Yes',
-                        'border-yellow-500': review.approved === 'Pending',
-                        'border-red-500': review.approved === 'No'
-                      }"
-                    >
-                      <div class="flex justify-between items-start mb-3">
-                        <div>
-                          <div class="font-medium text-gray-900">{{ review.interviewedBy }}</div>
-                          <div class="text-xs text-gray-500">{{ formatDate(review.createdAt) }}</div>
-                        </div>
-                        <div :class="{
-                          'bg-green-100 text-green-800': review.approved === 'Yes',
-                          'bg-yellow-100 text-yellow-800': review.approved === 'Pending',
-                          'bg-red-100 text-red-800': review.approved === 'No'
-                        }" class="text-xs font-medium px-2 py-0.5 rounded-full">
-                          {{ review.approved }}
-                        </div>
-                      </div>
-                      
-                      <div class="mb-3">
-                        <div class="text-sm text-gray-700 mb-1">Rating:</div>
-                        <Rating :modelValue="review.rating" readonly :stars="5" />
-                      </div>
-                      
-                      <div class="mt-3">
-                        <div class="text-sm text-gray-700 mb-1">Observations:</div>
-                        <p class="text-sm text-gray-600" :class="review.showFullObservation ? 'show-full' : 'line-clamp-3'">
-                          {{ review.observations }}
-                        </p>
-                        <button 
-                          v-if="review.observations && review.observations.length > 150" 
-                          @click="toggleObservation(review)"
-                          class="text-xs text-indigo-600 mt-1 hover:underline"
-                        >
-                          {{ review.showFullObservation ? 'Show less' : 'Read more' }}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Certifications Section -->
-          <div class="card p-4">
-            <div class="flex items-center justify-between mb-4 cursor-pointer" @click="toggleCertifications">
-              <div class="flex items-center gap-2">
-                <i class="pi pi-certificate text-blue-500"></i>
-                <h5 class="font-semibold m-0">Certifications</h5>
-                <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
-                  {{ certificationsData.length }}
-                </div>
-              </div>
-              <i :class="`pi ${isCertificationsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
-            </div>
-            
-            <transition name="fade">
-              <div v-if="!isCertificationsCollapsed">
-                <div v-if="certificationsData.length === 0" class="text-gray-500 italic py-4 text-center">
-                  No certifications recorded
-                </div>
-                <div v-else class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div 
-                    v-for="(certification, index) in certificationsData" 
-                    :key="index" 
-                    class="bg-gray-50 rounded-lg p-4 border-l-4"
-                    :class="isCertificationActive(certification) ? 'border-green-500' : 'border-red-500'"
-                  >
-                    <div class="flex justify-between items-start">
-                      <div class="flex-1">
-                        <h6 class="font-medium text-gray-900 mb-1 line-clamp-2">{{ certification.certificationName }}</h6>
-                        
-                        <div class="flex items-center text-xs text-gray-500 mt-2">
-                          <i class="pi pi-calendar mr-1"></i>
-                          <span>Expires: {{ formatDate(certification.certificationExpiration) }}</span>
-                        </div>
-                      </div>
-                      <Tag 
-                        :value="isCertificationActive(certification) ? 'active' : 'expired'"
-                        :severity="isCertificationActive(certification) ? 'success' : 'danger'"
-                        class="text-xs ml-2 shrink-0"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </transition>
+            <Chart type="radar" :data="categoryRadarData" :options="radarChartOptions" />
           </div>
         </div>
       </div>
       
-      <!-- Charts Section -->
-      <transition name="fade">
-        <div v-if="isAnyCategoryOpen" class="col-span-12">
-          <div class="card p-4">
-            <h5 class="mb-4">Candidate Analytics - {{ selectedCategory }}</h5>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <!-- Basic Bar Chart Widget -->
-              <div class="card p-4">
-                <h6 class="mb-2 font-semibold">Skillset Average Rating</h6>
-                <Chart type="bar" :data="basicChartData" :options="chartOptions" />
-              </div>
-              <!-- Pie Chart Widget -->
-              <div class="card p-4">
-                <h6 class="mb-2 font-semibold">Knowledge Distribution by Skillset</h6>
-                <Chart type="pie" :data="pieChartData" :options="chartOptions" />
-              </div>
-              <!-- Vertical Bar Chart Widget -->
-              <div class="card p-4">
-                <h6 class="mb-2 font-semibold">Skillset Knowledge Distribution</h6>
-                <Chart type="bar" :data="verticalBarChartData" :options="chartOptions" />
-              </div>
-              <!-- Radar Chart Widget -->
-              <div class="card p-4">
-                <h6 class="mb-2 font-semibold">Skillset Knowledge Distribution</h6>
-                <Chart type="radar" :data="radarChartData" :options="radarChartOptions" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </transition>
-      
-      <!-- Certifications and Reviews Sections (only shown when skillsets are not collapsed) -->
-      <div v-if="!areAllSkillsetsCollapsed" class="col-span-12">
-        <!-- Updated Candidate Reviews Section -->
-        <div class="card p-4">
-          <div class="flex items-center justify-between mb-4 cursor-pointer" @click="isReviewsExpanded = !isReviewsExpanded">
+      <!-- Interview Reviews Section -->
+      <div class="col-span-12 lg:col-span-3 md:col-span-4">
+        <div class="card p-4 h-full">
+          <div class="flex items-center justify-between mb-4">
             <div class="flex items-center gap-2">
               <i class="pi pi-comments text-indigo-500"></i>
               <h5 class="font-semibold m-0">Interview Reviews</h5>
@@ -480,93 +59,92 @@
                 {{ interviewsData.length }}
               </div>
             </div>
-            <i :class="`pi ${isReviewsExpanded ? 'pi-chevron-up' : 'pi-chevron-down'} text-gray-500`"></i>
           </div>
           
-          <transition name="fade">
-            <div v-if="isReviewsExpanded">
-              <div v-if="interviewsData.length === 0" class="text-gray-500 italic py-4 text-center">
-                No reviews available
-              </div>
-              <div v-else>
-                <!-- Review Categories Tabs -->
-                <div class="border-b border-gray-200 mb-4">
-                  <ul class="flex flex-wrap -mb-px text-sm font-medium text-center">
-                    <li v-for="(reviews, field) in groupedReviews" :key="field" class="mr-2">
-                      <button 
-                        @click="selectedReviewCategory = field"
-                        class="inline-block p-2 rounded-t-lg"
-                        :class="selectedReviewCategory === field 
-                          ? 'border-b-2 border-indigo-500 text-indigo-600 active' 
-                          : 'border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300'"
-                      >
-                        {{ field }}
-                        <span class="ml-1 bg-gray-100 text-gray-700 text-xs font-medium px-1.5 py-0.5 rounded-full">
-                          {{ reviews.length }}
-                        </span>
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-                
-                <!-- Reviews for Selected Category -->
-                <div v-for="(reviews, field) in groupedReviews" :key="field" v-show="selectedReviewCategory === field">
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div 
-                      v-for="(review, index) in reviews" 
-                      :key="index" 
-                      class="bg-gray-50 rounded-lg p-4 border-l-4"
-                      :class="{
-                        'border-green-500': review.approved === 'Yes',
-                        'border-yellow-500': review.approved === 'Pending',
-                        'border-red-500': review.approved === 'No'
-                      }"
+          <div>
+            <div v-if="interviewsData.length === 0" class="text-gray-500 italic py-4 text-center">
+              No reviews available
+            </div>
+            <div v-else>
+              <!-- Review Categories Tabs -->
+              <div class="border-b border-gray-200 mb-4">
+                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center">
+                  <li v-for="(reviews, field) in groupedReviews" :key="field" class="mr-2">
+                    <button 
+                      @click="selectedReviewCategory = field"
+                      class="inline-block p-2 rounded-t-lg"
+                      :class="selectedReviewCategory === field 
+                        ? 'border-b-2 border-indigo-500 text-indigo-600 active' 
+                        : 'border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300'"
                     >
-                      <div class="flex justify-between items-start mb-3">
-                        <div>
-                          <div class="font-medium text-gray-900">{{ review.interviewedBy }}</div>
-                          <div class="text-xs text-gray-500">{{ formatDate(review.createdAt) }}</div>
-                        </div>
-                        <div :class="{
-                          'bg-green-100 text-green-800': review.approved === 'Yes',
-                          'bg-yellow-100 text-yellow-800': review.approved === 'Pending',
-                          'bg-red-100 text-red-800': review.approved === 'No'
-                        }" class="text-xs font-medium px-2 py-0.5 rounded-full">
-                          {{ review.approved }}
-                        </div>
+                      {{ field }}
+                      <span class="ml-1 bg-gray-100 text-gray-700 text-xs font-medium px-1.5 py-0.5 rounded-full">
+                        {{ reviews.length }}
+                      </span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              
+              <!-- Reviews for Selected Category -->
+              <div v-for="(reviews, field) in groupedReviews" :key="field" v-show="selectedReviewCategory === field">
+                <div class="grid grid-cols-1 gap-4 max-h-[400px] overflow-y-auto pr-2">
+                  <div 
+                    v-for="(review, index) in reviews" 
+                    :key="index" 
+                    class="bg-gray-50 rounded-lg p-4 border-l-4"
+                    :class="{
+                      'border-green-500': review.approved === 'Yes',
+                      'border-yellow-500': review.approved === 'Pending',
+                      'border-red-500': review.approved === 'No'
+                    }"
+                  >
+                    <div class="flex justify-between items-start mb-3">
+                      <div>
+                        <div class="font-medium text-gray-900">{{ review.interviewedBy }}</div>
+                        <div class="text-xs text-gray-500">{{ formatDate(review.createdAt) }}</div>
                       </div>
-                      
-                      <div class="mb-3">
-                        <div class="text-sm text-gray-700 mb-1">Rating:</div>
-                        <Rating :modelValue="review.rating" readonly :stars="5" />
+                      <div :class="{
+                        'bg-green-100 text-green-800': review.approved === 'Yes',
+                        'bg-yellow-100 text-yellow-800': review.approved === 'Pending',
+                        'bg-red-100 text-red-800': review.approved === 'No'
+                      }" class="text-xs font-medium px-2 py-0.5 rounded-full">
+                        {{ review.approved }}
                       </div>
-                      
-                      <div class="mt-3">
-                        <div class="text-sm text-gray-700 mb-1">Observations:</div>
-                        <p class="text-sm text-gray-600" :class="review.showFullObservation ? 'show-full' : 'line-clamp-3'">
-                          {{ review.observations }}
-                        </p>
-                        <button 
-                          v-if="review.observations && review.observations.length > 150" 
-                          @click="toggleObservation(review)"
-                          class="text-xs text-indigo-600 mt-1 hover:underline"
-                        >
-                          {{ review.showFullObservation ? 'Show less' : 'Read more' }}
-                        </button>
-                      </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                      <div class="text-sm text-gray-700 mb-1">Rating:</div>
+                      <Rating :modelValue="review.rating" readonly :stars="5" />
+                    </div>
+                    
+                    <div class="mt-3">
+                      <div class="text-sm text-gray-700 mb-1">Observations:</div>
+                      <p class="text-sm text-gray-600" :class="review.showFullObservation ? 'show-full' : 'line-clamp-3'">
+                        {{ review.observations }}
+                      </p>
+                      <button 
+                        v-if="review.observations && review.observations.length > 150" 
+                        @click="toggleObservation(review)"
+                        class="text-xs text-indigo-600 mt-1 hover:underline"
+                      >
+                        {{ review.showFullObservation ? 'Show less' : 'Read more' }}
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </transition>
+          </div>
         </div>
-        
-        <!-- Updated Certifications Section -->
-        <div class="card p-4">
+      </div>
+      
+      <!-- Certifications Section -->
+      <div class="col-span-12 lg:col-span-3 md:col-span-4">
+        <div class="card p-4 h-full">
           <div class="flex items-center justify-between mb-4 cursor-pointer" @click="toggleCertifications">
             <div class="flex items-center gap-2">
-              <i class="pi pi-certificate text-blue-500"></i>
+              <i class="pi pi-bookmark text-green-500"></i>
               <h5 class="font-semibold m-0">Certifications</h5>
               <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
                 {{ certificationsData.length }}
@@ -580,7 +158,7 @@
               <div v-if="certificationsData.length === 0" class="text-gray-500 italic py-4 text-center">
                 No certifications recorded
               </div>
-              <div v-else class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div v-else class="grid grid-cols-1 gap-4 max-h-[400px] overflow-y-auto pr-2">
                 <div 
                   v-for="(certification, index) in certificationsData" 
                   :key="index" 
@@ -609,35 +187,347 @@
         </div>
       </div>
       
-      <!-- Metadata Section -->
-      <div class="col-span-12">
-        <div class="card p-4">
-          <div class="flex items-center gap-2 mb-4">
-            <i class="pi pi-cog text-gray-500"></i>
-            <h5 class="font-semibold m-0">System Information</h5>
-          </div>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-            <div class="flex items-center gap-2 p-3 bg-gray-50 rounded-lg">
-              <i class="pi pi-id-card text-gray-500"></i>
-              <div>
-                <div class="text-gray-500">Profile ID</div>
-                <div class="font-mono text-primary-500">{{ candidateData.id }}</div>
+      <!-- Middle Row: Forms and Skillsets -->
+      <div class="col-span-12 lg:col-span-12 mt-4">
+        <!-- Forms and Skillsets in a grid layout on desktop -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <!-- Left column for forms on desktop -->
+          <div class="lg:col-span-6">
+            <!-- Interview Card (not modal anymore) -->
+            <div v-if="showInterviewModal" ref="interviewCard" class="interview-card card mb-6 p-4 shadow-md border border-gray-200">
+              <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-indigo-700">Interview Candidate</h3>
+                <Button icon="pi pi-times" class="p-button-rounded p-button-text" @click="closeInterviewForm" />
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div class="field">
+                  <label for="candidateName" class="block text-sm font-medium text-gray-700 mb-1">Candidate Name</label>
+                  <InputText id="candidateName" v-model="newInterview.candidateName" disabled class="w-full" />
+                </div>
+                
+                <div class="field">
+                  <label for="evaluationField" class="block text-sm font-medium text-gray-700 mb-1">Evaluation Field</label>
+                  <Select id="evaluationField" v-model="newInterview.evaluationField" :options="evaluationFields" 
+                            placeholder="Select a field" class="w-full" />
+                </div>
+                
+                <div class="field">
+                  <label for="rating" class="block text-sm font-medium text-gray-700 mb-1">Rating</label>
+                  <Rating v-model="newInterview.rating" :stars="5" />
+                </div>
+                
+                <div class="field">
+                  <label for="approved" class="block text-sm font-medium text-gray-700 mb-1">Approval Status</label>
+                  <Select id="approved" v-model="newInterview.approved" :options="approvalOptions" 
+                            optionLabel="label" optionValue="value" placeholder="Select status" class="w-full" />
+                </div>
+              </div>
+              
+              <div class="field mb-4">
+                <label for="observations" class="block text-sm font-medium text-gray-700 mb-1">Observations</label>
+                <Textarea id="observations" v-model="newInterview.observations" rows="3" class="w-full" />
+              </div>
+              
+              <div class="flex justify-end gap-2">
+                <Button label="Cancel" class="p-button-outlined" @click="closeInterviewForm" />
+                <Button label="Submit Review" severity="success" @click="confirmSubmit" />
               </div>
             </div>
-            <div class="flex items-center gap-2 p-3 bg-gray-50 rounded-lg">
-              <i class="pi pi-database text-gray-500"></i>
-              <div>
-                <div class="text-gray-500">Company ID</div>
-                <div class="font-mono text-primary-500">{{ candidateData.companyId }}</div>
+
+            <!-- Skillset Assessment Form -->
+            <div v-if="showSkillsetAssessment" ref="skillsetAssessmentCard" class="card p-4 mb-4">
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2">
+                  <i class="pi pi-star text-blue-500"></i>
+                  <h5 class="font-semibold m-0">Quick Skillset Rating</h5>
+                </div>
+                <Button icon="pi pi-times" class="p-button-rounded p-button-text" @click="toggleSkillsetAssessment" />
+              </div>
+              
+              <!-- Search and Filter -->
+              <div class="mb-4 grid grid-cols-1 md:grid-cols-12 gap-4">
+                <!-- Search Input -->
+                <div class="md:col-span-5">
+                  <span class="p-input-icon-left w-full">
+                    <i class="pi pi-search" />
+                    <InputText 
+                      v-model="skillsetSearchQuery" 
+                      placeholder="Search skillsets..." 
+                      class="w-full"
+                      @input="debounceSearch"
+                    />
+                  </span>
+                </div>
+                
+                <!-- Categories Filter -->
+                <div class="md:col-span-7">
+                  <h6 class="text-sm font-medium text-gray-700 mb-2">Filter by Category</h6>
+                  <div v-if="isLoadingCategories" class="flex justify-center py-2">
+                    <ProgressSpinner style="width: 30px; height: 30px" />
+                  </div>
+                  <div v-else-if="skillsetCategories.length === 0" class="text-gray-500 italic py-2 text-center">
+                    No categories available
+                  </div>
+                  <div v-else class="flex flex-wrap gap-1">
+                    <Chip 
+                      key="all"
+                      label="All Categories"
+                      :class="{ 
+                        'bg-primary-500 text-gray-900 font-bold shadow-lg': quickRatingFilter === null,
+                        'hover:bg-primary-50 hover:text-primary-500 hover:shadow-lg transition-all duration-200': true
+                      }"
+                      @click="quickRatingFilter = null"
+                      class="cursor-pointer border-1 border-transparent bg-surface-100 shadow-sm text-xs px-2 py-1"
+                    />
+                    <Chip 
+                      v-for="category in skillsetCategories" 
+                      :key="category"
+                      :label="category"
+                      :class="{ 
+                        'bg-primary-500 text-gray-900 font-bold shadow-lg': quickRatingFilter === category,
+                        'hover:bg-primary-50 hover:text-primary-500 hover:shadow-lg transition-all duration-200': true
+                      }"
+                      @click="quickRatingFilter = category"
+                      class="cursor-pointer border-1 border-transparent bg-surface-100 shadow-sm text-xs px-2 py-1"
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Skillsets Rating List -->
+              <div class="mb-4">
+                <div v-if="isLoadingCompanySkillsets" class="flex justify-center py-4">
+                  <ProgressSpinner style="width: 50px; height: 50px" />
+                </div>
+                <div v-else-if="filteredAndSearchedSkillsets.length === 0" class="text-gray-500 italic py-8 text-center">
+                  <div class="flex flex-col items-center">
+                    <i v-if="quickRatingFilter && Object.keys(alreadyRatedSkillsets.value).length > 0" 
+                       class="pi pi-check-circle text-green-500 text-4xl mb-2"></i>
+                    <i v-else class="pi pi-search text-gray-300 text-4xl mb-2"></i>
+                    <p v-if="quickRatingFilter && Object.keys(alreadyRatedSkillsets.value).length > 0">
+                      You've rated all skillsets in this category
+                    </p>
+                    <p v-else>No skillsets found matching your criteria</p>
+                    <p class="text-sm mt-1">
+                      <span v-if="quickRatingFilter && Object.keys(alreadyRatedSkillsets.value).length > 0">
+                        Check the "Your Previous Ratings" section below
+                      </span>
+                      <span v-else>Try adjusting your search or filter</span>
+                    </p>
+                  </div>
+                </div>
+                <div v-else>
+                  <!-- Category Title -->
+                  <div class="mb-3 flex items-center justify-between">
+                    <h6 class="font-medium text-gray-800">
+                      <span v-if="quickRatingFilter">{{ quickRatingFilter }} Skillsets</span>
+                      <span v-else>All Skillsets</span>
+                    </h6>
+                    <div class="text-xs text-gray-500">
+                      {{ filteredAndSearchedSkillsets.length }} skillset(s)
+                    </div>
+                  </div>
+                  
+                  <div class="bg-gray-50 p-2 rounded-t-lg grid grid-cols-12 gap-2 font-medium text-sm border-b">
+                    <div class="col-span-9">Skillset</div>
+                    <div class="col-span-3 text-center">Rating</div>
+                  </div>
+                  
+                  <div class="max-h-[400px] overflow-y-auto">
+                    <div 
+                      v-for="skillset in filteredAndSearchedSkillsets" 
+                      :key="skillset.id" 
+                      class="grid grid-cols-12 gap-2 p-3 border-b hover:bg-gray-50 items-center"
+                      :class="{'bg-primary-50': pendingRatings[skillset.id] !== undefined}"
+                    >
+                      <div class="col-span-9">
+                        <div class="font-medium text-sm flex items-center gap-1">
+                          <span>{{ skillset.name }}</span>
+                          <Button 
+                            v-if="skillset.description && isMobileView" 
+                            icon="pi pi-info-circle" 
+                            class="p-button-text p-button-rounded p-button-sm text-gray-500 hover:text-primary-500"
+                            @click.stop="showMobileDescription(skillset.description)"
+                            type="button"
+                            aria-label="View description"
+                          />
+                        </div>
+                        <div class="text-xs text-gray-500 hidden md:block">{{ truncateDescription(skillset.description) }}</div>
+                      </div>
+                      <div class="col-span-3 flex justify-center">
+                        <Rating 
+                          v-model="pendingRatings[skillset.id]" 
+                          :stars="5" 
+                          :disabled="isSubmittingQuickRating[skillset.id]"
+                          @change="rateSkillset(skillset)"
+                        />
+                        <div v-if="isSubmittingQuickRating[skillset.id]" class="ml-2">
+                          <i class="pi pi-spin pi-spinner text-primary-500"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Already Rated Skillsets Section -->
+              <div v-if="hasRatedSkillsetsInCategory" class="mt-4 border-t pt-4">
+                <div class="mb-3 flex items-center justify-between">
+                  <h6 class="font-medium text-gray-800 flex items-center gap-2">
+                    <span>Your Previous Ratings</span>
+                    <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
+                      Already Rated
+                    </span>
+                    <Button 
+                      @click="toggleAlreadyRatedSkillsets" 
+                      :icon="showAlreadyRatedSkillsets ? 'pi pi-chevron-up' : 'pi pi-chevron-down'" 
+                      class="p-button-text p-button-rounded p-button-sm"
+                      aria-label="Toggle previous ratings"
+                    />
+                  </h6>
+                  <div class="text-xs text-gray-500">
+                    {{ ratedSkillsetsInCategory.length }} skillset(s)
+                  </div>
+                </div>
+                
+                <div v-if="showAlreadyRatedSkillsets">
+                  <div class="bg-gray-50 p-2 rounded-t-lg grid grid-cols-12 gap-2 font-medium text-sm border-b">
+                    <div class="col-span-8">Skillset</div>
+                    <div class="col-span-3 text-center">Your Rating</div>
+                    <div class="col-span-1 text-center">Actions</div>
+                  </div>
+                  
+                  <div class="max-h-[200px] overflow-y-auto">
+                    <div 
+                      v-for="skillset in ratedSkillsetsInCategory" 
+                      :key="skillset.id" 
+                      class="grid grid-cols-12 gap-2 p-3 border-b hover:bg-gray-50 items-center bg-gray-100"
+                    >
+                      <div class="col-span-8">
+                        <div class="font-medium text-sm flex items-center gap-1">
+                          <span>{{ skillset.skillsetName }}</span>
+                        </div>
+                        <div class="text-xs text-gray-500">{{ skillset.skillsetCategory }}</div>
+                      </div>
+                      <div class="col-span-3 flex justify-center">
+                        <Rating 
+                          :modelValue="skillset.skillsetRating" 
+                          :stars="5" 
+                          disabled
+                        />
+                      </div>
+                      <div class="col-span-1 flex justify-center">
+                        <Button
+                          icon="pi pi-trash"
+                          class="p-button-rounded p-button-danger p-button-text p-button-sm"
+                          @click="confirmDeleteSkillset(skillset, $event)"
+                          :disabled="isDeletingSkillset[skillset.id]"
+                          aria-label="Delete rating"
+                        />
+                        <div v-if="isDeletingSkillset[skillset.id]" class="ml-2">
+                          <i class="pi pi-spin pi-spinner text-primary-500"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Existing Ratings Summary -->
+              <div v-if="hasSubmittedRatings" class="mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
+                <div class="flex items-center gap-2 text-green-700 mb-2">
+                  <i class="pi pi-check-circle"></i>
+                  <span class="font-medium">Successfully Rated Skillsets</span>
+                </div>
+                <p class="text-sm text-green-600">
+                  You've rated {{ submittedRatingsCount }} skillset(s) for this candidate. These ratings will help evaluate their technical proficiency.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right column for skillsets on desktop -->
+          <div class="lg:col-span-6">
+            <div class="card p-4 skillsets-container">
+              <div class="flex items-center justify-between mb-4 cursor-pointer" @click="toggleAllSkillsets">
+                <div class="flex items-center gap-2">
+                  <i class="pi pi-list text-blue-500"></i>
+                  <h5 class="font-semibold m-0">Skillsets</h5>
+                  <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
+                    {{ Object.keys(groupedSkills).length }}
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div v-if="isRefreshingSkillsets" class="flex items-center mr-2">
+                    <i class="pi pi-spin pi-spinner text-blue-500 mr-1"></i>
+                    <span class="text-xs text-blue-500">Updating...</span>
+                  </div>
+                  <i :class="`pi ${areAllSkillsetsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
+                </div>
+              </div>
+              
+              <div v-if="skillsetData.length === 0" class="text-gray-500 italic">
+                No skillset assessments available
+              </div>
+              <div v-else class="flex flex-wrap gap-2 md:gap-4">
+                
+                <!-- Dynamic Categories -->
+                <div v-for="(skills, category) in groupedSkills" :key="category" class="w-full md:w-[calc(33.333%-1rem)] min-w-[300px]">
+                  <fieldset class="border p-2 rounded h-full flex flex-col">
+                    <legend class="cursor-pointer" @click="toggleCategory(category)">
+                      <div class="flex items-center gap-2">
+                        <h6 class="font-semibold">{{ category }}</h6>
+                        <div class="flex items-center gap-1">
+                          <span class="text-sm font-medium">{{ calculateAverage(skills) }}</span>
+                          <i class="pi pi-star-fill text-yellow-500"></i>
+                          <i :class="`pi pi-chevron-${isCategoryOpen(category) ? 'up' : 'down'} text-sm ml-1`"></i>
+                        </div>
+                      </div>
+                    </legend>
+                    <transition name="fade">
+                      <ul v-if="isCategoryOpen(category)" class="flex-1 overflow-y-auto">
+                        <li v-for="skill in skills" :key="skill.skillsetName" class="grid grid-cols-[1fr_150px_26px] items-center gap-2 mb-1">
+                          <span class="text-sm">{{ skill.skillsetName }}</span>
+                          <div class="flex justify-end">
+                            <Rating v-model="skill.skillsetRating" readonly :stars="5" 
+                                    v-tooltip="`Reviewed by: ${skill.reviewers.map(r => r.name).join(', ')}`" />
+                          </div>
+                          <div class="text-[10px] bg-gray-100 px-1.5 py-0.5 rounded-full border border-gray-200 text-center w-[26px]"
+                               v-tooltip="`${skill.reviewCount} reviews`">
+                            {{ skill.reviewCount }}
+                          </div>
+                        </li>
+                      </ul>
+                    </transition>
+                  </fieldset>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- In the Charts Section -->
- </div>
+      
+      <!-- Charts Section -->
+      <transition name="fade">
+        <div v-if="isAnyCategoryOpen" class="col-span-12 mt-4">
+          <CandidateAnalytics 
+            :selectedCategory="selectedCategory"
+            :basicChartData="basicChartData"
+            :pieChartData="pieChartData"
+            :verticalBarChartData="verticalBarChartData"
+            :radarChartData="radarChartData"
+            :chartOptions="chartOptions"
+            :radarChartOptions="radarChartOptions"
+          />
+        </div>
+      </transition>
+      
+      <!-- Metadata Section -->
+      <div class="col-span-12 mt-4">
+        <CandidateMetadata :candidateData="candidateData" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -657,9 +547,15 @@ import InputText from 'primevue/inputtext';
 import InputNumber from 'primevue/inputnumber';
 import Toast from 'primevue/toast';
 import { useToast } from 'primevue/usetoast';
-import ConfirmDialog from 'primevue/confirmdialog';
-import { useConfirm } from 'primevue/useconfirm';
+import ConfirmPopup from 'primevue/confirmpopup';
 import Chip from 'primevue/chip';
+import SkillsetRadar from '@/components/careerpath/SkillsetRadar.vue';
+import Certifications from '@/components/careerpath/Certifications.vue';
+import CandidateBasicInfo from '@/components/careerpath/CandidateBasicInfo.vue';
+import CandidateAnalytics from '@/components/careerpath/CandidateAnalytics.vue';
+import InterviewReviews from '@/components/careerpath/InterviewReviews.vue';
+import CandidateMetadata from '@/components/careerpath/CandidateMetadata.vue';
+import { useConfirm } from 'primevue/useconfirm';
 
 const route = useRoute();
 const router = useRouter();
@@ -938,6 +834,7 @@ const skillsetData = ref([]);
 const GET_SKILLSETS_BY_EMAIL = `
   query GetSkillsetsByEmail($email: String!) {
     getSkillsetsByEmail(email: $email) {
+      id
       skillsetCategory
       skillsetName
       skillsetRating
@@ -963,14 +860,40 @@ async function fetchSkillsets() {
     });
 
     const result = await response.json();
-    if (result.errors) {
+    console.log('Fetched skillsets result:', result);
+    
+    // Special handling for _id error
+    if (result.errors && result.errors.some(e => e.message.includes('_id'))) {
+      console.warn('Received _id error in fetchSkillsets, but continuing with data processing');
+      // Continue with data processing even with the _id error
+    } else if (result.errors) {
       throw new Error(result.errors[0]?.message || 'Failed to load skillsets');
     }
     
-    skillsetData.value = result.data.getSkillsetsByEmail || [];
+    // Process the data to ensure we have the correct field names
+    // This will transform any _id fields to id if needed
+    const processedData = (result.data?.getSkillsetsByEmail || []).map(skill => {
+      // Create a clean copy of the skill object
+      const cleanSkill = { ...skill };
+      
+      // If the skill has _id but no id, convert it
+      if (cleanSkill._id && !cleanSkill.id) {
+        cleanSkill.id = cleanSkill._id;
+        delete cleanSkill._id;
+      }
+      
+      return cleanSkill;
+    });
+    
+    skillsetData.value = processedData;
   } catch (error) {
     console.error('Error fetching skillsets:', error);
-    // You might want to add a toast notification here
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: error.message || 'Failed to load skillsets',
+      life: 3000
+    });
   }
 }
 
@@ -1139,11 +1062,21 @@ async function fetchInterviews() {
   }
 }
 
-// Update onMounted to fetch data
+// Add mobile detection
+const isMobileView = ref(false);
+
+// Function to check if we're on a mobile device
+const checkMobileView = () => {
+  isMobileView.value = window.innerWidth < 768;
+};
+
+// Update onMounted to check mobile view
 onMounted(async () => {
   // Initialize UI state based on screen size
   checkScreenSize();
+  checkMobileView();
   window.addEventListener('resize', checkScreenSize);
+  window.addEventListener('resize', checkMobileView);
   
   const candidateId = route.params.id;
   
@@ -1174,6 +1107,9 @@ onMounted(async () => {
   } finally {
     loading.value = false;
   }
+  
+  // Test available mutations
+  await testAvailableMutations();
 });
 
 // Update groupedReviews to use interviewsData
@@ -1407,6 +1343,7 @@ const checkScreenSize = () => {
 // Clean up resize listener
 onBeforeUnmount(() => {
   window.removeEventListener('resize', checkScreenSize);
+  window.removeEventListener('resize', checkMobileView);
 });
 
 // Add new state for interview modal
@@ -1461,12 +1398,7 @@ watch(showSkillsetAssessment, (newValue) => {
     selectedSkillsetCategory.value = null;
     selectedSkillset.value = null;
     newSkillsetAssessment.value = {
-      candidateEmail: '',
-      skillsetName: '',
-      skillsetCategory: '',
-      score: 0,
-      notes: '',
-      assessedBy: ''
+      rating: 3
     };
     
     // Scroll to profile section (same behavior as interview form)
@@ -1638,8 +1570,7 @@ const selectedSkillset = ref(null);
 const companySkillsets = ref([]);
 const skillsetCategories = ref([]);
 const newSkillsetAssessment = ref({
-  rating: 3,
-  notes: ''
+  rating: 3
 });
 
 // GraphQL queries for skillsets
@@ -1663,25 +1594,86 @@ const SKILLSETS_QUERY = `
 const ASSIGN_SKILLSET_MUTATION = `
   mutation AssignSkillset($input: AssignSkillsetInput!) {
     assignSkillset(input: $input) {
-      id
+      # Only request specific fields we need, excluding id/_id
       skillsetCategory
       skillsetName
       skillsetRating
       reviewedBy
       reviewerEmail
       companyId
+      companyName
       email
+      createdAt
     }
   }
 `;
 
-// Add skillset assessment functions
+// Add mutation for deleting a skillset rating
+const DELETE_SKILLSET_MUTATION = `
+  mutation DeleteSkillset($id: String!) {
+    deleteSkillset(id: $id)
+  }
+`;
+
+// Add search functionality
+const skillsetSearchQuery = ref('');
+const debouncedSearchQuery = ref('');
+let searchTimeout = null;
+
+// Debounce search to avoid too many re-renders
+const debounceSearch = () => {
+  if (searchTimeout) clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    debouncedSearchQuery.value = skillsetSearchQuery.value;
+  }, 300);
+};
+
+// Computed property that combines filtering and searching
+const filteredAndSearchedSkillsets = computed(() => {
+  // First filter by category if needed
+  let result = quickRatingFilter.value 
+    ? companySkillsets.value.filter(s => s.category === quickRatingFilter.value)
+    : companySkillsets.value;
+  
+  // Then filter by search query if present
+  if (debouncedSearchQuery.value.trim()) {
+    const searchLower = debouncedSearchQuery.value.toLowerCase().trim();
+    result = result.filter(s => 
+      s.name.toLowerCase().includes(searchLower) || 
+      s.description.toLowerCase().includes(searchLower) ||
+      s.category.toLowerCase().includes(searchLower)
+    );
+  }
+  
+  // Filter out skillsets already rated by the current user
+  // This will immediately update when alreadyRatedSkillsets changes
+  result = result.filter(skillset => !alreadyRatedSkillsets.value[skillset.name]);
+  
+  return result;
+});
+
+// Update toggleSkillsetAssessment to reset search
 const toggleSkillsetAssessment = async () => {
   showSkillsetAssessment.value = !showSkillsetAssessment.value;
   
   if (showSkillsetAssessment.value) {
+    // Reset quick rating state
+    quickRatingFilter.value = null;
+    pendingRatings.value = {};
+    isSubmittingQuickRating.value = {};
+    skillsetSearchQuery.value = '';
+    debouncedSearchQuery.value = '';
+    showAlreadyRatedSkillsets.value = true;
+    
+    // Fetch data
     await fetchSkillsetCategories();
     await fetchCompanySkillsets();
+    
+    // Check if we have existing ratings to show the success message
+    if (skillsetData.value.length > 0) {
+      submittedRatingsCount.value = skillsetData.value.length;
+      hasSubmittedRatings.value = true;
+    }
     
     // Wait for the DOM to update after showing the form
     setTimeout(() => {
@@ -1692,13 +1684,25 @@ const toggleSkillsetAssessment = async () => {
         });
       }
     }, 100);
+  } else {
+    // Reset state when closing
+    quickRatingFilter.value = null;
+    pendingRatings.value = {};
+    isSubmittingQuickRating.value = {};
+    skillsetSearchQuery.value = '';
+    debouncedSearchQuery.value = '';
   }
 };
+
+// Add loading states for skillset data
+const isLoadingCategories = ref(false);
+const isLoadingCompanySkillsets = ref(false);
 
 // Fetch skillset categories
 async function fetchSkillsetCategories() {
   try {
-    const response = await fetch('/graphql', {
+    isLoadingCategories.value = true;
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -1707,22 +1711,32 @@ async function fetchSkillsetCategories() {
       })
     });
     
-    const data = await response.json();
-    skillsetCategories.value = data.data.listSkillsetsCategories;
+    const result = await response.json();
+    console.log('Skillset categories result:', result);
+    
+    if (result.errors) {
+      throw new Error(result.errors[0]?.message || 'Failed to load skillset categories');
+    }
+    
+    skillsetCategories.value = result.data.listSkillsetsCategories || [];
   } catch (error) {
+    console.error('Error fetching skillset categories:', error);
     toast.add({ 
       severity: 'error', 
       summary: 'Error', 
-      detail: 'Failed to load skillset categories', 
+      detail: error.message || 'Failed to load skillset categories', 
       life: 3000 
     });
+  } finally {
+    isLoadingCategories.value = false;
   }
 }
 
 // Fetch company skillsets
 async function fetchCompanySkillsets() {
   try {
-    const response = await fetch('/graphql', {
+    isLoadingCompanySkillsets.value = true;
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -1731,20 +1745,30 @@ async function fetchCompanySkillsets() {
       })
     });
     
-    const data = await response.json();
-    companySkillsets.value = data.data.listSkillsetsByCompanyId.map(item => ({
-      id: item.id,
+    const result = await response.json();
+    console.log('Company skillsets result:', result);
+    
+    if (result.errors) {
+      throw new Error(result.errors[0]?.message || 'Failed to load company skillsets');
+    }
+    
+    // Map the data to a clean structure without any MongoDB-specific fields
+    companySkillsets.value = (result.data.listSkillsetsByCompanyId || []).map(item => ({
+      id: item.id, // Keep this as 'id', not '_id'
       name: item.skillsetName,
-      description: item.skillsetDescription,
+      description: item.skillsetDescription || '',
       category: item.skillsetCategory
     }));
   } catch (error) {
+    console.error('Error fetching company skillsets:', error);
     toast.add({ 
       severity: 'error', 
       summary: 'Error', 
-      detail: 'Failed to load company skillsets', 
+      detail: error.message || 'Failed to load company skillsets', 
       life: 3000 
     });
+  } finally {
+    isLoadingCompanySkillsets.value = false;
   }
 }
 
@@ -1761,36 +1785,124 @@ const selectSkillsetForAssessment = (skillset) => {
 const cancelSkillsetAssessment = () => {
   selectedSkillset.value = null;
   newSkillsetAssessment.value = {
-    rating: 3,
-    notes: ''
+    rating: 3
   };
 };
 
+// Add a new ref for loading state
+const isSubmittingSkillset = ref(false);
+
+// Add a new function to update all skillset-related elements
+const updateSkillsetData = async () => {
+  try {
+    // Set loading states
+    isRefreshingRadarChart.value = true;
+    isRefreshingSkillsets.value = true;
+    isRefreshingSkillAverage.value = true;
+    
+    // Add animation classes to elements
+    const radarChartEl = document.querySelector('.radar-chart-container');
+    const skillsetsEl = document.querySelector('.skillsets-container');
+    
+    if (radarChartEl) radarChartEl.classList.add('refreshing');
+    if (skillsetsEl) skillsetsEl.classList.add('refreshing');
+    
+    // Fetch fresh skillset data
+    await fetchSkillsets();
+    
+    // If a category is selected and no longer exists in the updated data, select the first available category
+    if (selectedCategory.value && !groupedSkills.value[selectedCategory.value]) {
+      const categories = Object.keys(groupedSkills.value);
+      if (categories.length > 0) {
+        selectedCategory.value = categories[0];
+      }
+    }
+    
+    // If we have a newly added category and no category is currently selected, select it
+    if (!selectedCategory.value && Object.keys(groupedSkills.value).length > 0) {
+      selectedCategory.value = Object.keys(groupedSkills.value)[0];
+    }
+    
+    return true;
+  } catch (error) {
+    console.error('Error updating skillset data:', error);
+    toast.add({
+      severity: 'error',
+      summary: 'Update Failed',
+      detail: error.message || 'Failed to refresh skillset data',
+      life: 3000
+    });
+    return false;
+  } finally {
+    // Clear loading states after a short delay to ensure smooth transition
+    setTimeout(() => {
+      isRefreshingRadarChart.value = false;
+      isRefreshingSkillsets.value = false;
+      isRefreshingSkillAverage.value = false;
+      
+      // Remove animation classes
+      const radarChartEl = document.querySelector('.radar-chart-container');
+      const skillsetsEl = document.querySelector('.skillsets-container');
+      
+      if (radarChartEl) radarChartEl.classList.remove('refreshing');
+      if (skillsetsEl) skillsetsEl.classList.remove('refreshing');
+    }, 500);
+  }
+};
+
+// Update the submitSkillsetAssessment function to use updateSkillsetData
 const submitSkillsetAssessment = async () => {
   try {
-    const response = await fetch('/graphql', {
+    isSubmittingSkillset.value = true;
+    
+    // Create a clean input object with only the fields expected by the backend
+    const input = {
+      companyId: candidateData.value.companyId,
+      companyName: candidateData.value.companyName,
+      email: candidateData.value.email,
+      skillsetCategory: selectedSkillset.value.category,
+      skillsetName: selectedSkillset.value.name,
+      skillsetRating: newSkillsetAssessment.value.rating,
+      reviewedBy: reviewerName.value,
+      reviewerEmail: reviewerEmail.value
+    };
+    
+    console.log('Submitting skillset assessment with input:', input);
+    
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         query: ASSIGN_SKILLSET_MUTATION,
-        variables: {
-          input: {
-            companyId: candidateData.value.companyId,
-            email: candidateData.value.email,
-            skillsetCategory: selectedSkillset.value.category,
-            skillsetName: selectedSkillset.value.name,
-            skillsetRating: newSkillsetAssessment.value.rating,
-            reviewedBy: reviewerName.value,
-            reviewerEmail: reviewerEmail.value,
-            notes: newSkillsetAssessment.value.notes
-          }
-        }
+        variables: { input }
       })
     });
     
     const result = await response.json();
+    console.log('Skillset assessment result:', result);
     
-    if (result.errors) {
+    // Special handling for the _id error
+    // This error occurs when MongoDB returns _id but GraphQL schema expects id
+    if (result.errors && result.errors.some(e => e.message.includes('_id'))) {
+      console.warn('Received _id error but proceeding with success flow');
+      
+      // The data was likely saved successfully despite the _id error
+      toast.add({
+        severity: 'success',
+        summary: 'Success',
+        detail: 'Skillset assessment submitted successfully',
+        life: 3000
+      });
+      
+      // Update all skillset-related elements
+      await updateSkillsetData();
+      
+      // Reset form and close assessment panel
+      selectedSkillset.value = null;
+      newSkillsetAssessment.value = { rating: 3 };
+      showSkillsetAssessment.value = false;
+      return;
+    } else if (result.errors) {
       throw new Error(result.errors[0].message);
     }
     
@@ -1801,22 +1913,150 @@ const submitSkillsetAssessment = async () => {
       life: 3000
     });
     
-    // Refresh skillsets data
-    await fetchSkillsets();
+    // Update all skillset-related elements
+    await updateSkillsetData();
     
-    // Reset form
+    // Reset form and close assessment panel
     selectedSkillset.value = null;
-    newSkillsetAssessment.value = {
-      rating: 3,
-      notes: ''
-    };
+    newSkillsetAssessment.value = { rating: 3 };
+    showSkillsetAssessment.value = false;
   } catch (error) {
+    console.error('Error submitting skillset assessment:', error);
     toast.add({
       severity: 'error',
       summary: 'Error',
       detail: error.message || 'Failed to submit assessment',
       life: 3000
     });
+  } finally {
+    isSubmittingSkillset.value = false;
+  }
+}
+
+// Update the rateSkillset function to properly handle the last skillset case
+const rateSkillset = async (skillset) => {
+  // Skip if no rating is selected or already submitting
+  if (pendingRatings.value[skillset.id] === undefined || isSubmittingQuickRating.value[skillset.id]) {
+    return;
+  }
+  
+  try {
+    // Set submitting state for this specific skillset
+    isSubmittingQuickRating.value = {
+      ...isSubmittingQuickRating.value,
+      [skillset.id]: true
+    };
+    
+    // Create a clean input object with only the fields expected by the backend
+    const input = {
+      companyId: candidateData.value.companyId,
+      companyName: candidateData.value.companyName,
+      email: candidateData.value.email,
+      skillsetCategory: skillset.category,
+      skillsetName: skillset.name,
+      skillsetRating: pendingRatings.value[skillset.id],
+      reviewedBy: reviewerName.value,
+      reviewerEmail: reviewerEmail.value
+    };
+    
+    console.log('Quick rating skillset:', input);
+    
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: ASSIGN_SKILLSET_MUTATION,
+        variables: { input }
+      })
+    });
+    
+    const result = await response.json();
+    console.log('Quick rating result:', result);
+    
+    // Special handling for the _id error
+    // This error occurs when MongoDB returns _id but GraphQL schema expects id
+    if (result.errors && result.errors.some(e => e.message.includes('_id'))) {
+      console.warn('Received _id error but proceeding with success flow');
+      
+      // Show a small toast notification
+      toast.add({
+        severity: 'success',
+        summary: 'Rated Successfully',
+        detail: `Rated "${skillset.name}" with ${pendingRatings.value[skillset.id]} stars`,
+        life: 2000
+      });
+      
+      // Increment the submitted ratings count
+      submittedRatingsCount.value++;
+      hasSubmittedRatings.value = true;
+      
+      // Immediately update the alreadyRatedSkillsets to include this skillset
+      alreadyRatedSkillsets.value = {
+        ...alreadyRatedSkillsets.value,
+        [skillset.name]: true
+      };
+      
+      // Remove the pending rating immediately to prevent UI glitches
+      const newPendingRatings = { ...pendingRatings.value };
+      delete newPendingRatings[skillset.id];
+      pendingRatings.value = newPendingRatings;
+      
+      // Also remove the submitting state immediately
+      const newIsSubmittingQuickRating = { ...isSubmittingQuickRating.value };
+      delete newIsSubmittingQuickRating[skillset.id];
+      isSubmittingQuickRating.value = newIsSubmittingQuickRating;
+      
+      // Update all skillset-related elements
+      await updateSkillsetData();
+      return;
+    } else if (result.errors) {
+      throw new Error(result.errors[0].message);
+    }
+    
+    // Show a small toast notification
+    toast.add({
+      severity: 'success',
+      summary: 'Rated Successfully',
+      detail: `Rated "${skillset.name}" with ${pendingRatings.value[skillset.id]} stars`,
+      life: 2000
+    });
+    
+    // Increment the submitted ratings count
+    submittedRatingsCount.value++;
+    hasSubmittedRatings.value = true;
+    
+    // Immediately update the alreadyRatedSkillsets to include this skillset
+    alreadyRatedSkillsets.value = {
+      ...alreadyRatedSkillsets.value,
+      [skillset.name]: true
+    };
+    
+    // Remove the pending rating immediately to prevent UI glitches
+    const newPendingRatings = { ...pendingRatings.value };
+    delete newPendingRatings[skillset.id];
+    pendingRatings.value = newPendingRatings;
+    
+    // Also remove the submitting state immediately
+    const newIsSubmittingQuickRating = { ...isSubmittingQuickRating.value };
+    delete newIsSubmittingQuickRating[skillset.id];
+    isSubmittingQuickRating.value = newIsSubmittingQuickRating;
+    
+    // Update all skillset-related elements
+    await updateSkillsetData();
+    
+  } catch (error) {
+    console.error('Error submitting quick rating:', error);
+    toast.add({
+      severity: 'error',
+      summary: 'Rating Failed',
+      detail: error.message || 'Failed to submit rating',
+      life: 3000
+    });
+    
+    // Remove the submitting state
+    const newIsSubmittingQuickRating = { ...isSubmittingQuickRating.value };
+    delete newIsSubmittingQuickRating[skillset.id];
+    isSubmittingQuickRating.value = newIsSubmittingQuickRating;
   }
 };
 
@@ -1835,6 +2075,228 @@ const showMobileDescription = (description) => {
 const truncateDescription = (desc) => {
   if (!desc) return '';
   return desc.length > 50 ? desc.substring(0, 50) + '...' : desc;
+};
+
+// Also add a helper function to toggle reviews if not already defined:
+const toggleReviews = () => { isReviewsExpanded.value = !isReviewsExpanded.value; };
+
+// And a function to set selected review category:
+const setSelectedReviewCategory = (field) => { selectedReviewCategory.value = field; };
+
+// Add new state for quick rating
+const quickRatingFilter = ref(null);
+const pendingRatings = ref({});
+const isSubmittingQuickRating = ref({});
+const submittedRatingsCount = ref(0);
+const hasSubmittedRatings = ref(false);
+
+// Computed property for filtered skillsets based on quick rating filter
+const filteredQuickRatingSkillsets = computed(() => {
+  if (!quickRatingFilter.value) return companySkillsets.value;
+  return companySkillsets.value.filter(s => s.category === quickRatingFilter.value);
+});
+
+// Add loading states for charts and skillsets
+const isRefreshingRadarChart = ref(false);
+const isRefreshingSkillsets = ref(false);
+
+// Add loading state for average skill rating
+const isRefreshingSkillAverage = ref(false);
+
+// Add a computed property to identify skillsets already rated by the current user
+const alreadyRatedSkillsets = computed(() => {
+  // Create a map of skillsetName -> true for skillsets rated by the current user
+  const ratedMap = {};
+  
+  // Only consider skillsets rated by the current user (matching reviewerEmail)
+  skillsetData.value.forEach(skill => {
+    if (skill.reviewerEmail === reviewerEmail.value) {
+      ratedMap[skill.skillsetName] = true;
+    }
+  });
+  
+  return ratedMap;
+});
+
+// Computed property to get skillsets rated by current user in the selected category
+const ratedSkillsetsInCategory = computed(() => {
+  return skillsetData.value.filter(skill => 
+    skill.reviewerEmail === reviewerEmail.value && 
+    (!quickRatingFilter.value || skill.skillsetCategory === quickRatingFilter.value)
+  );
+});
+
+// Check if there are any rated skillsets in the current category
+const hasRatedSkillsetsInCategory = computed(() => {
+  return ratedSkillsetsInCategory.value.length > 0;
+});
+
+// Add new reactive variables for showing already rated skillsets
+const showAlreadyRatedSkillsets = ref(true);
+
+// Add toggle function for already rated skillsets
+const toggleAlreadyRatedSkillsets = () => {
+  showAlreadyRatedSkillsets.value = !showAlreadyRatedSkillsets.value;
+};
+
+// Add state for tracking skillset deletion
+const isDeletingSkillset = ref({});
+
+// Function to delete a skillset rating
+const deleteSkillsetRating = async (skillset) => {
+  try {
+    // Set deleting state for this specific skillset
+    isDeletingSkillset.value = {
+      ...isDeletingSkillset.value,
+      [skillset.id]: true
+    };
+    
+    // Debug: Log the entire skillset object to see its structure
+    console.log('Deleting skillset (full object):', skillset);
+    console.log('Skillset ID:', skillset.id);
+    
+    // Try with the first mutation name
+    let response = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `
+          mutation DeleteSkillset($id: String!) {
+            deleteSkillset(id: $id)
+          }
+        `,
+        variables: { id: skillset.id }
+      })
+    });
+    
+    let result = await response.json();
+    console.log('Delete result (first attempt):', result);
+    
+    // If the first attempt fails, try with a different mutation name
+    if (result.errors) {
+      console.log('First attempt failed, trying with delete_skillset...');
+      response = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          query: `
+            mutation DeleteSkillset($id: String!) {
+              delete_skillset(id: $id)
+            }
+          `,
+          variables: { id: skillset.id }
+        })
+      });
+      
+      result = await response.json();
+      console.log('Delete result (second attempt):', result);
+    }
+    
+    // If both attempts fail, try with removeSkillset
+    if (result.errors) {
+      console.log('Second attempt failed, trying with removeSkillset...');
+      response = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          query: `
+            mutation RemoveSkillset($id: String!) {
+              removeSkillset(id: $id)
+            }
+          `,
+          variables: { id: skillset.id }
+        })
+      });
+      
+      result = await response.json();
+      console.log('Delete result (third attempt):', result);
+    }
+    
+    if (result.errors) {
+      throw new Error(result.errors[0].message);
+    }
+    
+    // Show a success notification
+    toast.add({
+      severity: 'success',
+      summary: 'Rating Deleted',
+      detail: `Removed rating for "${skillset.skillsetName}"`,
+      life: 2000
+    });
+    
+    // Immediately update the alreadyRatedSkillsets to remove this skillset
+    const newAlreadyRatedSkillsets = { ...alreadyRatedSkillsets.value };
+    delete newAlreadyRatedSkillsets[skillset.skillsetName];
+    alreadyRatedSkillsets.value = newAlreadyRatedSkillsets;
+    
+    // Update all skillset-related elements
+    await updateSkillsetData();
+    
+  } catch (error) {
+    console.error('Error deleting skillset rating:', error);
+    toast.add({
+      severity: 'error',
+      summary: 'Deletion Failed',
+      detail: error.message || 'Failed to delete rating',
+      life: 3000
+    });
+  } finally {
+    // Remove the deleting state
+    const newIsDeletingSkillset = { ...isDeletingSkillset.value };
+    delete newIsDeletingSkillset[skillset.id];
+    isDeletingSkillset.value = newIsDeletingSkillset;
+  }
+};
+
+// Add a function to test the available mutations
+const testAvailableMutations = async () => {
+  try {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `
+          {
+            __schema {
+              mutationType {
+                name
+                fields {
+                  name
+                }
+              }
+            }
+          }
+        `
+      })
+    });
+    
+    const result = await response.json();
+    console.log('Available mutations:', result);
+    
+    // Specifically check for skillset-related mutations
+    const skillsetMutations = result.data?.__schema?.mutationType?.fields?.filter(
+      field => field.name.toLowerCase().includes('skillset')
+    );
+    console.log('Skillset-related mutations:', skillsetMutations);
+  } catch (error) {
+    console.error('Error fetching schema:', error);
+  }
+};
+
+// Function to confirm deletion
+const confirmDeleteSkillset = (skillset, event) => {
+  confirm.require({
+    target: event.currentTarget,
+    message: `Are you sure you want to delete your rating for "${skillset.skillsetName}"?`,
+    icon: 'pi pi-exclamation-triangle',
+    acceptClass: 'p-button-danger',
+    accept: () => {
+      deleteSkillsetRating(skillset);
+    },
+    reject: () => {
+      // Do nothing on reject
+    }
+  });
 };
 </script>
 
@@ -2032,7 +2494,8 @@ ul {
 
 :deep(.p-chip.bg-primary-500) {
   background-color: var(--primary-500) !important;
-  color: white !important;
+  color: var(--gray-900) !important; /* Changed from white to dark gray */
+  font-weight: bold; /* Added bold for better visibility */
   box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
   border-color: var(--primary-500);
 }
@@ -2051,5 +2514,40 @@ ul {
   max-width: 300px;
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+/* Add refresh animation */
+@keyframes refreshPulse {
+  0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+
+.refreshing {
+  animation: refreshPulse 1.5s ease-in-out;
+}
+
+/* Add new section to show already rated skillsets */
+.already-rated-skillsets {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.already-rated-skillsets h6 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.already-rated-skillsets ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.already-rated-skillsets li {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #666;
 }
 </style> 

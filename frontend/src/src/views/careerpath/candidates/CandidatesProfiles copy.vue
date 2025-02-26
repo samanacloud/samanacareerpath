@@ -80,6 +80,9 @@
                 <i class="pi pi-envelope"></i>
               </Button>
             </div>
+            <div class="mt-4 w-full">
+              <SkillsetRadar :radarChartData="radarChartData" :radarChartOptions="radarChartOptions" />
+            </div>
           </div>
         </div>
       </div>
