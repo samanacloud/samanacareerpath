@@ -1,0 +1,45 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="recruitmentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B45309" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#recruitmentGradient)" rx="20" />
+  
+  <!-- Calendar View -->
+  <rect x="50" y="50" width="300" height="200" rx="10" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+  
+  <!-- Calendar Header -->
+  <rect x="70" y="70" width="260" height="30" rx="4" fill="#F59E0B" opacity="0.2"/>
+  <rect x="80" y="80" width="60" height="10" rx="2" fill="#F59E0B" opacity="0.7"/>
+  
+  <!-- Calendar Days -->
+  <rect x="70" y="110" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="115" y="110" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="160" y="110" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="205" y="110" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="250" y="110" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="295" y="110" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  
+  <rect x="70" y="145" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="115" y="145" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="160" y="145" width="35" height="25" rx="4" fill="#F59E0B" opacity="0.2" stroke="#F59E0B" stroke-width="1"/>
+  <rect x="205" y="145" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="250" y="145" width="35" height="25" rx="4" fill="#F59E0B" opacity="0.2" stroke="#F59E0B" stroke-width="1"/>
+  <rect x="295" y="145" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  
+  <rect x="70" y="180" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="115" y="180" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="160" y="180" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="205" y="180" width="35" height="25" rx="4" fill="#F59E0B" opacity="0.2" stroke="#F59E0B" stroke-width="1"/>
+  <rect x="250" y="180" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="295" y="180" width="35" height="25" rx="4" fill="#F59E0B" opacity="0.2" stroke="#F59E0B" stroke-width="1"/>
+  
+  <rect x="70" y="215" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="115" y="215" width="35" height="25" rx="4" fill="#F59E0B" opacity="0.2" stroke="#F59E0B" stroke-width="1"/>
+  <rect x="160" y="215" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="205" y="215" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="250" y="215" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+  <rect x="295" y="215" width="35" height="25" rx="4" fill="#F3F4F6" stroke="#E5E7EB" stroke-width="1"/>
+</svg> 

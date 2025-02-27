@@ -1,0 +1,53 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="contactGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e40af" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="1"/>
+    </linearGradient>
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#contactGradient)"/>
+  
+  <!-- Grid Pattern -->
+  <rect width="1920" height="1080" fill="url(#gridPattern)"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="300" cy="300" r="200" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="1600" cy="800" r="250" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="1000" cy="200" r="100" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="500" cy="900" r="150" fill="rgba(255,255,255,0.05)"/>
+  
+  <!-- Abstract Lines -->
+  <path d="M0,400 Q960,200 1920,600" stroke="rgba(255,255,255,0.1)" stroke-width="5" fill="none"/>
+  <path d="M0,600 Q960,800 1920,400" stroke="rgba(255,255,255,0.1)" stroke-width="5" fill="none"/>
+  
+  <!-- Floating Icons -->
+  <g transform="translate(200, 500)" opacity="0.2">
+    <rect x="0" y="0" width="60" height="60" rx="15" fill="white"/>
+    <rect x="15" y="15" width="30" height="30" rx="5" fill="url(#contactGradient)"/>
+  </g>
+  
+  <g transform="translate(1700, 300)" opacity="0.2">
+    <rect x="0" y="0" width="60" height="60" rx="15" fill="white"/>
+    <rect x="15" y="15" width="30" height="30" rx="5" fill="url(#contactGradient)"/>
+  </g>
+  
+  <g transform="translate(800, 800)" opacity="0.2">
+    <rect x="0" y="0" width="60" height="60" rx="15" fill="white"/>
+    <rect x="15" y="15" width="30" height="30" rx="5" fill="url(#contactGradient)"/>
+  </g>
+  
+  <g transform="translate(1200, 600)" opacity="0.2">
+    <circle cx="30" cy="30" r="30" fill="white"/>
+    <circle cx="30" cy="30" r="15" fill="url(#contactGradient)"/>
+  </g>
+  
+  <g transform="translate(400, 200)" opacity="0.2">
+    <circle cx="30" cy="30" r="30" fill="white"/>
+    <circle cx="30" cy="30" r="15" fill="url(#contactGradient)"/>
+  </g>
+</svg> 

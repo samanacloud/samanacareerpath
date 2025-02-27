@@ -43,66 +43,76 @@
             </ul>
           </div>
           
-          <!-- Reviews for Selected Category -->
+          <!-- Timeline Reviews for Selected Category -->
           <div v-for="(reviews, field) in groupedReviews" :key="field">
-            <transition-group 
-              name="review-list" 
-              tag="div" 
-              class="grid grid-cols-1 sm:grid-cols-2 gap-6"
+            <div 
+              class="timeline-container"
               v-show="selectedReviewCategory === field"
             >
               <div 
                 v-for="(review, index) in reviews" 
                 :key="review.id || index" 
-                class="bg-gray-50 rounded-lg p-5 border-l-4 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 review-card"
+                class="timeline-item animate-fade-in"
                 :class="{
-                  'border-green-500': review.approved === 'Yes',
-                  'border-yellow-500': review.approved === 'Pending',
-                  'border-red-500': review.approved === 'No'
+                  'timeline-item-approved': review.approved === 'Yes',
+                  'timeline-item-pending': review.approved === 'Pending',
+                  'timeline-item-rejected': review.approved === 'No'
                 }"
               >
-                <!-- Review Header -->
-                <div class="flex justify-between items-start mb-4">
-                  <div>
-                    <div class="font-medium text-gray-900">{{ review.interviewedBy }}</div>
-                    <div class="text-xs text-gray-500 mt-1">{{ formatDate(review.createdAt) }}</div>
-                  </div>
-                  <div 
-                    :class="{
-                      'bg-green-100 text-green-800': review.approved === 'Yes', 
-                      'bg-yellow-100 text-yellow-800': review.approved === 'Pending', 
-                      'bg-red-100 text-red-800': review.approved === 'No'
-                    }" 
-                    class="text-xs font-medium px-2.5 py-1 rounded-full transition-colors duration-300"
-                  >
-                    {{ review.approved }}
-                  </div>
+                <!-- Timeline Dot -->
+                <div class="timeline-dot" 
+                  :class="{
+                    'bg-green-500': review.approved === 'Yes',
+                    'bg-yellow-500': review.approved === 'Pending',
+                    'bg-red-500': review.approved === 'No'
+                  }">
                 </div>
                 
-                <!-- Rating Section -->
-                <div class="mb-4 p-3 bg-white rounded shadow-sm">
-                  <div class="text-sm font-medium text-gray-700 mb-2">Rating:</div>
-                  <Rating :modelValue="review.rating" readonly :stars="5" />
-                </div>
-                
-                <!-- Observations Section -->
-                <div class="mt-3">
-                  <div class="text-sm font-medium text-gray-700 mb-2">Observations:</div>
-                  <p class="text-sm text-gray-600 bg-white p-3 rounded shadow-sm" :class="review.showFullObservation ? 'show-full' : 'line-clamp-3'">
-                    {{ review.observations }}
-                  </p>
-                  <transition name="fade">
-                    <button 
-                      v-if="review.observations && review.observations.length > 150" 
-                      @click="toggleObservation(review)" 
-                      class="text-xs text-indigo-600 mt-2 hover:underline focus:outline-none transition-all duration-300 hover:text-indigo-800"
+                <!-- Timeline Content -->
+                <div class="timeline-content">
+                  <!-- Review Header -->
+                  <div class="flex justify-between items-start mb-3">
+                    <div>
+                      <div class="font-medium text-gray-900">{{ review.interviewedBy }}</div>
+                      <div class="text-xs text-gray-500 mt-1">{{ formatDate(review.createdAt) }}</div>
+                    </div>
+                    <div 
+                      :class="{
+                        'bg-green-100 text-green-800': review.approved === 'Yes', 
+                        'bg-yellow-100 text-yellow-800': review.approved === 'Pending', 
+                        'bg-red-100 text-red-800': review.approved === 'No'
+                      }" 
+                      class="text-xs font-medium px-2.5 py-1 rounded-full transition-colors duration-300"
                     >
-                      {{ review.showFullObservation ? 'Show less' : 'Read more' }}
-                    </button>
-                  </transition>
+                      {{ review.approved }}
+                    </div>
+                  </div>
+                  
+                  <!-- Rating Section -->
+                  <div class="mb-3 p-3 bg-white rounded shadow-sm">
+                    <div class="text-sm font-medium text-gray-700 mb-2">Rating:</div>
+                    <Rating :modelValue="review.rating" readonly :stars="5" />
+                  </div>
+                  
+                  <!-- Observations Section -->
+                  <div class="mt-3">
+                    <div class="text-sm font-medium text-gray-700 mb-2">Observations:</div>
+                    <p class="text-sm text-gray-600 bg-white p-3 rounded shadow-sm" :class="review.showFullObservation ? 'show-full' : 'line-clamp-3'">
+                      {{ review.observations }}
+                    </p>
+                    <transition name="fade">
+                      <button 
+                        v-if="review.observations && review.observations.length > 150" 
+                        @click="toggleObservation(review)" 
+                        class="text-xs text-indigo-600 mt-2 hover:underline focus:outline-none transition-all duration-300 hover:text-indigo-800"
+                      >
+                        {{ review.showFullObservation ? 'Show less' : 'Read more' }}
+                      </button>
+                    </transition>
+                  </div>
                 </div>
               </div>
-            </transition-group>
+            </div>
           </div>
         </div>
       </div>
@@ -175,49 +185,71 @@ const startCollapseAnimation = (element) => {
   height: 0;
 }
 
-/* Review list transitions */
-.review-list-enter-active,
-.review-list-leave-active {
-  transition: all 0.5s ease;
+/* Timeline Styling */
+.timeline-container {
+  position: relative;
+  padding-left: 2rem;
+  margin-left: 0.75rem;
 }
-.review-list-enter-from {
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0.75rem;
+  width: 2px;
+  background-color: #e5e7eb;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  animation: slide-in-left 0.5s ease-out forwards;
   opacity: 0;
-  transform: translateY(30px);
-}
-.review-list-leave-to {
-  opacity: 0;
-  transform: translateY(-30px);
+  animation-delay: calc(0.1s * var(--index, 0));
 }
 
-/* Staggered animation for review cards */
-.review-card {
-  animation: fade-in-up 0.5s ease-out forwards;
-  opacity: 0;
+.timeline-item:last-child {
+  margin-bottom: 0;
 }
 
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.timeline-dot {
+  position: absolute;
+  left: -2rem;
+  top: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
 }
 
-/* Subtle bounce animation */
-.animate-bounce-subtle {
-  animation: bounce-subtle 2s infinite;
+.timeline-content {
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@keyframes bounce-subtle {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+.timeline-content:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item-approved .timeline-content {
+  border-left: 4px solid #10b981;
+}
+
+.timeline-item-pending .timeline-content {
+  border-left: 4px solid #f59e0b;
+}
+
+.timeline-item-rejected .timeline-content {
+  border-left: 4px solid #ef4444;
 }
 
 /* Fade in animation */
@@ -231,6 +263,17 @@ const startCollapseAnimation = (element) => {
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -253,5 +296,19 @@ const startCollapseAnimation = (element) => {
 .show-full {
   display: block;
   transition: all 0.3s ease;
+}
+
+/* Subtle bounce animation */
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s infinite;
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 </style> 

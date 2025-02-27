@@ -28,7 +28,8 @@ class InterviewMutations:
             result['id'] = result.pop('_id')
         if result and 'approved' in result:
             result['approved'] = normalize_approved(result['approved'])
-        return Interview(**result) if result else None
+        
+        return Interview.from_db(result) if result else None
 
     @strawberry.mutation
     async def edit_interview(self, id: str, input: EditInterviewInput) -> Optional[Interview]:
@@ -43,7 +44,8 @@ class InterviewMutations:
         result = await repo.update_interview(id, update_data)
         if result and 'approved' in result:
             result['approved'] = normalize_approved(result['approved'])
-        return Interview(**result) if result else None
+        
+        return Interview.from_db(result) if result else None
 
     @strawberry.mutation
     async def delete_interview(self, id: str) -> bool:

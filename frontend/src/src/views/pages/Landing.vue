@@ -8,11 +8,17 @@ import TopbarWidget from '@/components/landing/TopbarWidget.vue';
 </script>
 
 <template>
-    <div class="bg-surface-0 dark:bg-surface-900">
-        <div id="home" class="landing-wrapper overflow-hidden">
-            <div class="py-6 px-6 mx-0 md:mx-12 lg:mx-20 lg:px-20 flex items-center justify-between relative lg:static">
-                <TopbarWidget />
+    <div class="landing-wrapper overflow-hidden">
+        <!-- Background with gradient -->
+        <div class="bg-gradient-to-b from-surface-50 to-surface-100 dark:from-surface-900 dark:to-surface-800 min-h-screen">
+            <!-- Topbar with improved spacing -->
+            <div class="sticky top-0 z-50 backdrop-blur-sm bg-white/80 dark:bg-surface-900/80 shadow-sm">
+                <div class="py-4 px-6 mx-auto max-w-7xl md:px-8 lg:px-12">
+                    <TopbarWidget />
+                </div>
             </div>
+            
+            <!-- Main content -->
             <HeroWidget />
             <FeaturesWidget />
             <HighlightsWidget />
@@ -21,3 +27,9 @@ import TopbarWidget from '@/components/landing/TopbarWidget.vue';
         </div>
     </div>
 </template>
+
+<style scoped>
+.landing-wrapper {
+    font-family: var(--font-family);
+}
+</style>

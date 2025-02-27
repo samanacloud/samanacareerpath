@@ -1,3 +1,13 @@
+<script setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+function goToContact() {
+    router.push('/contact-us');
+}
+</script>
+
 <template>
     <div class="bg-surface-900 px-6 py-6 md:px-12 lg:px-20">
         <div class="flex flex-wrap items-center justify-between">
@@ -14,6 +24,9 @@
                 </div>
             </div>
             <div class="flex items-center gap-4">
+                <a @click="goToContact" class="text-surface-0/80 hover:text-surface-0 transition-colors font-medium cursor-pointer">
+                    Contact Us
+                </a>
                 <a href="https://github.com/samanacloud" class="flex items-center justify-center w-10 h-10 bg-surface-800 hover:bg-surface-700 rounded-lg transition-colors">
                     <i class="pi pi-github text-surface-0/80 hover:text-surface-0"></i>
                 </a>

@@ -14,7 +14,10 @@
     
     <div v-else class="grid grid-cols-12 gap-4">
       <!-- Top Row: Profile, Radar Chart, and Interview Reviews -->
-      <div class="col-span-12 lg:col-span-3 md:col-span-4">
+      <div :class="[
+        showSkillsRadar ? 'lg:col-span-3' : 'lg:col-span-6',
+        'col-span-12 md:col-span-4'
+      ]">
         <CandidateBasicInfo 
           :candidateData="candidateData"
           :candidateInitials="candidateInitials"
@@ -26,31 +29,45 @@
           :toggleSkillsetAssessment="toggleSkillsetAssessment"
           :contactCandidate="contactCandidate"
           :isRefreshingSkillAverage="isRefreshingSkillAverage"
+          :showSkillsRadar="showSkillsRadar"
+          :toggleSkillsRadar="toggleSkillsRadar"
+          class="h-full"
         />
       </div>
       
       <!-- Radar Chart Block -->
-      <div class="col-span-12 lg:col-span-3 md:col-span-4">
-        <div class="card p-4 h-full radar-chart-container">
+      <div v-if="showSkillsRadar" class="col-span-12 lg:col-span-6 md:col-span-4">
+        <div class="card p-4 h-full flex flex-col radar-chart-container">
           <div class="flex items-center justify-between mb-4">
             <div class="flex items-center gap-2">
               <i class="pi pi-chart-line text-blue-500"></i>
               <h5 class="font-semibold m-0">Skills Radar</h5>
             </div>
-            <div v-if="isRefreshingRadarChart" class="flex items-center">
-              <i class="pi pi-spin pi-spinner text-blue-500 mr-2"></i>
-              <span class="text-xs text-blue-500">Updating...</span>
+            <div class="flex items-center gap-2">
+              <div v-if="isRefreshingRadarChart" class="flex items-center">
+                <i class="pi pi-spin pi-spinner text-blue-500 mr-2"></i>
+                <span class="text-xs text-blue-500">Updating...</span>
+              </div>
+              <Button 
+                icon="pi pi-times" 
+                class="p-button-rounded p-button-text p-button-sm" 
+                @click="toggleSkillsRadar" 
+                v-tooltip.left="'Hide Skills Radar'"
+              />
             </div>
           </div>
-          <div class="grid grid-cols-1">
-            <Chart type="radar" :data="categoryRadarData" :options="radarChartOptions" />
+          <div class="grid grid-cols-1 flex-grow flex items-center justify-center">
+            <Chart type="radar" :data="categoryRadarData" :options="radarChartOptions" class="h-full" />
           </div>
         </div>
       </div>
       
       <!-- Interview Reviews Section -->
-      <div class="col-span-12 lg:col-span-3 md:col-span-4">
-        <div class="card p-4 h-full">
+      <div :class="[
+        showSkillsRadar ? 'lg:col-span-3' : 'lg:col-span-6',
+        'col-span-12 md:col-span-4'
+      ]">
+        <div class="card p-4 h-full flex flex-col">
           <div class="flex items-center justify-between mb-4">
             <div class="flex items-center gap-2">
               <i class="pi pi-comments text-indigo-500"></i>
@@ -59,13 +76,14 @@
                 {{ interviewsData.length }}
               </div>
             </div>
+            <!-- Removing the Skills Radar toggle button from here -->
           </div>
           
-          <div>
-            <div v-if="interviewsData.length === 0" class="text-gray-500 italic py-4 text-center">
+          <div class="flex-grow overflow-hidden">
+            <div v-if="interviewsData.length === 0" class="text-gray-500 italic py-4 text-center h-full flex items-center justify-center">
               No reviews available
             </div>
-            <div v-else>
+            <div v-else class="h-full flex flex-col">
               <!-- Review Categories Tabs -->
               <div class="border-b border-gray-200 mb-4">
                 <ul class="flex flex-wrap -mb-px text-sm font-medium text-center">
@@ -87,8 +105,8 @@
               </div>
               
               <!-- Reviews for Selected Category -->
-              <div v-for="(reviews, field) in groupedReviews" :key="field" v-show="selectedReviewCategory === field">
-                <div class="grid grid-cols-1 gap-4 max-h-[400px] overflow-y-auto pr-2">
+              <div v-for="(reviews, field) in groupedReviews" :key="field" v-show="selectedReviewCategory === field" class="flex-grow overflow-hidden">
+                <div class="grid grid-cols-1 gap-4 max-h-[calc(100%-40px)] overflow-y-auto pr-2">
                   <div 
                     v-for="(review, index) in reviews" 
                     :key="index" 
@@ -139,59 +157,118 @@
         </div>
       </div>
       
-      <!-- Certifications Section -->
-      <div class="col-span-12 lg:col-span-3 md:col-span-4">
-        <div class="card p-4 h-full">
-          <div class="flex items-center justify-between mb-4 cursor-pointer" @click="toggleCertifications">
-            <div class="flex items-center gap-2">
-              <i class="pi pi-bookmark text-green-500"></i>
-              <h5 class="font-semibold m-0">Certifications</h5>
-              <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
-                {{ certificationsData.length }}
-              </div>
-            </div>
-            <i :class="`pi ${isCertificationsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
-          </div>
-          
-          <transition name="fade">
-            <div v-if="!isCertificationsCollapsed">
-              <div v-if="certificationsData.length === 0" class="text-gray-500 italic py-4 text-center">
-                No certifications recorded
-              </div>
-              <div v-else class="grid grid-cols-1 gap-4 max-h-[400px] overflow-y-auto pr-2">
-                <div 
-                  v-for="(certification, index) in certificationsData" 
-                  :key="index" 
-                  class="bg-gray-50 rounded-lg p-4 border-l-4"
-                  :class="isCertificationActive(certification) ? 'border-green-500' : 'border-red-500'"
-                >
-                  <div class="flex justify-between items-start">
-                    <div class="flex-1">
-                      <h6 class="font-medium text-gray-900 mb-1 line-clamp-2">{{ certification.certificationName }}</h6>
-                      
-                      <div class="flex items-center text-xs text-gray-500 mt-2">
-                        <i class="pi pi-calendar mr-1"></i>
-                        <span>Expires: {{ formatDate(certification.certificationExpiration) }}</span>
-                      </div>
-                    </div>
-                    <Tag 
-                      :value="isCertificationActive(certification) ? 'active' : 'expired'"
-                      :severity="isCertificationActive(certification) ? 'success' : 'danger'"
-                      class="text-xs ml-2 shrink-0"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </transition>
-        </div>
-      </div>
-      
       <!-- Middle Row: Forms and Skillsets -->
       <div class="col-span-12 lg:col-span-12 mt-4">
         <!-- Forms and Skillsets in a grid layout on desktop -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
-          <!-- Left column for forms on desktop -->
+          <!-- Left column for skillsets on desktop (moved from right) -->
+          <div class="lg:col-span-6">
+            <div class="card p-4 skillsets-container">
+              <div class="flex items-center justify-between mb-4 cursor-pointer" @click="toggleAllSkillsets">
+                <div class="flex items-center gap-2">
+                  <i class="pi pi-list text-blue-500"></i>
+                  <h5 class="font-semibold m-0">Skillsets</h5>
+                  <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
+                    {{ Object.keys(groupedSkills).length }}
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div v-if="isRefreshingSkillsets" class="flex items-center mr-2">
+                    <i class="pi pi-spin pi-spinner text-blue-500 mr-1"></i>
+                    <span class="text-xs text-blue-500">Updating...</span>
+                  </div>
+                  <i :class="`pi ${areAllSkillsetsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
+                </div>
+              </div>
+              
+              <div v-if="skillsetData.length === 0" class="text-gray-500 italic">
+                No skillset assessments available
+              </div>
+              <div v-else class="flex flex-wrap gap-2 md:gap-4">
+                
+                <!-- Dynamic Categories -->
+                <div v-for="(skills, category) in groupedSkills" :key="category" class="w-full md:w-[calc(33.333%-1rem)] min-w-[300px]">
+                  <fieldset class="border p-2 rounded h-full flex flex-col">
+                    <legend class="cursor-pointer" @click="toggleCategory(category)">
+                      <div class="flex items-center gap-2">
+                        <h6 class="font-semibold">{{ category }}</h6>
+                        <div class="flex items-center gap-1">
+                          <span class="text-sm font-medium">{{ calculateAverage(skills) }}</span>
+                          <i class="pi pi-star-fill text-yellow-500"></i>
+                          <i :class="`pi pi-chevron-${isCategoryOpen(category) ? 'up' : 'down'} text-sm ml-1`"></i>
+                        </div>
+                      </div>
+                    </legend>
+                    <transition name="fade">
+                      <ul v-if="isCategoryOpen(category)" class="flex-1 overflow-y-auto">
+                        <li v-for="skill in skills" :key="skill.skillsetName" class="grid grid-cols-[1fr_150px_26px] items-center gap-2 mb-1">
+                          <span class="text-sm">{{ skill.skillsetName }}</span>
+                          <div class="flex justify-end">
+                            <Rating v-model="skill.skillsetRating" readonly :stars="5" 
+                                    v-tooltip="`Reviewed by: ${skill.reviewers.map(r => r.name).join(', ')}`" />
+                          </div>
+                          <div class="text-[10px] bg-gray-100 px-1.5 py-0.5 rounded-full border border-gray-200 text-center w-[26px]"
+                               v-tooltip="`${skill.reviewCount} reviews`">
+                            {{ skill.reviewCount }}
+                          </div>
+                        </li>
+                      </ul>
+                    </transition>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Certifications Section (conditionally shown below skillsets when expanded) -->
+            <div v-if="shouldShowCertificationsBelowSkillsets" class="mb-6">
+              <div class="card p-4 mt-4">
+                <div class="flex items-center justify-between mb-4 cursor-pointer" @click="toggleCertifications">
+                  <div class="flex items-center gap-2">
+                    <i class="pi pi-bookmark text-green-500"></i>
+                    <h5 class="font-semibold m-0">Certifications</h5>
+                    <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
+                      {{ certificationsData.length }}
+                    </div>
+                  </div>
+                  <i :class="`pi ${isCertificationsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
+                </div>
+                
+                <transition name="fade">
+                  <div v-if="!isCertificationsCollapsed">
+                    <div v-if="certificationsData.length === 0" class="text-gray-500 italic py-4 text-center">
+                      No certifications recorded
+                    </div>
+                    <div v-else class="grid grid-cols-1 gap-4 max-h-[300px] overflow-y-auto pr-2 pb-2">
+                      <div 
+                        v-for="(certification, index) in certificationsData" 
+                        :key="index" 
+                        class="bg-gray-50 rounded-lg p-3 border-l-4"
+                        :class="isCertificationActive(certification) ? 'border-green-500' : 'border-red-500'"
+                      >
+                        <div class="flex justify-between items-start">
+                          <div class="flex-1">
+                            <h6 class="font-medium text-gray-900 mb-1 line-clamp-2">{{ certification.certificationName }}</h6>
+                            
+                            <div class="flex items-center text-xs text-gray-500 mt-2">
+                              <i class="pi pi-calendar mr-1"></i>
+                              <span>Expires: {{ formatDate(certification.certificationExpiration) }}</span>
+                            </div>
+                          </div>
+                          <Tag 
+                            :value="isCertificationActive(certification) ? 'active' : 'expired'"
+                            :severity="isCertificationActive(certification) ? 'success' : 'danger'"
+                            class="text-xs ml-2 shrink-0"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </transition>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right column for forms and two analytics charts -->
           <div class="lg:col-span-6">
             <!-- Interview Card (not modal anymore) -->
             <div v-if="showInterviewModal" ref="interviewCard" class="interview-card card mb-6 p-4 shadow-md border border-gray-200">
@@ -445,86 +522,96 @@
                 </p>
               </div>
             </div>
-          </div>
-          
-          <!-- Right column for skillsets on desktop -->
-          <div class="lg:col-span-6">
-            <div class="card p-4 skillsets-container">
-              <div class="flex items-center justify-between mb-4 cursor-pointer" @click="toggleAllSkillsets">
-                <div class="flex items-center gap-2">
-                  <i class="pi pi-list text-blue-500"></i>
-                  <h5 class="font-semibold m-0">Skillsets</h5>
-                  <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
-                    {{ Object.keys(groupedSkills).length }}
+            
+            <!-- Certifications Section (shown on right when skillsets are collapsed) -->
+            <div v-if="!shouldShowCertificationsBelowSkillsets" class="mb-6">
+              <div class="card p-4">
+                <div class="flex items-center justify-between mb-4 cursor-pointer" @click="toggleCertifications">
+                  <div class="flex items-center gap-2">
+                    <i class="pi pi-bookmark text-green-500"></i>
+                    <h5 class="font-semibold m-0">Certifications</h5>
+                    <div class="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-0.5 rounded-full">
+                      {{ certificationsData.length }}
+                    </div>
                   </div>
+                  <i :class="`pi ${isCertificationsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
                 </div>
-                <div class="flex items-center">
-                  <div v-if="isRefreshingSkillsets" class="flex items-center mr-2">
-                    <i class="pi pi-spin pi-spinner text-blue-500 mr-1"></i>
-                    <span class="text-xs text-blue-500">Updating...</span>
-                  </div>
-                  <i :class="`pi ${areAllSkillsetsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
-                </div>
-              </div>
-              
-              <div v-if="skillsetData.length === 0" class="text-gray-500 italic">
-                No skillset assessments available
-              </div>
-              <div v-else class="flex flex-wrap gap-2 md:gap-4">
                 
-                <!-- Dynamic Categories -->
-                <div v-for="(skills, category) in groupedSkills" :key="category" class="w-full md:w-[calc(33.333%-1rem)] min-w-[300px]">
-                  <fieldset class="border p-2 rounded h-full flex flex-col">
-                    <legend class="cursor-pointer" @click="toggleCategory(category)">
-                      <div class="flex items-center gap-2">
-                        <h6 class="font-semibold">{{ category }}</h6>
-                        <div class="flex items-center gap-1">
-                          <span class="text-sm font-medium">{{ calculateAverage(skills) }}</span>
-                          <i class="pi pi-star-fill text-yellow-500"></i>
-                          <i :class="`pi pi-chevron-${isCategoryOpen(category) ? 'up' : 'down'} text-sm ml-1`"></i>
+                <transition name="fade">
+                  <div v-if="!isCertificationsCollapsed">
+                    <div v-if="certificationsData.length === 0" class="text-gray-500 italic py-4 text-center">
+                      No certifications recorded
+                    </div>
+                    <div v-else class="grid grid-cols-1 gap-4 max-h-[300px] overflow-y-auto pr-2 pb-2">
+                      <div 
+                        v-for="(certification, index) in certificationsData" 
+                        :key="index" 
+                        class="bg-gray-50 rounded-lg p-3 border-l-4"
+                        :class="isCertificationActive(certification) ? 'border-green-500' : 'border-red-500'"
+                      >
+                        <div class="flex justify-between items-start">
+                          <div class="flex-1">
+                            <h6 class="font-medium text-gray-900 mb-1 line-clamp-2">{{ certification.certificationName }}</h6>
+                            
+                            <div class="flex items-center text-xs text-gray-500 mt-2">
+                              <i class="pi pi-calendar mr-1"></i>
+                              <span>Expires: {{ formatDate(certification.certificationExpiration) }}</span>
+                            </div>
+                          </div>
+                          <Tag 
+                            :value="isCertificationActive(certification) ? 'active' : 'expired'"
+                            :severity="isCertificationActive(certification) ? 'success' : 'danger'"
+                            class="text-xs ml-2 shrink-0"
+                          />
                         </div>
                       </div>
-                    </legend>
-                    <transition name="fade">
-                      <ul v-if="isCategoryOpen(category)" class="flex-1 overflow-y-auto">
-                        <li v-for="skill in skills" :key="skill.skillsetName" class="grid grid-cols-[1fr_150px_26px] items-center gap-2 mb-1">
-                          <span class="text-sm">{{ skill.skillsetName }}</span>
-                          <div class="flex justify-end">
-                            <Rating v-model="skill.skillsetRating" readonly :stars="5" 
-                                    v-tooltip="`Reviewed by: ${skill.reviewers.map(r => r.name).join(', ')}`" />
-                          </div>
-                          <div class="text-[10px] bg-gray-100 px-1.5 py-0.5 rounded-full border border-gray-200 text-center w-[26px]"
-                               v-tooltip="`${skill.reviewCount} reviews`">
-                            {{ skill.reviewCount }}
-                          </div>
-                        </li>
-                      </ul>
-                    </transition>
-                  </fieldset>
-                </div>
+                    </div>
+                  </div>
+                </transition>
+              </div>
+            </div>
+            
+            <!-- Two analytics charts in the right column -->
+            <div v-if="isAnyCategoryOpen" class="grid grid-cols-1 gap-4 mb-4">
+              <!-- Radar Chart -->
+              <div>
+                <SkillsetRadarChart 
+                  :radarChartData="radarChartData" 
+                  :radarChartOptions="radarChartOptions" 
+                />
+              </div>
+              <!-- Knowledge Distribution Chart -->
+              <div>
+                <KnowledgeDistributionChart 
+                  :pieChartData="pieChartData" 
+                  :chartOptions="chartOptions" 
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Charts Section -->
-      <transition name="fade">
-        <div v-if="isAnyCategoryOpen" class="col-span-12 mt-4">
-          <CandidateAnalytics 
-            :selectedCategory="selectedCategory"
-            :basicChartData="basicChartData"
-            :pieChartData="pieChartData"
-            :verticalBarChartData="verticalBarChartData"
-            :radarChartData="radarChartData"
-            :chartOptions="chartOptions"
-            :radarChartOptions="radarChartOptions"
+      <!-- Bottom Row: Two more analytics charts -->
+      <div v-if="isAnyCategoryOpen" class="col-span-12 mt-4">
+        <div class="mb-3">
+          <h5 class="font-semibold">Candidate Analytics - {{ selectedCategory }}</h5>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <SkillsetAverageChart 
+            :basicChartData="basicChartData" 
+            :chartOptions="chartOptions" 
+          />
+          
+          <SkillsetDistributionChart 
+            :verticalBarChartData="verticalBarChartData" 
+            :chartOptions="chartOptions" 
           />
         </div>
-      </transition>
+      </div>
       
       <!-- Metadata Section -->
-      <div class="col-span-12 mt-4">
+      <div class="col-span-12 mt-6">
         <CandidateMetadata :candidateData="candidateData" />
       </div>
     </div>
@@ -552,10 +639,13 @@ import Chip from 'primevue/chip';
 import SkillsetRadar from '@/components/careerpath/SkillsetRadar.vue';
 import Certifications from '@/components/careerpath/Certifications.vue';
 import CandidateBasicInfo from '@/components/careerpath/CandidateBasicInfo.vue';
-import CandidateAnalytics from '@/components/careerpath/CandidateAnalytics.vue';
 import InterviewReviews from '@/components/careerpath/InterviewReviews.vue';
 import CandidateMetadata from '@/components/careerpath/CandidateMetadata.vue';
 import { useConfirm } from 'primevue/useconfirm';
+import SkillsetAverageChart from '@/components/careerpath/SkillsetAverageChart.vue';
+import KnowledgeDistributionChart from '@/components/careerpath/KnowledgeDistributionChart.vue';
+import SkillsetDistributionChart from '@/components/careerpath/SkillsetDistributionChart.vue';
+import SkillsetRadarChart from '@/components/careerpath/SkillsetRadarChart.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -823,8 +913,14 @@ const scheduleInterview = () => {
 
 // Add contactCandidate function
 const contactCandidate = () => {
-  // Implement contact logic
-  console.log('Contacting candidate...');
+  // Get user info from localStorage
+  const userName = localStorage.getItem('userName') || 'a recruiter';
+  const companyName = localStorage.getItem('companyName') || 'Samana Group';
+  const subject = `Regarding your application for ${candidateData.value.recruitmentProcessName}`;
+  const body = `Hello, Nice to meet you! My name is ${userName} from ${companyName} and I would like to ask you some questions regarding the application you recently sent us for the role ${candidateData.value.recruitmentProcessName}`;
+  
+  // Open Gmail with pre-filled message
+  window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${candidateData.value.email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
 };
 
 // Update skillsetData - remove candidateId from all entries
@@ -1297,7 +1393,7 @@ const categoryRadarData = computed(() => {
   return {
     labels: categoryAverages.value.map(item => item.category),
     datasets: [{
-      label: 'Skillser Radar',
+      label: 'Skillset Radar',
       data: categoryAverages.value.map(item => item.average),
       backgroundColor: 'rgba(54, 162, 235, 0.2)',
       borderColor: 'rgba(54, 162, 235, 1)',
@@ -2297,6 +2393,20 @@ const confirmDeleteSkillset = (skillset, event) => {
       // Do nothing on reject
     }
   });
+};
+
+// Add new state for skillset assessment
+const shouldShowCertificationsBelowSkillsets = computed(() => {
+  // Show below skillsets if any category is open, interview form is shown, or skillset assessment is shown
+  return isAnyCategoryOpen.value || showInterviewModal.value || showSkillsetAssessment.value;
+});
+
+// Add new state for showing skills radar
+const showSkillsRadar = ref(true);
+
+// Add function to toggle skills radar
+const toggleSkillsRadar = () => {
+  showSkillsRadar.value = !showSkillsRadar.value;
 };
 </script>
 

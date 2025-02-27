@@ -53,6 +53,7 @@ const fetchSessionInfo = async () => {
             if(data.user){
                 localStorage.setItem('userName', data.user.userName || '');
                 localStorage.setItem('userEmail', data.user.email || '');
+                localStorage.setItem('companyName', data.user.companyName || 'Samana Group');
             }
         }
     } catch (error) {

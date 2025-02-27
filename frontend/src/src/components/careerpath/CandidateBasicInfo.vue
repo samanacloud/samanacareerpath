@@ -30,6 +30,18 @@
         </div>
       </div>
       <p class="text-sm text-gray-600 text-center mb-4"><i class="pi pi-briefcase"></i>{{ candidateData.recruitmentProcessName }}</p>
+      
+      <!-- Skills Radar Toggle Button -->
+      <div class="w-full mb-4">
+        <Button 
+          :icon="showSkillsRadar ? 'pi pi-eye-slash' : 'pi pi-chart-line'" 
+          :label="showSkillsRadar ? 'Hide Skills Radar' : 'Show Skills Radar'" 
+          class="p-button-outlined p-button-sm w-full"
+          :class="showSkillsRadar ? 'p-button-secondary' : 'p-button-info'"
+          @click="toggleSkillsRadar"
+        />
+      </div>
+      
       <!-- Contact Info Section -->
       <div class="w-full mt-4 space-y-2 text-sm">
         <div class="flex items-center">
@@ -60,15 +72,34 @@
       </div>
       <!-- Action Buttons -->
       <div class="w-full mt-6 flex gap-2">
-        <Button class="flex-1" severity="info" @click="showInterviewForm" size="small" v-tooltip.top="'Interview Candidate'">
-          <i class="pi pi-eye"></i>
-        </Button>
-        <Button class="flex-1" severity="warning" @click="toggleSkillsetAssessment" size="small" v-tooltip.top="'Assess Skillsets'">
-          <i class="pi pi-star"></i>
-        </Button>
-        <Button class="flex-1" severity="success" @click="contactCandidate" size="small" v-tooltip.top="'Contact Candidate'">
-          <i class="pi pi-envelope"></i>
-        </Button>
+        <Button 
+          class="flex-1" 
+          severity="info" 
+          @click="showInterviewForm" 
+          size="small"
+          v-tooltip.top="'Interview Candidate'"
+          :label="!showSkillsRadar && windowWidth >= 1024 ? 'Interview' : ''"
+          :icon="'pi pi-eye'"
+        />
+        <Button 
+          class="flex-1" 
+          severity="warning" 
+          @click="toggleSkillsetAssessment" 
+          size="small" 
+          v-tooltip.top="'Assess Skillsets'"
+          :label="!showSkillsRadar && windowWidth >= 1024 ? 'Assess' : ''"
+          :icon="'pi pi-star'"
+        />
+        <SplitButton 
+          class="flex-1" 
+          severity="success" 
+          size="small" 
+          :label="!showSkillsRadar && windowWidth >= 1024 ? 'Contact' : ''" 
+          icon="pi pi-envelope" 
+          :model="contactOptions" 
+          @click="contactViaEmail"
+          v-tooltip.top="'Contact Candidate'"
+        />
       </div>
     </div>
   </div>
@@ -78,6 +109,8 @@
 import { defineProps } from 'vue';
 import Avatar from 'primevue/avatar';
 import Button from 'primevue/button';
+import SplitButton from 'primevue/splitbutton';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 const props = defineProps({
   candidateData: { type: Object, required: true },
@@ -89,8 +122,130 @@ const props = defineProps({
   showInterviewForm: { type: Function, required: true },
   toggleSkillsetAssessment: { type: Function, required: true },
   contactCandidate: { type: Function, required: true },
-  isRefreshingSkillAverage: { type: Boolean, default: false }
+  isRefreshingSkillAverage: { type: Boolean, default: false },
+  showSkillsRadar: { type: Boolean, required: true },
+  toggleSkillsRadar: { type: Function, required: true }
 });
+
+// Add reactive variable to track window width
+const windowWidth = ref(window.innerWidth);
+
+// Add resize event listener
+const handleResize = () => {
+  windowWidth.value = window.innerWidth;
+};
+
+// Setup and cleanup event listeners
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize);
+});
+
+// Contact options for the SplitButton
+const contactOptions = [
+  {
+    label: 'WhatsApp',
+    icon: 'pi pi-whatsapp',
+    command: () => {
+      contactViaWhatsApp();
+    }
+  },
+  {
+    label: 'Google Calendar',
+    icon: 'pi pi-calendar',
+    command: () => {
+      contactViaCalendar();
+    }
+  }
+];
+
+// Function to contact via WhatsApp
+const contactViaWhatsApp = () => {
+  const userName = localStorage.getItem('userName') || 'a recruiter';
+  const companyName = localStorage.getItem('companyName') || 'Samana Group';
+  
+  // Get first name for a more friendly greeting
+  const firstName = props.formattedName.split(' ')[0];
+  
+  // Updated message asking about availability for a quick call
+  const message = `Hello ${firstName}, Nice to meet you! My name is ${userName} from ${companyName}. I'm reviewing your application for the ${props.candidateData.recruitmentProcessName} role and I'm impressed with your profile. Are you available for a quick call right now to confirm some information from your CV? If not, please let me know when would be a convenient time for you. Thank you!`;
+  
+  // Encode the message for URL
+  const encodedMessage = encodeURIComponent(message);
+  
+  // Open WhatsApp Web with the pre-filled message
+  window.open(`https://web.whatsapp.com/send?phone=${props.candidateData.phone}&text=${encodedMessage}`, '_blank');
+};
+
+// Function to contact via Google Calendar
+const contactViaCalendar = () => {
+  const userName = localStorage.getItem('userName') || 'a recruiter';
+  const userEmail = localStorage.getItem('userEmail') || 'recruiting@samanagroup.co';
+  const companyName = localStorage.getItem('companyName') || 'Samana Group';
+  const subject = `Interview: ${props.formattedName} - ${props.candidateData.recruitmentProcessName} Position`;
+  
+  // Get first name for a more friendly greeting
+  const firstName = props.formattedName.split(' ')[0];
+  
+  // Create a more professional description with friendly greeting
+  let description = `Dear ${firstName},\n\n`;
+  description += `I would like to invite you to an interview for the ${props.candidateData.recruitmentProcessName} position at ${companyName}. `;
+  description += `We were impressed with your application and would like to discuss your qualifications and experience in more detail.\n\n`;
+  
+  // Add CV reference in a cleaner way
+  if (props.candidateData.candidateCV) {
+    description += `I have reviewed your CV and would like to explore how your skills align with our requirements.\n\n`;
+  }
+  
+  description += `Please confirm if this time works for you. If not, please suggest a few alternative times that would be convenient.\n\n`;
+  
+  // Add candidate contact information in a more structured way
+  description += `Reference Information:\n\n`;
+  description += `• Candidate: ${props.formattedName}\n`;
+  description += `• Position: ${props.candidateData.recruitmentProcessName}\n`;
+  description += `• Email: ${props.candidateData.email}\n`;
+  description += `• Phone: ${props.candidateData.phone}\n`;
+  description += `• Country: ${props.candidateData.country}\n\n`;
+  description += `• CV: ${props.candidateData.candidateCV}\n\n`;
+  
+  // Add professional signature
+  description += `Best Regards,\n\n`;
+  description += `${userName}\n`;
+  description += `${userEmail}\n`;
+  description += `${companyName}`;
+  
+  // Create Google Calendar event URL
+  const startDate = new Date();
+  startDate.setDate(startDate.getDate() + 1); // Set to tomorrow
+  startDate.setHours(10, 0, 0, 0); // Set to 10:00 AM
+  
+  const endDate = new Date(startDate);
+  endDate.setHours(11, 0, 0, 0); // Set to 11:00 AM (1 hour meeting)
+  
+  // Format dates for Google Calendar
+  const formatDate = (date) => {
+    return date.toISOString().replace(/-|:|\.\d+/g, '');
+  };
+  
+  // Add Google Meet video conferencing by including the 'crm' parameter
+  const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(subject)}&dates=${formatDate(startDate)}/${formatDate(endDate)}&details=${encodeURIComponent(description)}&add=${encodeURIComponent('recruiting@samanagroup.co')}&add=${encodeURIComponent(props.candidateData.email)}&crm=AVAILABLE&sf=true&output=xml`;
+  
+  window.open(calendarUrl, '_blank');
+};
+
+// Function to contact via Email
+const contactViaEmail = () => {
+  const userName = localStorage.getItem('userName') || 'a recruiter';
+  const companyName = localStorage.getItem('companyName') || 'Samana Group';
+  const subject = `Regarding your application for ${props.candidateData.recruitmentProcessName}`;
+  const body = `Hello, Nice to meet you! My name is ${userName} from ${companyName} and I would like to ask you some questions regarding the application you recently sent us for the role ${props.candidateData.recruitmentProcessName}`;
+  
+  // Open Gmail with pre-filled message
+  window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${props.candidateData.email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
+};
 
 // Function to format date to Jan-03-2025 format
 const formatDate = (dateString) => {

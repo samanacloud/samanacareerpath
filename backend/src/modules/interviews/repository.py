@@ -58,4 +58,25 @@ class InterviewRepository:
     def _format_interview(self, doc: Dict[str, Any]) -> Dict[str, Any]:
         """Format MongoDB document"""
         doc["id"] = str(doc.pop("_id"))
+        
+        # Ensure field names match the schema definition
+        if "evaluationfield" in doc:
+            doc["evaluationField"] = doc.pop("evaluationfield")
+        
+        # Normalize field names to match schema
+        field_mapping = {
+            "evaluationfield": "evaluationField",
+            "companyid": "companyId",
+            "companyname": "companyName",
+            "recruitmentprocessid": "recruitmentProcessId",
+            "recruitmentprocessname": "recruitmentProcessName",
+            "interviewedby": "interviewedBy",
+            "intervieweremail": "interviewerEmail",
+            "createdat": "createdAt"
+        }
+        
+        for db_field, schema_field in field_mapping.items():
+            if db_field in doc:
+                doc[schema_field] = doc.pop(db_field)
+                
         return doc 

@@ -1,10 +1,12 @@
 <template>
     <div id="pricing" class="bg-surface-0 dark:bg-surface-950 px-6 py-20 md:px-12 lg:px-20">
+        <Toast />
         <div class="text-surface-900 dark:text-surface-0 font-bold text-4xl lg:text-6xl mb-6 text-center">Pricing Plans</div>
         <div class="text-surface-700 dark:text-surface-0/70 text-xl mb-12 text-center leading-normal">Choose the plan that best fits your team</div>
         <div class="flex lg:flex-row flex-col gap-8 lg:gap-4 xl:gap-12 max-w-7xl mx-auto">
             <!-- Starter Plan -->
-            <div class="w-full flex-1 py-4 px-4 lg:px-6 flex rounded-lg flex-col bg-surface-0 dark:bg-surface-800 shadow-[0px_2px_6px_0px_rgba(0,0,0,0.12),0px_0px_2px_0px_rgba(0,0,0,0.06),0px_4px_10px_0px_rgba(0,0,0,0.03)]">
+            <div class="w-full flex-1 py-4 px-4 lg:px-6 flex rounded-lg flex-col bg-surface-0 dark:bg-surface-800 shadow-[0px_2px_6px_0px_rgba(0,0,0,0.12),0px_0px_2px_0px_rgba(0,0,0,0.06),0px_4px_10px_0px_rgba(0,0,0,0.03)] relative">
+                <div class="absolute -top-3 right-4 bg-primary-500 text-white text-xs font-bold px-3 py-1 rounded-full">Coming Soon</div>
                 <div class="text-surface-900 dark:text-surface-0 font-medium text-xl mb-2">Starter</div>
                 <div class="text-surface-600 dark:text-surface-300">Perfect for small teams</div>
                 <div class="my-4 w-full h-px bg-surface-300 dark:bg-surface-700" />
@@ -28,11 +30,12 @@
                     </li>
                 </ul>
                 <div class="my-4 w-full h-px bg-surface-300 dark:bg-surface-700" />
-                <Button label="Get Started" class="px-5 py-3" />
+                <Button label="Coming Soon" class="px-5 py-3" disabled @click="showComingSoonToast('Starter')" />
             </div>
 
             <!-- Professional Plan -->
-            <div class="w-full flex-1 py-4 px-4 lg:px-6 flex rounded-lg flex-col bg-surface-0 dark:bg-surface-800 shadow-[0px_2px_6px_0px_rgba(0,0,0,0.12),0px_0px_2px_0px_rgba(0,0,0,0.06),0px_4px_10px_0px_rgba(0,0,0,0.03)]">
+            <div class="w-full flex-1 py-4 px-4 lg:px-6 flex rounded-lg flex-col bg-surface-0 dark:bg-surface-800 shadow-[0px_2px_6px_0px_rgba(0,0,0,0.12),0px_0px_2px_0px_rgba(0,0,0,0.06),0px_4px_10px_0px_rgba(0,0,0,0.03)] relative">
+                <div class="absolute -top-3 right-4 bg-primary-500 text-white text-xs font-bold px-3 py-1 rounded-full">Coming Soon</div>
                 <div class="text-surface-900 dark:text-surface-0 font-medium text-xl mb-2">Professional</div>
                 <div class="text-surface-600 dark:text-surface-300">For growing teams</div>
                 <div class="my-4 w-full h-px bg-surface-300 dark:bg-surface-700" />
@@ -60,11 +63,12 @@
                     </li>
                 </ul>
                 <div class="my-4 w-full h-px bg-surface-300 dark:bg-surface-700" />
-                <Button label="Get Started" class="px-5 py-3" />
+                <Button label="Coming Soon" class="px-5 py-3" disabled @click="showComingSoonToast('Professional')" />
             </div>
 
             <!-- Business Plan -->
-            <div class="w-full flex-1 py-4 px-4 lg:px-6 flex rounded-lg flex-col bg-surface-0 dark:bg-surface-800 shadow-[0px_2px_6px_0px_rgba(0,0,0,0.12),0px_0px_2px_0px_rgba(0,0,0,0.06),0px_4px_10px_0px_rgba(0,0,0,0.03)]">
+            <div class="w-full flex-1 py-4 px-4 lg:px-6 flex rounded-lg flex-col bg-surface-0 dark:bg-surface-800 shadow-[0px_2px_6px_0px_rgba(0,0,0,0.12),0px_0px_2px_0px_rgba(0,0,0,0.06),0px_4px_10px_0px_rgba(0,0,0,0.03)] relative">
+                <div class="absolute -top-3 right-4 bg-primary-500 text-white text-xs font-bold px-3 py-1 rounded-full">Coming Soon</div>
                 <div class="text-surface-900 dark:text-surface-0 font-medium text-xl mb-2">Business</div>
                 <div class="text-surface-600 dark:text-surface-300">For medium-sized companies</div>
                 <div class="my-4 w-full h-px bg-surface-300 dark:bg-surface-700" />
@@ -96,7 +100,7 @@
                     </li>
                 </ul>
                 <div class="my-4 w-full h-px bg-surface-300 dark:bg-surface-700" />
-                <Button label="Get Started" class="px-5 py-3" />
+                <Button label="Coming Soon" class="px-5 py-3" disabled @click="showComingSoonToast('Business')" />
             </div>
         </div>
     </div>
@@ -104,4 +108,17 @@
 
 <script setup>
 import Button from 'primevue/button';
+import Toast from 'primevue/toast';
+import { useToast } from 'primevue/usetoast';
+
+const toast = useToast();
+
+const showComingSoonToast = (plan) => {
+    toast.add({
+        severity: 'info',
+        summary: `${plan} Plan Coming Soon!`,
+        detail: 'Please join our waitlist to receive updates when this plan becomes available.',
+        life: 5000
+    });
+};
 </script>

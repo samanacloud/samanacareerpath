@@ -124,18 +124,46 @@
               <div class="card flex flex-col gap-4">
                   <Fieldset 
                       legend="Basic Information" 
-                      :toggleable="true" 
+                      :toggleable="false" 
                       class="mb-4 p-2 md:p-3"
                   >
                       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <!-- Candidate Selection -->
+                          <div class="flex flex-col gap-2 md:col-span-2">
+                              <div class="flex items-center justify-between">
+                                  <label class="text-gray-700 font-medium">Select from Enrolled Candidates</label>
+                                  <Button 
+                                      type="button" 
+                                      label="Select Candidate" 
+                                      icon="pi pi-user-plus" 
+                                      outlined 
+                                      size="small"
+                                      @click="openCandidateSelector" 
+                                  />
+                              </div>
+                          </div>
+                          
                           <div class="flex flex-col gap-2">
                               <FloatLabel variant="on">
-                                  <InputText 
+                                  <AutoComplete
                                       id="name" 
                                       v-model="user.name" 
+                                      :suggestions="filteredEmployees"
+                                      @complete="searchEmployees"
+                                      field="name"
+                                      optionLabel="name"
+                                      @item-select="onEmployeeSelect"
                                       :class="{'p-invalid': submitted && !user.name}"
                                       autofocus
-                                  />
+                                      forceSelection
+                                  >
+                                      <template #item="slotProps">
+                                          <div class="flex flex-col">
+                                              <div>{{ slotProps.item.name }}</div>
+                                              <small class="text-gray-500">{{ slotProps.item.email }}</small>
+                                          </div>
+                                      </template>
+                                  </AutoComplete>
                                   <label for="name">Full Name*</label>
                               </FloatLabel>
                               <small class="p-error" v-if="submitted && !user.name">Name is required.</small>
@@ -351,6 +379,20 @@
         companyName
         createdAt
         updatedAt
+      }
+    }
+  `;
+  
+  const LIST_EMPLOYEES = `
+    query EmployeesByCompany($companyId: String!) {
+      employeesByCompany(companyId: $companyId) {
+        id
+        name
+        email
+        country
+        role
+        phone
+        status
       }
     }
   `;
@@ -733,6 +775,67 @@
       user.value.manager = event.value.name;
   }
   
+  // Add function to load employees
+  async function loadEmployees() {
+      if (!sessionInfo.value?.companyId) {
+          return;
+      }
+  
+      try {
+          loadingEmployees.value = true;
+          const response = await fetch(`${import.meta.env.VITE_API_URL}/graphql`, {
+              method: 'POST',
+              headers: { 
+                  'Content-Type': 'application/json'
+              },
+              credentials: 'include',
+              body: JSON.stringify({
+                  query: LIST_EMPLOYEES,
+                  variables: {
+                      companyId: sessionInfo.value.companyId
+                  }
+              })
+          });
+          const result = await response.json();
+          if (result.errors) {
+              throw new Error(result.errors[0]?.message || 'Failed to load employees');
+          }
+          employees.value = result.data.employeesByCompany || [];
+      } catch (error) {
+          console.error('Failed to load employees:', error);
+      } finally {
+          loadingEmployees.value = false;
+      }
+  }
+  
+  function searchEmployees(event) {
+      const query = event.query.toLowerCase();
+      filteredEmployees.value = employees.value
+          .filter(employee => 
+              employee.name.toLowerCase().includes(query) || 
+              employee.email.toLowerCase().includes(query)
+          )
+          .map(employee => ({
+              id: employee.id,
+              name: employee.name,
+              email: employee.email,
+              phone: employee.phone,
+              country: employee.country
+          }));
+  }
+  
+  function onEmployeeSelect(event) {
+      if (event.value) {
+          // Populate user form with selected employee data
+          user.value.name = event.value.name;
+          user.value.email = event.value.email;
+          user.value.phone = event.value.phone || '+0000000000';
+          user.value.country = event.value.country || '';
+          // Set default role to Reviewer
+          user.value.role = 'Reviewer';
+      }
+  }
+  
   // Initialize on mount
   onMounted(async () => {
       await fetchSessionInfo();
@@ -752,6 +855,7 @@
           await loadUsers();
           await loadCountries();
           await loadEnabledUsers();
+          await loadEmployees();
       } catch (error) {
           console.error('Error initializing users page:', error);
           toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to load data', life: 3000 });
@@ -780,6 +884,19 @@
     // This will trigger the Message component to show/hide automatically
     // based on the isValidEmail check
   };
+
+  const candidateSelectorDialog = ref(false);
+  const selectedCandidate = ref(null);
+  const candidateFilters = ref({
+    global: { value: null }
+  });
+  const candidates = ref([]);
+  const loadingCandidates = ref(false);
+
+  // Add employees state
+  const employees = ref([]);
+  const filteredEmployees = ref([]);
+  const loadingEmployees = ref(false);
   </script>
   
   <style scoped>

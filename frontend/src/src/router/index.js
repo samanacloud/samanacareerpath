@@ -15,6 +15,8 @@ import AdminRoles from '@/views/careerpath/admin/AdminRoles.vue';
 import AdminCareerPath from '@/views/careerpath/admin/AdminCareerPath.vue';
 import AdminEmployees from '@/views/careerpath/admin/AdminEmployees.vue';
 import RecruitmentLeads from '@/views/careerpath/recruitment/RecruitmentLeads.vue';
+import ContactUs from '@/views/pages/ContactUs.vue';
+import Landing from '@/views/pages/Landing.vue';
 
 // Define public routes that don't require authentication
 const publicRoutes = [
@@ -22,7 +24,8 @@ const publicRoutes = [
     '/auth/login',
     '/auth/register',
     '/auth/access',
-    '/auth/error'
+    '/auth/error',
+    '/contact-us'
 ];
 
 const routes = [
@@ -45,6 +48,12 @@ const routes = [
             {
                 path: '/employees-profiles',
                 name: 'employees-profiles',
+                component: EmployeesProfiles,
+                meta: { requiresAuth: true }
+            },
+            {
+                path: '/employees-profiles/:id',
+                name: 'employees-profiles-id',
                 component: EmployeesProfiles,
                 meta: { requiresAuth: true }
             },
@@ -131,7 +140,12 @@ const routes = [
     {
         path: '/landing',
         name: 'landing',
-        component: () => import('@/views/pages/Landing.vue')
+        component: Landing
+    },
+    {
+        path: '/contact-us',
+        name: 'contact-us',
+        component: ContactUs
     },
     {
         path: '/auth/login',

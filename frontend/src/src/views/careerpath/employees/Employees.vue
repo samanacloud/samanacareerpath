@@ -675,8 +675,10 @@ function onRowClick(event) {
                     event.originalEvent.target.closest('.p-column-header');
     
     if (!isButton && event.data?.id) {
-        // You can implement navigation to employee details page here if needed
-        console.log('Employee clicked:', event.data);
+        router.push({
+            name: 'employees-profiles-id',
+            params: { id: event.data.id }
+        });
     }
 }
 

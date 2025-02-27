@@ -15,6 +15,7 @@ from security import auth  # Import the auth module
 from security.graphql_auth import verify_graphql_auth
 from modules.ai.aitest import router as ai_test_router
 from utils.googlesheets import router as googlesheets_router
+from contact.contact import router as contact_router
 
 app = FastAPI(title="Hello World API")
 
@@ -51,6 +52,9 @@ app.include_router(ai_test_router, prefix="/api/ai")
 
 # Include the Google Sheets router
 app.include_router(googlesheets_router)
+
+# Include the contact router
+app.include_router(contact_router)
 
 async def send_test_email(to_email: str, subject: str, body: str) -> tuple[bool, str]:
     try:

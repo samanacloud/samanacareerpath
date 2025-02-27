@@ -14,29 +14,37 @@ const model = ref([
         label: 'Employees',
         items: [
             { label: 'Overview', icon: 'pi pi-fw pi-users', to: '/employees' },
-            { label: 'Profiles', icon: 'pi pi-fw pi-id-card', to: '/employees-profiles' },
-            { label: 'Reports', icon: 'pi pi-fw pi-chart-bar', to: '/employees-reports' }
+          //  { label: 'Profiles', icon: 'pi pi-fw pi-id-card', to: '/employees-profiles' },
+          //  { label: 'Reports', icon: 'pi pi-fw pi-chart-bar', to: '/employees-reports' }
         ]
     },
     {
-        label: 'Candidates',
+        label: 'Recruitment',
         items: [
-            { label: 'Overview', icon: 'pi pi-fw pi-user-plus', to: '/candidates' },
-            { label: 'Profiles', icon: 'pi pi-fw pi-id-card', to: '/candidates-profiles' },
-            { label: 'Selection Workflows', icon: 'pi pi-fw pi-sitemap', to: '/candidates-workflows' },
-            { label: 'Recruitment Leads', icon: 'pi pi-fw pi-briefcase', to: '/recruitment-leads' }
+            { label: 'Recruitment Leads', icon: 'pi pi-fw pi-briefcase', to: '/recruitment-leads' },
+            { label: 'Candidates', icon: 'pi pi-fw pi-user-plus', to: '/candidates' }
+         //   { label: 'Profiles', icon: 'pi pi-fw pi-id-card', to: '/candidates-profiles' },
+         //   { label: 'Selection Workflows', icon: 'pi pi-fw pi-sitemap', to: '/candidates-workflows' },
+            
         ]
     },
     {
         label: 'Administration',
         items: [
-            { label: 'Career Path', icon: 'pi pi-fw pi-sitemap', to: '/admin-careerpath' },
+          
             { label: 'Users', icon: 'pi pi-fw pi-user', to: '/admin-users' },
             { label: 'Employees', icon: 'pi pi-fw pi-users', to: '/admin-employees' },
             { label: 'Skillsets', icon: 'pi pi-fw pi-star', to: '/admin-skillsets' },
             { label: 'Certifications', icon: 'pi pi-fw pi-check-circle', to: '/admin-certifications' },
-            { label: 'Candidates', icon: 'pi pi-fw pi-users', to: '/admin-candidates' },
-            { label: 'Roles', icon: 'pi pi-fw pi-shield', to: '/admin-roles' }
+            { label: 'Candidates', icon: 'pi pi-fw pi-users', to: '/admin-candidates' }
+           
+        ]
+    },
+    {
+        label: 'Beta Functions',
+        items: [
+            { label: 'AI Skillset Assesment', icon: 'pi pi-fw pi-shield', to: '/admin-roles' },
+            { label: 'Career Path', icon: 'pi pi-fw pi-sitemap', to: '/admin-careerpath' }
         ]
     }
 ]);
