@@ -1,0 +1,1440 @@
+[{
+  "_id": {
+    "$oid": "67be2bc17635d2ae25dd93cd"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Windows Server",
+  "skillsetName": "DNS and DHCP Configuration",
+  "skillsetDescription": "Windows Server Knowledge"
+},
+{
+  "_id": {
+    "$oid": "67be2bc17635d2ae25dd93cf"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Windows Server",
+  "skillsetName": "Windows Server Update Services (WSUS)",
+  "skillsetDescription": "Windows Server Knowledge"
+},
+{
+  "_id": {
+    "$oid": "67be2bc17635d2ae25dd93d2"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Windows Server",
+  "skillsetName": "Remote Desktop Services (RDS)",
+  "skillsetDescription": "Windows Server Knowledge"
+},
+{
+  "_id": {
+    "$oid": "67be3a5c56b43599b8ebb771"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "English",
+  "skillsetName": "Verbal Fluency",
+  "skillsetDescription": "Ability to speak French smoothly and coherently, with minimal hesitation or repetition, demonstrating a strong command of vocabulary and grammar."
+},
+{
+  "_id": {
+    "$oid": "67be3f2011a1e8e5770522e4"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Okta Security",
+  "skillsetName": "Okta Configuration Expertise",
+  "skillsetDescription": "Ability to configure and manage Okta environments, including setting up Single Sign-On (SSO), Multi-Factor Authentication (MFA), and user provisioning."
+},
+{
+  "_id": {
+    "$oid": "67be3f2211a1e8e5770522e5"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Okta Security",
+  "skillsetName": "Identity and Access Management (IAM) Knowledge",
+  "skillsetDescription": "Understanding of IAM principles, including role-based access control (RBAC), least privilege, and identity lifecycle management within Okta."
+},
+{
+  "_id": {
+    "$oid": "67be3f2511a1e8e5770522e6"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Okta Security",
+  "skillsetName": "Integration with Third-Party Applications",
+  "skillsetDescription": "Proficiency in integrating Okta with various third-party applications and services, including APIs, SAML, OAuth, and SCIM."
+},
+{
+  "_id": {
+    "$oid": "67be3f2611a1e8e5770522e7"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Okta Security",
+  "skillsetName": "Security Policy Implementation",
+  "skillsetDescription": "Experience in creating and enforcing security policies in Okta, such as password policies, session management, and adaptive authentication rules."
+},
+{
+  "_id": {
+    "$oid": "67be3f2811a1e8e5770522e8"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Okta Security",
+  "skillsetName": "Threat Detection and Response",
+  "skillsetDescription": "Ability to monitor Okta logs and events for suspicious activities, and implement appropriate response measures to mitigate security threats."
+},
+{
+  "_id": {
+    "$oid": "67be3f2911a1e8e5770522e9"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Okta Security",
+  "skillsetName": "Compliance and Auditing",
+  "skillsetDescription": "Knowledge of compliance requirements (e.g., GDPR, HIPAA) and experience in conducting audits and generating reports within Okta to ensure adherence."
+},
+{
+  "_id": {
+    "$oid": "67be3f2b11a1e8e5770522ea"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Okta Security",
+  "skillsetName": "Troubleshooting and Problem-Solving",
+  "skillsetDescription": "Skill in diagnosing and resolving issues related to Okta configurations, integrations, and user access problems."
+},
+{
+  "_id": {
+    "$oid": "67be3f4f11a1e8e5770522eb"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "iAM",
+  "skillsetName": "Identity Lifecycle Management",
+  "skillsetDescription": "Ability to design and implement processes for creating, updating, and deactivating user identities across systems."
+},
+{
+  "_id": {
+    "$oid": "67be3f5111a1e8e5770522ec"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "iAM",
+  "skillsetName": "Access Control Policies",
+  "skillsetDescription": "Knowledge of defining and enforcing role-based access control (RBAC) and attribute-based access control (ABAC) policies."
+},
+{
+  "_id": {
+    "$oid": "67be3f5211a1e8e5770522ed"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "iAM",
+  "skillsetName": "Authentication Mechanisms",
+  "skillsetDescription": "Understanding of multi-factor authentication (MFA), single sign-on (SSO), and passwordless authentication methods."
+},
+{
+  "_id": {
+    "$oid": "67be3f5411a1e8e5770522ee"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "iAM",
+  "skillsetName": "Privileged Access Management",
+  "skillsetDescription": "Experience in managing and securing privileged accounts, including just-in-time access and session monitoring."
+},
+{
+  "_id": {
+    "$oid": "67be3f5511a1e8e5770522ef"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "iAM",
+  "skillsetName": "IAM Integration",
+  "skillsetDescription": "Proficiency in integrating IAM solutions with enterprise applications, directories (e.g., LDAP, Active Directory), and cloud platforms."
+},
+{
+  "_id": {
+    "$oid": "67be3f8611a1e8e5770522f1"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "iAM",
+  "skillsetName": "Compliance and Auditing",
+  "skillsetDescription": "Ability to ensure IAM systems comply with regulatory standards (e.g., GDPR, HIPAA) and perform regular access audits."
+},
+{
+  "_id": {
+    "$oid": "67be3f8911a1e8e5770522f2"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "iAM",
+  "skillsetName": "Identity Federation",
+  "skillsetDescription": "Knowledge of setting up and managing identity federation protocols like SAML, OAuth, and OpenID Connect."
+},
+{
+  "_id": {
+    "$oid": "67be3f8c11a1e8e5770522f3"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "iAM",
+  "skillsetName": "User Behavior Analytics",
+  "skillsetDescription": "Experience in leveraging analytics tools to detect anomalous user behavior and potential insider threats."
+},
+{
+  "_id": {
+    "$oid": "67bf56c76795ea257030a269"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Virtualization Technologies",
+  "skillsetName": "Understanding of Hypervisors",
+  "skillsetDescription": "Ability to explain the role and functionality of hypervisors (Type 1 and Type 2) in virtualization, including examples like VMware ESXi, Hyper-V, and KVM."
+},
+{
+  "_id": {
+    "$oid": "67bf56e66795ea257030a26a"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Virtualization Technologies",
+  "skillsetName": "Virtual Machine Management",
+  "skillsetDescription": "Proficiency in creating, configuring, and managing virtual machines (VMs), including resource allocation, snapshots, and cloning."
+},
+{
+  "_id": {
+    "$oid": "67bf56eb6795ea257030a26b"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Virtualization Technologies",
+  "skillsetName": "Performance Optimization",
+  "skillsetDescription": "Ability to identify and resolve performance bottlenecks in virtualized environments, including CPU, memory, and I/O optimization."
+},
+{
+  "_id": {
+    "$oid": "67bf57006795ea257030a26c"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Virtualization Technologies",
+  "skillsetName": "Disaster Recovery and Backup",
+  "skillsetDescription": "Experience in implementing and managing disaster recovery plans and backup strategies for virtualized systems."
+},
+{
+  "_id": {
+    "$oid": "67bf570b6795ea257030a26d"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Virtualization Technologies",
+  "skillsetName": "Troubleshooting Virtualization Issues",
+  "skillsetDescription": "Ability to diagnose and resolve common issues in virtualized environments, such as VM failures, network connectivity problems, and resource contention."
+},
+{
+  "_id": {
+    "$oid": "67bf57816795ea257030a26f"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Windows Server",
+  "skillsetName": "Active Directory Management",
+  "skillsetDescription": "Ability to configure, manage, and troubleshoot Active Directory, including user accounts, group policies, and domain services."
+},
+{
+  "_id": {
+    "$oid": "67bf57976795ea257030a271"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Windows Server",
+  "skillsetName": "PowerShell Scripting",
+  "skillsetDescription": "Ability to write and troubleshoot PowerShell scripts to automate administrative tasks and manage server configurations."
+},
+{
+  "_id": {
+    "$oid": "67bf57d86795ea257030a272"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Windows Server",
+  "skillsetName": "Performance Monitoring and Optimization",
+  "skillsetDescription": "Experience using tools like Performance Monitor and Resource Monitor to analyze and optimize server performance."
+},
+{
+  "_id": {
+    "$oid": "67bf58216795ea257030a273"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Windows Server",
+  "skillsetName": "Group Policy Implementation",
+  "skillsetDescription": "Skill in creating, applying, and troubleshooting Group Policy Objects (GPOs) to enforce security and configuration settings across a network."
+},
+{
+  "_id": {
+    "$oid": "67bf586e6795ea257030a274"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Windows Server",
+  "skillsetName": "Backup and Disaster Recovery",
+  "skillsetDescription": "Experience in designing and implementing backup strategies and disaster recovery plans using Windows Server tools."
+},
+{
+  "_id": {
+    "$oid": "67bf589d6795ea257030a275"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Windows Server",
+  "skillsetName": "File and Storage Solutions",
+  "skillsetDescription": "Ability to configure and manage file servers, storage spaces, and shared folders, including permissions and quotas."
+},
+{
+  "_id": {
+    "$oid": "67bf58ec6795ea257030a276"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Linux",
+  "skillsetName": "Shell Scripting",
+  "skillsetDescription": "Capability to write and debug shell scripts to automate tasks, including loops, conditionals, and command substitution."
+},
+{
+  "_id": {
+    "$oid": "67bf58fc6795ea257030a277"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Linux",
+  "skillsetName": "Command Line Proficiency",
+  "skillsetDescription": "Ability to use basic and advanced Linux commands, including file manipulation, text processing, and system monitoring."
+},
+{
+  "_id": {
+    "$oid": "67bf590c6795ea257030a278"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Linux",
+  "skillsetName": "Package Management",
+  "skillsetDescription": "Knowledge of package managers like apt, yum, or dnf, including installing, updating, and removing software packages."
+},
+{
+  "_id": {
+    "$oid": "67bf59386795ea257030a279"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Linux",
+  "skillsetName": "System Security",
+  "skillsetDescription": "Understanding of Linux security practices, including firewalls (iptables, firewalld), SSH configuration, and user permissions."
+},
+{
+  "_id": {
+    "$oid": "67bf594c6795ea257030a27a"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Linux",
+  "skillsetName": "Virtualization and Containers",
+  "skillsetDescription": "Experience with virtualization tools (e.g., KVM, VirtualBox) and containerization technologies like Docker and Podman."
+},
+{
+  "_id": {
+    "$oid": "67bf594f6795ea257030a27b"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Linux",
+  "skillsetName": "Troubleshooting and Logs",
+  "skillsetDescription": "Ability to diagnose system issues using log files (e.g., /var/log) and tools like journalctl and dmesg."
+},
+{
+  "_id": {
+    "$oid": "67bf59556795ea257030a27c"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Linux",
+  "skillsetName": "Networking Configuration",
+  "skillsetDescription": "Ability to configure and troubleshoot network settings using tools like ifconfig, ip, netstat, and nmcli."
+},
+{
+  "_id": {
+    "$oid": "67bf595c6795ea257030a27d"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Linux",
+  "skillsetName": "File System Management",
+  "skillsetDescription": "Understanding of Linux file systems, including permissions, ownership, and disk management tools like fdisk and mount."
+},
+{
+  "_id": {
+    "$oid": "67bf595c6795ea257030a27e"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Linux",
+  "skillsetName": "Process Management",
+  "skillsetDescription": "Skill in managing processes using commands like ps, top, kill, and systemd for service management."
+},
+{
+  "_id": {
+    "$oid": "67bf595d6795ea257030a27f"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Linux",
+  "skillsetName": "Performance Monitoring",
+  "skillsetDescription": "Proficiency in monitoring system performance using tools like htop, vmstat, iostat, and sar."
+},
+{
+  "_id": {
+    "$oid": "67bf59926795ea257030a280"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "AWS",
+  "skillsetName": "AWS Core Services Knowledge",
+  "skillsetDescription": "Understanding of fundamental AWS services such as EC2, S3, RDS, and IAM, including their use cases and configurations."
+},
+{
+  "_id": {
+    "$oid": "67bf59976795ea257030a281"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "AWS",
+  "skillsetName": "Cloud Architecture Design",
+  "skillsetDescription": "Ability to design scalable, secure, and cost-effective cloud architectures using AWS services."
+},
+{
+  "_id": {
+    "$oid": "67bf59a66795ea257030a282"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "AWS",
+  "skillsetName": "Security and Compliance",
+  "skillsetDescription": "Knowledge of AWS security best practices, including IAM policies, encryption, and compliance frameworks like GDPR or HIPAA."
+},
+{
+  "_id": {
+    "$oid": "67bf59b56795ea257030a283"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "AWS",
+  "skillsetName": "Cost Management and Optimization",
+  "skillsetDescription": "Ability to analyze and optimize AWS costs using tools like AWS Cost Explorer and implementing cost-saving strategies."
+},
+{
+  "_id": {
+    "$oid": "67bf59c66795ea257030a284"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "AWS",
+  "skillsetName": "Monitoring and Logging",
+  "skillsetDescription": "Proficiency in using AWS CloudWatch, CloudTrail, and other monitoring tools to track performance and troubleshoot issues."
+},
+{
+  "_id": {
+    "$oid": "67bf59c86795ea257030a285"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "AWS",
+  "skillsetName": "Serverless Computing",
+  "skillsetDescription": "Knowledge of AWS Lambda, API Gateway, and other serverless services, including their integration and use cases."
+},
+{
+  "_id": {
+    "$oid": "67bf59c96795ea257030a286"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "AWS",
+  "skillsetName": "DevOps and CI/CD Pipelines",
+  "skillsetDescription": "Experience in setting up and managing CI/CD pipelines using AWS CodePipeline, CodeBuild, and CodeDeploy."
+},
+{
+  "_id": {
+    "$oid": "67bf59ca6795ea257030a287"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "AWS",
+  "skillsetName": "Disaster Recovery and High Availability",
+  "skillsetDescription": "Experience in designing and implementing disaster recovery plans and high-availability architectures using AWS services."
+},
+{
+  "_id": {
+    "$oid": "67bf59cc6795ea257030a288"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "AWS",
+  "skillsetName": "Networking in AWS",
+  "skillsetDescription": "Understanding of AWS networking concepts such as VPC, subnets, route tables, and security groups, and their configuration."
+},
+{
+  "_id": {
+    "$oid": "67bf59cd6795ea257030a289"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "AWS",
+  "skillsetName": "Infrastructure as Code (IaC)",
+  "skillsetDescription": "Proficiency in using tools like AWS CloudFormation or Terraform to automate infrastructure deployment and management."
+},
+{
+  "_id": {
+    "$oid": "67bf5a686795ea257030a28a"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Scripting",
+  "skillsetName": "Script Syntax Proficiency",
+  "skillsetDescription": "Ability to write and debug scripts using correct syntax for the specified scripting language (e.g., Python, Bash, PowerShell)."
+},
+{
+  "_id": {
+    "$oid": "67bf5a776795ea257030a28b"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Scripting",
+  "skillsetName": "Version Control Integration",
+  "skillsetDescription": "Ability to use version control systems (e.g., Git) to manage and collaborate on scripting projects."
+},
+{
+  "_id": {
+    "$oid": "67bf5ae46795ea257030a28c"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Scripting",
+  "skillsetName": "Problem-Solving with Scripts",
+  "skillsetDescription": "Ability to break down complex tasks into smaller, scriptable components and solve them efficiently."
+},
+{
+  "_id": {
+    "$oid": "67bf5ae66795ea257030a28d"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Scripting",
+  "skillsetName": "Error Handling",
+  "skillsetDescription": "Skill in implementing robust error handling mechanisms to manage exceptions and unexpected behaviors in scripts."
+},
+{
+  "_id": {
+    "$oid": "67bf5ae66795ea257030a28e"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Scripting",
+  "skillsetName": "Script Optimization",
+  "skillsetDescription": "Ability to write efficient scripts that minimize resource usage (e.g., CPU, memory) and execution time."
+},
+{
+  "_id": {
+    "$oid": "67bf5ae76795ea257030a28f"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Scripting",
+  "skillsetName": "Automation Techniques",
+  "skillsetDescription": "Knowledge of automating repetitive tasks using scripts, including scheduling and integration with other tools."
+},
+{
+  "_id": {
+    "$oid": "67bf5ae86795ea257030a290"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Scripting",
+  "skillsetName": "Data Parsing and Manipulation",
+  "skillsetDescription": "Skill in parsing, transforming, and manipulating data (e.g., JSON, XML, CSV) using scripting languages."
+},
+{
+  "_id": {
+    "$oid": "67bf5ae96795ea257030a291"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Scripting",
+  "skillsetName": "Cross-Platform Scripting",
+  "skillsetDescription": "Knowledge of writing scripts that are compatible across multiple operating systems (e.g., Windows, Linux, macOS)."
+},
+{
+  "_id": {
+    "$oid": "67bf5aea6795ea257030a292"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Scripting",
+  "skillsetName": "Script Documentation",
+  "skillsetDescription": "Ability to write clear and concise documentation for scripts, including usage instructions and code comments."
+},
+{
+  "_id": {
+    "$oid": "67bf5aeb6795ea257030a293"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Scripting",
+  "skillsetName": "Security Awareness",
+  "skillsetDescription": "Understanding of secure scripting practices, such as avoiding hardcoded credentials and sanitizing inputs."
+},
+{
+  "_id": {
+    "$oid": "67bf5b276795ea257030a294"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix Cloud",
+  "skillsetName": "Citrix Cloud Architecture Knowledge",
+  "skillsetDescription": "Understanding of Citrix Cloud components, including Citrix Virtual Apps and Desktops, Citrix Gateway, and Citrix Workspace."
+},
+{
+  "_id": {
+    "$oid": "67bf5b286795ea257030a295"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix Cloud",
+  "skillsetName": "Deployment and Configuration",
+  "skillsetDescription": "Ability to deploy and configure Citrix Cloud services, including resource locations, hosting connections, and delivery groups."
+},
+{
+  "_id": {
+    "$oid": "67bf5b296795ea257030a296"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix Cloud",
+  "skillsetName": "Troubleshooting Citrix Cloud Issues",
+  "skillsetDescription": "Proficiency in diagnosing and resolving common Citrix Cloud issues, such as connectivity, performance, and user access problems."
+},
+{
+  "_id": {
+    "$oid": "67bf5b2a6795ea257030a297"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix Cloud",
+  "skillsetName": "Security and Compliance",
+  "skillsetDescription": "Knowledge of securing Citrix Cloud environments, including implementing multi-factor authentication, encryption, and compliance with industry standards."
+},
+{
+  "_id": {
+    "$oid": "67bf5b2b6795ea257030a298"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix Cloud",
+  "skillsetName": "Integration with Azure and AWS",
+  "skillsetDescription": "Experience integrating Citrix Cloud with public cloud platforms like Microsoft Azure and Amazon Web Services (AWS)."
+},
+{
+  "_id": {
+    "$oid": "67bf5b2c6795ea257030a299"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix Cloud",
+  "skillsetName": "Citrix Workspace Management",
+  "skillsetDescription": "Ability to configure and manage Citrix Workspace, including app delivery, user experience customization, and endpoint management."
+},
+{
+  "_id": {
+    "$oid": "67bf5b2d6795ea257030a29a"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix Cloud",
+  "skillsetName": "Performance Monitoring and Optimization",
+  "skillsetDescription": "Skills in monitoring Citrix Cloud performance using tools like Citrix Analytics and optimizing resource usage for scalability."
+},
+{
+  "_id": {
+    "$oid": "67bf5b2e6795ea257030a29b"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix Cloud",
+  "skillsetName": "Automation and Scripting",
+  "skillsetDescription": "Proficiency in automating Citrix Cloud tasks using PowerShell, Citrix CLI, or other scripting tools."
+},
+{
+  "_id": {
+    "$oid": "67bf5b2f6795ea257030a29c"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix Cloud",
+  "skillsetName": "Disaster Recovery and Backup",
+  "skillsetDescription": "Understanding of disaster recovery strategies and backup solutions for Citrix Cloud environments."
+},
+{
+  "_id": {
+    "$oid": "67bf5b306795ea257030a29d"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix Cloud",
+  "skillsetName": "User Training and Support",
+  "skillsetDescription": "Ability to train end-users and provide technical support for Citrix Cloud applications and services."
+},
+{
+  "_id": {
+    "$oid": "67bf5c0a6795ea257030a2a8"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Communication Skills",
+  "skillsetName": "Clarity of Expression",
+  "skillsetDescription": "Ability to articulate thoughts clearly and concisely without ambiguity or unnecessary complexity."
+},
+{
+  "_id": {
+    "$oid": "67bf5c0b6795ea257030a2a9"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Communication Skills",
+  "skillsetName": "Active Listening",
+  "skillsetDescription": "Demonstrates attentiveness by paraphrasing, asking clarifying questions, and responding appropriately to the speaker."
+},
+{
+  "_id": {
+    "$oid": "67bf5c0b6795ea257030a2aa"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Communication Skills",
+  "skillsetName": "Nonverbal Communication",
+  "skillsetDescription": "Use of body language, eye contact, and facial expressions to reinforce or complement verbal messages."
+},
+{
+  "_id": {
+    "$oid": "67bf5c0c6795ea257030a2ab"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Communication Skills",
+  "skillsetName": "Adaptability in Communication",
+  "skillsetDescription": "Ability to adjust communication style based on the audience, context, or feedback received."
+},
+{
+  "_id": {
+    "$oid": "67bf5c0d6795ea257030a2ac"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Communication Skills",
+  "skillsetName": "Persuasiveness",
+  "skillsetDescription": "Skill in presenting arguments or ideas convincingly, using logic, evidence, and emotional appeal."
+},
+{
+  "_id": {
+    "$oid": "67bf5c0e6795ea257030a2ad"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Communication Skills",
+  "skillsetName": "Conflict Resolution",
+  "skillsetDescription": "Ability to navigate disagreements or misunderstandings effectively, fostering collaboration and mutual understanding."
+},
+{
+  "_id": {
+    "$oid": "67bf5c0e6795ea257030a2ae"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Communication Skills",
+  "skillsetName": "Empathy and Emotional Intelligence",
+  "skillsetDescription": "Demonstrates understanding of others' emotions and perspectives, fostering trust and rapport."
+},
+{
+  "_id": {
+    "$oid": "67bf5c0f6795ea257030a2af"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Communication Skills",
+  "skillsetName": "Presentation Skills",
+  "skillsetDescription": "Ability to deliver structured, engaging, and impactful presentations, using visual aids and storytelling techniques."
+},
+{
+  "_id": {
+    "$oid": "67bf5c106795ea257030a2b0"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Communication Skills",
+  "skillsetName": "Written Communication",
+  "skillsetDescription": "Skill in crafting clear, grammatically correct, and well-organized written messages, such as emails or reports."
+},
+{
+  "_id": {
+    "$oid": "67bf5c116795ea257030a2b1"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Communication Skills",
+  "skillsetName": "Feedback Delivery and Reception",
+  "skillsetDescription": "Ability to provide constructive feedback tactfully and accept feedback without defensiveness, using it for improvement."
+},
+{
+  "_id": {
+    "$oid": "67bf5c4c6795ea257030a2b2"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix VDI",
+  "skillsetName": "Citrix Virtual Apps and Desktops Configuration",
+  "skillsetDescription": "Ability to configure and manage Citrix Virtual Apps and Desktops environments, including creating and optimizing delivery groups, machine catalogs, and application publishing."
+},
+{
+  "_id": {
+    "$oid": "67bf5c516795ea257030a2b3"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix VDI",
+  "skillsetName": "Citrix Profile Management",
+  "skillsetDescription": "Experience in configuring and troubleshooting Citrix Profile Management to ensure seamless user profile persistence across sessions."
+},
+{
+  "_id": {
+    "$oid": "67bf5caa6795ea257030a2b5"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix VDI",
+  "skillsetName": "Citrix Studio Proficiency",
+  "skillsetDescription": "Experience in using Citrix Studio for managing and monitoring Citrix environments, including creating and managing machine catalogs and delivery groups."
+},
+{
+  "_id": {
+    "$oid": "67bf5cad6795ea257030a2b6"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix VDI",
+  "skillsetName": "Citrix Director Usage",
+  "skillsetDescription": "Skill in using Citrix Director for monitoring user sessions, troubleshooting issues, and generating reports on system performance."
+},
+{
+  "_id": {
+    "$oid": "67bf5caf6795ea257030a2b7"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix VDI",
+  "skillsetName": "Citrix Gateway Configuration",
+  "skillsetDescription": "Knowledge of setting up and configuring Citrix Gateway for secure remote access to virtual desktops and applications."
+},
+{
+  "_id": {
+    "$oid": "67bf5cb26795ea257030a2b9"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix VDI",
+  "skillsetName": "Citrix Licensing Management",
+  "skillsetDescription": "Understanding of Citrix licensing models and the ability to manage and troubleshoot licensing issues within a Citrix environment."
+},
+{
+  "_id": {
+    "$oid": "67bf5cb66795ea257030a2ba"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix VDI",
+  "skillsetName": "Citrix Networking Knowledge",
+  "skillsetDescription": "Proficiency in configuring and managing Citrix networking components, including NetScaler, StoreFront, and Citrix ADC."
+},
+{
+  "_id": {
+    "$oid": "67bf5cb76795ea257030a2bb"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix VDI",
+  "skillsetName": "Citrix Security Best Practices",
+  "skillsetDescription": "Knowledge of security best practices for Citrix environments, including securing virtual desktops, applications, and user data."
+},
+{
+  "_id": {
+    "$oid": "67bf5cb86795ea257030a2bc"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix VDI",
+  "skillsetName": "Citrix Performance Optimization",
+  "skillsetDescription": "Ability to optimize the performance of Citrix environments, including load balancing, resource allocation, and troubleshooting performance bottlenecks."
+},
+{
+  "_id": {
+    "$oid": "67bf5cba6795ea257030a2bd"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Citrix VDI",
+  "skillsetName": "Citrix Troubleshooting Skills",
+  "skillsetDescription": "Experience in diagnosing and resolving issues in Citrix environments, including user access problems, application performance issues, and system errors."
+},
+{
+  "_id": {
+    "$oid": "67bf5d126795ea257030a2be"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "English",
+  "skillsetName": "Fluency in Speaking",
+  "skillsetDescription": "Ability to speak English smoothly and naturally, with minimal hesitation or repetition, and appropriate use of vocabulary and grammar."
+},
+{
+  "_id": {
+    "$oid": "67bf5d136795ea257030a2bf"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "English",
+  "skillsetName": "Listening Comprehension",
+  "skillsetDescription": "Ability to understand spoken English, including accents, varying speeds, and complex sentence structures."
+},
+{
+  "_id": {
+    "$oid": "67bf5d146795ea257030a2c0"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "English",
+  "skillsetName": "Reading Comprehension",
+  "skillsetDescription": "Ability to read and understand written English, including identifying main ideas, details, and inferring meaning from context."
+},
+{
+  "_id": {
+    "$oid": "67bf5d146795ea257030a2c1"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "English",
+  "skillsetName": "Writing Proficiency",
+  "skillsetDescription": "Ability to write clear, coherent, and grammatically correct English, with appropriate structure and vocabulary for the context."
+},
+{
+  "_id": {
+    "$oid": "67bf5d166795ea257030a2c2"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "English",
+  "skillsetName": "Vocabulary Range",
+  "skillsetDescription": "Ability to use a wide range of vocabulary appropriately, including synonyms, idioms, and technical terms relevant to the context."
+},
+{
+  "_id": {
+    "$oid": "67bf5d166795ea257030a2c3"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "English",
+  "skillsetName": "Grammar Accuracy",
+  "skillsetDescription": "Ability to use correct grammar, including verb tenses, sentence structure, and punctuation, in both spoken and written English."
+},
+{
+  "_id": {
+    "$oid": "67bf5d186795ea257030a2c4"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "English",
+  "skillsetName": "Pronunciation Clarity",
+  "skillsetDescription": "Ability to pronounce English words clearly and accurately, with appropriate stress and intonation patterns."
+},
+{
+  "_id": {
+    "$oid": "67bf5d186795ea257030a2c5"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "English",
+  "skillsetName": "Critical Thinking in English",
+  "skillsetDescription": "Ability to analyze, evaluate, and respond to complex ideas or arguments presented in English, both verbally and in writing."
+},
+{
+  "_id": {
+    "$oid": "67bf5d1a6795ea257030a2c6"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "English",
+  "skillsetName": "Cultural Context Understanding",
+  "skillsetDescription": "Ability to understand and appropriately respond to cultural nuances, idioms, and references in English communication."
+},
+{
+  "_id": {
+    "$oid": "67bf5d1b6795ea257030a2c7"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "English",
+  "skillsetName": "Adaptability in Communication",
+  "skillsetDescription": "Ability to adjust language use (e.g., formal vs. informal) based on the audience, context, or purpose of communication."
+},
+{
+  "_id": {
+    "$oid": "67bf5d666795ea257030a2c8"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "MS Azure",
+  "skillsetName": "Azure Resource Management",
+  "skillsetDescription": "Ability to create, configure, and manage Azure resources such as virtual machines, storage accounts, and networking components using tools like Azure Portal, CLI, or PowerShell."
+},
+{
+  "_id": {
+    "$oid": "67bf5d676795ea257030a2c9"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "MS Azure",
+  "skillsetName": "Azure Security and Compliance",
+  "skillsetDescription": "Understanding of Azure security features, including identity and access management (IAM), encryption, and compliance standards like GDPR and HIPAA."
+},
+{
+  "_id": {
+    "$oid": "67bf5d686795ea257030a2ca"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "MS Azure",
+  "skillsetName": "Azure Networking",
+  "skillsetDescription": "Proficiency in configuring and managing Azure networking services such as Virtual Networks (VNet), Load Balancers, and VPN Gateways."
+},
+{
+  "_id": {
+    "$oid": "67bf5d696795ea257030a2cb"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "MS Azure",
+  "skillsetName": "Azure DevOps Integration",
+  "skillsetDescription": "Experience in integrating Azure services with DevOps tools for CI/CD pipelines, including Azure DevOps, GitHub Actions, or Jenkins."
+},
+{
+  "_id": {
+    "$oid": "67bf5d696795ea257030a2cc"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "MS Azure",
+  "skillsetName": "Azure Monitoring and Diagnostics",
+  "skillsetDescription": "Ability to set up and use Azure Monitor, Application Insights, and Log Analytics for monitoring and troubleshooting applications and infrastructure."
+},
+{
+  "_id": {
+    "$oid": "67bf5d6a6795ea257030a2cd"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "MS Azure",
+  "skillsetName": "Azure Cost Management",
+  "skillsetDescription": "Knowledge of Azure pricing models, cost optimization strategies, and tools like Azure Cost Management and Billing to control and reduce cloud expenses."
+},
+{
+  "_id": {
+    "$oid": "67bf5d6c6795ea257030a2ce"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "MS Azure",
+  "skillsetName": "Azure Database Services",
+  "skillsetDescription": "Experience in deploying and managing Azure database services such as Azure SQL Database, Cosmos DB, and Azure Database for PostgreSQL."
+},
+{
+  "_id": {
+    "$oid": "67bf5d6c6795ea257030a2cf"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "MS Azure",
+  "skillsetName": "Azure Kubernetes Service (AKS)",
+  "skillsetDescription": "Proficiency in deploying, managing, and scaling containerized applications using Azure Kubernetes Service (AKS) and related tools like Helm and Docker."
+},
+{
+  "_id": {
+    "$oid": "67bf5d6d6795ea257030a2d0"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "MS Azure",
+  "skillsetName": "Azure Automation and Scripting",
+  "skillsetDescription": "Ability to automate Azure tasks using scripting languages like PowerShell, Python, or Azure CLI, and tools like Azure Automation."
+},
+{
+  "_id": {
+    "$oid": "67bf5d6e6795ea257030a2d1"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "MS Azure",
+  "skillsetName": "Azure Disaster Recovery and Backup",
+  "skillsetDescription": "Understanding of Azure Backup and Site Recovery services to design and implement disaster recovery and backup solutions for applications and data."
+},
+{
+  "_id": {
+    "$oid": "67bf5e296795ea257030a2d2"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler",
+  "skillsetName": "NetScaler Fundamentals",
+  "skillsetDescription": "Ability to configure and manage NetScaler settings, including load balancing, SSL offloading, and content switching."
+},
+{
+  "_id": {
+    "$oid": "67bf5e2a6795ea257030a2d3"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler",
+  "skillsetName": "Troubleshooting NetScaler Issues",
+  "skillsetDescription": "Proficiency in diagnosing and resolving common NetScaler issues such as connectivity problems, performance bottlenecks, and configuration errors."
+},
+{
+  "_id": {
+    "$oid": "67bf5e2b6795ea257030a2d4"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler",
+  "skillsetName": "NetScaler Gateway Setup",
+  "skillsetDescription": "Experience in setting up and managing NetScaler Gateway for secure remote access, including VPN and ICA proxy configurations."
+},
+{
+  "_id": {
+    "$oid": "67bf5e2c6795ea257030a2d5"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler",
+  "skillsetName": "Load Balancing Algorithms",
+  "skillsetDescription": "Knowledge of various load balancing algorithms (e.g., round-robin, least connections) and their appropriate use cases in NetScaler."
+},
+{
+  "_id": {
+    "$oid": "67bf5e2d6795ea257030a2d6"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler",
+  "skillsetName": "SSL/TLS Configuration",
+  "skillsetDescription": "Ability to configure and manage SSL/TLS certificates, cipher suites, and secure communication protocols on NetScaler."
+},
+{
+  "_id": {
+    "$oid": "67bf5e2e6795ea257030a2d7"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler",
+  "skillsetName": "NetScaler High Availability",
+  "skillsetDescription": "Understanding of high availability configurations, including active-passive and active-active setups, and failover mechanisms."
+},
+{
+  "_id": {
+    "$oid": "67bf5e2f6795ea257030a2d8"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler",
+  "skillsetName": "NetScaler Policy Management",
+  "skillsetDescription": "Skill in creating and managing policies and expressions for traffic management, security, and content filtering."
+},
+{
+  "_id": {
+    "$oid": "67bf5e306795ea257030a2d9"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler",
+  "skillsetName": "Integration with Cloud Platforms",
+  "skillsetDescription": "Experience in integrating NetScaler with cloud platforms like AWS, Azure, or GCP for hybrid or multi-cloud environments."
+},
+{
+  "_id": {
+    "$oid": "67bf5e316795ea257030a2da"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler",
+  "skillsetName": "Performance Monitoring and Optimization",
+  "skillsetDescription": "Ability to monitor NetScaler performance using tools like Citrix ADM and optimize configurations for better efficiency and scalability."
+},
+{
+  "_id": {
+    "$oid": "67bf5e326795ea257030a2db"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler",
+  "skillsetName": "Security Best Practices",
+  "skillsetDescription": "Knowledge of security best practices for NetScaler, including securing management interfaces, implementing WAF, and mitigating DDoS attacks."
+},
+{
+  "_id": {
+    "$oid": "67bf5f8d6795ea257030a2dc"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler Advanced",
+  "skillsetName": "NetScaler Configuration and Management",
+  "skillsetDescription": "Ability to configure and manage NetScaler appliances, including setting up load balancing, SSL offloading, and content switching."
+},
+{
+  "_id": {
+    "$oid": "67bf5f8e6795ea257030a2dd"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler Advanced",
+  "skillsetName": "Advanced Traffic Optimization",
+  "skillsetDescription": "Proficiency in optimizing network traffic using NetScaler features like caching, compression, and application acceleration."
+},
+{
+  "_id": {
+    "$oid": "67bf5f8f6795ea257030a2de"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler Advanced",
+  "skillsetName": "Security Policy Implementation",
+  "skillsetDescription": "Skill in implementing and managing security policies, including SSL/TLS configurations, authentication, and authorization mechanisms."
+},
+{
+  "_id": {
+    "$oid": "67bf5f906795ea257030a2df"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler Advanced",
+  "skillsetName": "Troubleshooting and Diagnostics",
+  "skillsetDescription": "Capability to diagnose and resolve complex issues related to NetScaler performance, connectivity, and configuration errors."
+},
+{
+  "_id": {
+    "$oid": "67bf5f916795ea257030a2e0"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler Advanced",
+  "skillsetName": "High Availability and Disaster Recovery",
+  "skillsetDescription": "Expertise in setting up and maintaining high availability (HA) and disaster recovery (DR) configurations using NetScaler."
+},
+{
+  "_id": {
+    "$oid": "67bf5f926795ea257030a2e1"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler Advanced",
+  "skillsetName": "Integration with Cloud Services",
+  "skillsetDescription": "Experience in integrating NetScaler with cloud services and platforms, such as AWS, Azure, and Google Cloud."
+},
+{
+  "_id": {
+    "$oid": "67bf5f926795ea257030a2e2"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler Advanced",
+  "skillsetName": "Scripting and Automation",
+  "skillsetDescription": "Ability to write and deploy scripts for automating NetScaler tasks using tools like NITRO API, PowerShell, or Python."
+},
+{
+  "_id": {
+    "$oid": "67bf5f946795ea257030a2e3"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler Advanced",
+  "skillsetName": "Performance Monitoring and Reporting",
+  "skillsetDescription": "Skill in monitoring NetScaler performance metrics and generating reports to ensure optimal operation and capacity planning."
+},
+{
+  "_id": {
+    "$oid": "67bf5f956795ea257030a2e4"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler Advanced",
+  "skillsetName": "Application Delivery Controller (ADC) Expertise",
+  "skillsetDescription": "Deep understanding of ADC functionalities, including load balancing, SSL termination, and application layer security."
+},
+{
+  "_id": {
+    "$oid": "67bf5f966795ea257030a2e5"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "NetScaler Advanced",
+  "skillsetName": "NetScaler Gateway Configuration",
+  "skillsetDescription": "Proficiency in configuring and managing NetScaler Gateway for secure remote access and VPN solutions."
+},
+{
+  "_id": {
+    "$oid": "67bf604f6795ea257030a2e6"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Networking",
+  "skillsetName": "TCP/IP Protocol Knowledge",
+  "skillsetDescription": "Understanding of TCP/IP stack, including layers, protocols, and their functions in network communication."
+},
+{
+  "_id": {
+    "$oid": "67bf60506795ea257030a2e7"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Networking",
+  "skillsetName": "Network Troubleshooting",
+  "skillsetDescription": "Ability to diagnose and resolve network issues, such as connectivity problems, latency, and packet loss."
+},
+{
+  "_id": {
+    "$oid": "67bf60516795ea257030a2e8"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Networking",
+  "skillsetName": "Subnetting and IP Addressing",
+  "skillsetDescription": "Proficiency in subnetting, CIDR notation, and assigning IP addresses efficiently within a network."
+},
+{
+  "_id": {
+    "$oid": "67bf60516795ea257030a2e9"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Networking",
+  "skillsetName": "Routing and Switching",
+  "skillsetDescription": "Knowledge of routing protocols (e.g., OSPF, BGP) and switching concepts, including VLANs and STP."
+},
+{
+  "_id": {
+    "$oid": "67bf60526795ea257030a2ea"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Networking",
+  "skillsetName": "Network Security",
+  "skillsetDescription": "Understanding of firewalls, VPNs, IDS/IPS, and best practices for securing network infrastructure."
+},
+{
+  "_id": {
+    "$oid": "67bf60526795ea257030a2eb"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Networking",
+  "skillsetName": "Wireless Networking",
+  "skillsetDescription": "Familiarity with wireless standards (e.g., Wi-Fi 6), configuration, and troubleshooting of wireless networks."
+},
+{
+  "_id": {
+    "$oid": "67bf60546795ea257030a2ec"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Networking",
+  "skillsetName": "Network Monitoring Tools",
+  "skillsetDescription": "Experience with tools like Wireshark, Nagios, or SolarWinds for monitoring and analyzing network performance."
+},
+{
+  "_id": {
+    "$oid": "67bf60556795ea257030a2ed"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Networking",
+  "skillsetName": "Cloud Networking",
+  "skillsetDescription": "Knowledge of cloud networking concepts, including VPCs, load balancers, and hybrid cloud connectivity."
+},
+{
+  "_id": {
+    "$oid": "67bf60566795ea257030a2ee"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Networking",
+  "skillsetName": "Network Automation",
+  "skillsetDescription": "Ability to use scripting (e.g., Python) or tools (e.g., Ansible) to automate network configuration and management tasks."
+},
+{
+  "_id": {
+    "$oid": "67bf60566795ea257030a2ef"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Networking",
+  "skillsetName": "Documentation and Diagramming",
+  "skillsetDescription": "Skill in creating and maintaining network documentation, including topology diagrams and configuration details."
+},
+{
+  "_id": {
+    "$oid": "67bf60986795ea257030a2f0"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Problem Solving Skills",
+  "skillsetName": "Analytical Thinking",
+  "skillsetDescription": "Ability to break down complex problems into smaller, manageable components and identify patterns or relationships."
+},
+{
+  "_id": {
+    "$oid": "67bf60996795ea257030a2f1"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Problem Solving Skills",
+  "skillsetName": "Creative Problem Solving",
+  "skillsetDescription": "Capacity to generate innovative and unconventional solutions to challenges, demonstrating out-of-the-box thinking."
+},
+{
+  "_id": {
+    "$oid": "67bf609a6795ea257030a2f2"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Problem Solving Skills",
+  "skillsetName": "Decision-Making Under Pressure",
+  "skillsetDescription": "Ability to make sound and timely decisions when faced with time constraints or high-stakes situations."
+},
+{
+  "_id": {
+    "$oid": "67bf609b6795ea257030a2f3"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Problem Solving Skills",
+  "skillsetName": "Logical Reasoning",
+  "skillsetDescription": "Skill in applying logical frameworks and structured approaches to solve problems systematically."
+},
+{
+  "_id": {
+    "$oid": "67bf609b6795ea257030a2f4"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Problem Solving Skills",
+  "skillsetName": "Adaptability",
+  "skillsetDescription": "Ability to adjust problem-solving strategies when faced with new information or changing circumstances."
+},
+{
+  "_id": {
+    "$oid": "67bf609c6795ea257030a2f5"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Problem Solving Skills",
+  "skillsetName": "Critical Evaluation",
+  "skillsetDescription": "Capacity to assess the validity and reliability of information, arguments, or solutions before making decisions."
+},
+{
+  "_id": {
+    "$oid": "67bf609d6795ea257030a2f6"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Problem Solving Skills",
+  "skillsetName": "Collaborative Problem Solving",
+  "skillsetDescription": "Ability to work effectively with others to identify solutions, leveraging diverse perspectives and expertise."
+},
+{
+  "_id": {
+    "$oid": "67bf609d6795ea257030a2f7"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Problem Solving Skills",
+  "skillsetName": "Root Cause Analysis",
+  "skillsetDescription": "Skill in identifying the underlying causes of a problem rather than just addressing surface-level symptoms."
+},
+{
+  "_id": {
+    "$oid": "67bf609e6795ea257030a2f8"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Problem Solving Skills",
+  "skillsetName": "Prioritization",
+  "skillsetDescription": "Ability to determine the most important aspects of a problem and allocate resources or focus accordingly."
+},
+{
+  "_id": {
+    "$oid": "67bf609f6795ea257030a2f9"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "Problem Solving Skills",
+  "skillsetName": "Solution Implementation",
+  "skillsetDescription": "Capacity to translate problem-solving ideas into actionable steps and execute them effectively."
+},
+{
+  "_id": {
+    "$oid": "67bfa0286795ea257030a3ea"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "ITIL",
+  "skillsetName": "ITIL Framework Knowledge",
+  "skillsetDescription": "Understanding of the ITIL framework, including its key concepts, processes, and lifecycle stages."
+},
+{
+  "_id": {
+    "$oid": "67bfa0286795ea257030a3eb"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "ITIL",
+  "skillsetName": "Incident Management",
+  "skillsetDescription": "Ability to effectively manage and resolve incidents, ensuring minimal disruption to business operations."
+},
+{
+  "_id": {
+    "$oid": "67bfa0296795ea257030a3ec"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "ITIL",
+  "skillsetName": "Problem Management",
+  "skillsetDescription": "Skill in identifying root causes of recurring incidents and implementing long-term solutions."
+},
+{
+  "_id": {
+    "$oid": "67bfa02a6795ea257030a3ed"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "ITIL",
+  "skillsetName": "Change Management",
+  "skillsetDescription": "Proficiency in managing and implementing changes with minimal risk to the IT environment."
+},
+{
+  "_id": {
+    "$oid": "67bfa02b6795ea257030a3ee"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "ITIL",
+  "skillsetName": "Service Level Management",
+  "skillsetDescription": "Ability to define, negotiate, and manage service level agreements (SLAs) to meet business needs."
+},
+{
+  "_id": {
+    "$oid": "67bfa02c6795ea257030a3ef"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "ITIL",
+  "skillsetName": "Configuration Management",
+  "skillsetDescription": "Knowledge of maintaining accurate and up-to-date information about IT assets and their relationships."
+},
+{
+  "_id": {
+    "$oid": "67bfa02c6795ea257030a3f0"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "ITIL",
+  "skillsetName": "IT Service Continuity Management",
+  "skillsetDescription": "Skill in planning and ensuring the continuity of IT services during and after a disaster."
+},
+{
+  "_id": {
+    "$oid": "67bfa02d6795ea257030a3f1"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "ITIL",
+  "skillsetName": "Knowledge Management",
+  "skillsetDescription": "Ability to capture, store, and share knowledge to improve service delivery and decision-making."
+},
+{
+  "_id": {
+    "$oid": "67bfa02e6795ea257030a3f2"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "ITIL",
+  "skillsetName": "ITIL Tools Proficiency",
+  "skillsetDescription": "Experience with ITIL-compliant tools such as ServiceNow, BMC Remedy, or similar platforms."
+},
+{
+  "_id": {
+    "$oid": "67bfa02f6795ea257030a3f3"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "skillsetCategory": "ITIL",
+  "skillsetName": "Continuous Improvement",
+  "skillsetDescription": "Ability to identify and implement improvements in IT service processes to enhance efficiency and effectiveness."
+}]

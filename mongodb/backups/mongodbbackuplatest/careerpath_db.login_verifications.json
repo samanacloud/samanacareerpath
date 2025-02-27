@@ -1,0 +1,425 @@
+[{
+  "_id": {
+    "$oid": "6792eb7f51cf3b6904de4207"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.200",
+  "verificationCode": "183232",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-01-24T01:23:11.554Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-24T01:23:29.574Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-01-24T01:23:29.574Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-01-24T01:23:11.554Z"
+  },
+  "expiresAt": {
+    "$date": "2025-01-24T01:28:11.554Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6792ec168d032f6297879ae5"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.200",
+  "verificationCode": "061882",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-01-24T01:25:42.612Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-24T01:25:57.700Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-01-24T01:25:57.700Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-01-24T01:25:42.612Z"
+  },
+  "expiresAt": {
+    "$date": "2025-01-24T01:30:42.612Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6792ec9b8d032f6297879ae6"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.200",
+  "verificationCode": "898908",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-01-24T01:27:55.563Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-24T01:28:46.851Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-01-24T01:28:46.851Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-01-24T01:27:55.563Z"
+  },
+  "expiresAt": {
+    "$date": "2025-01-24T01:32:55.563Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6792ecf08d032f6297879ae7"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.200",
+  "verificationCode": "944619",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-01-24T01:29:20.411Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-24T01:31:26.472Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-01-24T01:31:26.472Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-01-24T01:29:20.411Z"
+  },
+  "expiresAt": {
+    "$date": "2025-01-24T01:34:20.411Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6792eed28d032f6297879ae8"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.200",
+  "verificationCode": "284136",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-01-24T01:37:22.879Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-24T01:37:36.894Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-01-24T01:37:36.894Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-01-24T01:37:22.879Z"
+  },
+  "expiresAt": {
+    "$date": "2025-01-24T01:42:22.879Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6792ef458d032f6297879ae9"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.200",
+  "verificationCode": "933803",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-01-24T01:39:17.673Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-24T01:39:38.962Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-01-24T01:39:38.962Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-01-24T01:39:17.673Z"
+  },
+  "expiresAt": {
+    "$date": "2025-01-24T01:44:17.673Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6792f0168d032f6297879aea"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.200",
+  "verificationCode": "553357",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-01-24T01:42:46.797Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-24T01:42:59.026Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-01-24T01:42:59.026Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-01-24T01:42:46.797Z"
+  },
+  "expiresAt": {
+    "$date": "2025-01-24T01:47:46.797Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6792f03b8d032f6297879aeb"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.200",
+  "verificationCode": "513090",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-01-24T01:43:23.223Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-24T01:43:57.030Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-01-24T01:43:57.030Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-01-24T01:43:23.223Z"
+  },
+  "expiresAt": {
+    "$date": "2025-01-24T01:48:23.223Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6792f10532f576e7f4bdd38a"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.200",
+  "verificationCode": "083724",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-01-24T01:46:45.070Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-24T01:47:04.069Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-01-24T01:47:04.069Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-01-24T01:46:45.070Z"
+  },
+  "expiresAt": {
+    "$date": "2025-01-24T01:51:45.070Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6792f55407721a90f9295534"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.200",
+  "verificationCode": "136224",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-01-24T02:05:08.640Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-24T02:05:21.873Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-01-24T02:05:21.873Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-01-24T02:05:08.640Z"
+  },
+  "expiresAt": {
+    "$date": "2025-01-24T02:10:08.640Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6793a98d07721a90f9295535"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.200",
+  "verificationCode": "719060",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-01-24T14:54:05.757Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-24T14:54:26.450Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-01-24T14:54:26.450Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-01-24T14:54:05.757Z"
+  },
+  "expiresAt": {
+    "$date": "2025-01-24T14:59:05.757Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6793bec531a922bb979a33a6"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.200",
+  "verificationCode": "244186",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-01-24T16:24:37.071Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-24T16:25:30.243Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-01-24T16:25:30.243Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-01-24T16:24:37.071Z"
+  },
+  "expiresAt": {
+    "$date": "2025-01-24T16:29:37.071Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6793c5ed31a922bb979a33a7"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.200",
+  "verificationCode": "364082",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-01-24T16:55:09.467Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-24T16:56:09.861Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-01-24T16:56:09.861Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-01-24T16:55:09.467Z"
+  },
+  "expiresAt": {
+    "$date": "2025-01-24T17:00:09.467Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6793c6c031a922bb979a33a8"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.200",
+  "verificationCode": "885908",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-01-24T16:58:40.364Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-24T16:59:13.426Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-01-24T16:59:13.426Z"
+  },
+  "attempts": 3,
+  "lastAttempt": {
+    "$date": "2025-01-24T16:58:59.036Z"
+  },
+  "expiresAt": {
+    "$date": "2025-01-24T17:03:40.364Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6793c71c31a922bb979a33a9"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.200",
+  "verificationCode": "391064",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-01-24T17:00:12.560Z"
+  },
+  "updatedAt": {
+    "$date": "2025-01-24T17:00:25.932Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-01-24T17:00:25.932Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-01-24T17:00:12.560Z"
+  },
+  "expiresAt": {
+    "$date": "2025-01-24T17:05:12.560Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b9c441874f107056730f27"
+  },
+  "email": "otalvaroj@gmail.com",
+  "ipAddress": "87.201.180.68",
+  "verificationCode": "672174",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-02-22T12:34:09.432Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-22T12:34:39.244Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-02-22T12:34:39.244Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-02-22T12:34:09.432Z"
+  },
+  "expiresAt": {
+    "$date": "2025-02-22T12:39:09.432Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bcce7d308a610006d35989"
+  },
+  "email": "juan.otalvaro@samanagroup.co",
+  "ipAddress": "87.201.177.5",
+  "verificationCode": "456541",
+  "status": "verified",
+  "createdAt": {
+    "$date": "2025-02-24T19:54:37.157Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-24T19:55:27.016Z"
+  },
+  "verifiedAt": {
+    "$date": "2025-02-24T19:55:27.016Z"
+  },
+  "attempts": 0,
+  "lastAttempt": {
+    "$date": "2025-02-24T19:54:37.157Z"
+  },
+  "expiresAt": {
+    "$date": "2025-02-24T19:59:37.157Z"
+  }
+}]

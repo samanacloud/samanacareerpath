@@ -1,0 +1,140 @@
+[{
+  "_id": {
+    "$oid": "6792df37ae32f695bcd13421"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "companyName": "Samana Group LLC",
+  "name": "Juan Otalvaro",
+  "email": "juan.otalvaro@samanagroup.co",
+  "country": "United States",
+  "role": "SuperAdmin",
+  "phone": "+573138060575",
+  "license": "t2",
+  "status": "active",
+  "createdAt": {
+    "$date": "2025-01-24T00:30:47.294Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-22T14:42:36.066Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b884d7ef13218625a8b0e1"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "companyName": "Samana Group LLC",
+  "name": "test",
+  "email": "otalvaroj@gmail.com",
+  "country": "",
+  "role": "Reviewer",
+  "phone": "+0000000000",
+  "license": "t2",
+  "status": "inactive",
+  "createdAt": {
+    "$date": "2025-02-21T13:51:19.929Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-21T21:06:06.182Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bf975b6795ea257030a364"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "companyName": "Samana Group LLC",
+  "name": "Jorge Gomez",
+  "email": "jorge.gomez@samanagroup.co",
+  "country": "United States",
+  "role": "Manager",
+  "phone": "+17862881522",
+  "license": "t2",
+  "status": "active",
+  "createdAt": {
+    "$date": "2025-02-26T22:36:11.936Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-26T23:01:03.377Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bf97676795ea257030a365"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "companyName": "Samana Group LLC",
+  "name": "Fabian Baena",
+  "email": "fabian.baena@samanagroup.co",
+  "country": "United States",
+  "role": "Manager",
+  "phone": "+17863856106",
+  "license": "t2",
+  "status": "active",
+  "createdAt": {
+    "$date": "2025-02-26T22:36:23.401Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-26T23:01:08.428Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bf97736795ea257030a366"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "companyName": "Samana Group LLC",
+  "name": "Felipe Bernal",
+  "email": "felipe.bernal@samanagroup.co",
+  "country": "United States",
+  "role": "Manager",
+  "phone": "+19549372592",
+  "license": "t2",
+  "status": "active",
+  "createdAt": {
+    "$date": "2025-02-26T22:36:35.818Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-26T23:01:13.278Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bf97866795ea257030a367"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "companyName": "Samana Group LLC",
+  "name": "Alonso Maury Santana Torres",
+  "email": "alonso.santana@samanagroup.co",
+  "country": "Colombia",
+  "role": "Reviewer",
+  "phone": "+0000000000",
+  "license": "t0",
+  "status": "active",
+  "createdAt": {
+    "$date": "2025-02-26T22:36:54.602Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-26T22:36:54.602Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bf97946795ea257030a368"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "companyName": "Samana Group LLC",
+  "name": "Danny Jose Ruiz Pico",
+  "email": "danny.ruiz@samanagroup.co",
+  "country": "Colombia",
+  "role": "Reviewer",
+  "phone": "+0000000000",
+  "license": "t0",
+  "status": "active",
+  "createdAt": {
+    "$date": "2025-02-26T22:37:08.643Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-26T22:37:08.643Z"
+  }
+}]

@@ -1,0 +1,171 @@
+[{
+  "_id": {
+    "$oid": "67b9f0627635d2ae25dd8cdf"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "companyName": "Samana Group LLC",
+  "jobCategory": "Consulting Services",
+  "jobName": "L2 - Service Desk Engineer (Demo)",
+  "jobDetails": "Full-time position supporting & maintaining customer environments. Responsibilities include troubleshooting, system monitoring, and timely alert response as per SLAs.",
+  "workplaceType": "Remote",
+  "jobType": "Full-Time",
+  "salaryRange": "$1.000 - $2.000 USD based on the Skillsets.",
+  "postUrl": "",
+  "status": "inactive",
+  "createdAt": {
+    "$date": "2024-06-17T00:00:00.000Z"
+  },
+  "createdBy": "juan.otalvaro@samanagroup.co",
+  "updatedAt": {
+    "$date": "2025-02-25T03:57:10.902Z"
+  },
+  "updatedBy": "juan.otalvaro@samanagroup.co",
+  "jobDetailsArray": [
+    {
+      "category": "Responsibilities",
+      "description": "Troubleshooting, system monitoring, and timely alert response as per SLAs."
+    },
+    {
+      "category": "Requirements",
+      "description": "Relevant experience in Service Desk support and familiarity with remote tools."
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67b9f0627635d2ae25dd8ce0"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "companyName": "Samana Group LLC",
+  "jobCategory": "VDI Managed Services",
+  "jobName": "L3 - Service Desk Engineer",
+  "jobDetails": "As part of our service catalog, we are looking for candidates that will be part of our managed services team, that will be in charge of delivering continuous support to our customers. You will be part of a talented team of engineers that demonstrate great superb technical competency, delivery mission critical infrastructure and ensuring the highest level of availability, performance and security.",
+  "workplaceType": "Remote",
+  "jobType": "Full-Time",
+  "salaryRange": "$3.000 - $4.000 USD based on the Skillsets.",
+  "postUrl": "https://www.linkedin.com/jobs/view/3953274821",
+  "status": "inactive",
+  "createdAt": {
+    "$date": "2024-06-18T00:00:00.000Z"
+  },
+  "createdBy": "juan.otalvaro@samanagroup.co",
+  "updatedAt": {
+    "$date": "2024-06-18T00:00:00.000Z"
+  },
+  "updatedBy": "juan.otalvaro@samanagroup.co"
+},
+{
+  "_id": {
+    "$oid": "67b9f0627635d2ae25dd8ce1"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "companyName": "Samana Group LLC",
+  "jobCategory": "VDI Managed Services",
+  "jobName": "L2 - Service Desk Engineer",
+  "jobDetails": "This is a full-time remote role for a L2 Engineer - Managed Services. As a L2 Engineer - Managed Services, you will be responsible for maintaining and supporting customer's environment by providing in-depth troubleshooting and resolution of issues, system monitoring, and response to alerts in accordance with the customer's Service Level Agreement.",
+  "workplaceType": "Remote",
+  "jobType": "Full-Time",
+  "salaryRange": "$2.000 - $3.000 USD based on the Skillsets.",
+  "postUrl": "https://www.linkedin.com/jobs/view/3953274821",
+  "status": "inactive",
+  "createdAt": {
+    "$date": "2024-06-18T00:00:00.000Z"
+  },
+  "createdBy": "juan.otalvaro@samanagroup.co",
+  "updatedAt": {
+    "$date": "2024-06-18T00:00:00.000Z"
+  },
+  "updatedBy": "juan.otalvaro@samanagroup.co"
+},
+{
+  "_id": {
+    "$oid": "67b9f0627635d2ae25dd8ce2"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "companyName": "Samana Group LLC",
+  "jobCategory": "VDI Managed Services",
+  "jobName": "L1 - Service Desk Engineer",
+  "jobDetails": "Full-time position focused on providing first-level support and maintenance for customer environments. Responsibilities include basic troubleshooting, initial system monitoring, and prompt response to incidents in line with SLAs.",
+  "workplaceType": "Remote",
+  "jobType": "Full-Time",
+  "salaryRange": "$1.000 - $2.000  USD based on the Skillsets.",
+  "postUrl": "https://www.linkedin.com/hiring/jobs/3831150196",
+  "status": "inactive",
+  "createdAt": {
+    "$date": "2024-06-20T00:00:00.000Z"
+  },
+  "createdBy": "juan.otalvaro@samanagroup.co",
+  "updatedAt": {
+    "$date": "2024-06-20T00:00:00.000Z"
+  },
+  "updatedBy": "juan.otalvaro@samanagroup.co"
+},
+{
+  "_id": {
+    "$oid": "67b9f0627635d2ae25dd8ce3"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "companyName": "Samana Group LLC",
+  "jobCategory": "VDI Managed Services",
+  "jobName": "L1 Service Desk Engineer 2025-Q1",
+  "jobDetails": "Samana Group is a dynamic and growing organization committed to delivering exceptional IT solutions and Managed Services to our valued clients. We are seeking a talented and motivated Virtualization & Cloud Service Desk Engineer Level 1 to join our dedicated support team. ",
+  "workplaceType": "Remote",
+  "jobType": "Full-Time",
+  "salaryRange": "1000-1800 USD",
+  "postUrl": "https://www.linkedin.com/jobs/view/4126142050",
+  "status": "inactive",
+  "createdAt": {
+    "$date": "2025-01-15T00:00:00.000Z"
+  },
+  "createdBy": "juan.otalvaro@samanagroup.co",
+  "updatedAt": {
+    "$date": "2025-01-15T00:00:00.000Z"
+  },
+  "updatedBy": "juan.otalvaro@samanagroup.co"
+},
+{
+  "_id": {
+    "$oid": "67b9f0627635d2ae25dd8ce4"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "companyName": "Samana Group LLC",
+  "jobCategory": "VDI Managed Services",
+  "jobName": "Service Desk Engineer L2 Q1-2025",
+  "jobDetails": "Samana Group is seeking skilled engineers to join our dynamic managed services team. In these roles, you will be responsible for delivering continuous support to our customers and ensuring mission-critical infrastructure operates with maximum availability, performance, and security. ",
+  "workplaceType": "Remote",
+  "jobType": "Full-Time",
+  "salaryRange": "2000-4000",
+  "postUrl": "https://www.google.com",
+  "status": "active",
+  "createdAt": {
+    "$date": "2025-02-17T00:00:00.000Z"
+  },
+  "createdBy": "juan.otalvaro@samanagroup.co",
+  "updatedAt": {
+    "$date": "2025-02-17T00:00:00.000Z"
+  },
+  "updatedBy": "juan.otalvaro@samanagroup.co"
+},
+{
+  "_id": {
+    "$oid": "67b9f0627635d2ae25dd8ce5"
+  },
+  "companyId": "6792df37ae32f695bcd13420",
+  "companyName": "Samana Group LLC",
+  "jobCategory": "VDI Managed Services",
+  "jobName": "Service Desk Engineer L3 Q1-2025",
+  "jobDetails": "Samana Group is seeking skilled engineers to join our dynamic managed services team. In these roles, you will be responsible for delivering continuous support to our customers and ensuring mission-critical infrastructure operates with maximum availability, performance, and security. ",
+  "workplaceType": "Remote",
+  "jobType": "Full-Time",
+  "salaryRange": "2000-4000",
+  "postUrl": "https://www.google.com",
+  "status": "active",
+  "createdAt": {
+    "$date": "2025-02-17T00:00:00.000Z"
+  },
+  "createdBy": "juan.otalvaro@samanagroup.co",
+  "updatedAt": {
+    "$date": "2025-02-17T00:00:00.000Z"
+  },
+  "updatedBy": "juan.otalvaro@samanagroup.co"
+}]
