@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Share</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-direction: column;
+        }
+        .column {
+            flex: 1;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+        }
+        .code-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        textarea {
+            flex: 1;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            resize: none;
+            min-height: 150px;
+            box-sizing: border-box;
+        }
+        .button-group {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+            flex: 1;
+            min-width: 80px;
+        }
+        .save-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .clear-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        .load-btn {
+            background-color: #2196F3;
+            color: white;
+        }
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+        .copy-btn {
+            background-color: #6c757d;
+            color: white;
+            margin-left: auto;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 1.2rem;
+        }
+        .status {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 20px;
+            border-radius: 4px;
+            display: none;
+            z-index: 1000;
+            text-align: center;
+            width: 80%;
+            max-width: 300px;
+        }
+        .success {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .error {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+        .code-list {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .code-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .code-item:hover {
+            background-color: #f8f9fa;
+        }
+        .code-item:last-child {
+            border-bottom: none;
+        }
+        .code-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            font-size: 0.9rem;
+        }
+        .code-date {
+            color: #666;
+            font-size: 12px;
+        }
+        .code-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* Media Queries for larger screens */
+        @media (min-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            .container {
+                flex-direction: row;
+            }
+            .column {
+                min-height: 300px;
+            }
+            button {
+                flex: 0 1 auto;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .code-info {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="column">
+            <h2>Input Code</h2>
+            <div class="code-area">
+                <textarea id="inputCode" placeholder="Paste your code here..."></textarea>
+                <div class="button-group">
+                    <button class="save-btn" onclick="saveCode()">Save Code</button>
+                    <button class="clear-btn" onclick="clearCode()">Clear</button>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>
+                Shared Code
+                <div style="display: flex; gap: 8px;">
+                    <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+                    <button class="copy-btn" onclick="refreshCode()">Refresh</button>
+                </div>
+            </h2>
+            <div class="code-area">
+                <textarea id="outputCode" readonly></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="code-list">
+        <h2>Saved Codes</h2>
+        <div id="codeList"></div>
+    </div>
+    <div id="status" class="status"></div>
+
+    <script>
+        let currentCodeId = null;
+
+        async function graphqlRequest(query, variables = {}) {
+            try {
+                const response = await fetch('/graphql', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        query,
+                        variables
+                    }),
+                });
+                const data = await response.json();
+                if (data.errors) {
+                    throw new Error(data.errors[0].message);
+                }
+                return data.data;
+            } catch (error) {
+                console.error('GraphQL Error:', error);
+                throw error;
+            }
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleString();
+        }
+
+        function renderCodeList(codes) {
+            const codeList = document.getElementById('codeList');
+            codeList.innerHTML = codes.map(code => `
+                <div class="code-item" onclick="loadSpecificCode('${code.id}')">
+                    <div class="code-info">
+                        <span>Code saved on ${formatDate(code.createdAt)}</span>
+                    </div>
+                    <div class="code-actions">
+                        <button class="load-btn" onclick="event.stopPropagation(); loadSpecificCode('${code.id}')">Load</button>
+                        <button class="delete-btn" onclick="event.stopPropagation(); deleteCode('${code.id}')">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function loadSpecificCode(id) {
+            try {
+                const query = `
+                    query GetTemporalCode($id: String!) {
+                        getTemporalCode(id: $id) {
+                            id
+                            code
+                            createdAt
+                        }
+                    }
+                `;
+                const result = await graphqlRequest(query, { id });
+                if (result.getTemporalCode) {
+                    currentCodeId = result.getTemporalCode.id;
+                    document.getElementById('outputCode').value = result.getTemporalCode.code;
+                    showStatus('Code loaded successfully!', true);
+                }
+            } catch (error) {
+                showStatus('Error loading code: ' + error.message, false);
+            }
+        }
+
+        async function saveCode() {
+            const code = document.getElementById('inputCode').value;
+            try {
+                const mutation = `
+                    mutation AddTemporalCode($input: CreateTemporalCodeInput!) {
+                        addTemporalCode(input: $input) {
+                            id
+                            code
+                            createdAt
+                        }
+                    }
+                `;
+                const result = await graphqlRequest(mutation, {
+                    input: { code }
+                });
+                currentCodeId = result.addTemporalCode.id;
+                showStatus('Code saved successfully!', true);
+                
+                // Automatically load the code after saving
+                await loadCode();
+            } catch (error) {
+                showStatus('Error saving code: ' + error.message, false);
+            }
+        }
+
+        async function loadCode() {
+            try {
+                const query = `
+                    query ListTemporalCodes {
+                        listTemporalCodes {
+                            id
+                            code
+                            createdAt
+                        }
+                    }
+                `;
+                const result = await graphqlRequest(query);
+                const codes = result.listTemporalCodes;
+                if (codes.length > 0) {
+                    const latestCode = codes[codes.length - 1];
+                    currentCodeId = latestCode.id;
+                    document.getElementById('outputCode').value = latestCode.code;
+                    showStatus('Code loaded successfully!', true);
+                    renderCodeList(codes);
+                } else {
+                    document.getElementById('outputCode').value = '';
+                    showStatus('No code found', false);
+                    renderCodeList([]);
+                }
+            } catch (error) {
+                showStatus('Error loading code: ' + error.message, false);
+            }
+        }
+
+        async function deleteCode(id) {
+            try {
+                const mutation = `
+                    mutation RemoveTemporalCode($id: String!) {
+                        removeTemporalCode(id: $id)
+                    }
+                `;
+                const result = await graphqlRequest(mutation, { id });
+                
+                // Get the updated list immediately
+                const query = `
+                    query ListTemporalCodes {
+                        listTemporalCodes {
+                            id
+                            code
+                            createdAt
+                        }
+                    }
+                `;
+                const listResult = await graphqlRequest(query);
+                const codes = listResult.listTemporalCodes;
+                
+                // Update the list
+                renderCodeList(codes);
+                
+                // If we deleted the current code, clear the output
+                if (currentCodeId === id) {
+                    currentCodeId = null;
+                    document.getElementById('outputCode').value = '';
+                }
+                
+                showStatus('Code deleted successfully!', true);
+            } catch (error) {
+                console.error('Delete error:', error);
+                showStatus('Error deleting code: ' + error.message, false);
+            }
+        }
+
+        async function clearCode() {
+            if (!currentCodeId) {
+                document.getElementById('inputCode').value = '';
+                document.getElementById('outputCode').value = '';
+                showStatus('No code to clear', true);
+                return;
+            }
+
+            try {
+                const mutation = `
+                    mutation RemoveTemporalCode($id: String!) {
+                        removeTemporalCode(id: $id)
+                    }
+                `;
+                await graphqlRequest(mutation, {
+                    id: currentCodeId
+                });
+                currentCodeId = null;
+                document.getElementById('inputCode').value = '';
+                document.getElementById('outputCode').value = '';
+                showStatus('Code cleared successfully!', true);
+                await loadCode(); // Reload the list
+            } catch (error) {
+                showStatus('Error clearing code: ' + error.message, false);
+            }
+        }
+
+        function copyCode() {
+            const outputCode = document.getElementById('outputCode');
+            outputCode.select();
+            document.execCommand('copy');
+            showStatus('Code copied to clipboard!', true);
+        }
+
+        function showStatus(message, isSuccess) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = `status ${isSuccess ? 'success' : 'error'}`;
+            status.style.display = 'block';
+            setTimeout(() => {
+                status.style.display = 'none';
+            }, 3000);
+        }
+
+        async function refreshCode() {
+            if (!currentCodeId) {
+                showStatus('No code to refresh', false);
+                return;
+            }
+            await loadSpecificCode(currentCodeId);
+        }
+
+        // Load code when page loads
+        window.onload = loadCode;
+    </script>
+</body>
+</html> 

@@ -90,4 +90,13 @@ class CertificationRepository:
         """Get all unique certification vendors for a company"""
         db = await self._get_db()
         vendors = await db[self.collectionName].distinct("certificationVendor", {"companyId": companyId})
-        return vendors 
+        return vendors
+
+    async def get_certifications_by_company_id(self, companyId: str) -> List[Dict[str, Any]]:
+        """Get all certifications for a specific company"""
+        db = await self._get_db()
+        cursor = db[self.collectionName].find({"companyId": companyId})
+        certifications = []
+        async for doc in cursor:
+            certifications.append(self._format_certification(doc))
+        return certifications

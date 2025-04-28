@@ -177,7 +177,14 @@
                     <i class="pi pi-spin pi-spinner text-blue-500 mr-1"></i>
                     <span class="text-xs text-blue-500">Updating...</span>
                   </div>
-                  <i :class="`pi ${areAllSkillsetsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
+                  <Button 
+                    icon="pi pi-star" 
+                    class="p-button-raised p-button-sm  mr-2" 
+                    severity="warn"
+                    @click.stop="toggleSkillsetAssessment"
+                    v-tooltip.top="'Assess Skillsets'"
+                    aria-label="Assess Skillsets"
+                  />
                 </div>
               </div>
               
@@ -187,7 +194,7 @@
               <div v-else class="flex flex-wrap gap-2 md:gap-4">
                 
                 <!-- Dynamic Categories -->
-                <div v-for="(skills, category) in groupedSkills" :key="category" class="w-full md:w-[calc(33.333%-1rem)] min-w-[300px]">
+                <div v-for="(skills, category) in groupedSkills" :key="category" class="w-full md:w-full lg:w-full min-w-[300px]">
                   <fieldset class="border p-2 rounded h-full flex flex-col">
                     <legend class="cursor-pointer" @click="toggleCategory(category)">
                       <div class="flex items-center gap-2">
@@ -230,7 +237,10 @@
                       {{ certificationsData.length }}
                     </div>
                   </div>
-                  <i :class="`pi ${isCertificationsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
+                  <div class="flex items-center">
+                  
+                    <i :class="`pi ${isCertificationsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
+                  </div>
                 </div>
                 
                 <transition name="fade">
@@ -274,7 +284,7 @@
             <div v-if="showInterviewModal" ref="interviewCard" class="interview-card card mb-6 p-4 shadow-md border border-gray-200">
               <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-bold text-indigo-700">Interview Candidate</h3>
-                <Button icon="pi pi-times" class="p-button-rounded p-button-text" @click="closeInterviewForm" />
+                <Button icon="pi pi-times" class="p-button-rounded  p-button-text" @click="closeInterviewForm" />
               </div>
               
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -518,7 +528,7 @@
                   <span class="font-medium">Successfully Rated Skillsets</span>
                 </div>
                 <p class="text-sm text-green-600">
-                  You've rated {{ submittedRatingsCount }} skillset(s) for this candidate. These ratings will help evaluate their technical proficiency.
+                   {{ submittedRatingsCount }} skillset(s) rated for this candidate. These ratings will help evaluate their technical proficiency.
                 </p>
               </div>
             </div>
@@ -534,7 +544,10 @@
                       {{ certificationsData.length }}
                     </div>
                   </div>
-                  <i :class="`pi ${isCertificationsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
+                  <div class="flex items-center">
+                 
+                    <i :class="`pi ${isCertificationsCollapsed ? 'pi-chevron-down' : 'pi-chevron-up'} text-gray-500`"></i>
+                  </div>
                 </div>
                 
                 <transition name="fade">
@@ -616,10 +629,12 @@
       </div>
     </div>
   </div>
+  
+
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch, onBeforeUnmount } from "vue";
+import { ref, computed, onMounted, watch, onBeforeUnmount, nextTick } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import Chart from 'primevue/chart';
 import Rating from 'primevue/rating';
@@ -646,6 +661,10 @@ import SkillsetAverageChart from '@/components/careerpath/SkillsetAverageChart.v
 import KnowledgeDistributionChart from '@/components/careerpath/KnowledgeDistributionChart.vue';
 import SkillsetDistributionChart from '@/components/careerpath/SkillsetDistributionChart.vue';
 import SkillsetRadarChart from '@/components/careerpath/SkillsetRadarChart.vue';
+import Dialog from 'primevue/dialog';
+import Calendar from 'primevue/calendar';
+import AutoComplete from 'primevue/autocomplete';
+import Dropdown from 'primevue/dropdown';
 
 const route = useRoute();
 const router = useRouter();
@@ -1772,14 +1791,13 @@ const toggleSkillsetAssessment = async () => {
     }
     
     // Wait for the DOM to update after showing the form
-    setTimeout(() => {
-      if (skillsetAssessmentCard.value) {
-        skillsetAssessmentCard.value.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'start'
-        });
-      }
-    }, 100);
+    await nextTick();
+    if (skillsetAssessmentCard.value) {
+      skillsetAssessmentCard.value.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start'
+      });
+    }
   } else {
     // Reset state when closing
     quickRatingFilter.value = null;
@@ -2408,6 +2426,281 @@ const showSkillsRadar = ref(true);
 const toggleSkillsRadar = () => {
   showSkillsRadar.value = !showSkillsRadar.value;
 };
+
+// Add the showAddCertification function in the script section
+// ... existing code ...
+// Add showAddCertification function
+const showAddCertification = async () => {
+  // Reset form
+  newCertification.value = {
+    certificationVendor: null,
+    certificationName: '',
+    certificationExpiration: null
+  };
+  certVendorError.value = '';
+  certNameError.value = '';
+  certExpirationError.value = '';
+  
+  // Show dialog
+  showCertificationDialog.value = true;
+  
+  // Load certification vendors
+  await fetchCertificationVendors();
+};
+// ... existing code ...
+
+// Add the certification mutation and related state
+// ... existing code ...
+
+// Add the certification mutation
+const ASSIGN_CERTIFICATION_MUTATION = `
+mutation AssignCertification($input: AssignCertificationInput!) {
+  assignCertification(input: $input) {
+    id
+    companyId
+    companyName
+    email
+    certificationName
+    certificationExpiration
+    createdAt
+    updatedAt
+  }
+}`;
+
+// Add state for certification dialog
+const showCertificationDialog = ref(false);
+const isSubmittingCertification = ref(false);
+const isLoadingVendors = ref(false);
+const isLoadingCertifications = ref(false);
+const certificationVendors = ref([]);
+const availableCertifications = ref([]);
+const filteredCertifications = ref([]);
+
+const newCertification = ref({
+  certificationVendor: null,
+  certificationName: '',
+  certificationExpiration: null
+});
+const certVendorError = ref('');
+const certNameError = ref('');
+const certExpirationError = ref('');
+
+// Add function to fetch certification vendors
+const fetchCertificationVendors = async () => {
+  try {
+    isLoadingVendors.value = true;
+    
+    const companyId = localStorage.getItem('companyId');
+    
+    const result = await fetch(import.meta.env.VITE_GRAPHQL_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+      body: JSON.stringify({
+        query: GET_CERTIFICATION_VENDORS,
+        variables: {
+          companyId
+        }
+      })
+    }).then(res => res.json());
+    
+    if (result.errors) {
+      throw new Error(result.errors[0]?.message || 'Failed to load certification vendors');
+    }
+    
+    // Format vendors for dropdown
+    const vendors = result.data?.getCertificationVendors || [];
+    certificationVendors.value = vendors.map(vendor => ({ name: vendor }));
+    
+  } catch (error) {
+    console.error('Error fetching certification vendors:', error);
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: error.message || 'Failed to load certification vendors',
+      life: 3000
+    });
+  } finally {
+    isLoadingVendors.value = false;
+  }
+};
+
+// Add function to handle vendor change
+const onVendorChange = async () => {
+  if (newCertification.value.certificationVendor) {
+    // Clear certification name when vendor changes
+    newCertification.value.certificationName = '';
+    
+    // Load certifications for selected vendor
+    await fetchCertificationsByVendor();
+  }
+};
+
+// Add function to fetch certifications by vendor
+const fetchCertificationsByVendor = async () => {
+  try {
+    isLoadingCertifications.value = true;
+    
+    const companyId = localStorage.getItem('companyId');
+    const certificationVendor = newCertification.value.certificationVendor;
+    
+    const result = await fetch(import.meta.env.VITE_GRAPHQL_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+      body: JSON.stringify({
+        query: GET_CERTIFICATIONS_BY_VENDOR,
+        variables: {
+          companyId,
+          certificationVendor
+        }
+      })
+    }).then(res => res.json());
+    
+    if (result.errors) {
+      throw new Error(result.errors[0]?.message || 'Failed to load certifications');
+    }
+    
+    // Store available certifications
+    availableCertifications.value = result.data?.getCertificationsByVendor || [];
+    
+  } catch (error) {
+    console.error('Error fetching certifications:', error);
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: error.message || 'Failed to load certifications',
+      life: 3000
+    });
+  } finally {
+    isLoadingCertifications.value = false;
+  }
+};
+
+// Add function to search certifications
+const searchCertifications = (event) => {
+  const query = event.query.toLowerCase();
+  
+  // Filter certifications based on search query
+  filteredCertifications.value = availableCertifications.value.filter(cert => 
+    cert.certificationName.toLowerCase().includes(query)
+  );
+};
+
+// Add function to handle certification selection
+const onCertificationSelect = (event) => {
+  // Set certification name from selected item
+  newCertification.value.certificationName = event.value.certificationName;
+};
+
+// Add function to close dialog
+const closeCertificationDialog = () => {
+  showCertificationDialog.value = false;
+};
+
+// Add function to validate and save certification
+const saveCertification = async () => {
+  // Validate inputs
+  let isValid = true;
+  
+  if (!newCertification.value.certificationVendor) {
+    certVendorError.value = 'Certification vendor is required';
+    isValid = false;
+  } else {
+    certVendorError.value = '';
+  }
+  
+  if (!newCertification.value.certificationName) {
+    certNameError.value = 'Certification name is required';
+    isValid = false;
+  } else {
+    certNameError.value = '';
+  }
+  
+  if (!newCertification.value.certificationExpiration) {
+    certExpirationError.value = 'Expiration date is required';
+    isValid = false;
+  } else {
+    certExpirationError.value = '';
+  }
+  
+  if (!isValid) return;
+  
+  try {
+    isSubmittingCertification.value = true;
+    
+    // Get company and user info from session
+    const companyId = localStorage.getItem('companyId');
+    const companyName = localStorage.getItem('companyName');
+    const email = candidateData.value.email;
+    
+    // Prepare input for mutation
+    const input = {
+      companyId,
+      companyName,
+      email,
+      certificationName: newCertification.value.certificationName,
+      certificationExpiration: {
+        $date: newCertification.value.certificationExpiration.toISOString()
+      }
+    };
+    
+    // Call the mutation using the existing GraphQL client
+    const result = await fetch(import.meta.env.VITE_GRAPHQL_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+      body: JSON.stringify({
+        query: ASSIGN_CERTIFICATION_MUTATION,
+        variables: {
+          input
+        }
+      })
+    }).then(res => res.json());
+    
+    if (result.errors) {
+      throw new Error(result.errors[0]?.message || 'Failed to add certification');
+    }
+    
+    // Check if the mutation was successful
+    if (result.data?.assignCertification) {
+      // Show success message
+      toast.add({
+        severity: 'success',
+        summary: 'Certification Added',
+        detail: `${newCertification.value.certificationName} has been added successfully`,
+        life: 3000
+      });
+      
+      // Close dialog
+      showCertificationDialog.value = false;
+      
+      // Refresh certifications
+      await fetchCertifications();
+    } else {
+      throw new Error('Failed to add certification');
+    }
+  } catch (error) {
+    console.error('Error adding certification:', error);
+    
+    // Show error message
+    toast.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: error.message || 'Failed to add certification',
+      life: 5000
+    });
+  } finally {
+    isSubmittingCertification.value = false;
+  }
+};
+// ... existing code ...
 </script>
 
 <style scoped>
@@ -2487,6 +2780,7 @@ const toggleSkillsRadar = () => {
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;  /* Standard property */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -2494,6 +2788,8 @@ const toggleSkillsRadar = () => {
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;  /* Standard property */
+
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -2501,6 +2797,8 @@ const toggleSkillsRadar = () => {
 /* Remove line-clamp when expanded */
 .show-full {
   -webkit-line-clamp: unset;
+  line-clamp: 2;  /* Standard property */
+
 }
 
 /* Add transition for smooth collapse/expand */

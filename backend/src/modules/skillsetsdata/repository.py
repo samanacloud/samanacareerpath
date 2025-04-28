@@ -17,8 +17,10 @@ class SkillsetDataRepository:
             "updatedAt": datetime.utcnow()
         }
         result = await db[self.collection_name].insert_one(skillset_doc)
-        skillset_doc["id"] = str(result.inserted_id)
-        return skillset_doc
+        # Get the full document with MongoDB _id
+        inserted_doc = await db[self.collection_name].find_one({"_id": result.inserted_id})
+        # Format with our ID field before returning
+        return self._format_skillset(inserted_doc)
 
     async def update_skillset_rating(self, skillset_id: str, rating: int) -> Optional[Dict[str, Any]]:
         """Update skillset rating"""

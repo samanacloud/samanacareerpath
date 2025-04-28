@@ -77,13 +77,15 @@
           severity="info" 
           @click="showInterviewForm" 
           size="small"
+          raised
           v-tooltip.top="'Interview Candidate'"
           :label="!showSkillsRadar && windowWidth >= 1024 ? 'Interview' : ''"
           :icon="'pi pi-eye'"
         />
         <Button 
           class="flex-1" 
-          severity="warning" 
+          severity="warn" 
+          raised
           @click="toggleSkillsetAssessment" 
           size="small" 
           v-tooltip.top="'Assess Skillsets'"
@@ -94,6 +96,7 @@
           class="flex-1" 
           severity="success" 
           size="small" 
+          raised
           :label="!showSkillsRadar && windowWidth >= 1024 ? 'Contact' : ''" 
           icon="pi pi-envelope" 
           :model="contactOptions" 
@@ -183,7 +186,7 @@ const contactViaWhatsApp = () => {
 // Function to contact via Google Calendar
 const contactViaCalendar = () => {
   const userName = localStorage.getItem('userName') || 'a recruiter';
-  const userEmail = localStorage.getItem('userEmail') || 'recruiting@samanagroup.co';
+  const userEmail = localStorage.getItem('userEmail') || 'recruiting@samanagroup.com';
   const companyName = localStorage.getItem('companyName') || 'Samana Group';
   const subject = `Interview: ${props.formattedName} - ${props.candidateData.recruitmentProcessName} Position`;
   
@@ -231,7 +234,7 @@ const contactViaCalendar = () => {
   };
   
   // Add Google Meet video conferencing by including the 'crm' parameter
-  const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(subject)}&dates=${formatDate(startDate)}/${formatDate(endDate)}&details=${encodeURIComponent(description)}&add=${encodeURIComponent('recruiting@samanagroup.co')}&add=${encodeURIComponent(props.candidateData.email)}&crm=AVAILABLE&sf=true&output=xml`;
+  const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(subject)}&dates=${formatDate(startDate)}/${formatDate(endDate)}&details=${encodeURIComponent(description)}&add=${encodeURIComponent('recruiting@samanagroup.com')}&add=${encodeURIComponent(props.candidateData.email)}&crm=AVAILABLE&sf=true&output=xml`;
   
   window.open(calendarUrl, '_blank');
 };
@@ -264,5 +267,23 @@ const formatDate = (dateString) => {
 </script>
 
 <style scoped>
-/* Add any component specific styling here if needed */
+/* Custom styling for SplitButton to match regular buttons */
+:deep(.p-splitbutton) {
+  display: flex;
+  width: 100%;
+}
+
+:deep(.p-splitbutton .p-button) {
+  flex: 1;
+}
+
+:deep(.p-splitbutton .p-splitbutton-menubutton) {
+  width: auto;
+}
+
+/* Ensure all buttons in the action section have the same width */
+.w-full.mt-6.flex.gap-2 > * {
+  flex: 1;
+  min-width: 0;
+}
 </style> 

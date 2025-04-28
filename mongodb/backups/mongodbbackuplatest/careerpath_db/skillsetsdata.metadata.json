@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"skillsetCategory":{"$numberInt":"1"}},"name":"skillsetCategory_1"},{"v":{"$numberInt":"2"},"key":{"skillsetName":{"$numberInt":"1"}},"name":"skillsetName_1"}],"uuid":"0f51504e58f148548299ef1c09bc8ff8","collectionName":"skillsetsdata","type":"collection"}

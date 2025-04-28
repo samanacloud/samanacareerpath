@@ -46,4 +46,14 @@ class CertificationQueries:
     ) -> List[str]:
         """Get all unique certification vendors for a company"""
         repository = CertificationRepository()
-        return await repository.get_certification_vendors(companyId) 
+        return await repository.get_certification_vendors(companyId)
+
+    @strawberry.field
+    async def get_certifications_by_company_id(
+        self,
+        companyId: str
+    ) -> List[Certification]:
+        """Get all certifications for a specific company"""
+        repository = CertificationRepository()
+        results = await repository.get_certifications_by_company_id(companyId)
+        return [Certification(**cert) for cert in results]

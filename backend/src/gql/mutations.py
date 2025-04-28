@@ -8,10 +8,11 @@ from modules.recruitment.mutations import RecruitmentMutations
 from modules.interviews.mutations import InterviewMutations
 from modules.certificationdata.mutations import CertificationDataMutations
 from modules.skillsets.mutations import SkillsetMutations
+from modules.temporal.mutations import TemporalMutations
 
 
 @strawberry.type
-class Mutation(UserMutations, SkillsetDataMutations, CertificationMutations, EmployeeMutations, CandidateMutations, RecruitmentMutations, InterviewMutations, CertificationDataMutations, SkillsetMutations):
+class Mutation(UserMutations, SkillsetDataMutations, CertificationMutations, EmployeeMutations, CandidateMutations, RecruitmentMutations, InterviewMutations, CertificationDataMutations, SkillsetMutations, TemporalMutations):
     pass
 
     @strawberry.mutation

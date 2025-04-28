@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"}],"uuid":"edd2fa08df334d6c8ea5ff007b2f2f0a","collectionName":"skillsets","type":"collection"}

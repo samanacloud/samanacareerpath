@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" fill="white"/>
+  <rect x="40" y="60" width="120" height="80" rx="8" fill="#EFF6FF"/>
+  <path d="M60 100L80 120L140 60" stroke="#3B82F6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M60 40H80M100 40H120M140 40H160" stroke="#BFDBFE" stroke-width="8" stroke-linecap="round"/>
+  <path d="M40 160H60M80 160H100M120 160H140" stroke="#BFDBFE" stroke-width="8" stroke-linecap="round"/>
+  <path d="M70 20L80 30L90 20" stroke="#3B82F6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M110 20L120 30L130 20" stroke="#3B82F6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M70 180L80 170L90 180" stroke="#3B82F6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M110 180L120 170L130 180" stroke="#3B82F6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> 

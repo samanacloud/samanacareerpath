@@ -641,7 +641,8 @@ def create_session_token(user_data: dict) -> str:
         "userName": user_data["userName"],
         "email": user_data["email"],
         "companyId": user_data["companyId"],
-        "ipAddress": user_data["ipAddress"],
+        "role": user_data.get("role", "user"),  # Include role with default
+        "ipAddress": user_data.get("ipAddress"),
         "exp": expire
     }
     
@@ -715,8 +716,12 @@ async def verify_login_code(verification: LoginCodeVerification):
         "userName": user["name"],
         "email": user["email"],
         "companyId": user["companyId"],
+        "role": user["role"],  # Include role in token
         "ipAddress": verification.ipAddress
     })
+
+    # Calculate expiration time for client reference
+    expire_time = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
 
     # Update verification status
     result = await db.login_verifications.find_one_and_update(
@@ -742,6 +747,7 @@ async def verify_login_code(verification: LoginCodeVerification):
         content={
             "message": "Email verified successfully",
             "email": verification.email,
+            "expiresAt": expire_time.isoformat(),
             "session_token": session_token  # Still including token in response for compatibility
         }
     )
@@ -753,7 +759,7 @@ async def verify_login_code(verification: LoginCodeVerification):
         httponly=True,  # Prevents JavaScript access
         secure=True,    # Only sent over HTTPS
         samesite="lax", # Protects against CSRF
-        max_age=3600,   # 1 hour in seconds
+        max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,  # Convert minutes to seconds
         path="/"        # Cookie available for all paths
     )
     
@@ -837,14 +843,100 @@ async def verify_session_token(
             }
         )
 
-# Example protected route using the verify_session_token dependency
 @router.get("/verify/session")
-async def verify_session(user_data: dict = Depends(verify_session_token)):
+async def verify_session(user_data: dict = Depends(verify_session_token), session_token: Optional[str] = Cookie(None, alias="session_token")):
     """
     Verify if the current session is valid.
     Returns user data if session is valid.
     """
+    # Calculate remaining time in the session
+    try:
+        if session_token:
+            # Decode without verification first to extract expiration
+            # This is safer in case there are any issues with the signature
+            try:
+                # First try to decode with verification
+                payload = jwt.decode(
+                    session_token,
+                    JWT_SECRET,
+                    algorithms=[JWT_ALGORITHM],
+                    options={"verify_signature": True}
+                )
+            except Exception as e:
+                print(f"Error verifying token signature: {str(e)}")
+                # If verification fails, try without verification just to extract exp
+                payload = jwt.decode(
+                    session_token,
+                    algorithms=[JWT_ALGORITHM],
+                    options={"verify_signature": False}
+                )
+            
+            # Get expiration time from token
+            exp_timestamp = payload.get("exp")
+            if exp_timestamp:
+                expires_at = datetime.fromtimestamp(exp_timestamp)
+                # Include expiration time in response
+                return {
+                    "message": "Session is valid",
+                    "user": user_data,
+                    "expiresAt": expires_at.isoformat()
+                }
+    except Exception as e:
+        print(f"Error extracting expiration time: {str(e)}")
+    
+    # If we couldn't extract expiration from token, calculate it based on ACCESS_TOKEN_EXPIRE_MINUTES
+    # This is a fallback to ensure we always return an expiration time
+    expire_time = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    
     return {
         "message": "Session is valid",
-        "user": user_data
+        "user": user_data,
+        "expiresAt": expire_time.isoformat()  # Always include an expiration time
     }
+
+@router.post("/renew-session")
+async def renew_session(user_data: dict = Depends(verify_session_token)):
+    """
+    Renew the user's session by creating a new token with extended expiration time.
+    """
+    try:
+        # Create a new session token with fresh expiration
+        new_session_token = create_session_token({
+            "companyName": user_data["companyName"],
+            "userName": user_data["userName"],
+            "email": user_data["email"],
+            "companyId": user_data["companyId"],
+            "ipAddress": None,  # We don't have IP in the dependency
+            "role": user_data["role"]  # Include role in the token
+        })
+        
+        # Calculate expiration time for client reference
+        expire_time = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+        
+        # Create response with the new token
+        response = JSONResponse(
+            content={
+                "message": "Session renewed successfully",
+                "expiresAt": expire_time.isoformat(),
+                "expiresIn": ACCESS_TOKEN_EXPIRE_MINUTES * 60  # in seconds
+            }
+        )
+        
+        # Set secure cookie with new token
+        response.set_cookie(
+            key="session_token",
+            value=new_session_token,
+            httponly=True,  # Prevents JavaScript access
+            secure=True,    # Only sent over HTTPS
+            samesite="lax", # Protects against CSRF
+            max_age=ACCESS_TOKEN_EXPIRE_MINUTES * 60,  # Convert minutes to seconds
+            path="/"        # Cookie available for all paths
+        )
+        
+        return response
+        
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error renewing session: {str(e)}"
+        )

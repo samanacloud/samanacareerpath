@@ -1,4 +1,4 @@
-from typing import Optional, List
+from typing import Optional, List, Dict, Any
 import strawberry
 from dataclasses import field
 
@@ -48,4 +48,25 @@ class QuizQuestion:
 class QuizResponse:
     status: str
     error: Optional[str] = None
-    questions: List[QuizQuestion] = field(default_factory=list) 
+    questions: List[QuizQuestion] = field(default_factory=list)
+
+@strawberry.type
+class OpenRouterModelPricing:
+    prompt: Optional[str] = strawberry.field(description="Cost per 1M prompt tokens")
+    completion: Optional[str] = strawberry.field(description="Cost per 1M completion tokens")
+    image: Optional[str] = strawberry.field(description="Cost per image")
+    request: Optional[str] = strawberry.field(description="Cost per request")
+
+@strawberry.type
+class OpenRouterModel:
+    id: str = strawberry.field(description="Model identifier")
+    name: Optional[str] = strawberry.field(description="Human-readable model name")
+    description: Optional[str] = strawberry.field(description="Model description")
+    contextLength: Optional[int] = strawberry.field(name="context_length", description="Maximum context length in tokens")
+    pricing: Optional[OpenRouterModelPricing] = strawberry.field(description="Pricing information")
+
+@strawberry.type
+class OpenRouterModelsResponse:
+    status: str = strawberry.field(description="Success or error status")
+    data: Optional[List[OpenRouterModel]] = strawberry.field(description="List of available models")
+    error: Optional[str] = strawberry.field(description="Error message if any", default=None) 

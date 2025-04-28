@@ -12,12 +12,13 @@ from modules.interviews.queries import InterviewQueries
 from modules.certificationdata.queries import CertificationDataQueries
 from modules.analytics.queries import AnalyticsQueries
 from modules.skillsets.queries import SkillsetQueries
+from modules.temporal.queries import TemporalQueries
 
 
 
 
 @strawberry.type
-class Query(UserQueries, AIQueries, SkillsetDataQueries, CertificationQueries, EmployeeQueries, CandidateQueries, RecruitmentQueries, InterviewQueries, CertificationDataQueries, AnalyticsQueries, SkillsetQueries ):
+class Query(UserQueries, AIQueries, SkillsetDataQueries, CertificationQueries, EmployeeQueries, CandidateQueries, RecruitmentQueries, InterviewQueries, CertificationDataQueries, AnalyticsQueries, SkillsetQueries, TemporalQueries):
     @strawberry.field
     def test_query(self) -> str:
         """A simple test query to verify GraphQL is working"""

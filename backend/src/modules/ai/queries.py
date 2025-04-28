@@ -10,7 +10,10 @@ from .schemas import (
     AISkillset,
     SkillsetResponse,
     QuizQuestion,
-    QuizResponse
+    QuizResponse,
+    OpenRouterModel,
+    OpenRouterModelPricing,
+    OpenRouterModelsResponse
 )
 
 @strawberry.type
@@ -83,12 +86,12 @@ class AIQueries:
     @strawberry.field
     async def generate_certifications_per_product(self, product: str) -> CertificationResponse:
         """Generate a list of common certifications for a given product"""
-        api_key = os.getenv("DEEPSEEK_API_KEY")
+        api_key = os.getenv("OPENROUTER_API_KEY")
         if not api_key:
             return CertificationResponse(
                 status="error",
                 certifications=[],
-                error="DEEPSEEK_API_KEY environment variable not set"
+                error="OPENROUTER_API_KEY environment variable not set"
             )
 
         prompt = f"""
@@ -100,18 +103,21 @@ class AIQueries:
             ...
         ]
         Only return the JSON array, no other text.
+        The response MUST be valid JSON that can be parsed with json.loads().
         """
 
         try:
             async with httpx.AsyncClient() as client:
                 response = await client.post(
-                    "https://api.deepseek.com/v1/chat/completions",
+                    "https://openrouter.ai/api/v1/chat/completions",
                     headers={
                         "Authorization": f"Bearer {api_key}",
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "HTTP-Referer": "https://scp.samana.cloud",  # Required for OpenRouter
+                        "X-Title": "Samana Cloud",  # Required for OpenRouter
                     },
                     json={
-                        "model": "deepseek-chat",
+                        "model": "google/gemini-flash-1.5-8b-exp",
                         "messages": [{"role": "user", "content": prompt}],
                         "temperature": 0.7,
                         "max_tokens": 1000
@@ -122,6 +128,17 @@ class AIQueries:
                 response.raise_for_status()
                 data = response.json()
                 content = data["choices"][0]["message"]["content"]
+                
+                # Clean up the response to ensure it's valid JSON
+                # Remove any markdown code block markers
+                content = content.replace("```json", "").replace("```", "").strip()
+                
+                # Find the first '[' and the last ']' to extract just the JSON array
+                start_idx = content.find('[')
+                end_idx = content.rfind(']') + 1
+                
+                if start_idx != -1 and end_idx != 0:
+                    content = content[start_idx:end_idx]
                 
                 # Parse the JSON response into Certification objects
                 try:
@@ -143,7 +160,7 @@ class AIQueries:
                     return CertificationResponse(
                         status="error",
                         certifications=[],
-                        error=f"Failed to parse AI response: {str(e)}"
+                        error=f"Failed to parse AI response: {str(e)}\nRaw content: {content[:100]}..."
                     )
                 
         except Exception as e:
@@ -156,12 +173,12 @@ class AIQueries:
     @strawberry.field
     async def generate_skillset_topic(self, topic: str) -> SkillsetResponse:
         """Generate a list of skillsets to evaluate for a specific topic"""
-        api_key = os.getenv("DEEPSEEK_API_KEY")
+        api_key = os.getenv("OPENROUTER_API_KEY")
         if not api_key:
             return SkillsetResponse(
                 status="error",
                 skillsets=[],
-                error="DEEPSEEK_API_KEY environment variable not set"
+                error="OPENROUTER_API_KEY environment variable not set"
             )
 
         prompt = f"""
@@ -178,21 +195,24 @@ class AIQueries:
         ]
         Only return the JSON array, no other text.
         Make sure the skillsets are specific and measurable during an interview process.
+        The response MUST be valid JSON that can be parsed with json.loads().
         """
 
         try:
             async with httpx.AsyncClient() as client:
                 response = await client.post(
-                    "https://api.deepseek.com/v1/chat/completions",
+                    "https://openrouter.ai/api/v1/chat/completions",
                     headers={
                         "Authorization": f"Bearer {api_key}",
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "HTTP-Referer": "https://scp.samana.cloud",  # Required for OpenRouter
+                        "X-Title": "Samana Cloud",  # Required for OpenRouter
                     },
                     json={
-                        "model": "deepseek-chat",
+                        "model": "google/gemini-flash-1.5-8b-exp",
                         "messages": [{"role": "user", "content": prompt}],
                         "temperature": 0.7,
-                        "max_tokens": 2000
+                        "max_tokens": 1000
                     },
                     timeout=30.0
                 )
@@ -201,15 +221,26 @@ class AIQueries:
                 data = response.json()
                 content = data["choices"][0]["message"]["content"]
                 
+                # Clean up the response to ensure it's valid JSON
+                # Remove any markdown code block markers
+                content = content.replace("```json", "").replace("```", "").strip()
+                
+                # Find the first '[' and the last ']' to extract just the JSON array
+                start_idx = content.find('[')
+                end_idx = content.rfind(']') + 1
+                
+                if start_idx != -1 and end_idx != 0:
+                    content = content[start_idx:end_idx]
+                
                 # Parse the JSON response into Skillset objects
                 try:
                     skillsets_data = json.loads(content)
                     skillsets = [
                         AISkillset(
-                            name=skill["name"],
-                            description=skill["description"]
+                            name=skillset["name"],
+                            description=skillset["description"]
                         )
-                        for skill in skillsets_data
+                        for skillset in skillsets_data
                     ]
                     
                     return SkillsetResponse(
@@ -221,7 +252,7 @@ class AIQueries:
                     return SkillsetResponse(
                         status="error",
                         skillsets=[],
-                        error=f"Failed to parse AI response: {str(e)}"
+                        error=f"Failed to parse AI response: {str(e)}\nRaw content: {content[:100]}..."
                     )
                 
         except Exception as e:
@@ -232,28 +263,28 @@ class AIQueries:
             )
 
     @strawberry.field
-    async def generate_quiz_by_topic(self, topic: str) -> QuizResponse:
-        """Generate a quiz with 10 questions (2 hard, 6 easy, 2 medium) for a specific topic"""
-        api_key = os.getenv("DEEPSEEK_API_KEY")
+    async def generate_quiz_by_topic(self, topic: str, model: str = "google/gemini-flash-1.5-8b-exp") -> QuizResponse:
+        """Generate a quiz with 10 questions (2 hard, 4 easy, 4 medium) for a specific topic using OpenRouter"""
+        api_key = os.getenv("OPENROUTER_API_KEY")
         if not api_key:
             return QuizResponse(
                 status="error",
-                error="DEEPSEEK_API_KEY environment variable not set"
+                error="OPENROUTER_API_KEY environment variable not set"
             )
 
         prompt = f"""
-        Generate a quiz with 10 questions about {topic}. Return a JSON object with a "questions" array containing the quiz questions.
+        Generate a quiz with a random number (between 5 and 10) of questions about {topic}. Return a JSON object with a "questions" array containing the quiz questions.
 
         Each question in the questions array should have:
         - question: The question text
-        - answers: Array of 5 possible answers (all should be technically correct but only one is the best for this specific question)
+        - answers: Array of the possible answers (all should be technically correct but only one is the best for this specific question)
         - correctAnswer: The best answer for this question (must be one of the answers)
         - difficulty: The difficulty level ("easy", "medium", or "hard")
 
         Distribution:
-        - 2 hard questions
-        - 4 easy questions
-        - 4 medium questions
+        - 15% hard questions
+        - 50% easy questions
+        - 35% medium questions
 
         Example format:
         {{
@@ -280,18 +311,21 @@ class AIQueries:
         4. The correctAnswer MUST be one of the answers in the answers array
         5. Difficulty MUST be one of: "easy", "medium", "hard"
         6. Use camelCase for JSON property names (correctAnswer, not correct_answer)
+        The response MUST be valid JSON that can be parsed with json.loads().
         """
 
         try:
             async with httpx.AsyncClient() as client:
                 response = await client.post(
-                    "https://api.deepseek.com/v1/chat/completions",
+                    "https://openrouter.ai/api/v1/chat/completions",
                     headers={
                         "Authorization": f"Bearer {api_key}",
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
+                        "HTTP-Referer": "https://scp.samana.cloud",  # Required for OpenRouter
+                        "X-Title": "Samana Cloud",  # Required for OpenRouter
                     },
                     json={
-                        "model": "deepseek-chat",
+                        "model": model,  # Use the provided model
                         "messages": [{"role": "user", "content": prompt}],
                         "temperature": 0.7,
                         "max_tokens": 4000,
@@ -378,4 +412,52 @@ class AIQueries:
             return QuizResponse(
                 status="error",
                 error=f"Error generating quiz: {str(e)}"
+            )
+
+    @strawberry.field
+    async def get_openrouter_models(self) -> OpenRouterModelsResponse:
+        """Get available models from OpenRouter API"""
+        api_key = os.getenv("OPENROUTER_API_KEY")
+        if not api_key:
+            return OpenRouterModelsResponse(
+                status="error",
+                data=None,
+                error="OPENROUTER_API_KEY environment variable not set"
+            )
+        try:
+            async with httpx.AsyncClient() as client:
+                response = await client.get(
+                    "https://openrouter.ai/api/v1/models",
+                    headers={
+                        "Authorization": f"Bearer {api_key}",
+                        "Content-Type": "application/json"
+                    },
+                    timeout=10.0
+                )
+                response.raise_for_status()
+                data = response.json()
+                models = []
+                for model_data in data.get("data", []):
+                    models.append(OpenRouterModel(
+                        id=model_data.get("id", ""),
+                        name=model_data.get("name", ""),
+                        description=model_data.get("description", ""),
+                        contextLength=model_data.get("context_length", 0),
+                        pricing=OpenRouterModelPricing(
+                            prompt=model_data.get("pricing", {}).get("prompt"),
+                            completion=model_data.get("pricing", {}).get("completion"),
+                            image=model_data.get("pricing", {}).get("image"),
+                            request=model_data.get("pricing", {}).get("request")
+                        ) if model_data.get("pricing") else None
+                    ))
+                return OpenRouterModelsResponse(
+                    status="success",
+                    data=models,
+                    error=None
+                )
+        except Exception as e:
+            return OpenRouterModelsResponse(
+                status="error",
+                data=None,
+                error=f"Error fetching models: {str(e)}"
             ) 
