@@ -130,9 +130,9 @@
 
 ## Contributors
 - Development Team @ Samana Group
-- Project Lead: [Project Lead Name]
-- Backend Team: [Team Members]
-- Frontend Team: [Team Members]
+- Project Lead: Juan Pablo Otalvaro
+- Backend Team: Juan Pablo Otalvaro
+- Frontend Team: Juan Pablo Otalvaro
 
 ## License
 Proprietary - All rights reserved
